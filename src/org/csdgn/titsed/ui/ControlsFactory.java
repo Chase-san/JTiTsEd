@@ -3,11 +3,20 @@ package org.csdgn.titsed.ui;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import javax.swing.BorderFactory;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
 
@@ -16,7 +25,7 @@ import org.csdgn.maru.swing.NumberDocumentFilter;
 import org.csdgn.titsed.model.ControlEntry;
 import org.csdgn.titsed.ui.MainFrame.EnumEntry;
 
-public class ToolFactory {
+public class ControlsFactory {
 
 	protected static List<String> sortIntegerKeySet(Map<String, String> enumData, String sort) {
 		List<String> retKeys = new ArrayList<String>();
@@ -108,11 +117,11 @@ public class ToolFactory {
 		return retKeys;
 	}
 
-	private ProgramState state;
 	private int prefHeight;
 	private int prefWidth;
+	private ProgramState state;
 
-	public ToolFactory(ProgramState state) {
+	public ControlsFactory(ProgramState state) {
 		this.state = state;
 		prefHeight = 24;
 		prefWidth = 120;
@@ -146,6 +155,39 @@ public class ToolFactory {
 		});
 
 		return combo;
+	}
+
+	protected JComponent createEntry(ControlEntry entry) {
+		if (entry.type.startsWith(ControlEntry.TYPE_TEXT_ENUM)) {
+			return createTextEnumEntry(entry);
+		} else if (entry.type.startsWith(ControlEntry.TYPE_ENUM)) {
+			return createEnumEntry(entry);
+		} else if (entry.type.startsWith(ControlEntry.TYPE_FLAGS)) {
+			return createFlagsEntry(entry);
+		} else
+			switch (entry.type) {
+			case ControlEntry.TYPE_TITLE: {
+				JLabel title = new JLabel(entry.value[0]);
+				title.setFont(title.getFont().deriveFont(Font.BOLD));
+
+				title.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(8, 0, 0, 0),
+						BorderFactory.createMatteBorder(0, 0, 2, 0, Color.BLACK)));
+				return title;
+			}
+			case ControlEntry.TYPE_LABEL: {
+				return new JLabel(entry.value[0]);
+			}
+			case ControlEntry.TYPE_BOOLEAN: {
+				return createBooleanEntry(entry);
+			}
+			case ControlEntry.TYPE_STRING:
+				return createStringEntry(entry);
+			case ControlEntry.TYPE_INTEGER:
+			case ControlEntry.TYPE_DECIMAL:
+				return createNumberEntry(entry);
+			}
+
+		throw new RuntimeException("Unknown Data Type: " + entry.type);
 	}
 
 	protected JComboBox<EnumEntry<Integer>> createEnumEntry(ControlEntry entry) {
@@ -194,6 +236,75 @@ public class ToolFactory {
 		});
 
 		return combo;
+	}
+
+	protected JComponent createFlagsEntry(ControlEntry entry) {
+		ExpansionPanel panel = new ExpansionPanel();
+		int cols = entry.span;
+		if (cols > 2) {
+			cols = (entry.span + 1) / 2;
+		}
+		panel.setLayout(new GridLayout(0, cols));
+
+		String enumName = entry.type.substring(entry.type.indexOf(':') + 1);
+		Map<String, String> enumData = state.data.getEnum(enumName);
+
+		panel.setTitle(enumName);
+		panel.collapse();
+
+		Set<Integer> flagSet = new HashSet<Integer>();
+		for (String path : entry.value) {
+			flagSet.addAll(state.save.getFlags(path));
+		}
+
+		final Map<JCheckBox, Integer> boxMap = new IdentityHashMap<JCheckBox, Integer>();
+
+		// we will be depleting the set in case
+		// we have any unknown values that need display
+		List<String> keys = ControlsFactory.sortIntegerKeySet(enumData, entry.sort);
+		for (String key : keys) {
+			String value = enumData.get(key);
+			Integer nKey = Integer.parseInt(key);
+			EnumEntry<Integer> ee = new EnumEntry<Integer>(nKey, value);
+
+			// for each id
+			JCheckBox box = new JCheckBox();
+			box.setText(ee.text);
+			if (flagSet.contains(nKey)) {
+				box.setSelected(true);
+			}
+			flagSet.remove(nKey);
+			boxMap.put(box, nKey);
+			panel.add(box);
+		}
+
+		// handle all unknown flags that are set
+		for (Integer unknownFlag : flagSet) {
+			JCheckBox box = new JCheckBox();
+			box.setText("Flag " + unknownFlag);
+			box.setSelected(true);
+			boxMap.put(box, unknownFlag);
+			panel.add(box);
+		}
+		flagSet.clear();
+
+		// setup callbacks
+		for (final JCheckBox box : boxMap.keySet()) {
+			box.addActionListener(e -> {
+				int id = boxMap.get(box);
+				for (String path : entry.value) {
+					if (box.isSelected()) {
+						// add flag
+						state.save.addFlag(path, id);
+					} else {
+						// remove flag
+						state.save.removeFlag(path, id);
+					}
+				}
+			});
+		}
+
+		return panel;
 	}
 
 	protected JTextField createNumberEntry(ControlEntry entry) {

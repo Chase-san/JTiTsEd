@@ -21,6 +21,7 @@
  */
 package org.csdgn.titsed.model;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -30,6 +31,7 @@ import org.csdgn.amf3.AmfArray;
 import org.csdgn.amf3.AmfBoolean;
 import org.csdgn.amf3.AmfDouble;
 import org.csdgn.amf3.AmfFile;
+import org.csdgn.amf3.AmfIO;
 import org.csdgn.amf3.AmfInteger;
 import org.csdgn.amf3.AmfString;
 import org.csdgn.amf3.AmfType;
@@ -42,12 +44,51 @@ import org.csdgn.amf3.AmfValue;
  * @author Robert Maupin
  */
 public class SaveModel {
+	/**
+	 * Short method for getting only the amf file name and nothing else.
+	 * 
+	 * @param file
+	 * @return
+	 */
+	public static final String getSaveInfo(File file) {
+		try {
+			String name = "???";
+			int days = 0;
+			int hours = 0;
+			int minutes = 0;
+
+			AmfFile amfFile = AmfIO.readFile(file);
+			AmfValue raw = AmfUtils.resolve(amfFile, "saveName");
+			if (raw.getType() == AmfType.String) {
+				name = ((AmfString) raw).getValue();
+			}
+			raw = AmfUtils.resolve(amfFile, "daysPassed");
+			if (raw.getType() == AmfType.Integer) {
+				days = ((AmfInteger) raw).getValue();
+			}
+			raw = AmfUtils.resolve(amfFile, "currentHours");
+			if (raw.getType() == AmfType.Integer) {
+				hours = ((AmfInteger) raw).getValue();
+			}
+			raw = AmfUtils.resolve(amfFile, "currentMinutes");
+			if (raw.getType() == AmfType.Integer) {
+				minutes = ((AmfInteger) raw).getValue();
+			}
+
+			return String.format("%s (D%d %02d:%02d)", name, days, hours, minutes);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "??? (D? ??:??)";
+	}
+
 	public final boolean isFile;
 	public final AmfFile srcFile;
 	public final AmfValue srcValue;
-	
+
 	/**
 	 * Constructs a save model from the given AmfFile.
+	 * 
 	 * @param file the file to use for the model
 	 */
 	public SaveModel(AmfFile file) {
@@ -55,9 +96,10 @@ public class SaveModel {
 		this.srcValue = null;
 		this.isFile = true;
 	}
-	
+
 	/**
 	 * Constructs a save model from the given AmfValue.
+	 * 
 	 * @param value the value to use for the model
 	 */
 	public SaveModel(AmfValue value) {
@@ -65,99 +107,98 @@ public class SaveModel {
 		this.srcValue = value;
 		this.isFile = false;
 	}
-	
+
 	/**
 	 * Gets the specific value from the loaded model (regardless of type).
+	 * 
 	 * @param ident Identity to resolve.
 	 * @return the amf value or null if it did not exist.
 	 */
 	protected AmfValue find(String ident) {
-		if(isFile) {
+		if (isFile) {
 			return AmfUtils.resolve(srcFile, ident);
 		}
 		return AmfUtils.resolve(srcValue, ident);
 	}
-	
+
 	public Integer getInteger(String ident) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return null;
 		}
-		if(raw.getType() == AmfType.Double) {
-			Double value = ((AmfDouble)raw).getValue();
+		if (raw.getType() == AmfType.Double) {
+			Double value = ((AmfDouble) raw).getValue();
 			return value.intValue();
-		} else if(raw.getType() == AmfType.Integer) {
-			Integer value = ((AmfInteger)raw).getValue();
+		} else if (raw.getType() == AmfType.Integer) {
+			Integer value = ((AmfInteger) raw).getValue();
 			return value.intValue();
 		}
 		return null;
 	}
-	
+
 	public void setInteger(String ident, int value) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return;
 		}
-		if(raw.getType() == AmfType.Double) {
-			((AmfDouble)raw).setValue((double)value);
-		} else if(raw.getType() == AmfType.Integer) {
-			((AmfInteger)raw).setValue(value);
+		if (raw.getType() == AmfType.Double) {
+			((AmfDouble) raw).setValue((double) value);
+		} else if (raw.getType() == AmfType.Integer) {
+			((AmfInteger) raw).setValue(value);
 		}
 	}
-	
+
 	public boolean getBoolean(String ident) {
 		AmfValue raw = find(ident);
-		if(raw.getType() == AmfType.True
-		|| raw.getType() == AmfType.False) {
-			return ((AmfBoolean)raw).getValue();
+		if (raw.getType() == AmfType.True || raw.getType() == AmfType.False) {
+			return ((AmfBoolean) raw).getValue();
 		}
 		return false;
 	}
-	
+
 	public void setBoolean(String ident, boolean value) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return;
 		}
-		if(raw.getType() == AmfType.True
-		|| raw.getType() == AmfType.False) {
-			((AmfBoolean)raw).setValue(value);
+		if (raw.getType() == AmfType.True || raw.getType() == AmfType.False) {
+			((AmfBoolean) raw).setValue(value);
 		}
 	}
-	
+
 	public String getString(String ident) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return null;
 		}
-		if(raw.getType() == AmfType.String) {
-			return ((AmfString)raw).getValue();
+		if (raw.getType() == AmfType.String) {
+			return ((AmfString) raw).getValue();
 		}
 		return "";
 	}
-	
+
 	public void setString(String ident, String value) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return;
 		}
-		if(raw.getType() == AmfType.String) {
-			((AmfString)raw).setValue(value);
+		if (raw.getType() == AmfType.String) {
+			((AmfString) raw).setValue(value);
 		}
 	}
-	
+
 	public Set<Integer> getFlags(String ident) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return Collections.emptySet();
 		}
-		//should be an array of ints
-		//since these are flags, we store them in a set
-		if(raw.getType() == AmfType.Array) {
+		// should be an array of ints
+		// since these are flags, we store them in a set
+		if (raw.getType() == AmfType.Array) {
 			Set<Integer> data = new HashSet<Integer>();
-			for(AmfValue value : ((AmfArray)raw).getDense()) {
-				if(value instanceof AmfInteger) {
-					data.add(((AmfInteger)value).getValue());
+			for (AmfValue value : ((AmfArray) raw).getDense()) {
+				if (value instanceof AmfInteger) {
+					data.add(((AmfInteger) value).getValue());
 				} else {
 					return Collections.emptySet();
 				}
@@ -166,46 +207,45 @@ public class SaveModel {
 		}
 		return Collections.emptySet();
 	}
-	
+
 	public void addFlag(String ident, Integer value) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return;
 		}
-		if(raw.getType() == AmfType.Array) {
-			AmfArray arr = (AmfArray)raw;
+		if (raw.getType() == AmfType.Array) {
+			AmfArray arr = (AmfArray) raw;
 			arr.add(new AmfInteger(value));
 		}
 	}
-	
+
 	public void removeFlag(String ident, Integer value) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return;
 		}
-		if(raw.getType() == AmfType.Array) {
-			AmfArray arr = (AmfArray)raw;
-			//arr.add(new AmfInteger(value));
-			for(int index = 0; index < arr.getDenseSize(); ++index) {
+		if (raw.getType() == AmfType.Array) {
+			AmfArray arr = (AmfArray) raw;
+			// arr.add(new AmfInteger(value));
+			for (int index = 0; index < arr.getDenseSize(); ++index) {
 				AmfValue val = arr.get(index);
-				if(val instanceof AmfInteger
-				&& ((AmfInteger)val).getValue() == value) {
+				if (val instanceof AmfInteger && ((AmfInteger) val).getValue() == value) {
 					arr.remove(index);
 					break;
 				}
 			}
 		}
 	}
-	
+
 	public void setFlags(String ident, Collection<Integer> values) {
 		AmfValue raw = find(ident);
-		if(raw == null) {
+		if (raw == null) {
 			return;
 		}
-		if(raw.getType() == AmfType.Array) {
-			AmfArray arr = (AmfArray)raw;
+		if (raw.getType() == AmfType.Array) {
+			AmfArray arr = (AmfArray) raw;
 			arr.clear();
-			for(Integer value : values) {
+			for (Integer value : values) {
 				arr.add(new AmfInteger(value));
 			}
 		}

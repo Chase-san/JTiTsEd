@@ -26,13 +26,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import org.csdgn.titsed.model.SaveModel;
+
 public class SavePath {
 	public final String name;
 	public final File directory;
 	public final Map<Integer, File> saves;
+	public final Map<Integer, String> info;
 
 	protected SavePath(String name, File dir) {
 		this.saves = new HashMap<Integer, File>();
+		this.info = new HashMap<Integer, String>();
 		this.name = name;
 		this.directory = dir;
 	}
@@ -52,6 +56,7 @@ public class SavePath {
 			try {
 				int index = Integer.parseInt(number);
 				saves.put(index, file);
+				info.put(index, SaveModel.getSaveInfo(file));
 			} catch (NumberFormatException ex) {
 				// don't add it
 			}
