@@ -41,212 +41,217 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * Interface for our own home grown data sheet.
+ * 
+ * @author chase
+ *
+ */
 public class DataModel {
-	
+
 	/**
-	 * Sax handler for enum values.
+	 * Sax handler for values file.
 	 */
-	private class EnumSAXHandler extends DefaultHandler {
+	private class ValueSAXHandler extends DefaultHandler {
 		LinkedHashMap<String, String> map;
 		StringBuilder buffer;
 		boolean read;
 		String name;
 		String id;
-		
-		
-		private EnumSAXHandler() {
+
+		private ValueSAXHandler() {
 			buffer = new StringBuilder();
 			read = false;
 		}
-		
+
 		public void startElement(String uri, String localName, String qName, Attributes attributes)
 				throws SAXException {
-			if("enum".equals(qName)) {
+			if ("enum".equals(qName)) {
 				map = new LinkedHashMap<String, String>();
 				name = attributes.getValue("name");
-			} else if("value".equals(qName)) {
+			} else if ("value".equals(qName)) {
 				read = true;
 				buffer.setLength(0);
 				id = attributes.getValue("id");
 			}
 		}
+
 		public void endElement(String uri, String localName, String qName) throws SAXException {
-			if("enum".equals(qName)) {
-				enumMap.put(name, map);
+			if ("enum".equals(qName)) {
+				valueMap.put(name, map);
 				map = null;
-			} else if("value".equals(qName)) {
+			} else if ("value".equals(qName)) {
 				read = false;
 				String value = buffer.toString();
-				if(null == id) {
+				if (null == id) {
 					id = value;
 				}
 				map.put(id, value);
 			}
 		}
+
 		public void characters(char ch[], int start, int length) throws SAXException {
-			if(read) {
+			if (read) {
 				buffer.append(ch, start, length);
 			}
 		}
 	}
-	
-	
-	
+
 	/**
-	 * Sax handler for data entries.
+	 * Sax handler for controls file.
 	 */
-	private class DataSAXHandler extends DefaultHandler {
+	private class ControlSAXHandler extends DefaultHandler {
 		StringBuilder buffer;
 		String enumType;
 		int span = 1;
 		boolean read;
 		boolean enumTextEdit;
 		String sort;
-		
-		private DataSAXHandler() {
+
+		private ControlSAXHandler() {
 			buffer = new StringBuilder();
 			read = false;
 		}
-		
+
 		public void startElement(String uri, String localName, String qName, Attributes attributes)
 				throws SAXException {
 			enumType = null;
 			enumTextEdit = false;
 			sort = null;
 			span = 1;
-			
-			switch(qName) {
-			case DataEntry.TYPE_TAB:
-				dataMap.add(new DataEntry(qName, attributes.getValue("name")));
+
+			switch (qName) {
+			case ControlEntry.TYPE_TAB:
+				controlMap.add(new ControlEntry(qName, attributes.getValue("name")));
 				break;
-			case DataEntry.TYPE_ROW:
-				dataMap.add(new DataEntry(qName));
+			case ControlEntry.TYPE_ROW:
+				controlMap.add(new ControlEntry(qName));
 				break;
-			case DataEntry.TYPE_FLAGS:
-			case DataEntry.TYPE_ENUM:
-			case DataEntry.TYPE_TEXT_ENUM:
+			case ControlEntry.TYPE_FLAGS:
+			case ControlEntry.TYPE_ENUM:
+			case ControlEntry.TYPE_TEXT_ENUM:
 				enumType = attributes.getValue("type");
 				String sEdit = attributes.getValue("edit");
 				enumTextEdit = "true".equalsIgnoreCase(sEdit);
 				String vSort = attributes.getValue("sort");
-				if(vSort != null) {
+				if (vSort != null) {
 					sort = vSort;
 				}
-			
-			case DataEntry.TYPE_LABEL:
-			case DataEntry.TYPE_TITLE:
-			case DataEntry.TYPE_STRING:
-			case DataEntry.TYPE_BOOLEAN:
-			case DataEntry.TYPE_INTEGER:
-			case DataEntry.TYPE_DECIMAL:
+
+			case ControlEntry.TYPE_LABEL:
+			case ControlEntry.TYPE_TITLE:
+			case ControlEntry.TYPE_STRING:
+			case ControlEntry.TYPE_BOOLEAN:
+			case ControlEntry.TYPE_INTEGER:
+			case ControlEntry.TYPE_DECIMAL:
 				String sSpan = attributes.getValue("span");
-				if(sSpan != null) {
-					span = Integer.parseInt(sSpan);	
+				if (sSpan != null) {
+					span = Integer.parseInt(sSpan);
 				}
 				buffer.setLength(0);
 				read = true;
 				break;
 			}
 		}
+
 		public void endElement(String uri, String localName, String qName) throws SAXException {
 			read = false;
 			String type = qName;
-			DataEntry entry = null;
-			switch(qName) {
-			case DataEntry.TYPE_FLAGS:
-			case DataEntry.TYPE_ENUM:
-			case DataEntry.TYPE_TEXT_ENUM:
+			ControlEntry entry = null;
+			switch (qName) {
+			case ControlEntry.TYPE_FLAGS:
+			case ControlEntry.TYPE_ENUM:
+			case ControlEntry.TYPE_TEXT_ENUM:
 				type = qName + ":" + enumType;
-			case DataEntry.TYPE_BOOLEAN:
-			case DataEntry.TYPE_STRING:
-			case DataEntry.TYPE_INTEGER:
-			case DataEntry.TYPE_DECIMAL:
+			case ControlEntry.TYPE_BOOLEAN:
+			case ControlEntry.TYPE_STRING:
+			case ControlEntry.TYPE_INTEGER:
+			case ControlEntry.TYPE_DECIMAL:
 				String data = buffer.toString().trim();
-				dataMap.add(entry = new DataEntry(type, span, data.split(",")));
-				if(DataEntry.TYPE_TEXT_ENUM.equals(qName)) {
+				controlMap.add(entry = new ControlEntry(type, span, data.split(",")));
+				if (ControlEntry.TYPE_TEXT_ENUM.equals(qName)) {
 					entry.enumTextEdit = enumTextEdit;
 				}
-				if(DataEntry.TYPE_ENUM.equals(qName)
-				|| DataEntry.TYPE_TEXT_ENUM.equals(qName)
-				|| DataEntry.TYPE_FLAGS.equals(qName)) {
+				if (ControlEntry.TYPE_ENUM.equals(qName) || ControlEntry.TYPE_TEXT_ENUM.equals(qName)
+						|| ControlEntry.TYPE_FLAGS.equals(qName)) {
 					entry.sort = sort;
 				}
 				break;
-			case DataEntry.TYPE_LABEL:
-			case DataEntry.TYPE_TITLE:
-				dataMap.add(new DataEntry(type, span, buffer.toString().trim()));
+			case ControlEntry.TYPE_LABEL:
+			case ControlEntry.TYPE_TITLE:
+				controlMap.add(new ControlEntry(type, span, buffer.toString().trim()));
 				break;
 			}
-			
+
 		}
+
 		public void characters(char ch[], int start, int length) throws SAXException {
-			if(read) {
+			if (read) {
 				buffer.append(ch, start, length);
 			}
 		}
 	}
-	
-	
-	private Map<String, LinkedHashMap<String, String>> enumMap;
-	private List<DataEntry> dataMap;
-	
+
+	private Map<String, LinkedHashMap<String, String>> valueMap;
+	private List<ControlEntry> controlMap;
+
 	public void load() {
-		loadEnumMap();
-		loadDataMap();
+		loadValueMap();
+		loadControlMap();
 	}
-	
+
 	public LinkedHashMap<String, String> getEnum(String name) {
-		return enumMap.get(name);
+		return valueMap.get(name);
 	}
-	
-	public List<DataEntry> getDataMap() {
-		return dataMap;
+
+	public List<ControlEntry> getDataMap() {
+		return controlMap;
 	}
-	
+
 	private File getFile(String name) {
 		File file = new File(name);
-		if(!file.exists()) {
-			file = new File("jtitsed"+name);
+		if (!file.exists()) {
+			file = new File("jtitsed" + name);
 		}
-		if(!file.exists()) {
-			file = new File("jtitsed_"+name);
+		if (!file.exists()) {
+			file = new File("jtitsed_" + name);
 		}
-		if(!file.exists()) {
-			file = new File("jtitsed-"+name);
+		if (!file.exists()) {
+			file = new File("jtitsed-" + name);
 		}
-		if(!file.exists()) {
-			file = new File("jtitsed."+name);
+		if (!file.exists()) {
+			file = new File("jtitsed." + name);
 		}
-		if(!file.exists()) {
+		if (!file.exists()) {
 			file = new File("data", name);
 		}
-		if(!file.exists()) {
-			file = new File("data", "jtitsed"+name);
+		if (!file.exists()) {
+			file = new File("data", "jtitsed" + name);
 		}
-		if(!file.exists()) {
-			file = new File("data", "jtitsed_"+name);
+		if (!file.exists()) {
+			file = new File("data", "jtitsed_" + name);
 		}
-		if(!file.exists()) {
-			file = new File("data", "jtitsed-"+name);
+		if (!file.exists()) {
+			file = new File("data", "jtitsed-" + name);
 		}
-		if(!file.exists()) {
-			file = new File("data", "jtitsed."+name);
+		if (!file.exists()) {
+			file = new File("data", "jtitsed." + name);
 		}
 		return file;
 	}
-	
-	private void loadDataMap() {
-		dataMap = new ArrayList<DataEntry>();
-		parseFile(getFile("data.xml"), new DataSAXHandler());
+
+	private void loadControlMap() {
+		controlMap = new ArrayList<ControlEntry>();
+		parseFile(getFile("controls.xml"), new ControlSAXHandler());
 	}
-	
-	private void loadEnumMap() {
-		enumMap = new HashMap<String, LinkedHashMap<String, String>>();
-		parseFile(getFile("enum.xml"), new EnumSAXHandler());
+
+	private void loadValueMap() {
+		valueMap = new HashMap<String, LinkedHashMap<String, String>>();
+		parseFile(getFile("values.xml"), new ValueSAXHandler());
 	}
-	
+
 	private void parseFile(File file, DefaultHandler dh) {
-		try(InputStream input = new BufferedInputStream(new FileInputStream(file))) {
+		try (InputStream input = new BufferedInputStream(new FileInputStream(file))) {
 			SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
 			parser.parse(input, dh);
 		} catch (ParserConfigurationException e) {

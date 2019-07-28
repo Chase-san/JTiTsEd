@@ -30,30 +30,30 @@ public class SavePath {
 	public final String name;
 	public final File directory;
 	public final Map<Integer, File> saves;
-	
+
 	protected SavePath(String name, File dir) {
 		this.saves = new HashMap<Integer, File>();
 		this.name = name;
 		this.directory = dir;
 	}
-	
+
 	protected boolean findSaves() {
 		saves.clear();
-		if(!directory.exists() || !directory.isDirectory()) {
+		if (!directory.exists() || !directory.isDirectory()) {
 			return false;
 		}
-		for(File file : directory.listFiles()) {
+		for (File file : directory.listFiles()) {
 			String filename = file.getName();
-			if(!Pattern.matches("^TiTs_[0-9]+.sol$", filename)) {
+			if (!Pattern.matches("^TiTs_[0-9]+.sol$", filename)) {
 				continue;
 			}
-			
+
 			String number = filename.substring(5, filename.length() - 4);
 			try {
 				int index = Integer.parseInt(number);
 				saves.put(index, file);
-			} catch(NumberFormatException ex) {
-				//don't add it
+			} catch (NumberFormatException ex) {
+				// don't add it
 			}
 		}
 		return true;

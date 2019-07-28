@@ -21,7 +21,7 @@
  */
 package org.csdgn.titsed.model;
 
-public class DataEntry {
+public class ControlEntry {
 	public static final String TYPE_TAB = "tab";
 	public static final String TYPE_ROW = "row";
 	public static final String TYPE_LABEL = "label";
@@ -46,7 +46,7 @@ public class DataEntry {
 	public int span;
 	public String sort;
 	
-	public DataEntry(String type, String ... value) {
+	public ControlEntry(String type, String ... value) {
 		this.type = type;
 		this.value = value;
 		this.span = 1;
@@ -54,7 +54,7 @@ public class DataEntry {
 		this.sort = SORT_NATURAL;
 	}
 	
-	public DataEntry(String type, int span, String ... value) {
+	public ControlEntry(String type, int span, String ... value) {
 		this.type = type;
 		this.value = value;
 		this.span = span;
