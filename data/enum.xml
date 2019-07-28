@@ -1,0 +1,1169 @@
+<data>
+	<!--
+	These are pretty straight forward really. Only tricky bit is
+	the id attribute. The id is the "internal" name that will be
+	used in the save file itself. If omitted it will instead use
+	the same id as the enclosed value.
+	 
+	Basically the enclosed value is the display value, and the
+	id is what the file uses.
+	-->
+	<enum name="Upbringing">
+		<values>
+			<value id="0">Pampered</value>
+			<value id="1">Athletic</value>
+			<value id="2">Bookworm</value>
+			<value id="3">Austere</value>
+			<value id="4">Balanced</value>
+		</values>
+	</enum>
+	<enum name="Original Race">
+		<values>
+			<value id="human">Human</value>
+			<value id="half-ausar">Half Ausar</value>
+			<value id="half-gryvain">Half Gryvain</value>
+			<value id="half-kaithrit">Half Kaithrit</value>
+			<value id="half kui-tan">Half Kui-Tan</value>
+			<value id="half-leithan">Half Leithan</value>
+		</values>
+	</enum>
+	<enum name="Affinity">
+		<values>
+			<value id="aim">Aim</value>
+			<value id="intelligence">Intelligence</value>
+			<value id="physique">Physique</value>
+			<value id="reflexes">Reflexes</value>
+			<value id="willpower">Willpower</value>
+		</values>
+	</enum>
+	<enum name="Class Type">
+		<values>
+			<value id="0">Smuggler</value>
+			<value id="1">Mercenary</value>
+			<value id="2">Tech Specialist</value>
+		</values>
+	</enum>
+	<enum name="Skin Type">
+		<values>
+			<value id="0">Skin</value>
+			<value id="1">Fur</value>
+			<value id="2">Scales</value>
+			<value id="3">Goo</value>
+			<value id="4">Chitin</value>
+			<value id="5">Feathers</value>
+			<value id="6">Latex</value>
+			<value id="7">Plant</value>
+			<value id="8">Bark</value>
+		</values>
+	</enum>
+	<enum name="Skin Flags">
+		<values>
+			<value id="3">Lubricated</value>
+			<value id="4">Fluffy</value>
+			<value id="5">Squishy</value>
+			<value id="6">Smooth</value>
+			<value id="11">Aphrodisiac</value>
+			<value id="12">Sticky</value>
+			<value id="13">Thick</value>
+			<value id="20">Furred</value>
+			<value id="39">Absorbent</value>
+			<value id="46">Freckled</value>
+		</values>
+	</enum>
+	<enum name="Skin Tone">
+		<values>
+			<value>albino</value>
+			<value>amber</value>
+			<value>amethyst</value>
+			<value>aqua</value>
+			<value>aquamarine</value>
+			<value>azure</value>
+			<value>black and blue</value>
+			<value>black and gold</value>
+			<value>black and red</value>
+			<value>black and white</value>
+			<value>black and yellow</value>
+			<value>black, blue and yellow</value>
+			<value>black</value>
+			<value>blue-gray</value>
+			<value>blue</value>
+			<value>brass</value>
+			<value>bright pink</value>
+			<value>bright purple</value>
+			<value>bronze</value>
+			<value>bronzed</value>
+			<value>brown-pink</value>
+			<value>brown</value>
+			<value>bubblegum-pink</value>
+			<value>candy red</value>
+			<value>caramel</value>
+			<value>cerulean</value>
+			<value>cherry</value>
+			<value>chestnut</value>
+			<value>chocolate</value>
+			<value>citrine</value>
+			<value>cobalt</value>
+			<value>copper</value>
+			<value>crimson</value>
+			<value>cyan</value>
+			<value>dark blue</value>
+			<value>dark brown</value>
+			<value>dark gray</value>
+			<value>dark green</value>
+			<value>dark red</value>
+			<value>dark</value>
+			<value>deep emerald</value>
+			<value>deep purple</value>
+			<value>dusky blue</value>
+			<value>dusky red</value>
+			<value>dusky</value>
+			<value>ebony</value>
+			<value>electric blue</value>
+			<value>emerald</value>
+			<value>fair</value>
+			<value>fiery blue</value>
+			<value>fir green</value>
+			<value>flesh-toned</value>
+			<value>foxfire</value>
+			<value>garnet</value>
+			<value>glittering amber</value>
+			<value>glittering amethyst</value>
+			<value>glittering aquamarine</value>
+			<value>glittering black</value>
+			<value>glittering blue</value>
+			<value>glittering brown</value>
+			<value>glittering cerulean</value>
+			<value>glittering citrine</value>
+			<value>glittering copper</value>
+			<value>glittering crimson</value>
+			<value>glittering emerald</value>
+			<value>glittering garnet</value>
+			<value>glittering gold</value>
+			<value>glittering green</value>
+			<value>glittering hazel</value>
+			<value>glittering indigo</value>
+			<value>glittering jade</value>
+			<value>glittering lapis</value>
+			<value>glittering lavender</value>
+			<value>glittering opal</value>
+			<value>glittering orange</value>
+			<value>glittering peach</value>
+			<value>glittering pearl</value>
+			<value>glittering peridot</value>
+			<value>glittering pink</value>
+			<value>glittering platinum</value>
+			<value>glittering purple</value>
+			<value>glittering red-orange</value>
+			<value>glittering red</value>
+			<value>glittering rose</value>
+			<value>glittering ruby</value>
+			<value>glittering sable</value>
+			<value>glittering sapphire</value>
+			<value>glittering silver</value>
+			<value>glittering teal</value>
+			<value>glittering topaz</value>
+			<value>glittering turquoise</value>
+			<value>glittering violet</value>
+			<value>glittering white</value>
+			<value>glittering yellow-green</value>
+			<value>glittering yellow-orange</value>
+			<value>glittering yellow</value>
+			<value>glittery pink</value>
+			<value>glossy blue</value>
+			<value>glowing amber</value>
+			<value>glowing blue</value>
+			<value>glowing cyan</value>
+			<value>glowing ember</value>
+			<value>glowing gold</value>
+			<value>glowing green</value>
+			<value>glowing orange</value>
+			<value>glowing pink</value>
+			<value>glowing purple</value>
+			<value>glowing red</value>
+			<value>glowing violet</value>
+			<value>glowing white</value>
+			<value>glowing yellow</value>
+			<value>gold</value>
+			<value>gray</value>
+			<value>grayish brown</value>
+			<value>green</value>
+			<value>gunmetal</value>
+			<value>hazel</value>
+			<value>honey</value>
+			<value>hot pink</value>
+			<value>hot white</value>
+			<value>indigo</value>
+			<value>iridescent</value>
+			<value>ivory</value>
+			<value>jade</value>
+			<value>lapis</value>
+			<value>lavender</value>
+			<value>leaf green</value>
+			<value>light blue</value>
+			<value>light gray</value>
+			<value>light pink</value>
+			<value>light purple</value>
+			<value>light red</value>
+			<value>light</value>
+			<value>lilac</value>
+			<value>lime green</value>
+			<value>lime</value>
+			<value>luminescent lime green</value>
+			<value>luminous azure</value>
+			<value>luminous blue</value>
+			<value>luminous celeste</value>
+			<value>luminous cerulean</value>
+			<value>luminous cyan</value>
+			<value>luminous green</value>
+			<value>luminous orange</value>
+			<value>luminous pink</value>
+			<value>luminous purple</value>
+			<value>luminous silver</value>
+			<value>luminous violet</value>
+			<value>luminous yellow</value>
+			<value>magenta</value>
+			<value>mahogany</value>
+			<value>maroon</value>
+			<value>metal</value>
+			<value>mottled brown</value>
+			<value>navy blue</value>
+			<value>navy</value>
+			<value>neon green</value>
+			<value>neon pink</value>
+			<value>null</value>
+			<value>olive</value>
+			<value>onyx</value>
+			<value>opal</value>
+			<value>orange and green</value>
+			<value>orange</value>
+			<value>pale blue</value>
+			<value>pale gold</value>
+			<value>pale gray</value>
+			<value>pale green</value>
+			<value>pale orange</value>
+			<value>pale pink</value>
+			<value>pale purple</value>
+			<value>pale red</value>
+			<value>pale violet</value>
+			<value>pale white</value>
+			<value>pale yellow</value>
+			<value>pale</value>
+			<value>peach</value>
+			<value>pearl</value>
+			<value>peridot</value>
+			<value>pink</value>
+			<value>platinum</value>
+			<value>purple and white</value>
+			<value>purple</value>
+			<value>red and blue</value>
+			<value>red-orange</value>
+			<value>red</value>
+			<value>rich pink</value>
+			<value>rose</value>
+			<value>ruby</value>
+			<value>sable</value>
+			<value>sapphire</value>
+			<value>scarlet</value>
+			<value>silver</value>
+			<value>sky blue</value>
+			<value>sky-blue</value>
+			<value>slut red</value>
+			<value>sparkly pink</value>
+			<value>steel gray</value>
+			<value>steel</value>
+			<value>tan</value>
+			<value>tanned</value>
+			<value>teal</value>
+			<value>topaz</value>
+			<value>turquoise</value>
+			<value>umber</value>
+			<value>verdant</value>
+			<value>vermillion-red</value>
+			<value>violet</value>
+			<value>viridescent</value>
+			<value>white-hot</value>
+			<value>white</value>
+			<value>yellow-green</value>
+			<value>yellow-orange</value>
+			<value>yellow</value>
+		</values>
+	</enum>
+	<enum name="Hair Type">
+		<values>
+			<value id="0">Hair</value>
+			<value id="1">Feathers</value>
+			<value id="2">Transparent</value>
+			<value id="3">Gooey</value>
+			<value id="4">Tentacles</value>
+			<value id="5">Quills</value>
+			<value id="6">Plant</value>
+		</values>
+	</enum>
+	<enum name="Hair Color">
+		<values>
+			<value>amber</value>
+			<value>aquamarine</value>
+			<value>auburn</value>
+			<value>black and brown</value>
+			<value>black and pink</value>
+			<value>black and white</value>
+			<value>black and yellow</value>
+			<value>black</value>
+			<value>blonde</value>
+			<value>blood-hued crimson</value>
+			<value>blue-white</value>
+			<value>blue</value>
+			<value>brass</value>
+			<value>brown and white</value>
+			<value>brown-dappled</value>
+			<value>brown</value>
+			<value>cerulean</value>
+			<value>chestnut</value>
+			<value>chocolate-brown</value>
+			<value>chocolate</value>
+			<value>clear</value>
+			<value>cobalt</value>
+			<value>copper</value>
+			<value>crimson</value>
+			<value>dark blonde</value>
+			<value>dark brown</value>
+			<value>dark green</value>
+			<value>dirty blonde</value>
+			<value>electric blue</value>
+			<value>emerald</value>
+			<value>fiery blue</value>
+			<value>fiery orange</value>
+			<value>firey-red</value>
+			<value>forest green</value>
+			<value>glowing amber</value>
+			<value>glowing blue</value>
+			<value>glowing cyan</value>
+			<value>glowing ember</value>
+			<value>glowing gold</value>
+			<value>glowing green</value>
+			<value>glowing orange</value>
+			<value>glowing pink</value>
+			<value>glowing purple</value>
+			<value>glowing red</value>
+			<value>glowing violet</value>
+			<value>glowing white</value>
+			<value>glowing yellow</value>
+			<value>gold</value>
+			<value>gray</value>
+			<value>green</value>
+			<value>hazel</value>
+			<value>iridescent</value>
+			<value>ivory</value>
+			<value>jet-black</value>
+			<value>jungle green</value>
+			<value>lavender</value>
+			<value>light brown</value>
+			<value>light red</value>
+			<value>luminous azure</value>
+			<value>luminous blue</value>
+			<value>luminous celeste</value>
+			<value>luminous cerulean</value>
+			<value>luminous cyan</value>
+			<value>luminous green</value>
+			<value>luminous orange</value>
+			<value>luminous pink</value>
+			<value>luminous purple</value>
+			<value>luminous silver</value>
+			<value>luminous violet</value>
+			<value>luminous yellow</value>
+			<value>mahogany</value>
+			<value>midnight black</value>
+			<value>midnight blue</value>
+			<value>none</value>
+			<value>onyx</value>
+			<value>orange</value>
+			<value>orangey-gray</value>
+			<value>pale blue</value>
+			<value>pale green</value>
+			<value>peach</value>
+			<value>pink</value>
+			<value>platinum</value>
+			<value>purple</value>
+			<value>raven</value>
+			<value>red</value>
+			<value>reddish purple</value>
+			<value>rose gold</value>
+			<value>rose</value>
+			<value>rusty red</value>
+			<value>sable</value>
+			<value>silver-blue</value>
+			<value>silver</value>
+			<value>silvery-blue</value>
+			<value>silvery-white</value>
+			<value>steel gray</value>
+			<value>straw</value>
+			<value>strawberry blonde</value>
+			<value>tan</value>
+			<value>tawny</value>
+			<value>teal</value>
+			<value>transparent</value>
+			<value>verdant</value>
+			<value>vibrant purple</value>
+			<value>violet</value>
+			<value>viridescent</value>
+			<value>white and black</value>
+			<value>white-dappled brown</value>
+			<value>white</value>
+			<value>yellow and black striped</value>
+			<value>yellow-green</value>
+			<value>yellow</value>
+		</values>
+	</enum>
+	<enum name="Hair Style">
+		<values>
+			<value id="null">none</value>
+			<value>afro</value>
+			<value>backwards slick</value>
+			<value>bob cut</value>
+			<value>braided</value>
+			<value>crown braid</value>
+			<value>curls</value>
+			<value>curtains</value>
+			<value>fingerwave</value>
+			<value>front wave</value>
+			<value>hime cut</value>
+			<value>loose</value>
+			<value>mess of curls</value>
+			<value>messy chignon</value>
+			<value>mohawk</value>
+			<value>pigtail buns</value>
+			<value>pigtails</value>
+			<value>ponytail</value>
+			<value>quiff</value>
+			<value>ringlets</value>
+			<value>ruffled layers</value>
+			<value>side plait</value>
+			<value>simple part</value>
+			<value>single braid</value>
+			<value>spikehawk</value>
+			<value>spikes</value>
+			<value>straight</value>
+			<value>tentacle</value>
+			<value>tight chignon</value>
+			<value>topknot</value>
+			<value>twintails</value>
+		</values>
+	</enum>
+	<enum name="Face Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="2">Bovine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="9">Lapine</value>
+			<value id="10">Avian</value>
+			<value id="11">Draconic</value>
+			<value id="12">Lizan</value>
+			<value id="14">Frog</value>
+			<value id="17">Kangaroo</value>
+			<value id="18">Gabilani</value>
+			<value id="19">Shark</value>
+			<value id="20">Suula</value>
+			<value id="24">Kui-tan</value>
+			<value id="25">Human Masked</value>
+			<value id="26">Mouse</value>
+			<value id="27">Mouseman</value>
+			<value id="39">Naleen</value>
+			<value id="40">Panda</value>
+			<value id="45">Badger</value>
+			<value id="71">Worg</value>
+			<value id="72">Swine</value>
+			<value id="76">Sheep</value>
+			<value id="77">Panda (Lesser)</value>
+		</values>
+	</enum>
+	<enum name="Face Flags">
+		<values>
+			<value id="1">Long</value>
+			<value id="6">Smooth</value>
+			<value id="14">Muzzled</value>
+			<value id="15">Angular</value>
+			<value id="20">Furred</value>
+			<value id="43">Beak</value>
+			<value id="46">Freckled</value>
+		</values>
+	</enum>
+	<enum name="Eye Color">
+		<values>
+			<value>amber</value>
+			<value>amethyst</value>
+			<value>aqua</value>
+			<value>aquamarine</value>
+			<value>black</value>
+			<value>blue</value>
+			<value>brown</value>
+			<value>cerulean</value>
+			<value>chestnut</value>
+			<value>citrine</value>
+			<value>cloudy</value>
+			<value>copper</value>
+			<value>crimson</value>
+			<value>dark blue</value>
+			<value>dark yellow</value>
+			<value>electric blue</value>
+			<value>emerald</value>
+			<value>fir green</value>
+			<value>foxfire</value>
+			<value>garnet</value>
+			<value>glowing amber</value>
+			<value>glowing blue</value>
+			<value>glowing cyan</value>
+			<value>glowing ember</value>
+			<value>glowing gold</value>
+			<value>glowing green</value>
+			<value>glowing orange</value>
+			<value>glowing pink</value>
+			<value>glowing purple</value>
+			<value>glowing red</value>
+			<value>glowing violet</value>
+			<value>glowing white</value>
+			<value>glowing yellow</value>
+			<value>gold</value>
+			<value>gray</value>
+			<value>green</value>
+			<value>hazel</value>
+			<value>indigo</value>
+			<value>iridescent</value>
+			<value>jade</value>
+			<value>lapis</value>
+			<value>lavender</value>
+			<value>leaf green</value>
+			<value>lime green</value>
+			<value>luminous azure</value>
+			<value>luminous blue</value>
+			<value>luminous celeste</value>
+			<value>luminous cerulean</value>
+			<value>luminous cyan</value>
+			<value>luminous green</value>
+			<value>luminous orange</value>
+			<value>luminous pink</value>
+			<value>luminous purple</value>
+			<value>luminous silver</value>
+			<value>luminous violet</value>
+			<value>luminous yellow</value>
+			<value>opal</value>
+			<value>orange</value>
+			<value>pale yellow</value>
+			<value>peach</value>
+			<value>pearl</value>
+			<value>peridot</value>
+			<value>pink</value>
+			<value>platinum</value>
+			<value>purple</value>
+			<value>red-orange</value>
+			<value>red</value>
+			<value>rose</value>
+			<value>ruby</value>
+			<value>sable</value>
+			<value>sapphire</value>
+			<value>sea blue</value>
+			<value>silver</value>
+			<value>teal</value>
+			<value>topaz</value>
+			<value>turquoise</value>
+			<value>varied</value>
+			<value>violet</value>
+			<value>viridescent</value>
+			<value>white</value>
+			<value>yellow-green</value>
+			<value>yellow-orange</value>
+			<value>yellow</value>
+		</values>
+	</enum>
+	<enum name="Eye Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="6">Bee</value>
+			<value id="7">Arachnid</value>
+			<value id="10">Avian</value>
+			<value id="13">Naga</value>
+			<value id="14">Frog</value>
+			<value id="15">Demonic</value>
+			<value id="18">Gabilani</value>
+			<value id="19">Shark</value>
+			<value id="49">Leithan</value>
+			<value id="50">Goat</value>
+			<value id="51">Synthetic</value>
+			<value id="53">Daynar</value>
+			<value id="54">Cockvine</value>
+			<value id="55">Nyrea</value>
+			<value id="60">Myr</value>
+			<value id="65">Gryvain</value>
+			<value id="66">Korgonne</value>
+			<value id="71">Worg</value>
+			<value id="76">Sheep</value>
+			<value id="80">Adremmalex</value>
+			<value id="81">Mothrine</value>
+		</values>
+	</enum>
+	<enum name="Ear Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="2">Bovine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="8">Drider</value>
+			<value id="9">Lapine</value>
+			<value id="10">Avian</value>
+			<value id="11">Draconic</value>
+			<value id="12">Lizan</value>
+			<value id="14">Frog</value>
+			<value id="15">Demonic</value>
+			<value id="17">Kangaroo</value>
+			<value id="18">Gabilani</value>
+			<value id="19">Shark</value>
+			<value id="20">Suula</value>
+			<value id="21">Deer</value>
+			<value id="24">Kui-tan</value>
+			<value id="26">Mouse</value>
+			<value id="29">Floppy Dog</value>
+			<value id="40">Panda</value>
+			<value id="42">Raskvel</value>
+			<value id="45">Badger</value>
+			<value id="46">Vanae</value>
+			<value id="49">Leithan</value>
+			<value id="52">Simii</value>
+			<value id="53">Daynar</value>
+			<value id="57">Ovir</value>
+			<value id="58">Sylvan</value>
+			<value id="65">Gryvain</value>
+			<value id="66">Korgonne</value>
+			<value id="72">Swine</value>
+			<value id="73">Lapine (Quad)</value>
+			<value id="76">Sheep</value>
+			<value id="77">Panda (Lesser)</value>
+			<value id="81">Mothrine</value>
+		</values>
+	</enum>
+	<enum name="Ear Length Enable">
+		<values>
+			<value>Raskvel</value>
+			<value>Leithan</value>
+			<value>Demonic</value>
+			<value>Sylvan</value>
+			<value>Gabilani</value>
+			<value>Lapine</value>
+			<value>Quad Lapine</value>
+		</values>
+	</enum>
+	<enum name="Tongue Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="2">Bovine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="6">Bee</value>
+			<value id="9">Lapine</value>
+			<value id="10">Avian</value>
+			<value id="11">Draconic</value>
+			<value id="13">Naga</value>
+			<value id="14">Frog</value>
+			<value id="15">Demonic</value>
+			<value id="16">Gooey</value>
+			<value id="23">Tentacle</value>
+			<value id="40">Panda</value>
+			<value id="42">Raskvel</value>
+			<value id="45">Badger</value>
+			<value id="49">Leithan</value>
+			<value id="57">Ovir</value>
+		</values>
+	</enum>
+	<enum name="Tongue Flags">
+		<values>
+			<value id="1">Long</value>
+			<value id="2">Prehensile</value>
+			<value id="3">Lubricated</value>
+			<value id="5">Squishy</value>
+			<value id="11">Aphrodisiac</value>
+			<value id="12">Sticky</value>
+			<value id="30">Nubby</value>
+			<value id="32">Hollow</value>
+			<value id="37">Gooey</value>
+		</values>
+	</enum>
+	<enum name="Antennae Type">
+		<values>
+			<value id="0">None</value>
+			<value id="6">Bee</value>
+			<value id="16">Gooey</value>
+			<value id="43">Sydian</value>
+			<value id="60">Myr</value>
+			<value id="64">Hradian</value>
+		</values>
+	</enum>
+	<enum name="Horn Type">
+		<values>
+			<value id="0">None</value>
+			<value id="2">Bovine</value>
+			<value id="11">Draconic</value>
+			<value id="12">Lizan</value>
+			<value id="15">Demonic</value>
+			<value id="21">Deer</value>
+			<value id="30">Dryad</value>
+			<value id="50">Goat</value>
+			<value id="62">Rhino</value>
+			<value id="63">Narwhal</value>
+			<value id="65">Gryvain</value>
+			<value id="76">Sheep</value>
+		</values>
+	</enum>
+	<enum name="Beard Style">
+		<values>
+			<value id="0">none</value>
+			<value id="1">Braided</value>
+			<value id="2">Curly</value>
+			<value id="3">Untamed</value>
+			<value id="4">Anchor</value>
+			<value id="5">Mutton Chops</value>
+			<value id="6">Boxed</value>
+			<value id="7">Chin Strap</value>
+			<value id="8">Mustache</value>
+			<value id="9">Handlebars</value>
+			<value id="10">Goatee</value>
+			<value id="11">Sideburns</value>
+		</values>
+	</enum>
+	<enum name="Arm Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="6">Bee</value>
+			<value id="7">Arachnid</value>
+			<value id="8">Drider</value>
+			<value id="9">Lapine</value>
+			<value id="10">Avian</value>
+			<value id="14">Frog</value>
+			<value id="15">Demonic</value>
+			<value id="19">Shark</value>
+			<value id="23">Tentacle</value>
+			<value id="24">Kui-tan</value>
+			<value id="40">Panda</value>
+			<value id="45">Badger</value>
+			<value id="49">Leithan</value>
+			<value id="52">Simii</value>
+			<value id="53">Daynar</value>
+			<value id="55">Nyrea</value>
+			<value id="57">Ovir</value>
+			<value id="60">Myr</value>
+			<value id="67">Flower</value>
+			<value id="77">Panda (Lesser)</value>
+		</values>
+	</enum>
+	<enum name="Arm Flags">
+		<values>
+			<value id="6">Smooth</value>
+			<value id="12">Sticky</value>
+			<value id="19">Amorphous</value>
+			<value id="20">Furred</value>
+			<value id="21">Scaled</value>
+			<value id="23">Paws</value>
+			<value id="34">Chitinous</value>
+			<value id="35">Feathered</value>
+			<value id="37">Gooey</value>
+			<value id="38">Spiked</value>
+		</values>
+	</enum>
+	<enum name="Leg Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="2">Bovine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="6">Bee</value>
+			<value id="7">Arachnid</value>
+			<value id="8">Drider</value>
+			<value id="9">Lapine</value>
+			<value id="10">Avian</value>
+			<value id="11">Draconic</value>
+			<value id="12">Lizan</value>
+			<value id="13">Naga</value>
+			<value id="14">Frog</value>
+			<value id="15">Demonic</value>
+			<value id="16">Gooey</value>
+			<value id="17">Kangaroo</value>
+			<value id="19">Shark</value>
+			<value id="21">Deer</value>
+			<value id="23">Tentacle</value>
+			<value id="24">Kui-tan</value>
+			<value id="32">MLP</value>
+			<value id="35">Succubus</value>
+			<value id="40">Panda</value>
+			<value id="42">Raskvel</value>
+			<value id="45">Badger</value>
+			<value id="52">Simii</value>
+			<value id="53">Daynar</value>
+			<value id="55">Nyrea</value>
+			<value id="57">Ovir</value>
+			<value id="60">Myr</value>
+			<value id="65">Gryvain</value>
+			<value id="72">Swine</value>
+			<value id="76">Sheep</value>
+			<value id="77">Panda (Lesser)</value>
+		</values>
+	</enum>
+	<enum name="Leg Flags">
+		<values>
+			<value id="2">Prehensile</value>
+			<value id="6">Smooth</value>
+			<value id="12">Sticky</value>
+			<value id="16">Plantigrade</value>
+			<value id="17">Digitgrade</value>
+			<value id="18">Tendril</value>
+			<value id="19">Amorphous</value>
+			<value id="20">Furred</value>
+			<value id="21">Scaled</value>
+			<value id="22">Hooves</value>
+			<value id="23">Paws</value>
+			<value id="24">Heels</value>
+			<value id="34">Chitinous</value>
+			<value id="35">Feathered</value>
+			<value id="37">Gooey</value>
+		</values>
+	</enum>
+	<enum name="Wing Type">
+		<values>
+			<value id="0">None</value>
+			<value id="6">Bee</value>
+			<value id="10">Avian</value>
+			<value id="11">Draconic</value>
+			<value id="15">Demonic</value>
+			<value id="19">Shark</value>
+			<value id="23">Tentacle</value>
+			<value id="28">Dove</value>
+			<value id="31">Dragonfly</value>
+			<value id="36">Small Bee</value>
+			<value id="37">Small Demonic</value>
+			<value id="38">Small Draconic</value>
+			<value id="54">Cockvine</value>
+			<value id="58">Sylvan</value>
+			<value id="59">Dark Sylvan</value>
+			<value id="60">Myr</value>
+			<value id="65">Gryvain</value>
+		</values>
+	</enum>
+	<enum name="Tail Type">
+		<values>
+			<value id="0">None</value>
+			<value id="1">Equine</value>
+			<value id="2">Bovine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="6">Bee</value>
+			<value id="7">Arachnid</value>
+			<value id="8">Drider</value>
+			<value id="9">Lapine</value>
+			<value id="10">Avian</value>
+			<value id="11">Draconic</value>
+			<value id="12">Lizan</value>
+			<value id="13">Naga</value>
+			<value id="14">Frog</value>
+			<value id="15">Demonic</value>
+			<value id="17">Kangaroo</value>
+			<value id="19">Shark</value>
+			<value id="20">Suula</value>
+			<value id="21">Deer</value>
+			<value id="23">Tentacle</value>
+			<value id="24">Kui-tan</value>
+			<value id="26">Mouse</value>
+			<value id="29">Floppy Dog</value>
+			<value id="33">Cuntsnake</value>
+			<value id="40">Panda</value>
+			<value id="42">Raskvel</value>
+			<value id="43">Sydian</value>
+			<value id="45">Badger</value>
+			<value id="46">Vanae</value>
+			<value id="51">Synthetic</value>
+			<value id="52">Simii</value>
+			<value id="53">Daynar</value>
+			<value id="54">Cockvine</value>
+			<value id="57">Ovir</value>
+			<value id="60">Myr</value>
+			<value id="65">Gryvain</value>
+			<value id="72">Swine</value>
+			<value id="76">Sheep</value>
+			<value id="77">Panda (Lesser)</value>
+		</values>
+	</enum>
+	<enum name="Tail Flags">
+		<values>
+			<value id="1">Long</value>
+			<value id="2">Prehensile</value>
+			<value id="4">Fluffy</value>
+			<value id="6">Smooth</value>
+			<value id="7">Tapered</value>
+			<value id="8">Flared</value>
+			<value id="9">Knotted</value>
+			<value id="12">Sticky</value>
+			<value id="13">Thick</value>
+			<value id="20">Furred</value>
+			<value id="21">Scaled</value>
+			<value id="25">Ovipositor</value>
+			<value id="26">Sheathed</value>
+			<value id="27">Tailcock</value>
+			<value id="29">Stinger Tip</value>
+			<value id="30">Nubby</value>
+			<value id="33">Ribbed</value>
+			<value id="34">Chitinous</value>
+			<value id="35">Feathered</value>
+			<value id="37">Gooey</value>
+			<value id="42">Tailcunt</value>
+			<value id="44">Corkscrewed</value>
+		</values>
+	</enum>
+	<enum name="Tail Genital Type">
+		<values>
+			<value id="0">Parasitic</value>
+			<value id="1">Cock</value>
+			<value id="2">Vagina</value>
+		</values>
+	</enum>
+	<enum name="Tail Genital Race">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="15">Demonic</value>
+			<value id="16">Gooey</value>
+			<value id="20">Suula</value>
+			<value id="23">Tentacle</value>
+			<value id="54">Cockvine</value>
+			<value id="65">Gryvain</value>
+			<value id="67">Flower</value>
+		</values>
+	</enum>
+	<enum name="Cum Type">
+		<values>
+			<value id="0">Milk</value>
+			<value id="1">Honey</value>
+			<value id="2">Cum</value>
+			<value id="6">Cumsap</value>
+			<value id="7">Chocolate Milk</value>
+			<value id="8">Strawberry Milk</value>
+			<value id="9">Sydian Cum</value>
+			<value id="14">Gabilani Cum</value>
+			<value id="16">Vanilla</value>
+			<value id="17">Nyrea Cum</value>
+			<value id="18">Goo</value>
+			<value id="19">Chocolate Cum</value>
+			<value id="20">Vanae Cum</value>
+			<value id="23">Hradian Cum</value>
+			<value id="24">Goo Cum</value>
+			<value id="25">Fruit Cum</value>
+			<value id="27">Eggnog</value>
+			<value id="28">Peppermint Cum</value>
+			<value id="29">Sugar Glaze</value>
+		</values>
+	</enum>
+	<enum name="Girl Cum Type">
+		<values>
+			<value id="1">Honey</value>
+			<value id="5">Girl Cum</value>
+			<value id="7">Chocolate Milk</value>
+			<value id="8">Strawberry Milk</value>
+			<value id="15">Gabilani Girl Cum</value>
+			<value id="16">Vanilla</value>
+			<value id="18">Goo</value>
+			<value id="21">Nyrea Girl Cum</value>
+			<value id="23">Hradian Cum</value>
+			<value id="26">Fruit Girl Cum</value>
+			<value id="29">Sugar Glaze</value>
+		</values>
+	</enum>
+	<enum name="Milk Type">
+		<values>
+			<value id="0">Milk</value>
+			<value id="1">Honey</value>
+			<value id="2">Cum</value>
+			<value id="4">Milksap</value>
+			<value id="5">Girl Cum</value>
+			<value id="7">Chocolate Milk</value>
+			<value id="8">Strawberry Milk</value>
+			<value id="10">Vanae Maiden Milk</value>
+			<value id="11">Vanae Huntress Milk</value>
+			<value id="12">Nectar</value>
+			<value id="13">Leithan Milk</value>
+			<value id="16">Vanilla</value>
+			<value id="22">Blueberry Yogurt</value>
+			<value id="29">Sugar Glaze</value>
+		</values>
+	</enum>
+	<enum name="Cock Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+			<value id="5">Vulpine</value>
+			<value id="6">Bee</value>
+			<value id="10">Avian</value>
+			<value id="11">Draconic</value>
+			<value id="13">Naga</value>
+			<value id="15">Demonic</value>
+			<value id="17">Kangaroo</value>
+			<value id="18">Gabilani</value>
+			<value id="19">Shark</value>
+			<value id="20">Suula</value>
+			<value id="22">Anemone</value>
+			<value id="23">Tentacle</value>
+			<value id="24">Kui-tan</value>
+			<value id="34">Venus Pitcher</value>
+			<value id="42">Raskvel</value>
+			<value id="43">Sydian</value>
+			<value id="46">Vanae</value>
+			<value id="51">Synthetic</value>
+			<value id="52">Simii</value>
+			<value id="53">Daynar</value>
+			<value id="54">Cockvine</value>
+			<value id="55">Nyrea</value>
+			<value id="56">Inhuman</value>
+			<value id="57">Ovir</value>
+			<value id="61">Saurian</value>
+			<value id="64">Hradian</value>
+			<value id="65">Gryvain</value>
+			<value id="72">Swine</value>
+		</values>
+	</enum>
+	<enum name="Cock Flags">
+		<values>
+			<value id="2">Prehensile</value>
+			<value id="3">Lubricated</value>
+			<value id="6">Smooth</value>
+			<value id="7">Tapered</value>
+			<value id="8">Flared</value>
+			<value id="9">Knotted</value>
+			<value id="10">Blunt</value>
+			<value id="11">Aphrodisiac</value>
+			<value id="12">Sticky</value>
+			<value id="19">Amorphous</value>
+			<value id="25">Ovipositor</value>
+			<value id="26">Sheathed</value>
+			<value id="28">Stinger Base</value>
+			<value id="29">Stinger Tip</value>
+			<value id="30">Nubby</value>
+			<value id="31">Foreskinned</value>
+			<value id="33">Ribbed</value>
+			<value id="36">Double Headed</value>
+			<value id="37">Gooey</value>
+			<value id="44">Corkscrewed</value>
+		</values>
+	</enum>
+	<enum name="Vagina Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="3">Canine</value>
+			<value id="5">Vulpine</value>
+			<value id="6">Bee</value>
+			<value id="10">Avian</value>
+			<value id="13">Naga</value>
+			<value id="16">Gooey</value>
+			<value id="18">Gabilani</value>
+			<value id="19">Shark</value>
+			<value id="20">Suula</value>
+			<value id="24">Kui-tan</value>
+			<value id="44">Lapinara</value>
+			<value id="46">Vanae</value>
+			<value id="49">Leithan</value>
+			<value id="51">Synthetic</value>
+			<value id="55">Nyrea</value>
+			<value id="65">Gryvain</value>
+			<value id="67">Flower</value>
+			<value id="72">Swine</value>
+			<value id="74">Mouthgina</value>
+		</values>
+	</enum>
+	<enum name="Vagina Flags">
+		<values>
+			<value id="3">Lubricated</value>
+			<value id="11">Aphrodisiac</value>
+			<value id="18">Tendril</value>
+			<value id="25">Ovipositor</value>
+			<value id="30">Nubby</value>
+			<value id="37">Gooey</value>
+			<value id="40">Slightly Pumped</value>
+			<value id="41">Fully Pumped</value>
+			<value id="44">Corkscrewed</value>
+			<value id="45">Tongued</value>
+		</values>
+	</enum>
+	<enum name="Ass Flags">
+		<values>
+			<value id="3">Lubricated</value>
+			<value id="11">Aphrodisiac</value>
+			<value id="30">Nubby</value>
+			<value id="37">Gooey</value>
+			<value id="40">Slightly Pumped</value>
+			<value id="41">Fully Pumped</value>
+		</values>
+	</enum>
+	<enum name="Nipple Type">
+		<values>
+			<value id="0">Normal</value>
+			<value id="1">Cunt</value>
+			<value id="2">Lipples</value>
+			<value id="3">Dick</value>
+			<value id="4">Flat</value>
+			<value id="5">Inverted</value>
+			<value id="6">Tentacled</value>
+		</values>
+	</enum>
+	<enum name="Dick Nipple Type">
+		<values>
+			<value id="0">Human</value>
+			<value id="1">Equine</value>
+			<value id="3">Canine</value>
+			<value id="4">Feline</value>
+		</values>
+	</enum>
+	<enum name="Genital Spot">
+		<values>
+			<value id="0">Waist</value>
+			<value id="1">Mid-tail</value>
+			<value id="2">Hind Legs</value>
+			<value id="3">Under-tail</value>
+		</values>
+	</enum>
+	<enum name="Item Type">
+		<values>
+			<value id="0">Pill</value>
+			<value id="1">Food</value>
+			<value id="2">Potion</value>
+			<value id="3">Melee Weapon</value>
+			<value id="4">Ranged Weapon</value>
+			<value id="5">Armor</value>
+			<value id="6">Shield</value>
+			<value id="7">Upper Undergarment</value>
+			<value id="8">Lower Undergarment</value>
+			<value id="9">Accessory</value>
+			<value id="10">Drug</value>
+			<value id="11">Clothing</value>
+			<value id="12">All</value>
+			<value id="13">Gadget</value>
+			<value id="14">Explosive Consumable</value>
+			<value id="15">Quest Item</value>
+			<value id="16">Gem</value>
+			<value id="17">Sex Toy</value>
+		</values>
+	</enum>
+</data>
