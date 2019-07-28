@@ -114,7 +114,7 @@ public class SaveModel {
 	 * @param ident Identity to resolve.
 	 * @return the amf value or null if it did not exist.
 	 */
-	protected AmfValue find(String ident) {
+	public AmfValue find(String ident) {
 		if (isFile) {
 			return AmfUtils.resolve(srcFile, ident);
 		}

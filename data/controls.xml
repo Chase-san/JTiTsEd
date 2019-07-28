@@ -1,425 +1,551 @@
 <data>
-	<!--
-	<tab name="Tab Name">
-	<row>
-	
-	data value entries
-	<label>
-	<title>
-	<string>
-	<integer>
-	<decimal>
-	<flags type="NAME">
-	<enum type="NAME">
-	<textenum type="NAME>
-	<textenum ??? edit="X"> true/false; defaults to false
-	<??? sort="X"> natural,key,value,keyNone;valueNone; sorts the
-			type entry by the given type, keyNone and valueNone indicates
-			it has a none entry which is sorted to the top; defaults to natural
-	<??? span="X"> 0..99; span number of columns; defaults to 1
-	-->
-	
-	<tab name="General">
-		<row>
-			<title span="3">General Information</title>
-		</row>
-		<row>
-			<label>Name</label>
-			<string span="2">characters.PC.short,saveName</string>
-		</row>
-		<row>
-			<label>Save Note</label>
-			<string span="2">saveNotes</string>
-		</row>
-		<row>
-			<label>Credits</label>
-			<integer span="2">characters.PC.credits</integer>
-		</row>
-		<row>
-			<title span="3" />
-		</row>
-		<row>
-			<label>Days</label>
-			<label>Hours</label>
-			<label>Minutes</label>
-		</row>
-		<row>
-			<integer>daysPassed</integer>
-			<integer>currentHours</integer>
-			<integer>currentMinutes</integer>
-		</row>
-		
-		<row>
-			<title span="3">Combat Stats</title>
-		</row>
-		<row>
-			<label />
-			<label>Base</label>
-			<label>Mod</label>
-		</row>
-		<row>
-			<label>Lust</label>
-			<integer>characters.PC.lustRaw</integer>
-			<integer>characters.PC.lustMod</integer>
-		</row>
-		<row>
-			<label>Energy</label>
-			<integer>characters.PC.energyRaw</integer>
-			<integer>characters.PC.energyMod</integer>
-		</row>
-		<row>
-			<title span="3">Stats</title>
-		</row>
-		<row>
-			<label />
-			<label>Base</label>
-			<label>Mod</label>
-		</row>
-		<row>
-			<label>Physique</label>
-			<integer>characters.PC.physiqueRaw</integer>
-			<integer>characters.PC.physiqueMod</integer>
-		</row>
-		<row>
-			<label>Reflexes</label>
-			<integer>characters.PC.reflexesRaw</integer>
-			<integer>characters.PC.reflexesMod</integer>
-		</row>
-		<row>
-			<label>Aim</label>
-			<integer>characters.PC.aimRaw</integer>
-			<integer>characters.PC.aimMod</integer>
-		</row>
-		<row>
-			<label>Intelligence</label>
-			<integer>characters.PC.intelligenceRaw</integer>
-			<integer>characters.PC.intelligenceMod</integer>
-		</row>
-		<row>	
-			<label>Willpower</label>
-			<integer>characters.PC.willpowerRaw</integer>
-			<integer>characters.PC.willpowerMod</integer>
-		</row>
-		<row>
-			<label>Libido</label>
-			<integer>characters.PC.libidoRaw</integer>
-			<integer>characters.PC.libidoMod</integer>
-		</row>
-		
-		
-		<row>
-			<title span="3">Advancement</title>
-		</row>
+  <!--
+        <tab name="Tab Name">
+        <row>
 
-		<row>
-			<label>Class</label>
-			<enum type="Class Type" span="2">characters.PC.characterClass</enum>
-		</row>
-		<row>
-			<label>Level</label>
-			<integer>characters.PC.level</integer>
-		</row>
-		<row>
-			<label>XP</label>
-			<integer>characters.PC.XPRaw</integer>
-		</row>
-		<row>
-			<label>Stat Points</label>
-			<integer>characters.PC.unspentStatPoints</integer>
-		</row>
-		
-		
-		<row>
-			<title span="3">Miscellaneous</title>
-		</row>
-		<row>
-			<label>Affinity</label>
-			<textenum type="Affinity" span="2">characters.PC.affinity</textenum>
-		</row>
-		<row>
-			<label>Original Race</label>
-			<textenum type="Original Race" span="2">characters.PC.originalRace</textenum>
-		</row>
-		<row>
-			<label>Personality</label>
-			<integer>characters.PC.personality</integer>
-		</row>
-		<row>
-			<label>Exhibitionism</label>
-			<integer>characters.PC.exhibitionismRaw</integer>
-		</row>
-	</tab>
-	
-	<tab name="Body">
-		<row>
-			<title span="3">General</title>
-		</row>
-		<row>
-			<label>Height</label>
-			<integer>characters.PC.tallness</integer>
-		</row>
-		<row>
-			<label>Thickness</label>
-			<integer>characters.PC.thickness</integer>
-		</row>
-		<row>
-			<label>Tone</label>
-			<integer>characters.PC.tone</integer>
-		</row>
-		<row>
-			<label>Feminity</label>
-			<integer>characters.PC.femininity</integer>
-		</row>
-		<row>
-			<label>Gills</label>
-			<boolean>characters.PC.gills</boolean>
-		</row>
-		
-		<row>
-			<title span="3">Skin</title>
-		</row>
-		<row>
-			<label>Skin Type</label>
-			<enum type="Skin Type" sort="value" span="2">characters.PC.skinType</enum>
-		</row>
-		<row>
-			<label>Skin Tone</label>
-			<textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.skinTone</textenum>
-		</row>
-		<row>
-			<label>Fur Color</label>
-			<textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.furColor</textenum>
-		</row>
-		<row>
-			<label>Scale Color</label>
-			<textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.scaleColor</textenum>
-		</row>
-		<row>
-			<label>Skin Accent</label>
-			<textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.skinAccent</textenum>
-		</row>
-		<row>
-			<flags type="Skin Flags" span="3" sort="value">characters.PC.skinFlags</flags>
-		</row>
-		
-		<row>
-			<title span="3">Shape</title>
-		</row>
-		<row>
-			<label />
-			<label>Base</label>
-			<label>Mod</label>
-		</row>
-		<row>
-			<label>Belly</label>
-			<integer>characters.PC.bellyRatingRaw</integer>
-			<integer>characters.PC.bellyRatingMod</integer>
-		</row>
-		<row>
-			<label>Hips</label>
-			<integer>characters.PC.hipRatingRaw</integer>
-			<integer>characters.PC.hipRatingMod</integer>
-		</row>
-		<row>
-			<label>Butt</label>
-			<integer>characters.PC.buttRatingRaw</integer>
-			<integer>characters.PC.buttRatingMod</integer>
-		</row>
-		
-		
-		<row>
-			<title span="3">Wings</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Wing Type" sort="valueNone" span="2">characters.PC.wingType</enum>
-		</row>
-		<row>
-			<label>Count</label>
-			<integer>characters.PC.wingCount</integer>
-		</row>
-		
-		
-		<row>
-			<title span="3">Arms</title>
-		</row>
-				<row>
-			<label>Type</label>
-			<enum type="Arm Type" sort="value" span="2">characters.PC.armType</enum>
-		</row>
-		<row>
-			<flags type="Arm Flags" sort="value" span="3">characters.PC.armFlags</flags>
-		</row>
-		
-		<row>
-			<title span="3">Legs</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Leg Type" sort="value" span="2">characters.PC.legType</enum>
-		</row>
-		<row>
-			<label>Count</label>
-			<integer>characters.PC.legCount</integer>
-		</row>
-		<row>
-			<flags type="Leg Flags" sort="value" span="3">characters.PC.legFlags</flags>
-		</row>
-		
-		<row>
-			<title span="3">Tail (Basic)</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Tail Type" sort="valueNone" span="2">characters.PC.tailType</enum>
-		</row>
-		<row>
-			<label>Count</label>
-			<integer span="2">characters.PC.tailCount</integer>
-		</row>
-		<row>
-			<flags type="Tail Flags" sort="value" span="3">characters.PC.tailFlags</flags>
-		</row>
-		
-		<row>
-			<title span="3">Tail (Advanced)</title>
-		</row>
-		<row>
-			<label>Venom</label>
-			<integer>characters.PC.tailVenom</integer>
-		</row>
-		<row>
-			<label>Recharge</label>
-			<integer>characters.PC.tailRecharge</integer>
-		</row>
-		<row>
-			<label>Genital Type</label>
-			<enum type="Tail Genital Type" span="2">characters.PC.tailGenital</enum>
-		</row>
-		<row>
-			<label>Genital Race</label>
-			<enum type="Tail Genital Race" span="2">characters.PC.tailGenitalArg</enum>
-		</row>
-		<row>
-			<label>Genital Color</label>
-			<textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.tailGenitalColor</textenum>
-		</row>
-		
-		
-	</tab>
-	
-	<tab name="Head">
-		<row>
-			<title span="3">Hair</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Hair Type" sort="value" span="2">characters.PC.hairType</enum>
-		</row>
-		<row>
-			<label>Length</label>
-			<integer>characters.PC.hairLength</integer>
-		</row>
-		<row>
-			<label>Color</label>
-			<textenum type="Hair Color" sort="value" edit="true" span="2">characters.PC.hairColor</textenum>
-		</row>
-		<row>
-			<label>Style</label>
-			<textenum type="Hair Style" sort="valueNone" edit="true" span="2">characters.PC.hairStyle</textenum>
-		</row>
-		
-		<row>
-			<title span="3">Horn</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Horn Type" sort="valueNone" span="2">characters.PC.hornType</enum>
-		</row>
-		<row>
-			<label>Count</label>
-			<integer>characters.PC.horns</integer>
-		</row>
-		<row>
-			<label>Length</label>
-			<integer>characters.PC.hornLength</integer>
-		</row>
-		
-		
-		<row>
-			<title span="3">Antennae</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Antennae Type" sort="valueNone" span="2">characters.PC.antennaeType</enum>
-		</row>
-		<row>
-			<label>Count</label>
-			<integer>characters.PC.antennae</integer>
-		</row>
-		
-		<row>
-			<title span="3">Ears</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Ear Type" sort="value" span="2">characters.PC.earType</enum>
-		</row>
-		<row>
-			<label>Length</label>
-			<integer>characters.PC.earLength</integer>
-		</row>
-		
-		<row>
-			<title span="3">Face</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Face Type" sort="value" span="2">characters.PC.faceType</enum>
-		</row>
-		<row>
-			<flags type="Face Flags" span="3" sort="value">characters.PC.faceFlags</flags>
-		</row>
-		<row>
-			<label>Eye Type</label>
-			<enum type="Eye Type" sort="value" span="2">characters.PC.eyeType</enum>
-		</row>
-		<row>
-			<label>Eye Color</label>
-			<textenum type="Eye Color" sort="value" edit="true" span="2">characters.PC.eyeColor</textenum>
-		</row>
-		<row>
-			<label>Lip Color</label>
-			<textenum type="Skin Tone" sort="value" edit="true" span="2">characters.PC.lipColor</textenum>
-		</row>
-		<row>
-			<label>Lip Size</label>
-			<integer>characters.PC.lipMod</integer>
-		</row>
-		<row>
-			<label>Tongue Type</label>
-			<enum type="Tongue Type" sort="value" span="2">characters.PC.tongueType</enum>
-		</row>
-		<row>
-			<flags type="Tongue Flags" span="3" sort="value">characters.PC.tongueFlags</flags>
-		</row>
-		
-		<row>
-			<title span="3">Beard</title>
-		</row>
-		<row>
-			<label>Type</label>
-			<enum type="Hair Type" sort="value" span="2">characters.PC.beardType</enum>
-		</row>
-		<row>
-			<label>Length</label>
-			<integer>characters.PC.beardLength</integer>
-		</row>
-		<row>
-			<label>Style</label>
-			<enum type="Beard Style" sort="valueNone" span="2">characters.PC.beardStyle</enum>
-		</row>
-		
-	</tab>
-	
+        data value entries
+        <label>
+        <title>
+        <string>
+        <integer>
+        <decimal>
+        <flags type="NAME">
+        <enum type="NAME">
+        <textenum type="NAME>
+        <textenum ??? edit="X"> true/false; defaults to false
+        <??? sort="X"> natural,key,value,keyNone;valueNone; sorts the
+                        type entry by the given type, keyNone and valueNone indicates
+                        it has a none entry which is sorted to the top; defaults to natural
+        <??? span="X"> 0..99; span number of columns; defaults to 1
+        -->
+  <tab name="General">
+    <row>
+      <title span="3">General Information</title>
+    </row>
+    <row>
+      <label>Name</label>
+      <string span="2">characters.PC.short,saveName</string>
+    </row>
+    <row>
+      <label>Save Note</label>
+      <string span="2">saveNotes</string>
+    </row>
+    <row>
+      <label>Credits</label>
+      <integer min="0" span="2">characters.PC.credits</integer>
+    </row>
+    <row>
+      <title span="3" />
+    </row>
+    <row>
+      <label>Days</label>
+      <label>Hours</label>
+      <label>Minutes</label>
+    </row>
+    <row>
+      <integer min="0">daysPassed</integer>
+      <integer min="0">currentHours</integer>
+      <integer min="0">currentMinutes</integer>
+    </row>
+    <row>
+      <title span="3">Combat Stats</title>
+    </row>
+    <row>
+      <label></label>
+      <label>Base</label>
+      <label>Mod</label>
+    </row>
+    <row>
+      <label>Lust</label>
+      <integer min="0">characters.PC.lustRaw</integer>
+      <integer min="0">characters.PC.lustMod</integer>
+    </row>
+    <row>
+      <label>Energy</label>
+      <integer min="0">characters.PC.energyRaw</integer>
+      <integer min="0">characters.PC.energyMod</integer>
+    </row>
+    <row>
+      <title span="3">Stats</title>
+    </row>
+    <row>
+      <label />
+      <label>Base</label>
+      <label>Mod</label>
+    </row>
+    <row>
+      <label>Physique</label>
+      <integer min="0">characters.PC.physiqueRaw</integer>
+      <integer min="0">characters.PC.physiqueMod</integer>
+    </row>
+    <row>
+      <label>Reflexes</label>
+      <integer min="0">characters.PC.reflexesRaw</integer>
+      <integer min="0">characters.PC.reflexesMod</integer>
+    </row>
+    <row>
+      <label>Aim</label>
+      <integer min="0">characters.PC.aimRaw</integer>
+      <integer min="0">characters.PC.aimMod</integer>
+    </row>
+    <row>
+      <label>Intelligence</label>
+      <integer min="0">characters.PC.intelligenceRaw</integer>
+      <integer min="0">characters.PC.intelligenceMod</integer>
+    </row>
+    <row>
+      <label>Willpower</label>
+      <integer min="0">characters.PC.willpowerRaw</integer>
+      <integer min="0">characters.PC.willpowerMod</integer>
+    </row>
+    <row>
+      <label>Libido</label>
+      <integer min="0">characters.PC.libidoRaw</integer>
+      <integer min="0">characters.PC.libidoMod</integer>
+    </row>
+    <row>
+      <title span="3">Advancement</title>
+    </row>
+    <row>
+      <label>Class</label>
+      <enum type="Class Type" span="2">characters.PC.characterClass</enum>
+    </row>
+    <row>
+      <label>Level</label>
+      <integer>characters.PC.level</integer>
+    </row>
+    <row>
+      <label>XP</label>
+      <integer>characters.PC.XPRaw</integer>
+    </row>
+    <row>
+      <label>Stat Points</label>
+      <integer>characters.PC.unspentStatPoints</integer>
+    </row>
+    <row>
+      <title span="3">Miscellaneous</title>
+    </row>
+    <row>
+      <label>Affinity</label>
+      <textenum type="Affinity" span="2">characters.PC.affinity</textenum>
+    </row>
+    <row>
+      <label>Original Race</label>
+      <textenum type="Original Race" span="2">characters.PC.originalRace</textenum>
+    </row>
+    <row>
+      <label>Personality</label>
+      <integer>characters.PC.personality</integer>
+    </row>
+    <row>
+      <label>Exhibitionism</label>
+      <integer>characters.PC.exhibitionismRaw</integer>
+    </row>
+  </tab>
+  <tab name="Body">
+    <row>
+      <title span="3">General</title>
+    </row>
+    <row>
+      <label>Height</label>
+      <integer>characters.PC.tallness</integer>
+    </row>
+    <row>
+      <label>Thickness</label>
+      <integer>characters.PC.thickness</integer>
+    </row>
+    <row>
+      <label>Tone</label>
+      <integer>characters.PC.tone</integer>
+    </row>
+    <row>
+      <label>Feminity</label>
+      <integer>characters.PC.femininity</integer>
+    </row>
+    <row>
+      <label>Gills</label>
+      <boolean>characters.PC.gills</boolean>
+    </row>
+    <row>
+      <title span="3">Skin</title>
+    </row>
+    <row>
+      <label>Skin Type</label>
+      <enum type="Skin Type" sort="value" span="2">characters.PC.skinType</enum>
+    </row>
+    <row>
+      <label>Skin Tone</label>
+      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.skinTone</textenum>
+    </row>
+    <row>
+      <label>Fur Color</label>
+      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.furColor</textenum>
+    </row>
+    <row>
+      <label>Scale Color</label>
+      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.scaleColor</textenum>
+    </row>
+    <row>
+      <label>Skin Accent</label>
+      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.skinAccent</textenum>
+    </row>
+    <row>
+      <flags type="Skin Flags" span="3" sort="value">characters.PC.skinFlags</flags>
+    </row>
+    <row>
+      <title span="3">Shape</title>
+    </row>
+    <row>
+      <label></label>
+      <label>Base</label>
+      <label>Mod</label>
+    </row>
+    <row>
+      <label>Belly</label>
+      <integer>characters.PC.bellyRatingRaw</integer>
+      <integer>characters.PC.bellyRatingMod</integer>
+    </row>
+    <row>
+      <label>Hips</label>
+      <integer>characters.PC.hipRatingRaw</integer>
+      <integer>characters.PC.hipRatingMod</integer>
+    </row>
+    <row>
+      <label>Butt</label>
+      <integer>characters.PC.buttRatingRaw</integer>
+      <integer>characters.PC.buttRatingMod</integer>
+    </row>
+    <row>
+      <title span="3">Wings</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Wing Type" sort="valueNone" span="2">characters.PC.wingType</enum>
+    </row>
+    <row>
+      <label>Count</label>
+      <integer>characters.PC.wingCount</integer>
+    </row>
+    <row>
+      <title span="3">Arms</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Arm Type" sort="value" span="2">characters.PC.armType</enum>
+    </row>
+    <row>
+      <flags type="Arm Flags" sort="value" span="3">characters.PC.armFlags</flags>
+    </row>
+    <row>
+      <title span="3">Legs</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Leg Type" sort="value" span="2">characters.PC.legType</enum>
+    </row>
+    <row>
+      <label>Count</label>
+      <integer>characters.PC.legCount</integer>
+    </row>
+    <row>
+      <flags type="Leg Flags" sort="value" span="3">characters.PC.legFlags</flags>
+    </row>
+    <row>
+      <title span="3">Tail (Basic)</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Tail Type" sort="valueNone" span="2">characters.PC.tailType</enum>
+    </row>
+    <row>
+      <label>Count</label>
+      <integer span="2">characters.PC.tailCount</integer>
+    </row>
+    <row>
+      <flags type="Tail Flags" sort="value" span="3">characters.PC.tailFlags</flags>
+    </row>
+    <row>
+      <title span="3">Tail (Advanced)</title>
+    </row>
+    <row>
+      <label>Venom</label>
+      <integer>characters.PC.tailVenom</integer>
+    </row>
+    <row>
+      <label>Recharge</label>
+      <integer>characters.PC.tailRecharge</integer>
+    </row>
+    <row>
+      <label>Genital Type</label>
+      <enum type="Tail Genital Type" span="2">characters.PC.tailGenital</enum>
+    </row>
+    <row>
+      <label>Genital Race</label>
+      <enum type="Tail Genital Race" span="2">characters.PC.tailGenitalArg</enum>
+    </row>
+    <row>
+      <label>Genital Color</label>
+      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.tailGenitalColor</textenum>
+    </row>
+  </tab>
+  <tab name="Head">
+    <row>
+      <title span="3">Hair</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Hair Type" sort="value" span="2">characters.PC.hairType</enum>
+    </row>
+    <row>
+      <label>Length</label>
+      <integer>characters.PC.hairLength</integer>
+    </row>
+    <row>
+      <label>Color</label>
+      <textenum type="Hair Color" sort="value" edit="true" span="2">characters.PC.hairColor</textenum>
+    </row>
+    <row>
+      <label>Style</label>
+      <textenum type="Hair Style" sort="valueNone" edit="true" span="2">characters.PC.hairStyle</textenum>
+    </row>
+    <row>
+      <title span="3">Horn</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Horn Type" sort="valueNone" span="2">characters.PC.hornType</enum>
+    </row>
+    <row>
+      <label>Count</label>
+      <integer>characters.PC.horns</integer>
+    </row>
+    <row>
+      <label>Length</label>
+      <integer>characters.PC.hornLength</integer>
+    </row>
+    <row>
+      <title span="3">Antennae</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Antennae Type" sort="valueNone" span="2">characters.PC.antennaeType</enum>
+    </row>
+    <row>
+      <label>Count</label>
+      <integer>characters.PC.antennae</integer>
+    </row>
+    <row>
+      <title span="3">Ears</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Ear Type" sort="value" span="2">characters.PC.earType</enum>
+    </row>
+    <row>
+      <label>Length</label>
+      <integer>characters.PC.earLength</integer>
+    </row>
+    <row>
+      <title span="3">Face</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Face Type" sort="value" span="2">characters.PC.faceType</enum>
+    </row>
+    <row>
+      <flags type="Face Flags" span="3" sort="value">characters.PC.faceFlags</flags>
+    </row>
+    <row>
+      <label>Eye Type</label>
+      <enum type="Eye Type" sort="value" span="2">characters.PC.eyeType</enum>
+    </row>
+    <row>
+      <label>Eye Color</label>
+      <textenum type="Eye Color" sort="value" edit="true" span="2">characters.PC.eyeColor</textenum>
+    </row>
+    <row>
+      <label>Lip Color</label>
+      <textenum type="Skin Tone" sort="value" edit="true" span="2">characters.PC.lipColor</textenum>
+    </row>
+    <row>
+      <label>Lip Size</label>
+      <integer>characters.PC.lipMod</integer>
+    </row>
+    <row>
+      <label>Tongue Type</label>
+      <enum type="Tongue Type" sort="value" span="2">characters.PC.tongueType</enum>
+    </row>
+    <row>
+      <flags type="Tongue Flags" span="3" sort="value">characters.PC.tongueFlags</flags>
+    </row>
+    <row>
+      <title span="3">Beard</title>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Hair Type" sort="value" span="2">characters.PC.beardType</enum>
+    </row>
+    <row>
+      <label>Length</label>
+      <integer>characters.PC.beardLength</integer>
+    </row>
+    <row>
+      <label>Style</label>
+      <enum type="Beard Style" sort="valueNone" span="2">characters.PC.beardStyle</enum>
+    </row>
+  </tab>
+  <tab name="Genitals">
+    <row>
+      <title span="3">Breasts</title>
+    </row>
+    <row>
+      <array class="classes::BreastRowClass" min="1" max="4" span="3">characters.PC.breastRows</array>
+    </row>
+    <row array="true">
+      <label></label>
+      <label>Base</label>
+      <label>Mod</label>
+    </row>
+    <row array="true">
+      <label>Rating</label>
+      <integer>{ARRAY_ENTRY}.breastRatingRaw</integer>
+      <integer>{ARRAY_ENTRY}.breastRatingMod</integer>
+    </row>
+    <row array="true">
+      <label>HoneyPot Mod</label>
+      <integer span="2">{ARRAY_ENTRY}.breastRatingHoneypotMod</integer>
+    </row>
+    <row array="true">
+      <label>Lactation Mod</label>
+      <integer span="2">{ARRAY_ENTRY}.breastRatingLactationMod</integer>
+    </row>
+    <row array="true">
+      <label>Count</label>
+      <integer span="2">{ARRAY_ENTRY}.breasts</integer>
+    </row>
+    <row array="true">
+      <label>Fullness</label>
+      <integer span="2">{ARRAY_ENTRY}.fullness</integer>
+    </row>
+    <row array="true">
+      <label>Nipple Type</label>
+      <enum type="Nipple Type" sort="key" span="2">{ARRAY_ENTRY}.nippleType</enum>
+    </row>
+
+    <row>
+      <title span="3">Cocks</title>
+    </row>
+    <row>
+      <label>True Virgin</label>
+      <boolean span="2">characters.PC.cockVirgin</boolean>
+    </row>
+    <row>
+      <array class="classes::CockClass" min="0" max="4" span="3">characters.PC.cocks</array>
+    </row>
+    <row array="true">
+      <label></label>
+      <label>Base</label>
+      <label>Mod</label>
+    </row>
+    <row array="true">
+      <label>Length</label>
+      <integer>{ARRAY_ENTRY}.cLengthRaw</integer>
+      <integer>{ARRAY_ENTRY}.cLengthMod</integer>
+    </row>
+    <row array="true">
+      <label>Thickness</label>
+      <integer>{ARRAY_ENTRY}.cThicknessRatioRaw</integer>
+      <integer>{ARRAY_ENTRY}.cThicknessRatioMod</integer>
+    </row>
+    <row array="true">
+      <label>Type</label>
+      <enum type="Cock Type" sort="key" span="2">{ARRAY_ENTRY}.cType</enum>
+    </row>
+    <row array="true">
+      <label>Color</label>
+      <textenum type="Skin Tone" sort="value" span="2" edit="true">{ARRAY_ENTRY}.cockColor</textenum>
+    </row>
+    <row array="true">
+      <label>Knot Multiplier</label>
+      <decimal span="2">{ARRAY_ENTRY}.knotMultiplier</decimal>
+    </row>
+    <row array="true">
+      <label>Flaccid Multiplier</label>
+      <decimal span="2">{ARRAY_ENTRY}.knotMultiplier</decimal>
+    </row>
+    <row array="true">
+      <label>Virgin</label>
+      <boolean span="2">{ARRAY_ENTRY}.virgin</boolean>
+    </row>
+    <row array="true">
+      <flags type="Cock Flags" span="3" sort="value">{ARRAY_ENTRY}.cockFlags</flags>
+    </row>
+
+
+    <row>
+      <title span="3">Vaginas</title>
+    </row>
+    <row>
+      <label>True Virgin</label>
+      <boolean span="2">characters.PC.vaginalVirgin</boolean>
+    </row>
+    <row>
+      <array class="classes::VaginaClass" min="0" max="4" span="3">characters.PC.vaginas</array>
+    </row>
+    <row array="true">
+      <label>Type</label>
+      <enum type="Vagina Type" sort="key" span="2">{ARRAY_ENTRY}.type</enum>
+    </row>
+    <row array="true">
+      <label>Color</label>
+      <textenum type="Skin Tone" sort="value" span="2" edit="true">{ARRAY_ENTRY}.vaginaColor</textenum>
+    </row>
+    <row array="true">
+      <label>Virgin</label>
+      <boolean span="2">{ARRAY_ENTRY}.hymen</boolean>
+    </row>
+    <row array="true">
+      <label>Clits</label>
+      <integer span="2" min="1">{ARRAY_ENTRY}.clits</integer>
+    </row>
+    <row array="true">
+      <label></label>
+      <label>Base</label>
+      <label>Mod</label>
+    </row>
+    <row array="true">
+      <label>Wetness</label>
+      <integer min="0">{ARRAY_ENTRY}.wetnessRaw</integer>
+      <integer min="0">{ARRAY_ENTRY}.wetnessMod</integer>
+    </row>
+    <row array="true">
+      <label>Looseness</label>
+      <integer min="0">{ARRAY_ENTRY}.loosenessRaw</integer>
+      <integer min="0">{ARRAY_ENTRY}.loosenessMod</integer>
+    </row>
+    <row array="true">
+      <label>Min Looseness</label>
+      <integer span="2" min="0">{ARRAY_ENTRY}.minLooseness</integer>
+    </row>
+    <row array="true">
+      <label>Bonus Capacity</label>
+      <integer span="2" min="0">{ARRAY_ENTRY}.bonusCapacity</integer>
+    </row>
+    <row array="true">
+      <label>Shrink Counter</label>
+      <integer span="2" min="0">{ARRAY_ENTRY}.shrinkCounter</integer>
+    </row>
+    <row array="true">
+      <flags type="Vagina Flags" span="3" sort="value">{ARRAY_ENTRY}.vagooFlags</flags>
+    </row>
+
+
+    <row>
+      <title span="3">Anal</title>
+    </row>
+    <row>
+      <label>True Virgin</label>
+      <boolean span="2">characters.PC.analVirgin</boolean>
+    </row>
+  </tab>
 </data>

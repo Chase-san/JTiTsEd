@@ -28,34 +28,71 @@ import javax.swing.text.DocumentFilter;
 
 /**
  * Integer only number filter.
+ * 
  * @author Hovercraft Full Of Eels
  * @author Robert Maupin (subclassing)
  */
 public abstract class NumberDocumentFilter extends DocumentFilter {
 	public static class Integer extends NumberDocumentFilter {
+		java.lang.Integer min, max;
+
+		public Integer() {
+			min = null;
+			max = null;
+		}
+
+		public Integer(java.lang.Integer min, java.lang.Integer max) {
+			this.min = min;
+			this.max = max;
+		}
+
 		@Override
 		protected boolean test(String text) {
 			try {
-				java.lang.Integer.parseInt(text);
+				int value = java.lang.Integer.parseInt(text);
+				if (min != null && value < min) {
+					return false;
+				}
+				if (max != null && value > max) {
+					return false;
+				}
 				return true;
 			} catch (NumberFormatException e) {
 				return false;
 			}
 		}
 	}
-	
+
 	public static class Double extends NumberDocumentFilter {
+		java.lang.Integer min, max;
+
+		public Double() {
+			min = null;
+			max = null;
+		}
+
+		public Double(java.lang.Integer min, java.lang.Integer max) {
+			this.min = min;
+			this.max = max;
+		}
+
 		@Override
 		protected boolean test(String text) {
 			try {
-				java.lang.Double.parseDouble(text);
+				double value = java.lang.Double.parseDouble(text);
+				if (min != null && value < min) {
+					return false;
+				}
+				if (max != null && value > max) {
+					return false;
+				}
 				return true;
 			} catch (NumberFormatException e) {
 				return false;
 			}
 		}
 	}
-	
+
 	protected abstract boolean test(String text);
 
 	@Override

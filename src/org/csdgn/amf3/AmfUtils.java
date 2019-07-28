@@ -25,38 +25,42 @@ import java.util.ArrayList;
 
 public class AmfUtils {
 	/**
-	 * Gets the data assocaited with the string, this will be a series of identifiers connected by periods.
-	 * This method will only resolve through the sparse sections of arrays, string keys of dictionaries and objects.
-	 * @param file file to resolve
+	 * Gets the data associated with the string, this will be a series of
+	 * identifiers connected by periods. This method will only resolve through the
+	 * sparse sections of arrays, string keys of dictionaries and objects.
+	 * 
+	 * @param file  file to resolve
 	 * @param ident the identifier
 	 * @return the resolved value, or null if not found.
 	 */
 	public static AmfValue resolve(AmfFile file, String ident) {
 		String[] data = split(ident, '.');
-		if(data.length == 0) {
+		if (data.length == 0) {
 			return null;
 		}
 		return subresolve(file.get(data[0]), data, 1);
 	}
-	
+
 	/**
-	 * Gets the data assocaited with the string, this will be a series of identifiers connected by periods.
-	 * This method will only resolve through the sparse sections of arrays, string keys of dictionaries and objects.
-	 * @param amf AmfValue to resolve from.
+	 * Gets the data associated with the string, this will be a series of
+	 * identifiers connected by periods. This method will only resolve through the
+	 * sparse sections of arrays, string keys of dictionaries and objects.
+	 * 
+	 * @param amf   AmfValue to resolve from.
 	 * @param ident the identifier
 	 * @return the resolved value, or null if not found.
 	 */
 	public static AmfValue resolve(AmfValue amf, String ident) {
 		String[] data = split(ident, '.');
-		if(data.length == 0) {
+		if (data.length == 0) {
 			return null;
 		}
 		return subresolve(amf, data, 0);
 	}
-	
+
 	/**
-	 * Smart Fast Split. Removes null sections (length 0). "ab..cd" would
-	 * produce [ab][cd] with '.'
+	 * Smart Fast Split. Removes null sections (length 0). "ab..cd" would produce
+	 * [ab][cd] with '.'
 	 */
 	private static final String[] split(String src, char delim) {
 		ArrayList<String> output = new ArrayList<String>();
@@ -76,34 +80,45 @@ public class AmfUtils {
 		}
 		return output.toArray(new String[output.size()]);
 	}
-	
+
 	protected static AmfValue subresolve(AmfValue value, String[] idents, int identIndex) {
-		if(value == null) {
+		if (value == null) {
 			return null;
 		}
-		if(idents.length == identIndex) {
+		if (idents.length == identIndex) {
 			return value;
 		}
 		String ident = idents[identIndex];
-		switch(value.getType()) {
+		switch (value.getType()) {
 		case Array:
-			AmfArray array = (AmfArray)value;
-			value = array.getAssociative().get(ident);
+			AmfArray array = (AmfArray) value;
+			value = array.get(ident);
+			if (value == null) {
+				//not a perfect solution, but should do for now
+				try {
+					int index = Integer.parseInt(ident);
+					if (array.getDenseSize() > index) {
+						value = array.get(index);
+					}
+				} catch (NumberFormatException e) {
+					//not a number
+				}
+			}
 			break;
 		case Dictionary:
-			AmfDictionary dict = (AmfDictionary)value;
+			AmfDictionary dict = (AmfDictionary) value;
 			value = dict.get(new AmfString(ident));
 			break;
 		case Object:
-			AmfObject obj = (AmfObject)value;
+			AmfObject obj = (AmfObject) value;
 			value = null;
-			if(obj.getSealedMap().containsKey(ident)) {
+			if (obj.getSealedMap().containsKey(ident)) {
 				value = obj.getSealedMap().get(ident);
-			} else if(obj.getDynamicMap().containsKey(ident)) {
+			} else if (obj.getDynamicMap().containsKey(ident)) {
 				value = obj.getDynamicMap().get(ident);
 			}
 			break;
-		default: //unsupported type
+		default: // unsupported type
 			return null;
 		}
 		return subresolve(value, idents, identIndex + 1);

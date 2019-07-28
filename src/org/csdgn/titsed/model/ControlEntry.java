@@ -26,6 +26,7 @@ public class ControlEntry {
 	public static final String TYPE_ROW = "row";
 	public static final String TYPE_LABEL = "label";
 	public static final String TYPE_TITLE = "title";
+	public static final String TYPE_ARRAY = "array";
 	public static final String TYPE_STRING = "string";
 	public static final String TYPE_INTEGER = "integer";
 	public static final String TYPE_DECIMAL = "decimal";
@@ -33,32 +34,47 @@ public class ControlEntry {
 	public static final String TYPE_ENUM = "enum";
 	public static final String TYPE_TEXT_ENUM = "textenum";
 	public static final String TYPE_FLAGS = "flags";
-	
+
 	public static final String SORT_NATURAL = "natural";
 	public static final String SORT_KEY = "key";
 	public static final String SORT_VALUE = "value";
 	public static final String SORT_KEY_NONE = "keyNone";
 	public static final String SORT_VALUE_NONE = "valueNone";
-	
+
 	public String type;
 	public String[] value;
 	public boolean enumTextEdit;
 	public int span;
+	public int index;
+	public boolean arrayRow;
+	public Integer min;
+	public Integer max;
 	public String sort;
-	
-	public ControlEntry(String type, String ... value) {
+	public String className;
+
+	public ControlEntry(String type, String... value) {
 		this.type = type;
 		this.value = value;
 		this.span = 1;
+		this.min = null;
+		this.max = null;
 		this.enumTextEdit = false;
 		this.sort = SORT_NATURAL;
+		this.className = null;
+		this.arrayRow = false;
+		this.index = 0;
 	}
-	
-	public ControlEntry(String type, int span, String ... value) {
+
+	public ControlEntry(String type, int span, String... value) {
 		this.type = type;
 		this.value = value;
 		this.span = span;
+		this.min = null;
+		this.max = null;
 		this.enumTextEdit = false;
 		this.sort = SORT_NATURAL;
-	}	
+		this.className = null;
+		this.arrayRow = false;
+		this.index = 0;
+	}
 }

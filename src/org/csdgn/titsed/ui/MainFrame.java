@@ -21,26 +21,16 @@
  */
 package org.csdgn.titsed.ui;
 
-import java.awt.Color;
 import java.awt.Desktop;
-import java.awt.Font;
-import java.awt.GridLayout;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.swing.BorderFactory;
-import javax.swing.JCheckBox;
-import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -53,9 +43,6 @@ import javax.swing.event.MenuListener;
 import org.csdgn.amf3.AmfFile;
 import org.csdgn.amf3.AmfIO;
 import org.csdgn.amf3.AmfObject;
-import org.csdgn.amf3.AmfString;
-import org.csdgn.amf3.AmfType;
-import org.csdgn.amf3.AmfUtils;
 import org.csdgn.amf3.AmfValue;
 import org.csdgn.amf3.UnexpectedDataException;
 import org.csdgn.maru.swing.TableLayout;
@@ -193,6 +180,7 @@ public class MainFrame extends JFrame {
 
 		int row = -1;
 		int col = 0;
+		boolean showRow = true;
 		JPanel panel = null;
 		List<JScrollPane> panes = new ArrayList<JScrollPane>();
 
@@ -211,17 +199,26 @@ public class MainFrame extends JFrame {
 				break;
 			}
 			case ControlEntry.TYPE_ROW: {
-				col = 0;
-				row = row + 1;
+				showRow = true;
+				if (entry.arrayRow && factory.arraySize == 0) {
+					showRow = false;
+				}
+				if (showRow) {
+					col = 0;
+					row = row + 1;
+				}
+
 				break;
 			}
 			default:
-				try {
-					panel.add(factory.createEntry(entry), "x=" + col + ";y=" + row + ";colspan=" + entry.span);
-				} catch (Exception e) {
-					System.err.println("Error on building " + entry.type + " entry: " + entry.value[0]);
+				if (showRow) {
+					try {
+						panel.add(factory.createEntry(entry), "x=" + col + ";y=" + row + ";colspan=" + entry.span);
+					} catch (Exception e) {
+						System.err.println("Error on building '" + entry.type + "' entry: " + entry.value[0]);
+					}
+					col = col + 1;
 				}
-				col = col + 1;
 			}
 		}
 
@@ -251,7 +248,7 @@ public class MainFrame extends JFrame {
 				final File file = path.saves.get(index);
 				final String info = path.info.get(index);
 				String name = String.format("%d. %s", index, info);
-				
+
 				JMenuItem fileOpenPathItem = new JMenuItem(name);
 				fileOpenPathItem.addActionListener(e -> {
 					open(file);
@@ -338,7 +335,6 @@ public class MainFrame extends JFrame {
 		if (state.save == null) {
 			return;
 		}
-		// fileSaveFile.setEnabled(true);
 		fileSave.setEnabled(true);
 
 		buildLayout();

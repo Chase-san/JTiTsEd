@@ -104,13 +104,23 @@ public class DataModel {
 		StringBuilder buffer;
 		String enumType;
 		int span = 1;
+		Integer min;
+		Integer max;
 		boolean read;
 		boolean enumTextEdit;
 		String sort;
+		String className;
 
 		private ControlSAXHandler() {
 			buffer = new StringBuilder();
 			read = false;
+		}
+
+		private void parseSpan(Attributes attributes) {
+			String sSpan = attributes.getValue("span");
+			if (sSpan != null) {
+				span = Integer.parseInt(sSpan);
+			}
 		}
 
 		public void startElement(String uri, String localName, String qName, Attributes attributes)
@@ -118,15 +128,24 @@ public class DataModel {
 			enumType = null;
 			enumTextEdit = false;
 			sort = null;
+			min = null;
+			max = null;
+			className = null;
 			span = 1;
 
 			switch (qName) {
 			case ControlEntry.TYPE_TAB:
 				controlMap.add(new ControlEntry(qName, attributes.getValue("name")));
 				break;
-			case ControlEntry.TYPE_ROW:
-				controlMap.add(new ControlEntry(qName));
+			case ControlEntry.TYPE_ROW: {
+				ControlEntry row = new ControlEntry(qName);
+				String arr = attributes.getValue("array");
+				if(arr != null && arr.equalsIgnoreCase("true")) {
+					row.arrayRow = true;
+				}
+				controlMap.add(row);
 				break;
+			}
 			case ControlEntry.TYPE_FLAGS:
 			case ControlEntry.TYPE_ENUM:
 			case ControlEntry.TYPE_TEXT_ENUM:
@@ -137,17 +156,29 @@ public class DataModel {
 				if (vSort != null) {
 					sort = vSort;
 				}
+				parseSpan(attributes);
+				buffer.setLength(0);
+				read = true;
+				break;
+
+			case ControlEntry.TYPE_ARRAY:
+				className = attributes.getValue("class");
+			case ControlEntry.TYPE_INTEGER:
+			case ControlEntry.TYPE_DECIMAL:
+				String sMin = attributes.getValue("min");
+				if (sMin != null) {
+					min = Integer.parseInt(sMin);
+				}
+				String sMax = attributes.getValue("max");
+				if (sMax != null) {
+					min = Integer.parseInt(sMax);
+				}
 
 			case ControlEntry.TYPE_LABEL:
 			case ControlEntry.TYPE_TITLE:
 			case ControlEntry.TYPE_STRING:
 			case ControlEntry.TYPE_BOOLEAN:
-			case ControlEntry.TYPE_INTEGER:
-			case ControlEntry.TYPE_DECIMAL:
-				String sSpan = attributes.getValue("span");
-				if (sSpan != null) {
-					span = Integer.parseInt(sSpan);
-				}
+				parseSpan(attributes);
 				buffer.setLength(0);
 				read = true;
 				break;
@@ -163,18 +194,28 @@ public class DataModel {
 			case ControlEntry.TYPE_ENUM:
 			case ControlEntry.TYPE_TEXT_ENUM:
 				type = qName + ":" + enumType;
+			case ControlEntry.TYPE_ARRAY:
 			case ControlEntry.TYPE_BOOLEAN:
 			case ControlEntry.TYPE_STRING:
 			case ControlEntry.TYPE_INTEGER:
 			case ControlEntry.TYPE_DECIMAL:
 				String data = buffer.toString().trim();
-				controlMap.add(entry = new ControlEntry(type, span, data.split(",")));
+				entry = new ControlEntry(type, span, data.split(","));
+				controlMap.add(entry);
 				if (ControlEntry.TYPE_TEXT_ENUM.equals(qName)) {
 					entry.enumTextEdit = enumTextEdit;
 				}
 				if (ControlEntry.TYPE_ENUM.equals(qName) || ControlEntry.TYPE_TEXT_ENUM.equals(qName)
 						|| ControlEntry.TYPE_FLAGS.equals(qName)) {
 					entry.sort = sort;
+				}
+				if(ControlEntry.TYPE_ARRAY.equals(qName)) {
+					entry.className = className;
+				}
+				if (ControlEntry.TYPE_ARRAY.equals(qName) || ControlEntry.TYPE_INTEGER.equals(qName)
+						|| ControlEntry.TYPE_DECIMAL.equals(qName)) {
+					entry.min = min;
+					entry.max = max;
 				}
 				break;
 			case ControlEntry.TYPE_LABEL:

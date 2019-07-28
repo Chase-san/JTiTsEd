@@ -1,5 +1,6 @@
 package org.csdgn.titsed.ui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -13,13 +14,17 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.text.PlainDocument;
 
+import org.csdgn.amf3.AmfArray;
 import org.csdgn.maru.swing.DocumentAdapter;
 import org.csdgn.maru.swing.NumberDocumentFilter;
 import org.csdgn.titsed.model.ControlEntry;
@@ -117,14 +122,55 @@ public class ControlsFactory {
 		return retKeys;
 	}
 
+	private String arrayPath;
+	protected int arraySize;
 	private int prefHeight;
 	private int prefWidth;
+
 	private ProgramState state;
 
 	public ControlsFactory(ProgramState state) {
 		this.state = state;
+		arrayPath = null;
 		prefHeight = 24;
 		prefWidth = 120;
+	}
+
+	protected JPanel createArrayEntry(ControlEntry entry) {
+		// need index, add, and remove
+		// min is minimum number of entries
+		// max is maximum number of entries
+		// TODO allow multiple array entries
+		// TODO handle array within arrays
+
+		arrayPath = entry.value[0] + "." + entry.index;
+
+		// get maximum size
+		AmfArray arr = (AmfArray) state.save.find(entry.value[0]);
+		arraySize = arr.getDenseSize();
+
+		JButton prev = new JButton("<");
+		prev.setEnabled(entry.index > 0);
+
+		JButton next = new JButton(">");
+		next.setEnabled(entry.index < arraySize - 1);
+
+		String lbl = String.format("%d of %d", entry.index + 1, arraySize);
+		if (arraySize == 0) {
+			lbl = "none";
+		}
+
+		JLabel label = new JLabel(lbl);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setHorizontalTextPosition(SwingConstants.CENTER);
+
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.setPreferredSize(new Dimension(prefWidth, prefHeight));
+		panel.add(prev, BorderLayout.WEST);
+		panel.add(next, BorderLayout.EAST);
+		panel.add(label, BorderLayout.CENTER);
+
+		return panel;
 	}
 
 	protected JComboBox<EnumEntry<Boolean>> createBooleanEntry(ControlEntry entry) {
@@ -137,14 +183,16 @@ public class ControlsFactory {
 		combo.addItem(eeTrue);
 		combo.addItem(eeFalse);
 
-		if (state.save.getBoolean(entry.value[0])) {
+		final String[] paths = getSaveIdents(entry.value);
+
+		if (state.save.getBoolean(paths[0])) {
 			combo.setSelectedItem(eeTrue);
 		} else {
 			combo.setSelectedItem(eeFalse);
 		}
 
 		combo.addActionListener(e -> {
-			for (String path : entry.value) {
+			for (String path : paths) {
 				Object obj = combo.getSelectedItem();
 				if (obj != null) {
 					@SuppressWarnings("unchecked")
@@ -185,6 +233,8 @@ public class ControlsFactory {
 			case ControlEntry.TYPE_INTEGER:
 			case ControlEntry.TYPE_DECIMAL:
 				return createNumberEntry(entry);
+			case ControlEntry.TYPE_ARRAY:
+				return createArrayEntry(entry);
 			}
 
 		throw new RuntimeException("Unknown Data Type: " + entry.type);
@@ -198,7 +248,9 @@ public class ControlsFactory {
 		String enumName = entry.type.substring(entry.type.indexOf(':') + 1);
 		Map<String, String> enumData = state.data.getEnum(enumName);
 
-		int gameValue = state.save.getInteger(entry.value[0]);
+		final String[] paths = getSaveIdents(entry.value);
+
+		int gameValue = state.save.getInteger(paths[0]);
 		EnumEntry<Integer> current = null;
 
 		List<String> keys = sortIntegerKeySet(enumData, entry.sort);
@@ -223,7 +275,7 @@ public class ControlsFactory {
 
 		combo.setSelectedItem(current);
 		combo.addActionListener(e -> {
-			for (String path : entry.value) {
+			for (String path : paths) {
 				// save.setString(path, field.getText());
 				Object obj = combo.getSelectedItem();
 				if (obj != null) {
@@ -252,8 +304,10 @@ public class ControlsFactory {
 		panel.setTitle(enumName);
 		panel.collapse();
 
+		final String[] paths = getSaveIdents(entry.value);
+
 		Set<Integer> flagSet = new HashSet<Integer>();
-		for (String path : entry.value) {
+		for (String path : paths) {
 			flagSet.addAll(state.save.getFlags(path));
 		}
 
@@ -292,7 +346,7 @@ public class ControlsFactory {
 		for (final JCheckBox box : boxMap.keySet()) {
 			box.addActionListener(e -> {
 				int id = boxMap.get(box);
-				for (String path : entry.value) {
+				for (String path : paths) {
 					if (box.isSelected()) {
 						// add flag
 						state.save.addFlag(path, id);
@@ -311,18 +365,21 @@ public class ControlsFactory {
 		JTextField field = new JTextField();
 		field.setPreferredSize(new Dimension(prefWidth / 2, prefHeight));
 
-		// TODO number entry only
-		field.setText("" + state.save.getInteger(entry.value[0]));
+		final String[] paths = getSaveIdents(entry.value);
+
+		field.setText("" + state.save.getInteger(paths[0]));
 		PlainDocument doc = (PlainDocument) field.getDocument();
-		doc.setDocumentFilter(new NumberDocumentFilter.Integer());
+		doc.setDocumentFilter(new NumberDocumentFilter.Integer(entry.min, entry.max));
 		doc.addDocumentListener(new DocumentAdapter(e -> {
 			int value = 0;
+
+			// TODO handle decimal entry
 			try {
 				value = Integer.valueOf(field.getText());
 			} catch (NumberFormatException ex) {
 				return;
 			}
-			for (String path : entry.value) {
+			for (String path : paths) {
 				state.save.setInteger(path, value);
 			}
 		}));
@@ -334,9 +391,10 @@ public class ControlsFactory {
 		JTextField field = new JTextField();
 		field.setPreferredSize(new Dimension(120, prefHeight));
 
-		field.setText(state.save.getString(entry.value[0]));
+		final String[] paths = getSaveIdents(entry.value);
+		field.setText(state.save.getString(paths[0]));
 		field.getDocument().addDocumentListener(new DocumentAdapter(e -> {
-			for (String path : entry.value) {
+			for (String path : paths) {
 				state.save.setString(path, field.getText());
 			}
 		}));
@@ -356,7 +414,9 @@ public class ControlsFactory {
 		String enumName = entry.type.substring(entry.type.indexOf(':') + 1);
 		Map<String, String> enumData = state.data.getEnum(enumName);
 
-		String gameValue = state.save.getString(entry.value[0]);
+		final String[] paths = getSaveIdents(entry.value);
+
+		String gameValue = state.save.getString(paths[0]);
 		EnumEntry<String> current = null;
 
 		List<String> keys = sortStringKeySet(enumData, entry.sort);
@@ -392,7 +452,7 @@ public class ControlsFactory {
 
 		if (changeable) {
 			combo.addActionListener(e -> {
-				for (String path : entry.value) {
+				for (String path : paths) {
 					// save.setString(path, field.getText());
 					Object obj = combo.getSelectedItem();
 					if (obj != null) {
@@ -411,5 +471,16 @@ public class ControlsFactory {
 		}
 
 		return combo;
+	}
+
+	private String[] getSaveIdents(String[] paths) {
+		if (arrayPath == null) {
+			return paths;
+		}
+		String[] idents = new String[paths.length];
+		for (int i = 0; i < paths.length; ++i) {
+			idents[i] = paths[i].replace("{ARRAY_ENTRY}", arrayPath);
+		}
+		return idents;
 	}
 }
