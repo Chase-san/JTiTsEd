@@ -89,6 +89,8 @@ public class MainFrame extends JFrame {
 		setTitle(UIStrings.getString("UI.Title") + " " + UIStrings.getString("UI.Version"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationByPlatform(true);
+		setIconImage(UIStrings.getImage("UI.Icon"));
+		
 		setJMenuBar(buildMenuBar());
 
 		chooser = new JFileChooser();
