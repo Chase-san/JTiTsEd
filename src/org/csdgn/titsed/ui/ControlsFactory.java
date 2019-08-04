@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.text.PlainDocument;
 
 import org.csdgn.amf3.AmfArray;
+import org.csdgn.maru.Updater;
 import org.csdgn.maru.swing.DocumentAdapter;
 import org.csdgn.maru.swing.NumberDocumentFilter;
 import org.csdgn.titsed.model.ControlEntry;
@@ -136,7 +137,7 @@ public class ControlsFactory {
 		prefWidth = 120;
 	}
 
-	protected JPanel createArrayEntry(ControlEntry entry) {
+	protected JPanel createArrayEntry(Updater tabUpdater, ControlEntry entry) {
 		// need index, add, and remove
 		// min is minimum number of entries
 		// max is maximum number of entries
@@ -169,6 +170,16 @@ public class ControlsFactory {
 		panel.add(prev, BorderLayout.WEST);
 		panel.add(next, BorderLayout.EAST);
 		panel.add(label, BorderLayout.CENTER);
+		
+		prev.addActionListener(e -> {
+			entry.index--;
+			tabUpdater.update();
+		});
+		
+		next.addActionListener(e -> {
+			entry.index++;
+			tabUpdater.update();
+		});
 
 		return panel;
 	}
@@ -205,7 +216,7 @@ public class ControlsFactory {
 		return combo;
 	}
 
-	protected JComponent createEntry(ControlEntry entry) {
+	protected JComponent createEntry(Updater tabUpdater, ControlEntry entry) {
 		if (entry.type.startsWith(ControlEntry.TYPE_TEXT_ENUM)) {
 			return createTextEnumEntry(entry);
 		} else if (entry.type.startsWith(ControlEntry.TYPE_ENUM)) {
@@ -234,7 +245,7 @@ public class ControlsFactory {
 			case ControlEntry.TYPE_DECIMAL:
 				return createNumberEntry(entry);
 			case ControlEntry.TYPE_ARRAY:
-				return createArrayEntry(entry);
+				return createArrayEntry(tabUpdater, entry);
 			}
 
 		throw new RuntimeException("Unknown Data Type: " + entry.type);

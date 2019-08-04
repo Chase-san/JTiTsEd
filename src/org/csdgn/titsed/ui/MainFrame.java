@@ -25,10 +25,9 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -45,6 +44,7 @@ import org.csdgn.amf3.AmfIO;
 import org.csdgn.amf3.AmfObject;
 import org.csdgn.amf3.AmfValue;
 import org.csdgn.amf3.UnexpectedDataException;
+import org.csdgn.maru.Updater;
 import org.csdgn.maru.swing.TableLayout;
 import org.csdgn.titsed.FileManager;
 import org.csdgn.titsed.SavePath;
@@ -67,8 +67,20 @@ public class MainFrame extends JFrame {
 		}
 	}
 
-	private static final int MAXIMUM_SAVE_COUNT = 14;
+	private class TabUpdater implements Updater {
+		String tabName;
 
+		public TabUpdater(String tabName) {
+			this.tabName = tabName;
+		}
+
+		@Override
+		public void update() {
+			rebuildTab(tabName);
+		}
+	}
+
+	private static final int MAXIMUM_SAVE_COUNT = 14;
 	private static final long serialVersionUID = -6707796242859221178L;
 	private JFileChooser chooser;
 	private ControlsFactory factory;
@@ -76,6 +88,7 @@ public class MainFrame extends JFrame {
 	private FileManager files;
 	private JMenu fileSave;
 	private JMenuItem fileSaveFile;
+
 	private ProgramState state;
 
 	private JTabbedPane tabs;
@@ -90,7 +103,7 @@ public class MainFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationByPlatform(true);
 		setIconImage(UIStrings.getImage("UI.Icon"));
-		
+
 		setJMenuBar(buildMenuBar());
 
 		chooser = new JFileChooser();
@@ -177,68 +190,30 @@ public class MainFrame extends JFrame {
 		return file;
 	}
 
-	public void buildLayout() {
-		tabs.removeAll();
+	private JScrollPane buildTabScroll(String tabName) {
+		JComponent comp = buildTabLayout(tabName);
+		JScrollPane scroll = new JScrollPane(comp);
+		int h = scroll.getViewport().getView().getPreferredSize().height;
+		int unit = Math.max(1, (int) (h / 50.0));
+		scroll.getVerticalScrollBar().setUnitIncrement(unit);
 
-		int row = -1;
-		int col = 0;
-		boolean showRow = true;
-		JPanel panel = null;
-		List<JScrollPane> panes = new ArrayList<JScrollPane>();
-
-		// wait for new tab
-		for (ControlEntry entry : state.data.getDataMap()) {
-			switch (entry.type) {
-			case ControlEntry.TYPE_TAB: {
-				panel = new JPanel(new TableLayout(4, 4));
-				panel.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
-				JScrollPane scroll = new JScrollPane(panel);
-				tabs.addTab(entry.value[0], scroll);
-				panes.add(scroll);
-
-				row = -1;
-				col = 0;
-				break;
-			}
-			case ControlEntry.TYPE_ROW: {
-				showRow = true;
-				if (entry.arrayRow && factory.arraySize == 0) {
-					showRow = false;
-				}
-				if (showRow) {
-					col = 0;
-					row = row + 1;
-				}
-
-				break;
-			}
-			default:
-				if (showRow) {
-					try {
-						panel.add(factory.createEntry(entry), "x=" + col + ";y=" + row + ";colspan=" + entry.span);
-					} catch (Exception e) {
-						System.err.println("Error on building '" + entry.type + "' entry: " + entry.value[0]);
-					}
-					col = col + 1;
-				}
-			}
-		}
-
-		for (JScrollPane scroll : panes) {
-			int h = scroll.getViewport().getView().getPreferredSize().height;
-			int unit = Math.max(1, (int) (h / 50.0));
-			scroll.getVerticalScrollBar().setUnitIncrement(unit);
-		}
-
+		return scroll;
 	}
 
-	public JMenuBar buildMenuBar() {
+	private void buildLayout() {
+		tabs.removeAll();
+		for (String tabName : state.data.getTabs()) {
+			tabs.addTab(tabName, buildTabScroll(tabName));
+		}
+	}
+
+	private JMenuBar buildMenuBar() {
 		JMenuBar bar = new JMenuBar();
 		bar.add(buildFileMenu());
 		return bar;
 	}
 
-	public void buildOpenSubmenu() {
+	private void buildOpenSubmenu() {
 		// build menus
 		fileOpen.removeAll();
 		for (SavePath path : files.getSavePaths()) {
@@ -272,7 +247,7 @@ public class MainFrame extends JFrame {
 		}
 	}
 
-	public void buildSaveSubmenu() {
+	private void buildSaveSubmenu() {
 		fileSave.removeAll();
 		// build menus
 		for (SavePath path : files.getSavePaths()) {
@@ -309,7 +284,44 @@ public class MainFrame extends JFrame {
 		}
 	}
 
-	public void open(File file) {
+	private JComponent buildTabLayout(String tabName) {
+		JPanel panel = new JPanel(new TableLayout(4, 4));
+		TabUpdater tu = new TabUpdater(tabName);
+		panel.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+		boolean showRow = true;
+		int row = -1;
+		int col = 0;
+
+		for (ControlEntry entry : state.data.getTabDataMap(tabName)) {
+			switch (entry.type) {
+			case ControlEntry.TYPE_ROW: {
+				showRow = true;
+				if (entry.arrayRow && factory.arraySize == 0) {
+					showRow = false;
+				}
+				if (showRow) {
+					col = 0;
+					row = row + 1;
+				}
+
+				break;
+			}
+			default:
+				if (showRow) {
+					try {
+						panel.add(factory.createEntry(tu, entry), "x=" + col + ";y=" + row + ";colspan=" + entry.span);
+					} catch (Exception e) {
+						System.err.println("Error on building '" + entry.type + "' entry: " + entry.value[0]);
+					}
+					col = col + 1;
+				}
+			}
+		}
+
+		return panel;
+	}
+
+	private void open(File file) {
 		if (file == null || !file.exists()) {
 			return;
 		}
@@ -343,7 +355,22 @@ public class MainFrame extends JFrame {
 
 	}
 
-	public void saveSerial(File dst) {
+	private void rebuildTab(String tabName) {
+		int index = tabs.indexOfTab(tabName);
+		JScrollPane pane = (JScrollPane)tabs.getComponentAt(index);
+		
+		int vPos = pane.getVerticalScrollBar().getValue();
+		int hPos = pane.getHorizontalScrollBar().getValue();
+		
+		pane.setVisible(false);
+		pane.setViewportView(buildTabLayout(tabName));
+		pane.setVisible(true);
+		
+		pane.getVerticalScrollBar().setValue(vPos);
+		pane.getHorizontalScrollBar().setValue(hPos);
+	}
+
+	private void saveSerial(File dst) {
 		String filename = dst.getName();
 		if (!filename.toLowerCase().endsWith(".tits")) {
 			dst = new File(dst.getParentFile(), filename + ".tits");
@@ -369,7 +396,7 @@ public class MainFrame extends JFrame {
 		}
 	}
 
-	public void saveSlot(File directory, int index) {
+	private void saveSlot(File directory, int index) {
 		String name = String.format("TiTs_%d", index);
 		String filename = name + ".sol";
 

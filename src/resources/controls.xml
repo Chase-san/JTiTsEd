@@ -104,6 +104,11 @@
       <integer min="0">characters.PC.libidoMod</integer>
     </row>
     <row>
+      <label>Taint</label>
+      <integer min="0">characters.PC.taintRaw</integer>
+      <integer min="0">characters.PC.taintMod</integer>
+    </row>
+    <row>
       <title span="3">Advancement</title>
     </row>
     <row>
@@ -141,6 +146,24 @@
       <label>Exhibitionism</label>
       <integer>characters.PC.exhibitionismRaw</integer>
     </row>
+
+    <row>
+      <label>Butt Tease</label>
+      <integer span="2">flags.TIMES_BUTT_TEASED</integer>
+    </row>
+    <row>
+      <label>Chest Tease</label>
+      <integer span="2">flags.TIMES_CHEST_TEASED</integer>
+    </row>
+    <row>
+      <label>Crotch Tease</label>
+      <integer span="2">flags.TIMES_CROTCH_TEASED</integer>
+    </row>
+    <row>
+      <label>Hip Tease</label>
+      <integer span="2">flags.TIMES_HIPS_TEASED</integer>
+    </row>
+
   </tab>
   <tab name="Body">
     <row>
@@ -399,7 +422,7 @@
       <title span="3">Breasts</title>
     </row>
     <row>
-      <array class="classes::BreastRowClass" min="1" max="4" span="3">characters.PC.breastRows</array>
+      <array min="1" max="4" span="3">characters.PC.breastRows</array>
     </row>
     <row array="true">
       <label></label>
@@ -431,7 +454,6 @@
       <label>Nipple Type</label>
       <enum type="Nipple Type" sort="key" span="2">{ARRAY_ENTRY}.nippleType</enum>
     </row>
-
     <row>
       <title span="3">Cocks</title>
     </row>
@@ -440,7 +462,7 @@
       <boolean span="2">characters.PC.cockVirgin</boolean>
     </row>
     <row>
-      <array class="classes::CockClass" min="0" max="4" span="3">characters.PC.cocks</array>
+      <array min="0" max="4" span="3">characters.PC.cocks</array>
     </row>
     <row array="true">
       <label></label>
@@ -480,8 +502,6 @@
     <row array="true">
       <flags type="Cock Flags" span="3" sort="value">{ARRAY_ENTRY}.cockFlags</flags>
     </row>
-
-
     <row>
       <title span="3">Vaginas</title>
     </row>
@@ -490,7 +510,11 @@
       <boolean span="2">characters.PC.vaginalVirgin</boolean>
     </row>
     <row>
-      <array class="classes::VaginaClass" min="0" max="4" span="3">characters.PC.vaginas</array>
+      <label>Clit Length</label>
+      <integer span="2">characters.PC.clitLength</integer>
+    </row>
+    <row>
+      <array min="0" max="4" span="3">characters.PC.vaginas</array>
     </row>
     <row array="true">
       <label>Type</label>
@@ -538,14 +562,39 @@
     <row array="true">
       <flags type="Vagina Flags" span="3" sort="value">{ARRAY_ENTRY}.vagooFlags</flags>
     </row>
-
-
     <row>
       <title span="3">Anal</title>
     </row>
     <row>
       <label>True Virgin</label>
       <boolean span="2">characters.PC.analVirgin</boolean>
+    </row>
+  </tab>
+  <tab name="Inventory">
+    <row array="true">
+      <label span="3">DANGER This is highly experimental! DANGER</label>
+    </row>
+    <row array="true">
+      <label span="3">Do not edit unless you know what you are doing!</label>
+    </row>
+    <row>
+      <array min="0" max="4" span="3">characters.PC.inventory</array>
+    </row>
+    <row array="true">
+      <label>Name</label>
+      <string span="2">{ARRAY_ENTRY}.shortName</string>
+    </row>
+    <row array="true">
+      <label>Version</label>
+      <integer span="2">{ARRAY_ENTRY}.version</integer>
+    </row>
+    <row array="true">
+      <label>Class</label>
+      <textenum type="Item Class" sort="value" span="2">{ARRAY_ENTRY}.classInstance</textenum>
+    </row>
+    <row array="true">
+      <label>Quantity</label>
+      <integer span="2">{ARRAY_ENTRY}.quantity</integer>
     </row>
   </tab>
 </data>

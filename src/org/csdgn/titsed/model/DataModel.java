@@ -22,21 +22,20 @@
 package org.csdgn.titsed.model;
 
 import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.csdgn.titsed.ui.UIStrings;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -140,7 +139,7 @@ public class DataModel {
 			case ControlEntry.TYPE_ROW: {
 				ControlEntry row = new ControlEntry(qName);
 				String arr = attributes.getValue("array");
-				if(arr != null && arr.equalsIgnoreCase("true")) {
+				if (arr != null && arr.equalsIgnoreCase("true")) {
 					row.arrayRow = true;
 				}
 				controlMap.add(row);
@@ -209,7 +208,7 @@ public class DataModel {
 						|| ControlEntry.TYPE_FLAGS.equals(qName)) {
 					entry.sort = sort;
 				}
-				if(ControlEntry.TYPE_ARRAY.equals(qName)) {
+				if (ControlEntry.TYPE_ARRAY.equals(qName)) {
 					entry.className = className;
 				}
 				if (ControlEntry.TYPE_ARRAY.equals(qName) || ControlEntry.TYPE_INTEGER.equals(qName)
@@ -234,11 +233,13 @@ public class DataModel {
 	}
 
 	private Map<String, LinkedHashMap<String, String>> valueMap;
+	private Map<String, List<ControlEntry>> tabMap;
 	private List<ControlEntry> controlMap;
 
 	public void load() {
 		loadValueMap();
 		loadControlMap();
+		generateTabMap();
 	}
 
 	public LinkedHashMap<String, String> getEnum(String name) {
@@ -249,60 +250,52 @@ public class DataModel {
 		return controlMap;
 	}
 
-	private File getFile(String name) {
-		File file = new File(name);
-		if (!file.exists()) {
-			file = new File("jtitsed" + name);
-		}
-		if (!file.exists()) {
-			file = new File("jtitsed_" + name);
-		}
-		if (!file.exists()) {
-			file = new File("jtitsed-" + name);
-		}
-		if (!file.exists()) {
-			file = new File("jtitsed." + name);
-		}
-		if (!file.exists()) {
-			file = new File("data", name);
-		}
-		if (!file.exists()) {
-			file = new File("data", "jtitsed" + name);
-		}
-		if (!file.exists()) {
-			file = new File("data", "jtitsed_" + name);
-		}
-		if (!file.exists()) {
-			file = new File("data", "jtitsed-" + name);
-		}
-		if (!file.exists()) {
-			file = new File("data", "jtitsed." + name);
-		}
-		return file;
+	public Set<String> getTabs() {
+		return tabMap.keySet();
+	}
+
+	public List<ControlEntry> getTabDataMap(String tab) {
+		return tabMap.get(tab);
 	}
 
 	private void loadControlMap() {
 		controlMap = new ArrayList<ControlEntry>();
-		parseFile(getFile("controls.xml"), new ControlSAXHandler());
+		parseURL(UIStrings.getResource("Model.Controls"), new ControlSAXHandler());
+	}
+
+	private void generateTabMap() {
+		tabMap = new LinkedHashMap<String, List<ControlEntry>>();
+		List<ControlEntry> list = null;
+		for (ControlEntry entry : getDataMap()) {
+			switch (entry.type) {
+			case ControlEntry.TYPE_TAB:
+				tabMap.put(entry.value[0], list = new ArrayList<ControlEntry>());
+				break;
+			default:
+				list.add(entry);
+				break;
+			}
+		}
 	}
 
 	private void loadValueMap() {
 		valueMap = new HashMap<String, LinkedHashMap<String, String>>();
-		parseFile(getFile("values.xml"), new ValueSAXHandler());
+		parseURL(UIStrings.getResource("Model.Values"), new ValueSAXHandler());
 	}
-
-	private void parseFile(File file, DefaultHandler dh) {
-		try (InputStream input = new BufferedInputStream(new FileInputStream(file))) {
-			SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-			parser.parse(input, dh);
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+	
+	private void parseURL(URL url, DefaultHandler dh) {
+		try {
+			URLConnection uc = url.openConnection();
+			uc.connect();
+			try (InputStream input = new BufferedInputStream(uc.getInputStream())) {
+				SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
+				parser.parse(input, dh);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 }
