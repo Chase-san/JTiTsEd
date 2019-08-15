@@ -90,6 +90,7 @@ public class DataModel {
 				type = qName + ":" + enumType;
 			case ControlEntry.TYPE_ARRAY:
 			case ControlEntry.TYPE_BOOLEAN:
+			case ControlEntry.TYPE_ITEM:
 			case ControlEntry.TYPE_STRING:
 			case ControlEntry.TYPE_INTEGER:
 			case ControlEntry.TYPE_DECIMAL:
@@ -182,6 +183,7 @@ public class DataModel {
 			case ControlEntry.TYPE_TITLE:
 			case ControlEntry.TYPE_STRING:
 			case ControlEntry.TYPE_BOOLEAN:
+			case ControlEntry.TYPE_ITEM:
 				parseSpan(attributes);
 				buffer.setLength(0);
 				read = true;
@@ -238,12 +240,72 @@ public class DataModel {
 		}
 	}
 
+	/**
+	 * Sax handler for items file.
+	 */
+	private class ItemSAXHandler extends DefaultHandler {
+		StringBuilder buffer;
+		ItemEntry entry;
+		boolean read;
+
+		private ItemSAXHandler() {
+			buffer = new StringBuilder();
+			read = false;
+		}
+
+		public void characters(char ch[], int start, int length) throws SAXException {
+			if (read) {
+				buffer.append(ch, start, length);
+			}
+		}
+
+		public void endElement(String uri, String localName, String qName) throws SAXException {
+			if ("item".equals(qName)) {
+				List<ItemEntry> items = itemMap.get(entry.id);
+				if (items == null) {
+					items = new ArrayList<ItemEntry>();
+					itemMap.put(entry.id, items);
+				}
+				entry.finish();
+				items.add(entry);
+				entry = null;
+			} else if ("shortName".equals(qName)) {
+				entry.shortName = buffer.toString();
+			} else if ("longName".equals(qName)) {
+				entry.longName = buffer.toString();
+			} else if ("editorName".equals(qName)) {
+				entry.editorName = buffer.toString();
+			} else if ("type".equals(qName)) {
+				entry.type = buffer.toString();
+			} else if ("stack".equals(qName)) {
+				try {
+					entry.stackSize = Integer.parseInt(buffer.toString());
+				} catch (NumberFormatException e) {
+					// this is technically optional, and defaults to 1
+				}
+
+			}
+		}
+
+		public void startElement(String uri, String localName, String qName, Attributes attributes)
+				throws SAXException {
+			if ("item".equals(qName)) {
+				read = false;
+				entry = new ItemEntry();
+				entry.id = attributes.getValue("id");
+			} else if (!"items".equals(qName)) {
+				read = true;
+				buffer.setLength(0);
+			}
+		}
+	}
+
 	private static BufferedInputStream getUrlStream(URL url) throws IOException {
 		URLConnection uc = url.openConnection();
 		uc.connect();
 		return new BufferedInputStream(uc.getInputStream());
 	}
-	
+
 	private static boolean validate(URL xsd, URL xml) {
 		SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		try {
@@ -256,18 +318,18 @@ public class DataModel {
 				return false;
 			}
 		} catch (SAXException e) {
-			//System.err.println(e.getMessage());
+			// System.err.println(e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
 		return true;
 	}
-	
+
 	private List<ControlEntry> controlMap;
 
 	private Map<String, LinkedHashMap<String, String>> enumMap;
-
 	private Map<String, List<ControlEntry>> tabMap;
+	private Map<String, List<ItemEntry>> itemMap;
 
 	private void generateTabMap() {
 		tabMap = new LinkedHashMap<String, List<ControlEntry>>();
@@ -302,6 +364,7 @@ public class DataModel {
 
 	public void load() {
 		loadValueMap();
+		loadItemMap();
 		loadControlMap();
 		generateTabMap();
 	}
@@ -310,10 +373,21 @@ public class DataModel {
 		controlMap = new ArrayList<ControlEntry>();
 		URL xml = UIStrings.getResource("Model.Controls");
 		URL xsd = UIStrings.getResource("Model.Controls.Schema");
-		if(validate(xsd, xml)) {
+		if (validate(xsd, xml)) {
 			parseURL(xml, new ControlSAXHandler());
 		} else {
 			System.err.printf("Invalid `%s`!\n", UIStrings.getString("Model.Controls"));
+		}
+	}
+
+	private void loadItemMap() {
+		itemMap = new LinkedHashMap<String, List<ItemEntry>>();
+		URL xml = UIStrings.getResource("Model.Items");
+		URL xsd = UIStrings.getResource("Model.Items.Schema");
+		if (validate(xsd, xml)) {
+			parseURL(xml, new ItemSAXHandler());
+		} else {
+			System.err.printf("Invalid `%s`!\n", UIStrings.getString("Model.Items"));
 		}
 	}
 
@@ -321,12 +395,11 @@ public class DataModel {
 		enumMap = new HashMap<String, LinkedHashMap<String, String>>();
 		URL xml = UIStrings.getResource("Model.Values");
 		URL xsd = UIStrings.getResource("Model.Values.Schema");
-		if(validate(xsd, xml)) {
+		if (validate(xsd, xml)) {
 			parseURL(xml, new ValueSAXHandler());
 		} else {
 			System.err.printf("Invalid `%s`!\n", UIStrings.getString("Model.Values"));
 		}
-		
 	}
 
 	private void parseURL(URL url, DefaultHandler dh) {

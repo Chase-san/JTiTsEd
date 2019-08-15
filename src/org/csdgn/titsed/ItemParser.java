@@ -1,4 +1,4 @@
-package org.csdgn.maru;
+package org.csdgn.titsed;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,6 +33,8 @@ public class ItemParser {
 	}
 
 	private static void parseFolder(File folder) {
+		StringBuilder buf = new StringBuilder();
+		
 		for (File file : folder.listFiles()) {
 			if (file.isDirectory()) {
 				parseFolder(file);
@@ -77,8 +79,9 @@ public class ItemParser {
 						if (line.contains("shortName") && line.contains("=")) {
 							shortName = getValue(line);
 						}
-						if (line.contains("shortName") && line.contains("=")) {
-							longName = getValue(line);
+						if (line.contains("longName") && line.contains("=")) {
+							//for some reason some of these lack the end ;
+							longName = getValue(line, "\"", "\"");
 						}
 					}
 
@@ -100,12 +103,26 @@ public class ItemParser {
 				shortName = shortName.replaceAll("&", "&#38;").replaceAll("<", "&#60;").replaceAll(">", "&#62;");
 				longName = longName.replaceAll("&", "&#38;").replaceAll("<", "&#60;").replaceAll(">", "&#62;");
 
-				String fullName = String.format("%s::%s", packageName, className);
+				buf.setLength(0);
+				buf.append("<item id=\"");
+				buf.append(packageName);
+				buf.append("::");
+				buf.append(className);
+				buf.append("\"><shortName>");
+				buf.append(shortName);
+				buf.append("</shortName>");
+				if(!shortName.equals(longName)) {
+					buf.append("<longName>");
+					buf.append(longName);
+					buf.append("</longName>");
+				}
+				buf.append("<stack>");
+				buf.append(stack);
+				buf.append("</stack><type>");
+				buf.append(type);
+				buf.append("</type></item>");
 
-				String out = String.format(
-						"<item id=\"%s\"><shortName>%s</shortName><longName>%s</longName><stack>%s</stack><type>%s</type></item>",
-						fullName, shortName, longName, stack, type);
-				map.put(fullName, out);
+				map.put(shortName, buf.toString());
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -133,11 +150,11 @@ public class ItemParser {
 		}
 
 		ArrayList<String> lines = new ArrayList<String>();
-		lines.add("<lines>");
+		lines.add("<items>");
 		for (String line : map.values()) {
 			lines.add(line);
 		}
-		lines.add("</lines>");
+		lines.add("</items>");
 
 		try {
 			Files.write(new File(output).toPath(), lines);

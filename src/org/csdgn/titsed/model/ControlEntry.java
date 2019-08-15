@@ -31,6 +31,7 @@ public class ControlEntry {
 	public static final String TYPE_INTEGER = "integer";
 	public static final String TYPE_DECIMAL = "decimal";
 	public static final String TYPE_BOOLEAN = "boolean";
+	public static final String TYPE_ITEM = "item";
 	public static final String TYPE_ENUM = "enum";
 	public static final String TYPE_TEXT_ENUM = "textenum";
 	public static final String TYPE_FLAGS = "flags";

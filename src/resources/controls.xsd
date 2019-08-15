@@ -30,15 +30,8 @@
       <xs:element type="integerType" name="integer" maxOccurs="unbounded" minOccurs="0"/>
       <xs:element type="enumType" name="enum" minOccurs="0"/>
       <xs:element type="textenumType" name="textenum" minOccurs="0"/>
-      <xs:element name="boolean" minOccurs="0">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute type="xs:integer" name="span"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element type="booleanType" name="boolean" minOccurs="0"/>
+      <xs:element type="itemType" name="item" minOccurs="0"/>
       <xs:element type="flagsType" name="flags" minOccurs="0"/>
       <xs:element type="arrayType" name="array" minOccurs="0"/>
       <xs:element type="decimalType" name="decimal" minOccurs="0"/>
@@ -105,6 +98,13 @@
     </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="booleanType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:integer" name="span"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="itemType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute type="xs:integer" name="span"/>

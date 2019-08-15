@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="lines" type="linesType"/>
-  <xs:complexType name="linesType">
+  <xs:element name="items" type="itemsType"/>
+  <xs:complexType name="itemsType">
     <xs:sequence>
       <xs:element type="itemType" name="item" maxOccurs="unbounded"/>
     </xs:sequence>
@@ -9,8 +9,9 @@
   <xs:complexType name="itemType">
     <xs:all>
       <xs:element type="xs:string" name="shortName"/>
-      <xs:element type="xs:string" name="longName"/>
-      <xs:element type="xs:integer" name="stack"/>
+      <xs:element type="xs:string" name="longName" minOccurs="0"/>
+      <xs:element type="xs:string" name="editorName" minOccurs="0"/>
+      <xs:element type="xs:integer" name="stack" minOccurs="0"/>
       <xs:element type="xs:string" name="type"/>
     </xs:all>
     <xs:attribute type="xs:string" name="id" use="required"/>

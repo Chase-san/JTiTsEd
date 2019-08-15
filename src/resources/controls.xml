@@ -572,26 +572,12 @@
     </row>
   </tab>
   <tab name="Inventory">
-    <row array="true">
-      <label span="3">DANGER This is highly experimental! DANGER</label>
-    </row>
-    <row array="true">
-      <label span="3">Do not edit unless you know what you are doing!</label>
-    </row>
     <row>
       <array min="0" max="4" span="3">characters.PC.inventory</array>
     </row>
     <row array="true">
-      <label>Name</label>
-      <string span="2">{ARRAY_ENTRY}.shortName</string>
-    </row>
-    <row array="true">
-      <label>Version</label>
-      <integer span="2">{ARRAY_ENTRY}.version</integer>
-    </row>
-    <row array="true">
-      <label>Class</label>
-      <textenum type="Item Class" sort="value" span="2">{ARRAY_ENTRY}.classInstance</textenum>
+      <label>Type</label>
+      <item span="2">{ARRAY_ENTRY}</item>
     </row>
     <row array="true">
       <label>Quantity</label>
