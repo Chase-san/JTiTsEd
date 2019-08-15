@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <data>
 	<!--
 	These are pretty straight forward really. Only tricky bit is
@@ -9,2023 +10,1280 @@
 	id is what the file uses.
 	-->
 	<enum name="Upbringing">
-		<values>
-			<value id="0">Pampered</value>
-			<value id="1">Athletic</value>
-			<value id="2">Bookworm</value>
-			<value id="3">Austere</value>
-			<value id="4">Balanced</value>
-		</values>
+		<value id="0">Pampered</value>
+		<value id="1">Athletic</value>
+		<value id="2">Bookworm</value>
+		<value id="3">Austere</value>
+		<value id="4">Balanced</value>
 	</enum>
 	<enum name="Original Race">
-		<values>
-			<value id="human">Human</value>
-			<value id="half-ausar">Half Ausar</value>
-			<value id="half-gryvain">Half Gryvain</value>
-			<value id="half-kaithrit">Half Kaithrit</value>
-			<value id="half kui-tan">Half Kui-Tan</value>
-			<value id="half-leithan">Half Leithan</value>
-		</values>
+		<value id="human">Human</value>
+		<value id="half-ausar">Half Ausar</value>
+		<value id="half-gryvain">Half Gryvain</value>
+		<value id="half-kaithrit">Half Kaithrit</value>
+		<value id="half kui-tan">Half Kui-Tan</value>
+		<value id="half-leithan">Half Leithan</value>
 	</enum>
 	<enum name="Affinity">
-		<values>
-			<value id="aim">Aim</value>
-			<value id="intelligence">Intelligence</value>
-			<value id="physique">Physique</value>
-			<value id="reflexes">Reflexes</value>
-			<value id="willpower">Willpower</value>
-		</values>
+		<value id="aim">Aim</value>
+		<value id="intelligence">Intelligence</value>
+		<value id="physique">Physique</value>
+		<value id="reflexes">Reflexes</value>
+		<value id="willpower">Willpower</value>
 	</enum>
 	<enum name="Class Type">
-		<values>
-			<value id="0">Smuggler</value>
-			<value id="1">Mercenary</value>
-			<value id="2">Tech Specialist</value>
-		</values>
+		<value id="0">Smuggler</value>
+		<value id="1">Mercenary</value>
+		<value id="2">Tech Specialist</value>
 	</enum>
 	<enum name="Skin Type">
-		<values>
-			<value id="0">Skin</value>
-			<value id="1">Fur</value>
-			<value id="2">Scales</value>
-			<value id="3">Goo</value>
-			<value id="4">Chitin</value>
-			<value id="5">Feathers</value>
-			<value id="6">Latex</value>
-			<value id="7">Plant</value>
-			<value id="8">Bark</value>
-		</values>
+		<value id="0">Skin</value>
+		<value id="1">Fur</value>
+		<value id="2">Scales</value>
+		<value id="3">Goo</value>
+		<value id="4">Chitin</value>
+		<value id="5">Feathers</value>
+		<value id="6">Latex</value>
+		<value id="7">Plant</value>
+		<value id="8">Bark</value>
 	</enum>
 	<enum name="Skin Flags">
-		<values>
-			<value id="3">Lubricated</value>
-			<value id="4">Fluffy</value>
-			<value id="5">Squishy</value>
-			<value id="6">Smooth</value>
-			<value id="11">Aphrodisiac</value>
-			<value id="12">Sticky</value>
-			<value id="13">Thick</value>
-			<value id="20">Furred</value>
-			<value id="39">Absorbent</value>
-			<value id="46">Freckled</value>
-		</values>
+		<value id="3">Lubricated</value>
+		<value id="4">Fluffy</value>
+		<value id="5">Squishy</value>
+		<value id="6">Smooth</value>
+		<value id="11">Aphrodisiac</value>
+		<value id="12">Sticky</value>
+		<value id="13">Thick</value>
+		<value id="20">Furred</value>
+		<value id="39">Absorbent</value>
+		<value id="46">Freckled</value>
 	</enum>
 	<enum name="Skin Tone">
-		<values>
-			<value>albino</value>
-			<value>amber</value>
-			<value>amethyst</value>
-			<value>aqua</value>
-			<value>aquamarine</value>
-			<value>azure</value>
-			<value>black and blue</value>
-			<value>black and gold</value>
-			<value>black and red</value>
-			<value>black and white</value>
-			<value>black and yellow</value>
-			<value>black, blue and yellow</value>
-			<value>black</value>
-			<value>blue-gray</value>
-			<value>blue</value>
-			<value>brass</value>
-			<value>bright pink</value>
-			<value>bright purple</value>
-			<value>bronze</value>
-			<value>bronzed</value>
-			<value>brown-pink</value>
-			<value>brown</value>
-			<value>bubblegum-pink</value>
-			<value>candy red</value>
-			<value>caramel</value>
-			<value>cerulean</value>
-			<value>cherry</value>
-			<value>chestnut</value>
-			<value>chocolate</value>
-			<value>citrine</value>
-			<value>cobalt</value>
-			<value>copper</value>
-			<value>crimson</value>
-			<value>cyan</value>
-			<value>dark blue</value>
-			<value>dark brown</value>
-			<value>dark gray</value>
-			<value>dark green</value>
-			<value>dark red</value>
-			<value>dark</value>
-			<value>deep emerald</value>
-			<value>deep purple</value>
-			<value>dusky blue</value>
-			<value>dusky red</value>
-			<value>dusky</value>
-			<value>ebony</value>
-			<value>electric blue</value>
-			<value>emerald</value>
-			<value>fair</value>
-			<value>fiery blue</value>
-			<value>fir green</value>
-			<value>flesh-toned</value>
-			<value>foxfire</value>
-			<value>garnet</value>
-			<value>glittering amber</value>
-			<value>glittering amethyst</value>
-			<value>glittering aquamarine</value>
-			<value>glittering black</value>
-			<value>glittering blue</value>
-			<value>glittering brown</value>
-			<value>glittering cerulean</value>
-			<value>glittering citrine</value>
-			<value>glittering copper</value>
-			<value>glittering crimson</value>
-			<value>glittering emerald</value>
-			<value>glittering garnet</value>
-			<value>glittering gold</value>
-			<value>glittering green</value>
-			<value>glittering hazel</value>
-			<value>glittering indigo</value>
-			<value>glittering jade</value>
-			<value>glittering lapis</value>
-			<value>glittering lavender</value>
-			<value>glittering opal</value>
-			<value>glittering orange</value>
-			<value>glittering peach</value>
-			<value>glittering pearl</value>
-			<value>glittering peridot</value>
-			<value>glittering pink</value>
-			<value>glittering platinum</value>
-			<value>glittering purple</value>
-			<value>glittering red-orange</value>
-			<value>glittering red</value>
-			<value>glittering rose</value>
-			<value>glittering ruby</value>
-			<value>glittering sable</value>
-			<value>glittering sapphire</value>
-			<value>glittering silver</value>
-			<value>glittering teal</value>
-			<value>glittering topaz</value>
-			<value>glittering turquoise</value>
-			<value>glittering violet</value>
-			<value>glittering white</value>
-			<value>glittering yellow-green</value>
-			<value>glittering yellow-orange</value>
-			<value>glittering yellow</value>
-			<value>glittery pink</value>
-			<value>glossy blue</value>
-			<value>glowing amber</value>
-			<value>glowing blue</value>
-			<value>glowing cyan</value>
-			<value>glowing ember</value>
-			<value>glowing gold</value>
-			<value>glowing green</value>
-			<value>glowing orange</value>
-			<value>glowing pink</value>
-			<value>glowing purple</value>
-			<value>glowing red</value>
-			<value>glowing violet</value>
-			<value>glowing white</value>
-			<value>glowing yellow</value>
-			<value>gold</value>
-			<value>gray</value>
-			<value>grayish brown</value>
-			<value>green</value>
-			<value>gunmetal</value>
-			<value>hazel</value>
-			<value>honey</value>
-			<value>hot pink</value>
-			<value>hot white</value>
-			<value>indigo</value>
-			<value>iridescent</value>
-			<value>ivory</value>
-			<value>jade</value>
-			<value>lapis</value>
-			<value>lavender</value>
-			<value>leaf green</value>
-			<value>light blue</value>
-			<value>light gray</value>
-			<value>light pink</value>
-			<value>light purple</value>
-			<value>light red</value>
-			<value>light</value>
-			<value>lilac</value>
-			<value>lime green</value>
-			<value>lime</value>
-			<value>luminescent lime green</value>
-			<value>luminous azure</value>
-			<value>luminous blue</value>
-			<value>luminous celeste</value>
-			<value>luminous cerulean</value>
-			<value>luminous cyan</value>
-			<value>luminous green</value>
-			<value>luminous orange</value>
-			<value>luminous pink</value>
-			<value>luminous purple</value>
-			<value>luminous silver</value>
-			<value>luminous violet</value>
-			<value>luminous yellow</value>
-			<value>magenta</value>
-			<value>mahogany</value>
-			<value>maroon</value>
-			<value>metal</value>
-			<value>mottled brown</value>
-			<value>navy blue</value>
-			<value>navy</value>
-			<value>neon green</value>
-			<value>neon pink</value>
-			<value>null</value>
-			<value>olive</value>
-			<value>onyx</value>
-			<value>opal</value>
-			<value>orange and green</value>
-			<value>orange</value>
-			<value>pale blue</value>
-			<value>pale gold</value>
-			<value>pale gray</value>
-			<value>pale green</value>
-			<value>pale orange</value>
-			<value>pale pink</value>
-			<value>pale purple</value>
-			<value>pale red</value>
-			<value>pale violet</value>
-			<value>pale white</value>
-			<value>pale yellow</value>
-			<value>pale</value>
-			<value>peach</value>
-			<value>pearl</value>
-			<value>peridot</value>
-			<value>pink</value>
-			<value>platinum</value>
-			<value>purple and white</value>
-			<value>purple</value>
-			<value>red and blue</value>
-			<value>red-orange</value>
-			<value>red</value>
-			<value>rich pink</value>
-			<value>rose</value>
-			<value>ruby</value>
-			<value>sable</value>
-			<value>sapphire</value>
-			<value>scarlet</value>
-			<value>silver</value>
-			<value>sky blue</value>
-			<value>sky-blue</value>
-			<value>slut red</value>
-			<value>sparkly pink</value>
-			<value>steel gray</value>
-			<value>steel</value>
-			<value>tan</value>
-			<value>tanned</value>
-			<value>teal</value>
-			<value>topaz</value>
-			<value>turquoise</value>
-			<value>umber</value>
-			<value>verdant</value>
-			<value>vermillion-red</value>
-			<value>violet</value>
-			<value>viridescent</value>
-			<value>white-hot</value>
-			<value>white</value>
-			<value>yellow-green</value>
-			<value>yellow-orange</value>
-			<value>yellow</value>
-		</values>
+		<value>albino</value>
+		<value>amber</value>
+		<value>amethyst</value>
+		<value>aqua</value>
+		<value>aquamarine</value>
+		<value>azure</value>
+		<value>black and blue</value>
+		<value>black and gold</value>
+		<value>black and red</value>
+		<value>black and white</value>
+		<value>black and yellow</value>
+		<value>black, blue and yellow</value>
+		<value>black</value>
+		<value>blue-gray</value>
+		<value>blue</value>
+		<value>brass</value>
+		<value>bright pink</value>
+		<value>bright purple</value>
+		<value>bronze</value>
+		<value>bronzed</value>
+		<value>brown-pink</value>
+		<value>brown</value>
+		<value>bubblegum-pink</value>
+		<value>candy red</value>
+		<value>caramel</value>
+		<value>cerulean</value>
+		<value>cherry</value>
+		<value>chestnut</value>
+		<value>chocolate</value>
+		<value>citrine</value>
+		<value>cobalt</value>
+		<value>copper</value>
+		<value>crimson</value>
+		<value>cyan</value>
+		<value>dark blue</value>
+		<value>dark brown</value>
+		<value>dark gray</value>
+		<value>dark green</value>
+		<value>dark red</value>
+		<value>dark</value>
+		<value>deep emerald</value>
+		<value>deep purple</value>
+		<value>dusky blue</value>
+		<value>dusky red</value>
+		<value>dusky</value>
+		<value>ebony</value>
+		<value>electric blue</value>
+		<value>emerald</value>
+		<value>fair</value>
+		<value>fiery blue</value>
+		<value>fir green</value>
+		<value>flesh-toned</value>
+		<value>foxfire</value>
+		<value>garnet</value>
+		<value>glittering amber</value>
+		<value>glittering amethyst</value>
+		<value>glittering aquamarine</value>
+		<value>glittering black</value>
+		<value>glittering blue</value>
+		<value>glittering brown</value>
+		<value>glittering cerulean</value>
+		<value>glittering citrine</value>
+		<value>glittering copper</value>
+		<value>glittering crimson</value>
+		<value>glittering emerald</value>
+		<value>glittering garnet</value>
+		<value>glittering gold</value>
+		<value>glittering green</value>
+		<value>glittering hazel</value>
+		<value>glittering indigo</value>
+		<value>glittering jade</value>
+		<value>glittering lapis</value>
+		<value>glittering lavender</value>
+		<value>glittering opal</value>
+		<value>glittering orange</value>
+		<value>glittering peach</value>
+		<value>glittering pearl</value>
+		<value>glittering peridot</value>
+		<value>glittering pink</value>
+		<value>glittering platinum</value>
+		<value>glittering purple</value>
+		<value>glittering red-orange</value>
+		<value>glittering red</value>
+		<value>glittering rose</value>
+		<value>glittering ruby</value>
+		<value>glittering sable</value>
+		<value>glittering sapphire</value>
+		<value>glittering silver</value>
+		<value>glittering teal</value>
+		<value>glittering topaz</value>
+		<value>glittering turquoise</value>
+		<value>glittering violet</value>
+		<value>glittering white</value>
+		<value>glittering yellow-green</value>
+		<value>glittering yellow-orange</value>
+		<value>glittering yellow</value>
+		<value>glittery pink</value>
+		<value>glossy blue</value>
+		<value>glowing amber</value>
+		<value>glowing blue</value>
+		<value>glowing cyan</value>
+		<value>glowing ember</value>
+		<value>glowing gold</value>
+		<value>glowing green</value>
+		<value>glowing orange</value>
+		<value>glowing pink</value>
+		<value>glowing purple</value>
+		<value>glowing red</value>
+		<value>glowing violet</value>
+		<value>glowing white</value>
+		<value>glowing yellow</value>
+		<value>gold</value>
+		<value>gray</value>
+		<value>grayish brown</value>
+		<value>green</value>
+		<value>gunmetal</value>
+		<value>hazel</value>
+		<value>honey</value>
+		<value>hot pink</value>
+		<value>hot white</value>
+		<value>indigo</value>
+		<value>iridescent</value>
+		<value>ivory</value>
+		<value>jade</value>
+		<value>lapis</value>
+		<value>lavender</value>
+		<value>leaf green</value>
+		<value>light blue</value>
+		<value>light gray</value>
+		<value>light pink</value>
+		<value>light purple</value>
+		<value>light red</value>
+		<value>light</value>
+		<value>lilac</value>
+		<value>lime green</value>
+		<value>lime</value>
+		<value>luminescent lime green</value>
+		<value>luminous azure</value>
+		<value>luminous blue</value>
+		<value>luminous celeste</value>
+		<value>luminous cerulean</value>
+		<value>luminous cyan</value>
+		<value>luminous green</value>
+		<value>luminous orange</value>
+		<value>luminous pink</value>
+		<value>luminous purple</value>
+		<value>luminous silver</value>
+		<value>luminous violet</value>
+		<value>luminous yellow</value>
+		<value>magenta</value>
+		<value>mahogany</value>
+		<value>maroon</value>
+		<value>metal</value>
+		<value>mottled brown</value>
+		<value>navy blue</value>
+		<value>navy</value>
+		<value>neon green</value>
+		<value>neon pink</value>
+		<value>null</value>
+		<value>olive</value>
+		<value>onyx</value>
+		<value>opal</value>
+		<value>orange and green</value>
+		<value>orange</value>
+		<value>pale blue</value>
+		<value>pale gold</value>
+		<value>pale gray</value>
+		<value>pale green</value>
+		<value>pale orange</value>
+		<value>pale pink</value>
+		<value>pale purple</value>
+		<value>pale red</value>
+		<value>pale violet</value>
+		<value>pale white</value>
+		<value>pale yellow</value>
+		<value>pale</value>
+		<value>peach</value>
+		<value>pearl</value>
+		<value>peridot</value>
+		<value>pink</value>
+		<value>platinum</value>
+		<value>purple and white</value>
+		<value>purple</value>
+		<value>red and blue</value>
+		<value>red-orange</value>
+		<value>red</value>
+		<value>rich pink</value>
+		<value>rose</value>
+		<value>ruby</value>
+		<value>sable</value>
+		<value>sapphire</value>
+		<value>scarlet</value>
+		<value>silver</value>
+		<value>sky blue</value>
+		<value>sky-blue</value>
+		<value>slut red</value>
+		<value>sparkly pink</value>
+		<value>steel gray</value>
+		<value>steel</value>
+		<value>tan</value>
+		<value>tanned</value>
+		<value>teal</value>
+		<value>topaz</value>
+		<value>turquoise</value>
+		<value>umber</value>
+		<value>verdant</value>
+		<value>vermillion-red</value>
+		<value>violet</value>
+		<value>viridescent</value>
+		<value>white-hot</value>
+		<value>white</value>
+		<value>yellow-green</value>
+		<value>yellow-orange</value>
+		<value>yellow</value>
 	</enum>
 	<enum name="Hair Type">
-		<values>
-			<value id="0">Hair</value>
-			<value id="1">Feathers</value>
-			<value id="2">Transparent</value>
-			<value id="3">Gooey</value>
-			<value id="4">Tentacles</value>
-			<value id="5">Quills</value>
-			<value id="6">Plant</value>
-		</values>
+		<value id="0">Hair</value>
+		<value id="1">Feathers</value>
+		<value id="2">Transparent</value>
+		<value id="3">Gooey</value>
+		<value id="4">Tentacles</value>
+		<value id="5">Quills</value>
+		<value id="6">Plant</value>
 	</enum>
 	<enum name="Hair Color">
-		<values>
-			<value>amber</value>
-			<value>aquamarine</value>
-			<value>auburn</value>
-			<value>black and brown</value>
-			<value>black and pink</value>
-			<value>black and white</value>
-			<value>black and yellow</value>
-			<value>black</value>
-			<value>blonde</value>
-			<value>blood-hued crimson</value>
-			<value>blue-white</value>
-			<value>blue</value>
-			<value>brass</value>
-			<value>brown and white</value>
-			<value>brown-dappled</value>
-			<value>brown</value>
-			<value>cerulean</value>
-			<value>chestnut</value>
-			<value>chocolate-brown</value>
-			<value>chocolate</value>
-			<value>clear</value>
-			<value>cobalt</value>
-			<value>copper</value>
-			<value>crimson</value>
-			<value>dark blonde</value>
-			<value>dark brown</value>
-			<value>dark green</value>
-			<value>dirty blonde</value>
-			<value>electric blue</value>
-			<value>emerald</value>
-			<value>fiery blue</value>
-			<value>fiery orange</value>
-			<value>firey-red</value>
-			<value>forest green</value>
-			<value>glowing amber</value>
-			<value>glowing blue</value>
-			<value>glowing cyan</value>
-			<value>glowing ember</value>
-			<value>glowing gold</value>
-			<value>glowing green</value>
-			<value>glowing orange</value>
-			<value>glowing pink</value>
-			<value>glowing purple</value>
-			<value>glowing red</value>
-			<value>glowing violet</value>
-			<value>glowing white</value>
-			<value>glowing yellow</value>
-			<value>gold</value>
-			<value>gray</value>
-			<value>green</value>
-			<value>hazel</value>
-			<value>iridescent</value>
-			<value>ivory</value>
-			<value>jet-black</value>
-			<value>jungle green</value>
-			<value>lavender</value>
-			<value>light brown</value>
-			<value>light red</value>
-			<value>luminous azure</value>
-			<value>luminous blue</value>
-			<value>luminous celeste</value>
-			<value>luminous cerulean</value>
-			<value>luminous cyan</value>
-			<value>luminous green</value>
-			<value>luminous orange</value>
-			<value>luminous pink</value>
-			<value>luminous purple</value>
-			<value>luminous silver</value>
-			<value>luminous violet</value>
-			<value>luminous yellow</value>
-			<value>mahogany</value>
-			<value>midnight black</value>
-			<value>midnight blue</value>
-			<value>none</value>
-			<value>onyx</value>
-			<value>orange</value>
-			<value>orangey-gray</value>
-			<value>pale blue</value>
-			<value>pale green</value>
-			<value>peach</value>
-			<value>pink</value>
-			<value>platinum</value>
-			<value>purple</value>
-			<value>raven</value>
-			<value>red</value>
-			<value>reddish purple</value>
-			<value>rose gold</value>
-			<value>rose</value>
-			<value>rusty red</value>
-			<value>sable</value>
-			<value>silver-blue</value>
-			<value>silver</value>
-			<value>silvery-blue</value>
-			<value>silvery-white</value>
-			<value>steel gray</value>
-			<value>straw</value>
-			<value>strawberry blonde</value>
-			<value>tan</value>
-			<value>tawny</value>
-			<value>teal</value>
-			<value>transparent</value>
-			<value>verdant</value>
-			<value>vibrant purple</value>
-			<value>violet</value>
-			<value>viridescent</value>
-			<value>white and black</value>
-			<value>white-dappled brown</value>
-			<value>white</value>
-			<value>yellow and black striped</value>
-			<value>yellow-green</value>
-			<value>yellow</value>
-		</values>
+		<value>amber</value>
+		<value>aquamarine</value>
+		<value>auburn</value>
+		<value>black and brown</value>
+		<value>black and pink</value>
+		<value>black and white</value>
+		<value>black and yellow</value>
+		<value>black</value>
+		<value>blonde</value>
+		<value>blood-hued crimson</value>
+		<value>blue-white</value>
+		<value>blue</value>
+		<value>brass</value>
+		<value>brown and white</value>
+		<value>brown-dappled</value>
+		<value>brown</value>
+		<value>cerulean</value>
+		<value>chestnut</value>
+		<value>chocolate-brown</value>
+		<value>chocolate</value>
+		<value>clear</value>
+		<value>cobalt</value>
+		<value>copper</value>
+		<value>crimson</value>
+		<value>dark blonde</value>
+		<value>dark brown</value>
+		<value>dark green</value>
+		<value>dirty blonde</value>
+		<value>electric blue</value>
+		<value>emerald</value>
+		<value>fiery blue</value>
+		<value>fiery orange</value>
+		<value>firey-red</value>
+		<value>forest green</value>
+		<value>glowing amber</value>
+		<value>glowing blue</value>
+		<value>glowing cyan</value>
+		<value>glowing ember</value>
+		<value>glowing gold</value>
+		<value>glowing green</value>
+		<value>glowing orange</value>
+		<value>glowing pink</value>
+		<value>glowing purple</value>
+		<value>glowing red</value>
+		<value>glowing violet</value>
+		<value>glowing white</value>
+		<value>glowing yellow</value>
+		<value>gold</value>
+		<value>gray</value>
+		<value>green</value>
+		<value>hazel</value>
+		<value>iridescent</value>
+		<value>ivory</value>
+		<value>jet-black</value>
+		<value>jungle green</value>
+		<value>lavender</value>
+		<value>light brown</value>
+		<value>light red</value>
+		<value>luminous azure</value>
+		<value>luminous blue</value>
+		<value>luminous celeste</value>
+		<value>luminous cerulean</value>
+		<value>luminous cyan</value>
+		<value>luminous green</value>
+		<value>luminous orange</value>
+		<value>luminous pink</value>
+		<value>luminous purple</value>
+		<value>luminous silver</value>
+		<value>luminous violet</value>
+		<value>luminous yellow</value>
+		<value>mahogany</value>
+		<value>midnight black</value>
+		<value>midnight blue</value>
+		<value>none</value>
+		<value>onyx</value>
+		<value>orange</value>
+		<value>orangey-gray</value>
+		<value>pale blue</value>
+		<value>pale green</value>
+		<value>peach</value>
+		<value>pink</value>
+		<value>platinum</value>
+		<value>purple</value>
+		<value>raven</value>
+		<value>red</value>
+		<value>reddish purple</value>
+		<value>rose gold</value>
+		<value>rose</value>
+		<value>rusty red</value>
+		<value>sable</value>
+		<value>silver-blue</value>
+		<value>silver</value>
+		<value>silvery-blue</value>
+		<value>silvery-white</value>
+		<value>steel gray</value>
+		<value>straw</value>
+		<value>strawberry blonde</value>
+		<value>tan</value>
+		<value>tawny</value>
+		<value>teal</value>
+		<value>transparent</value>
+		<value>verdant</value>
+		<value>vibrant purple</value>
+		<value>violet</value>
+		<value>viridescent</value>
+		<value>white and black</value>
+		<value>white-dappled brown</value>
+		<value>white</value>
+		<value>yellow and black striped</value>
+		<value>yellow-green</value>
+		<value>yellow</value>
 	</enum>
 	<enum name="Hair Style">
-		<values>
-			<value id="null">none</value>
-			<value>afro</value>
-			<value>backwards slick</value>
-			<value>bob cut</value>
-			<value>braided</value>
-			<value>crown braid</value>
-			<value>curls</value>
-			<value>curtains</value>
-			<value>fingerwave</value>
-			<value>front wave</value>
-			<value>hime cut</value>
-			<value>loose</value>
-			<value>mess of curls</value>
-			<value>messy chignon</value>
-			<value>mohawk</value>
-			<value>pigtail buns</value>
-			<value>pigtails</value>
-			<value>ponytail</value>
-			<value>quiff</value>
-			<value>ringlets</value>
-			<value>ruffled layers</value>
-			<value>side plait</value>
-			<value>simple part</value>
-			<value>single braid</value>
-			<value>spikehawk</value>
-			<value>spikes</value>
-			<value>straight</value>
-			<value>tentacle</value>
-			<value>tight chignon</value>
-			<value>topknot</value>
-			<value>twintails</value>
-		</values>
+		<value id="null">none</value>
+		<value>afro</value>
+		<value>backwards slick</value>
+		<value>bob cut</value>
+		<value>braided</value>
+		<value>crown braid</value>
+		<value>curls</value>
+		<value>curtains</value>
+		<value>fingerwave</value>
+		<value>front wave</value>
+		<value>hime cut</value>
+		<value>loose</value>
+		<value>mess of curls</value>
+		<value>messy chignon</value>
+		<value>mohawk</value>
+		<value>pigtail buns</value>
+		<value>pigtails</value>
+		<value>ponytail</value>
+		<value>quiff</value>
+		<value>ringlets</value>
+		<value>ruffled layers</value>
+		<value>side plait</value>
+		<value>simple part</value>
+		<value>single braid</value>
+		<value>spikehawk</value>
+		<value>spikes</value>
+		<value>straight</value>
+		<value>tentacle</value>
+		<value>tight chignon</value>
+		<value>topknot</value>
+		<value>twintails</value>
 	</enum>
 	<enum name="Face Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="2">Bovine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="9">Lapine</value>
-			<value id="10">Avian</value>
-			<value id="11">Draconic</value>
-			<value id="12">Lizan</value>
-			<value id="14">Frog</value>
-			<value id="17">Kangaroo</value>
-			<value id="18">Gabilani</value>
-			<value id="19">Shark</value>
-			<value id="20">Suula</value>
-			<value id="24">Kui-tan</value>
-			<value id="25">Human Masked</value>
-			<value id="26">Mouse</value>
-			<value id="27">Mouseman</value>
-			<value id="39">Naleen</value>
-			<value id="40">Panda</value>
-			<value id="45">Badger</value>
-			<value id="71">Worg</value>
-			<value id="72">Swine</value>
-			<value id="76">Sheep</value>
-			<value id="77">Panda (Lesser)</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="2">Bovine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="9">Lapine</value>
+		<value id="10">Avian</value>
+		<value id="11">Draconic</value>
+		<value id="12">Lizan</value>
+		<value id="14">Frog</value>
+		<value id="17">Kangaroo</value>
+		<value id="18">Gabilani</value>
+		<value id="19">Shark</value>
+		<value id="20">Suula</value>
+		<value id="24">Kui-tan</value>
+		<value id="25">Human Masked</value>
+		<value id="26">Mouse</value>
+		<value id="27">Mouseman</value>
+		<value id="39">Naleen</value>
+		<value id="40">Panda</value>
+		<value id="45">Badger</value>
+		<value id="71">Worg</value>
+		<value id="72">Swine</value>
+		<value id="76">Sheep</value>
+		<value id="77">Panda (Lesser)</value>
 	</enum>
 	<enum name="Face Flags">
-		<values>
-			<value id="1">Long</value>
-			<value id="6">Smooth</value>
-			<value id="14">Muzzled</value>
-			<value id="15">Angular</value>
-			<value id="20">Furred</value>
-			<value id="43">Beak</value>
-			<value id="46">Freckled</value>
-		</values>
+		<value id="1">Long</value>
+		<value id="6">Smooth</value>
+		<value id="14">Muzzled</value>
+		<value id="15">Angular</value>
+		<value id="20">Furred</value>
+		<value id="43">Beak</value>
+		<value id="46">Freckled</value>
 	</enum>
 	<enum name="Eye Color">
-		<values>
-			<value>amber</value>
-			<value>amethyst</value>
-			<value>aqua</value>
-			<value>aquamarine</value>
-			<value>black</value>
-			<value>blue</value>
-			<value>brown</value>
-			<value>cerulean</value>
-			<value>chestnut</value>
-			<value>citrine</value>
-			<value>cloudy</value>
-			<value>copper</value>
-			<value>crimson</value>
-			<value>dark blue</value>
-			<value>dark yellow</value>
-			<value>electric blue</value>
-			<value>emerald</value>
-			<value>fir green</value>
-			<value>foxfire</value>
-			<value>garnet</value>
-			<value>glowing amber</value>
-			<value>glowing blue</value>
-			<value>glowing cyan</value>
-			<value>glowing ember</value>
-			<value>glowing gold</value>
-			<value>glowing green</value>
-			<value>glowing orange</value>
-			<value>glowing pink</value>
-			<value>glowing purple</value>
-			<value>glowing red</value>
-			<value>glowing violet</value>
-			<value>glowing white</value>
-			<value>glowing yellow</value>
-			<value>gold</value>
-			<value>gray</value>
-			<value>green</value>
-			<value>hazel</value>
-			<value>indigo</value>
-			<value>iridescent</value>
-			<value>jade</value>
-			<value>lapis</value>
-			<value>lavender</value>
-			<value>leaf green</value>
-			<value>lime green</value>
-			<value>luminous azure</value>
-			<value>luminous blue</value>
-			<value>luminous celeste</value>
-			<value>luminous cerulean</value>
-			<value>luminous cyan</value>
-			<value>luminous green</value>
-			<value>luminous orange</value>
-			<value>luminous pink</value>
-			<value>luminous purple</value>
-			<value>luminous silver</value>
-			<value>luminous violet</value>
-			<value>luminous yellow</value>
-			<value>opal</value>
-			<value>orange</value>
-			<value>pale yellow</value>
-			<value>peach</value>
-			<value>pearl</value>
-			<value>peridot</value>
-			<value>pink</value>
-			<value>platinum</value>
-			<value>purple</value>
-			<value>red-orange</value>
-			<value>red</value>
-			<value>rose</value>
-			<value>ruby</value>
-			<value>sable</value>
-			<value>sapphire</value>
-			<value>sea blue</value>
-			<value>silver</value>
-			<value>teal</value>
-			<value>topaz</value>
-			<value>turquoise</value>
-			<value>varied</value>
-			<value>violet</value>
-			<value>viridescent</value>
-			<value>white</value>
-			<value>yellow-green</value>
-			<value>yellow-orange</value>
-			<value>yellow</value>
-		</values>
+		<value>amber</value>
+		<value>amethyst</value>
+		<value>aqua</value>
+		<value>aquamarine</value>
+		<value>black</value>
+		<value>blue</value>
+		<value>brown</value>
+		<value>cerulean</value>
+		<value>chestnut</value>
+		<value>citrine</value>
+		<value>cloudy</value>
+		<value>copper</value>
+		<value>crimson</value>
+		<value>dark blue</value>
+		<value>dark yellow</value>
+		<value>electric blue</value>
+		<value>emerald</value>
+		<value>fir green</value>
+		<value>foxfire</value>
+		<value>garnet</value>
+		<value>glowing amber</value>
+		<value>glowing blue</value>
+		<value>glowing cyan</value>
+		<value>glowing ember</value>
+		<value>glowing gold</value>
+		<value>glowing green</value>
+		<value>glowing orange</value>
+		<value>glowing pink</value>
+		<value>glowing purple</value>
+		<value>glowing red</value>
+		<value>glowing violet</value>
+		<value>glowing white</value>
+		<value>glowing yellow</value>
+		<value>gold</value>
+		<value>gray</value>
+		<value>green</value>
+		<value>hazel</value>
+		<value>indigo</value>
+		<value>iridescent</value>
+		<value>jade</value>
+		<value>lapis</value>
+		<value>lavender</value>
+		<value>leaf green</value>
+		<value>lime green</value>
+		<value>luminous azure</value>
+		<value>luminous blue</value>
+		<value>luminous celeste</value>
+		<value>luminous cerulean</value>
+		<value>luminous cyan</value>
+		<value>luminous green</value>
+		<value>luminous orange</value>
+		<value>luminous pink</value>
+		<value>luminous purple</value>
+		<value>luminous silver</value>
+		<value>luminous violet</value>
+		<value>luminous yellow</value>
+		<value>opal</value>
+		<value>orange</value>
+		<value>pale yellow</value>
+		<value>peach</value>
+		<value>pearl</value>
+		<value>peridot</value>
+		<value>pink</value>
+		<value>platinum</value>
+		<value>purple</value>
+		<value>red-orange</value>
+		<value>red</value>
+		<value>rose</value>
+		<value>ruby</value>
+		<value>sable</value>
+		<value>sapphire</value>
+		<value>sea blue</value>
+		<value>silver</value>
+		<value>teal</value>
+		<value>topaz</value>
+		<value>turquoise</value>
+		<value>varied</value>
+		<value>violet</value>
+		<value>viridescent</value>
+		<value>white</value>
+		<value>yellow-green</value>
+		<value>yellow-orange</value>
+		<value>yellow</value>
 	</enum>
 	<enum name="Eye Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="6">Bee</value>
-			<value id="7">Arachnid</value>
-			<value id="10">Avian</value>
-			<value id="13">Naga</value>
-			<value id="14">Frog</value>
-			<value id="15">Demonic</value>
-			<value id="18">Gabilani</value>
-			<value id="19">Shark</value>
-			<value id="49">Leithan</value>
-			<value id="50">Goat</value>
-			<value id="51">Synthetic</value>
-			<value id="53">Daynar</value>
-			<value id="54">Cockvine</value>
-			<value id="55">Nyrea</value>
-			<value id="60">Myr</value>
-			<value id="65">Gryvain</value>
-			<value id="66">Korgonne</value>
-			<value id="71">Worg</value>
-			<value id="76">Sheep</value>
-			<value id="80">Adremmalex</value>
-			<value id="81">Mothrine</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="6">Bee</value>
+		<value id="7">Arachnid</value>
+		<value id="10">Avian</value>
+		<value id="13">Naga</value>
+		<value id="14">Frog</value>
+		<value id="15">Demonic</value>
+		<value id="18">Gabilani</value>
+		<value id="19">Shark</value>
+		<value id="49">Leithan</value>
+		<value id="50">Goat</value>
+		<value id="51">Synthetic</value>
+		<value id="53">Daynar</value>
+		<value id="54">Cockvine</value>
+		<value id="55">Nyrea</value>
+		<value id="60">Myr</value>
+		<value id="65">Gryvain</value>
+		<value id="66">Korgonne</value>
+		<value id="71">Worg</value>
+		<value id="76">Sheep</value>
+		<value id="80">Adremmalex</value>
+		<value id="81">Mothrine</value>
 	</enum>
 	<enum name="Ear Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="2">Bovine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="8">Drider</value>
-			<value id="9">Lapine</value>
-			<value id="10">Avian</value>
-			<value id="11">Draconic</value>
-			<value id="12">Lizan</value>
-			<value id="14">Frog</value>
-			<value id="15">Demonic</value>
-			<value id="17">Kangaroo</value>
-			<value id="18">Gabilani</value>
-			<value id="19">Shark</value>
-			<value id="20">Suula</value>
-			<value id="21">Deer</value>
-			<value id="24">Kui-tan</value>
-			<value id="26">Mouse</value>
-			<value id="29">Floppy Dog</value>
-			<value id="40">Panda</value>
-			<value id="42">Raskvel</value>
-			<value id="45">Badger</value>
-			<value id="46">Vanae</value>
-			<value id="49">Leithan</value>
-			<value id="52">Simii</value>
-			<value id="53">Daynar</value>
-			<value id="57">Ovir</value>
-			<value id="58">Sylvan</value>
-			<value id="65">Gryvain</value>
-			<value id="66">Korgonne</value>
-			<value id="72">Swine</value>
-			<value id="73">Lapine (Quad)</value>
-			<value id="76">Sheep</value>
-			<value id="77">Panda (Lesser)</value>
-			<value id="81">Mothrine</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="2">Bovine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="8">Drider</value>
+		<value id="9">Lapine</value>
+		<value id="10">Avian</value>
+		<value id="11">Draconic</value>
+		<value id="12">Lizan</value>
+		<value id="14">Frog</value>
+		<value id="15">Demonic</value>
+		<value id="17">Kangaroo</value>
+		<value id="18">Gabilani</value>
+		<value id="19">Shark</value>
+		<value id="20">Suula</value>
+		<value id="21">Deer</value>
+		<value id="24">Kui-tan</value>
+		<value id="26">Mouse</value>
+		<value id="29">Floppy Dog</value>
+		<value id="40">Panda</value>
+		<value id="42">Raskvel</value>
+		<value id="45">Badger</value>
+		<value id="46">Vanae</value>
+		<value id="49">Leithan</value>
+		<value id="52">Simii</value>
+		<value id="53">Daynar</value>
+		<value id="57">Ovir</value>
+		<value id="58">Sylvan</value>
+		<value id="65">Gryvain</value>
+		<value id="66">Korgonne</value>
+		<value id="72">Swine</value>
+		<value id="73">Lapine (Quad)</value>
+		<value id="76">Sheep</value>
+		<value id="77">Panda (Lesser)</value>
+		<value id="81">Mothrine</value>
 	</enum>
 	<enum name="Ear Length Enable">
-		<values>
-			<value>Raskvel</value>
-			<value>Leithan</value>
-			<value>Demonic</value>
-			<value>Sylvan</value>
-			<value>Gabilani</value>
-			<value>Lapine</value>
-			<value>Quad Lapine</value>
-		</values>
+		<value>Raskvel</value>
+		<value>Leithan</value>
+		<value>Demonic</value>
+		<value>Sylvan</value>
+		<value>Gabilani</value>
+		<value>Lapine</value>
+		<value>Quad Lapine</value>
 	</enum>
 	<enum name="Tongue Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="2">Bovine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="6">Bee</value>
-			<value id="9">Lapine</value>
-			<value id="10">Avian</value>
-			<value id="11">Draconic</value>
-			<value id="13">Naga</value>
-			<value id="14">Frog</value>
-			<value id="15">Demonic</value>
-			<value id="16">Gooey</value>
-			<value id="23">Tentacle</value>
-			<value id="40">Panda</value>
-			<value id="42">Raskvel</value>
-			<value id="45">Badger</value>
-			<value id="49">Leithan</value>
-			<value id="57">Ovir</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="2">Bovine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="6">Bee</value>
+		<value id="9">Lapine</value>
+		<value id="10">Avian</value>
+		<value id="11">Draconic</value>
+		<value id="13">Naga</value>
+		<value id="14">Frog</value>
+		<value id="15">Demonic</value>
+		<value id="16">Gooey</value>
+		<value id="23">Tentacle</value>
+		<value id="40">Panda</value>
+		<value id="42">Raskvel</value>
+		<value id="45">Badger</value>
+		<value id="49">Leithan</value>
+		<value id="57">Ovir</value>
 	</enum>
 	<enum name="Tongue Flags">
-		<values>
-			<value id="1">Long</value>
-			<value id="2">Prehensile</value>
-			<value id="3">Lubricated</value>
-			<value id="5">Squishy</value>
-			<value id="11">Aphrodisiac</value>
-			<value id="12">Sticky</value>
-			<value id="30">Nubby</value>
-			<value id="32">Hollow</value>
-			<value id="37">Gooey</value>
-		</values>
+		<value id="1">Long</value>
+		<value id="2">Prehensile</value>
+		<value id="3">Lubricated</value>
+		<value id="5">Squishy</value>
+		<value id="11">Aphrodisiac</value>
+		<value id="12">Sticky</value>
+		<value id="30">Nubby</value>
+		<value id="32">Hollow</value>
+		<value id="37">Gooey</value>
 	</enum>
 	<enum name="Antennae Type">
-		<values>
-			<value id="0">None</value>
-			<value id="6">Bee</value>
-			<value id="16">Gooey</value>
-			<value id="43">Sydian</value>
-			<value id="60">Myr</value>
-			<value id="64">Hradian</value>
-		</values>
+		<value id="0">None</value>
+		<value id="6">Bee</value>
+		<value id="16">Gooey</value>
+		<value id="43">Sydian</value>
+		<value id="60">Myr</value>
+		<value id="64">Hradian</value>
 	</enum>
 	<enum name="Horn Type">
-		<values>
-			<value id="0">None</value>
-			<value id="2">Bovine</value>
-			<value id="11">Draconic</value>
-			<value id="12">Lizan</value>
-			<value id="15">Demonic</value>
-			<value id="21">Deer</value>
-			<value id="30">Dryad</value>
-			<value id="50">Goat</value>
-			<value id="62">Rhino</value>
-			<value id="63">Narwhal</value>
-			<value id="65">Gryvain</value>
-			<value id="76">Sheep</value>
-		</values>
+		<value id="0">None</value>
+		<value id="2">Bovine</value>
+		<value id="11">Draconic</value>
+		<value id="12">Lizan</value>
+		<value id="15">Demonic</value>
+		<value id="21">Deer</value>
+		<value id="30">Dryad</value>
+		<value id="50">Goat</value>
+		<value id="62">Rhino</value>
+		<value id="63">Narwhal</value>
+		<value id="65">Gryvain</value>
+		<value id="76">Sheep</value>
 	</enum>
 	<enum name="Beard Style">
-		<values>
-			<value id="0">none</value>
-			<value id="1">Braided</value>
-			<value id="2">Curly</value>
-			<value id="3">Untamed</value>
-			<value id="4">Anchor</value>
-			<value id="5">Mutton Chops</value>
-			<value id="6">Boxed</value>
-			<value id="7">Chin Strap</value>
-			<value id="8">Mustache</value>
-			<value id="9">Handlebars</value>
-			<value id="10">Goatee</value>
-			<value id="11">Sideburns</value>
-		</values>
+		<value id="0">none</value>
+		<value id="1">Braided</value>
+		<value id="2">Curly</value>
+		<value id="3">Untamed</value>
+		<value id="4">Anchor</value>
+		<value id="5">Mutton Chops</value>
+		<value id="6">Boxed</value>
+		<value id="7">Chin Strap</value>
+		<value id="8">Mustache</value>
+		<value id="9">Handlebars</value>
+		<value id="10">Goatee</value>
+		<value id="11">Sideburns</value>
 	</enum>
 	<enum name="Arm Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="6">Bee</value>
-			<value id="7">Arachnid</value>
-			<value id="8">Drider</value>
-			<value id="9">Lapine</value>
-			<value id="10">Avian</value>
-			<value id="14">Frog</value>
-			<value id="15">Demonic</value>
-			<value id="19">Shark</value>
-			<value id="23">Tentacle</value>
-			<value id="24">Kui-tan</value>
-			<value id="40">Panda</value>
-			<value id="45">Badger</value>
-			<value id="49">Leithan</value>
-			<value id="52">Simii</value>
-			<value id="53">Daynar</value>
-			<value id="55">Nyrea</value>
-			<value id="57">Ovir</value>
-			<value id="60">Myr</value>
-			<value id="67">Flower</value>
-			<value id="77">Panda (Lesser)</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="6">Bee</value>
+		<value id="7">Arachnid</value>
+		<value id="8">Drider</value>
+		<value id="9">Lapine</value>
+		<value id="10">Avian</value>
+		<value id="14">Frog</value>
+		<value id="15">Demonic</value>
+		<value id="19">Shark</value>
+		<value id="23">Tentacle</value>
+		<value id="24">Kui-tan</value>
+		<value id="40">Panda</value>
+		<value id="45">Badger</value>
+		<value id="49">Leithan</value>
+		<value id="52">Simii</value>
+		<value id="53">Daynar</value>
+		<value id="55">Nyrea</value>
+		<value id="57">Ovir</value>
+		<value id="60">Myr</value>
+		<value id="67">Flower</value>
+		<value id="77">Panda (Lesser)</value>
 	</enum>
 	<enum name="Arm Flags">
-		<values>
-			<value id="6">Smooth</value>
-			<value id="12">Sticky</value>
-			<value id="19">Amorphous</value>
-			<value id="20">Furred</value>
-			<value id="21">Scaled</value>
-			<value id="23">Paws</value>
-			<value id="34">Chitinous</value>
-			<value id="35">Feathered</value>
-			<value id="37">Gooey</value>
-			<value id="38">Spiked</value>
-		</values>
+		<value id="6">Smooth</value>
+		<value id="12">Sticky</value>
+		<value id="19">Amorphous</value>
+		<value id="20">Furred</value>
+		<value id="21">Scaled</value>
+		<value id="23">Paws</value>
+		<value id="34">Chitinous</value>
+		<value id="35">Feathered</value>
+		<value id="37">Gooey</value>
+		<value id="38">Spiked</value>
 	</enum>
 	<enum name="Leg Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="2">Bovine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="6">Bee</value>
-			<value id="7">Arachnid</value>
-			<value id="8">Drider</value>
-			<value id="9">Lapine</value>
-			<value id="10">Avian</value>
-			<value id="11">Draconic</value>
-			<value id="12">Lizan</value>
-			<value id="13">Naga</value>
-			<value id="14">Frog</value>
-			<value id="15">Demonic</value>
-			<value id="16">Gooey</value>
-			<value id="17">Kangaroo</value>
-			<value id="19">Shark</value>
-			<value id="21">Deer</value>
-			<value id="23">Tentacle</value>
-			<value id="24">Kui-tan</value>
-			<value id="32">MLP</value>
-			<value id="35">Succubus</value>
-			<value id="40">Panda</value>
-			<value id="42">Raskvel</value>
-			<value id="45">Badger</value>
-			<value id="52">Simii</value>
-			<value id="53">Daynar</value>
-			<value id="55">Nyrea</value>
-			<value id="57">Ovir</value>
-			<value id="60">Myr</value>
-			<value id="65">Gryvain</value>
-			<value id="72">Swine</value>
-			<value id="76">Sheep</value>
-			<value id="77">Panda (Lesser)</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="2">Bovine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="6">Bee</value>
+		<value id="7">Arachnid</value>
+		<value id="8">Drider</value>
+		<value id="9">Lapine</value>
+		<value id="10">Avian</value>
+		<value id="11">Draconic</value>
+		<value id="12">Lizan</value>
+		<value id="13">Naga</value>
+		<value id="14">Frog</value>
+		<value id="15">Demonic</value>
+		<value id="16">Gooey</value>
+		<value id="17">Kangaroo</value>
+		<value id="19">Shark</value>
+		<value id="21">Deer</value>
+		<value id="23">Tentacle</value>
+		<value id="24">Kui-tan</value>
+		<value id="32">MLP</value>
+		<value id="35">Succubus</value>
+		<value id="40">Panda</value>
+		<value id="42">Raskvel</value>
+		<value id="45">Badger</value>
+		<value id="52">Simii</value>
+		<value id="53">Daynar</value>
+		<value id="55">Nyrea</value>
+		<value id="57">Ovir</value>
+		<value id="60">Myr</value>
+		<value id="65">Gryvain</value>
+		<value id="72">Swine</value>
+		<value id="76">Sheep</value>
+		<value id="77">Panda (Lesser)</value>
 	</enum>
 	<enum name="Leg Flags">
-		<values>
-			<value id="2">Prehensile</value>
-			<value id="6">Smooth</value>
-			<value id="12">Sticky</value>
-			<value id="16">Plantigrade</value>
-			<value id="17">Digitgrade</value>
-			<value id="18">Tendril</value>
-			<value id="19">Amorphous</value>
-			<value id="20">Furred</value>
-			<value id="21">Scaled</value>
-			<value id="22">Hooves</value>
-			<value id="23">Paws</value>
-			<value id="24">Heels</value>
-			<value id="34">Chitinous</value>
-			<value id="35">Feathered</value>
-			<value id="37">Gooey</value>
-		</values>
+		<value id="2">Prehensile</value>
+		<value id="6">Smooth</value>
+		<value id="12">Sticky</value>
+		<value id="16">Plantigrade</value>
+		<value id="17">Digitgrade</value>
+		<value id="18">Tendril</value>
+		<value id="19">Amorphous</value>
+		<value id="20">Furred</value>
+		<value id="21">Scaled</value>
+		<value id="22">Hooves</value>
+		<value id="23">Paws</value>
+		<value id="24">Heels</value>
+		<value id="34">Chitinous</value>
+		<value id="35">Feathered</value>
+		<value id="37">Gooey</value>
 	</enum>
 	<enum name="Wing Type">
-		<values>
-			<value id="0">None</value>
-			<value id="6">Bee</value>
-			<value id="10">Avian</value>
-			<value id="11">Draconic</value>
-			<value id="15">Demonic</value>
-			<value id="19">Shark</value>
-			<value id="23">Tentacle</value>
-			<value id="28">Dove</value>
-			<value id="31">Dragonfly</value>
-			<value id="36">Small Bee</value>
-			<value id="37">Small Demonic</value>
-			<value id="38">Small Draconic</value>
-			<value id="54">Cockvine</value>
-			<value id="58">Sylvan</value>
-			<value id="59">Dark Sylvan</value>
-			<value id="60">Myr</value>
-			<value id="65">Gryvain</value>
-		</values>
+		<value id="0">None</value>
+		<value id="6">Bee</value>
+		<value id="10">Avian</value>
+		<value id="11">Draconic</value>
+		<value id="15">Demonic</value>
+		<value id="19">Shark</value>
+		<value id="23">Tentacle</value>
+		<value id="28">Dove</value>
+		<value id="31">Dragonfly</value>
+		<value id="36">Small Bee</value>
+		<value id="37">Small Demonic</value>
+		<value id="38">Small Draconic</value>
+		<value id="54">Cockvine</value>
+		<value id="58">Sylvan</value>
+		<value id="59">Dark Sylvan</value>
+		<value id="60">Myr</value>
+		<value id="65">Gryvain</value>
 	</enum>
 	<enum name="Tail Type">
-		<values>
-			<value id="0">None</value>
-			<value id="1">Equine</value>
-			<value id="2">Bovine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="6">Bee</value>
-			<value id="7">Arachnid</value>
-			<value id="8">Drider</value>
-			<value id="9">Lapine</value>
-			<value id="10">Avian</value>
-			<value id="11">Draconic</value>
-			<value id="12">Lizan</value>
-			<value id="13">Naga</value>
-			<value id="14">Frog</value>
-			<value id="15">Demonic</value>
-			<value id="17">Kangaroo</value>
-			<value id="19">Shark</value>
-			<value id="20">Suula</value>
-			<value id="21">Deer</value>
-			<value id="23">Tentacle</value>
-			<value id="24">Kui-tan</value>
-			<value id="26">Mouse</value>
-			<value id="29">Floppy Dog</value>
-			<value id="33">Cuntsnake</value>
-			<value id="40">Panda</value>
-			<value id="42">Raskvel</value>
-			<value id="43">Sydian</value>
-			<value id="45">Badger</value>
-			<value id="46">Vanae</value>
-			<value id="51">Synthetic</value>
-			<value id="52">Simii</value>
-			<value id="53">Daynar</value>
-			<value id="54">Cockvine</value>
-			<value id="57">Ovir</value>
-			<value id="60">Myr</value>
-			<value id="65">Gryvain</value>
-			<value id="72">Swine</value>
-			<value id="76">Sheep</value>
-			<value id="77">Panda (Lesser)</value>
-		</values>
+		<value id="0">None</value>
+		<value id="1">Equine</value>
+		<value id="2">Bovine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="6">Bee</value>
+		<value id="7">Arachnid</value>
+		<value id="8">Drider</value>
+		<value id="9">Lapine</value>
+		<value id="10">Avian</value>
+		<value id="11">Draconic</value>
+		<value id="12">Lizan</value>
+		<value id="13">Naga</value>
+		<value id="14">Frog</value>
+		<value id="15">Demonic</value>
+		<value id="17">Kangaroo</value>
+		<value id="19">Shark</value>
+		<value id="20">Suula</value>
+		<value id="21">Deer</value>
+		<value id="23">Tentacle</value>
+		<value id="24">Kui-tan</value>
+		<value id="26">Mouse</value>
+		<value id="29">Floppy Dog</value>
+		<value id="33">Cuntsnake</value>
+		<value id="40">Panda</value>
+		<value id="42">Raskvel</value>
+		<value id="43">Sydian</value>
+		<value id="45">Badger</value>
+		<value id="46">Vanae</value>
+		<value id="51">Synthetic</value>
+		<value id="52">Simii</value>
+		<value id="53">Daynar</value>
+		<value id="54">Cockvine</value>
+		<value id="57">Ovir</value>
+		<value id="60">Myr</value>
+		<value id="65">Gryvain</value>
+		<value id="72">Swine</value>
+		<value id="76">Sheep</value>
+		<value id="77">Panda (Lesser)</value>
 	</enum>
 	<enum name="Tail Flags">
-		<values>
-			<value id="1">Long</value>
-			<value id="2">Prehensile</value>
-			<value id="4">Fluffy</value>
-			<value id="6">Smooth</value>
-			<value id="7">Tapered</value>
-			<value id="8">Flared</value>
-			<value id="9">Knotted</value>
-			<value id="12">Sticky</value>
-			<value id="13">Thick</value>
-			<value id="20">Furred</value>
-			<value id="21">Scaled</value>
-			<value id="25">Ovipositor</value>
-			<value id="26">Sheathed</value>
-			<value id="27">Tailcock</value>
-			<value id="29">Stinger Tip</value>
-			<value id="30">Nubby</value>
-			<value id="33">Ribbed</value>
-			<value id="34">Chitinous</value>
-			<value id="35">Feathered</value>
-			<value id="37">Gooey</value>
-			<value id="42">Tailcunt</value>
-			<value id="44">Corkscrewed</value>
-		</values>
+		<value id="1">Long</value>
+		<value id="2">Prehensile</value>
+		<value id="4">Fluffy</value>
+		<value id="6">Smooth</value>
+		<value id="7">Tapered</value>
+		<value id="8">Flared</value>
+		<value id="9">Knotted</value>
+		<value id="12">Sticky</value>
+		<value id="13">Thick</value>
+		<value id="20">Furred</value>
+		<value id="21">Scaled</value>
+		<value id="25">Ovipositor</value>
+		<value id="26">Sheathed</value>
+		<value id="27">Tailcock</value>
+		<value id="29">Stinger Tip</value>
+		<value id="30">Nubby</value>
+		<value id="33">Ribbed</value>
+		<value id="34">Chitinous</value>
+		<value id="35">Feathered</value>
+		<value id="37">Gooey</value>
+		<value id="42">Tailcunt</value>
+		<value id="44">Corkscrewed</value>
 	</enum>
 	<enum name="Tail Genital Type">
-		<values>
-			<value id="0">Parasitic</value>
-			<value id="1">Cock</value>
-			<value id="2">Vagina</value>
-		</values>
+		<value id="0">Parasitic</value>
+		<value id="1">Cock</value>
+		<value id="2">Vagina</value>
 	</enum>
 	<enum name="Tail Genital Race">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="15">Demonic</value>
-			<value id="16">Gooey</value>
-			<value id="20">Suula</value>
-			<value id="23">Tentacle</value>
-			<value id="54">Cockvine</value>
-			<value id="65">Gryvain</value>
-			<value id="67">Flower</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="15">Demonic</value>
+		<value id="16">Gooey</value>
+		<value id="20">Suula</value>
+		<value id="23">Tentacle</value>
+		<value id="54">Cockvine</value>
+		<value id="65">Gryvain</value>
+		<value id="67">Flower</value>
 	</enum>
 	<enum name="Cum Type">
-		<values>
-			<value id="0">Milk</value>
-			<value id="1">Honey</value>
-			<value id="2">Cum</value>
-			<value id="6">Cumsap</value>
-			<value id="7">Chocolate Milk</value>
-			<value id="8">Strawberry Milk</value>
-			<value id="9">Sydian Cum</value>
-			<value id="14">Gabilani Cum</value>
-			<value id="16">Vanilla</value>
-			<value id="17">Nyrea Cum</value>
-			<value id="18">Goo</value>
-			<value id="19">Chocolate Cum</value>
-			<value id="20">Vanae Cum</value>
-			<value id="23">Hradian Cum</value>
-			<value id="24">Goo Cum</value>
-			<value id="25">Fruit Cum</value>
-			<value id="27">Eggnog</value>
-			<value id="28">Peppermint Cum</value>
-			<value id="29">Sugar Glaze</value>
-		</values>
+		<value id="0">Milk</value>
+		<value id="1">Honey</value>
+		<value id="2">Cum</value>
+		<value id="6">Cumsap</value>
+		<value id="7">Chocolate Milk</value>
+		<value id="8">Strawberry Milk</value>
+		<value id="9">Sydian Cum</value>
+		<value id="14">Gabilani Cum</value>
+		<value id="16">Vanilla</value>
+		<value id="17">Nyrea Cum</value>
+		<value id="18">Goo</value>
+		<value id="19">Chocolate Cum</value>
+		<value id="20">Vanae Cum</value>
+		<value id="23">Hradian Cum</value>
+		<value id="24">Goo Cum</value>
+		<value id="25">Fruit Cum</value>
+		<value id="27">Eggnog</value>
+		<value id="28">Peppermint Cum</value>
+		<value id="29">Sugar Glaze</value>
 	</enum>
 	<enum name="Girl Cum Type">
-		<values>
-			<value id="1">Honey</value>
-			<value id="5">Girl Cum</value>
-			<value id="7">Chocolate Milk</value>
-			<value id="8">Strawberry Milk</value>
-			<value id="15">Gabilani Girl Cum</value>
-			<value id="16">Vanilla</value>
-			<value id="18">Goo</value>
-			<value id="21">Nyrea Girl Cum</value>
-			<value id="23">Hradian Cum</value>
-			<value id="26">Fruit Girl Cum</value>
-			<value id="29">Sugar Glaze</value>
-		</values>
+		<value id="1">Honey</value>
+		<value id="5">Girl Cum</value>
+		<value id="7">Chocolate Milk</value>
+		<value id="8">Strawberry Milk</value>
+		<value id="15">Gabilani Girl Cum</value>
+		<value id="16">Vanilla</value>
+		<value id="18">Goo</value>
+		<value id="21">Nyrea Girl Cum</value>
+		<value id="23">Hradian Cum</value>
+		<value id="26">Fruit Girl Cum</value>
+		<value id="29">Sugar Glaze</value>
 	</enum>
 	<enum name="Milk Type">
-		<values>
-			<value id="0">Milk</value>
-			<value id="1">Honey</value>
-			<value id="2">Cum</value>
-			<value id="4">Milksap</value>
-			<value id="5">Girl Cum</value>
-			<value id="7">Chocolate Milk</value>
-			<value id="8">Strawberry Milk</value>
-			<value id="10">Vanae Maiden Milk</value>
-			<value id="11">Vanae Huntress Milk</value>
-			<value id="12">Nectar</value>
-			<value id="13">Leithan Milk</value>
-			<value id="16">Vanilla</value>
-			<value id="22">Blueberry Yogurt</value>
-			<value id="29">Sugar Glaze</value>
-		</values>
+		<value id="0">Milk</value>
+		<value id="1">Honey</value>
+		<value id="2">Cum</value>
+		<value id="4">Milksap</value>
+		<value id="5">Girl Cum</value>
+		<value id="7">Chocolate Milk</value>
+		<value id="8">Strawberry Milk</value>
+		<value id="10">Vanae Maiden Milk</value>
+		<value id="11">Vanae Huntress Milk</value>
+		<value id="12">Nectar</value>
+		<value id="13">Leithan Milk</value>
+		<value id="16">Vanilla</value>
+		<value id="22">Blueberry Yogurt</value>
+		<value id="29">Sugar Glaze</value>
 	</enum>
 	<enum name="Cock Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-			<value id="5">Vulpine</value>
-			<value id="6">Bee</value>
-			<value id="10">Avian</value>
-			<value id="11">Draconic</value>
-			<value id="13">Naga</value>
-			<value id="15">Demonic</value>
-			<value id="17">Kangaroo</value>
-			<value id="18">Gabilani</value>
-			<value id="19">Shark</value>
-			<value id="20">Suula</value>
-			<value id="22">Anemone</value>
-			<value id="23">Tentacle</value>
-			<value id="24">Kui-tan</value>
-			<value id="34">Venus Pitcher</value>
-			<value id="42">Raskvel</value>
-			<value id="43">Sydian</value>
-			<value id="46">Vanae</value>
-			<value id="51">Synthetic</value>
-			<value id="52">Simii</value>
-			<value id="53">Daynar</value>
-			<value id="54">Cockvine</value>
-			<value id="55">Nyrea</value>
-			<value id="56">Inhuman</value>
-			<value id="57">Ovir</value>
-			<value id="61">Saurian</value>
-			<value id="64">Hradian</value>
-			<value id="65">Gryvain</value>
-			<value id="72">Swine</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
+		<value id="5">Vulpine</value>
+		<value id="6">Bee</value>
+		<value id="10">Avian</value>
+		<value id="11">Draconic</value>
+		<value id="13">Naga</value>
+		<value id="15">Demonic</value>
+		<value id="17">Kangaroo</value>
+		<value id="18">Gabilani</value>
+		<value id="19">Shark</value>
+		<value id="20">Suula</value>
+		<value id="22">Anemone</value>
+		<value id="23">Tentacle</value>
+		<value id="24">Kui-tan</value>
+		<value id="34">Venus Pitcher</value>
+		<value id="42">Raskvel</value>
+		<value id="43">Sydian</value>
+		<value id="46">Vanae</value>
+		<value id="51">Synthetic</value>
+		<value id="52">Simii</value>
+		<value id="53">Daynar</value>
+		<value id="54">Cockvine</value>
+		<value id="55">Nyrea</value>
+		<value id="56">Inhuman</value>
+		<value id="57">Ovir</value>
+		<value id="61">Saurian</value>
+		<value id="64">Hradian</value>
+		<value id="65">Gryvain</value>
+		<value id="72">Swine</value>
 	</enum>
 	<enum name="Cock Flags">
-		<values>
-			<value id="2">Prehensile</value>
-			<value id="3">Lubricated</value>
-			<value id="6">Smooth</value>
-			<value id="7">Tapered</value>
-			<value id="8">Flared</value>
-			<value id="9">Knotted</value>
-			<value id="10">Blunt</value>
-			<value id="11">Aphrodisiac</value>
-			<value id="12">Sticky</value>
-			<value id="19">Amorphous</value>
-			<value id="25">Ovipositor</value>
-			<value id="26">Sheathed</value>
-			<value id="28">Stinger Base</value>
-			<value id="29">Stinger Tip</value>
-			<value id="30">Nubby</value>
-			<value id="31">Foreskinned</value>
-			<value id="33">Ribbed</value>
-			<value id="36">Double Headed</value>
-			<value id="37">Gooey</value>
-			<value id="44">Corkscrewed</value>
-		</values>
+		<value id="2">Prehensile</value>
+		<value id="3">Lubricated</value>
+		<value id="6">Smooth</value>
+		<value id="7">Tapered</value>
+		<value id="8">Flared</value>
+		<value id="9">Knotted</value>
+		<value id="10">Blunt</value>
+		<value id="11">Aphrodisiac</value>
+		<value id="12">Sticky</value>
+		<value id="19">Amorphous</value>
+		<value id="25">Ovipositor</value>
+		<value id="26">Sheathed</value>
+		<value id="28">Stinger Base</value>
+		<value id="29">Stinger Tip</value>
+		<value id="30">Nubby</value>
+		<value id="31">Foreskinned</value>
+		<value id="33">Ribbed</value>
+		<value id="36">Double Headed</value>
+		<value id="37">Gooey</value>
+		<value id="44">Corkscrewed</value>
 	</enum>
 	<enum name="Vagina Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="3">Canine</value>
-			<value id="5">Vulpine</value>
-			<value id="6">Bee</value>
-			<value id="10">Avian</value>
-			<value id="13">Naga</value>
-			<value id="16">Gooey</value>
-			<value id="18">Gabilani</value>
-			<value id="19">Shark</value>
-			<value id="20">Suula</value>
-			<value id="24">Kui-tan</value>
-			<value id="44">Lapinara</value>
-			<value id="46">Vanae</value>
-			<value id="49">Leithan</value>
-			<value id="51">Synthetic</value>
-			<value id="55">Nyrea</value>
-			<value id="65">Gryvain</value>
-			<value id="67">Flower</value>
-			<value id="72">Swine</value>
-			<value id="74">Mouthgina</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="3">Canine</value>
+		<value id="5">Vulpine</value>
+		<value id="6">Bee</value>
+		<value id="10">Avian</value>
+		<value id="13">Naga</value>
+		<value id="16">Gooey</value>
+		<value id="18">Gabilani</value>
+		<value id="19">Shark</value>
+		<value id="20">Suula</value>
+		<value id="24">Kui-tan</value>
+		<value id="44">Lapinara</value>
+		<value id="46">Vanae</value>
+		<value id="49">Leithan</value>
+		<value id="51">Synthetic</value>
+		<value id="55">Nyrea</value>
+		<value id="65">Gryvain</value>
+		<value id="67">Flower</value>
+		<value id="72">Swine</value>
+		<value id="74">Mouthgina</value>
 	</enum>
 	<enum name="Vagina Flags">
-		<values>
-			<value id="3">Lubricated</value>
-			<value id="11">Aphrodisiac</value>
-			<value id="18">Tendril</value>
-			<value id="25">Ovipositor</value>
-			<value id="30">Nubby</value>
-			<value id="37">Gooey</value>
-			<value id="40">Slightly Pumped</value>
-			<value id="41">Fully Pumped</value>
-			<value id="44">Corkscrewed</value>
-			<value id="45">Tongued</value>
-		</values>
+		<value id="3">Lubricated</value>
+		<value id="11">Aphrodisiac</value>
+		<value id="18">Tendril</value>
+		<value id="25">Ovipositor</value>
+		<value id="30">Nubby</value>
+		<value id="37">Gooey</value>
+		<value id="40">Slightly Pumped</value>
+		<value id="41">Fully Pumped</value>
+		<value id="44">Corkscrewed</value>
+		<value id="45">Tongued</value>
 	</enum>
 	<enum name="Ass Flags">
-		<values>
-			<value id="3">Lubricated</value>
-			<value id="11">Aphrodisiac</value>
-			<value id="30">Nubby</value>
-			<value id="37">Gooey</value>
-			<value id="40">Slightly Pumped</value>
-			<value id="41">Fully Pumped</value>
-		</values>
+		<value id="3">Lubricated</value>
+		<value id="11">Aphrodisiac</value>
+		<value id="30">Nubby</value>
+		<value id="37">Gooey</value>
+		<value id="40">Slightly Pumped</value>
+		<value id="41">Fully Pumped</value>
 	</enum>
 	<enum name="Breast Size">
-		<values>
-			<value id="0">flat</value>
-			<value id="1">A-cup</value>
-			<value id="2">B-cup</value>
-			<value id="3">C-cup</value>
-			<value id="4">D-cup</value>
-			<value id="5">DD-cup</value>
-			<value id="6">big DD-cup</value>
-			<value id="7">E-cup</value>
-			<value id="8">big E-cup</value>
-			<value id="9">EE-cup</value>
-			<value id="10">big EE-cup</value>
-			<value id="11">F-cup</value>
-			<value id="12">big F-cup</value>
-			<value id="13">FF-cup</value>
-			<value id="14">big FF-cup</value>
-			<value id="15">G-cup</value>
-			<value id="16">big G-cup</value>
-			<value id="17">GG-cup</value>
-			<value id="18">big GG-cup</value>
-			<value id="19">H-cup</value>
-			<value id="20">big H-cup</value>
-			<value id="21">HH-cup</value>
-			<value id="22">big HH-cup</value>
-			<value id="23">HHH-cup</value>
-			<value id="24">I-cup</value>
-			<value id="25">big I-cup</value>
-			<value id="26">II-cup</value>
-			<value id="27">big II-cup</value>
-			<value id="28">J-cup</value>
-			<value id="29">big J-cup</value>
-			<value id="30">JJ-cup</value>
-			<value id="31">big JJ-cup</value>
-			<value id="32">K-cup</value>
-			<value id="33">big K-cup</value>
-			<value id="34">KK-cup</value>
-			<value id="35">big KK-cup</value>
-			<value id="36">L-cup</value>
-			<value id="37">big L-cup</value>
-			<value id="38">LL-cup</value>
-			<value id="39">big LL-cup</value>
-			<value id="40">M-cup</value>
-			<value id="41">big M-cup</value>
-			<value id="42">MM-cup</value>
-			<value id="43">big MM-cup</value>
-			<value id="44">MMM-cup</value>
-			<value id="45">large MMM-cup</value>
-			<value id="46">N-cup</value>
-			<value id="47">large N-cup</value>
-			<value id="48">NN-cup</value>
-			<value id="49">large NN-cup</value>
-			<value id="50">O-cup</value>
-			<value id="51">large O-cup</value>
-			<value id="52">OO-cup</value>
-			<value id="53">large OO-cup</value>
-			<value id="54">P-cup</value>
-			<value id="55">large P-cup</value>
-			<value id="56">PP-cup</value>
-			<value id="57">large PP-cup</value>
-			<value id="58">Q-cup</value>
-			<value id="59">large Q-cup</value>
-			<value id="60">QQ-cup</value>
-			<value id="61">large QQ-cup</value>
-			<value id="62">R-cup</value>
-			<value id="63">large R-cup</value>
-			<value id="64">RR-cup</value>
-			<value id="65">large RR-cup</value>
-			<value id="66">S-cup</value>
-			<value id="67">large S-cup</value>
-			<value id="68">SS-cup</value>
-			<value id="69">large SS-cup</value>
-			<value id="70">T-cup</value>
-			<value id="71">large T-cup</value>
-			<value id="72">TT-cup</value>
-			<value id="73">large TT-cup</value>
-			<value id="74">U-cup</value>
-			<value id="75">large U-cup</value>
-			<value id="76">UU-cup</value>
-			<value id="77">large UU-cup</value>
-			<value id="78">V-cup</value>
-			<value id="79">large V-cup</value>
-			<value id="80">VV-cup</value>
-			<value id="81">large VV-cup</value>
-			<value id="82">W-cup</value>
-			<value id="83">large W-cup</value>
-			<value id="84">WW-cup</value>
-			<value id="85">large WW-cup</value>
-			<value id="86">X-cup</value>
-			<value id="87">large X-cup</value>
-			<value id="88">XX-cup</value>
-			<value id="89">large XX-cup</value>
-			<value id="90">Y-cup</value>
-			<value id="91">large Y-cup</value>
-			<value id="92">YY-cup</value>
-			<value id="93">large YY-cup</value>
-			<value id="94">Z-cup</value>
-			<value id="95">large Z-cup</value>
-			<value id="96">ZZ-cup</value>
-			<value id="97">large ZZ-cup</value>
-			<value id="98">ZZZ-cup</value>
-			<value id="99">large ZZZ-cup</value>
-			<value id="100">hyper A-cup</value>
-			<value id="101">hyper B-cup</value>
-			<value id="102">hyper C-cup</value>
-			<value id="103">hyper D-cup</value>
-			<value id="104">hyper DD-cup</value>
-			<value id="105">hyper big DD-cup</value>
-			<value id="106">hyper E-cup</value>
-			<value id="107">hyper big E-cup</value>
-			<value id="108">hyper EE-cup</value>
-			<value id="109">hyper big EE-cup</value>
-			<value id="110">hyper F-cup</value>
-			<value id="111">hyper big F-cup</value>
-			<value id="112">hyper FF-cup</value>
-			<value id="113">hyper big FF-cup</value>
-			<value id="114">hyper G-cup</value>
-			<value id="115">hyper big G-cup</value>
-			<value id="116">hyper GG-cup</value>
-			<value id="117">hyper big GG-cup</value>
-			<value id="118">hyper H-cup</value>
-			<value id="119">hyper big H-cup</value>
-			<value id="120">hyper HH-cup</value>
-			<value id="121">hyper big HH-cup</value>
-			<value id="122">hyper HHH-cup</value>
-			<value id="123">hyper I-cup</value>
-			<value id="124">hyper big I-cup</value>
-			<value id="125">hyper II-cup</value>
-			<value id="126">hyper big II-cup</value>
-			<value id="127">hyper J-cup</value>
-			<value id="128">hyper big J-cup</value>
-			<value id="129">hyper JJ-cup</value>
-			<value id="130">hyper big JJ-cup</value>
-			<value id="131">hyper K-cup</value>
-			<value id="132">hyper big K-cup</value>
-			<value id="133">hyper KK-cup</value>
-			<value id="134">hyper big KK-cup</value>
-			<value id="135">hyper L-cup</value>
-			<value id="136">hyper big L-cup</value>
-			<value id="137">hyper LL-cup</value>
-			<value id="138">hyper big LL-cup</value>
-			<value id="139">hyper M-cup</value>
-			<value id="140">hyper big M-cup</value>
-			<value id="141">hyper MM-cup</value>
-			<value id="142">hyper big MM-cup</value>
-			<value id="143">hyper MMM-cup</value>
-			<value id="144">hyper large MMM-cup</value>
-			<value id="145">hyper N-cup</value>
-			<value id="146">hyper large N-cup</value>
-			<value id="147">hyper NN-cup</value>
-			<value id="148">hyper large NN-cup</value>
-			<value id="149">hyper O-cup</value>
-			<value id="150">hyper large O-cup</value>
-			<value id="151">hyper OO-cup</value>
-			<value id="152">hyper large OO-cup</value>
-			<value id="153">hyper P-cup</value>
-			<value id="154">hyper large P-cup</value>
-			<value id="155">hyper PP-cup</value>
-			<value id="156">hyper large PP-cup</value>
-			<value id="157">hyper Q-cup</value>
-			<value id="158">hyper large Q-cup</value>
-			<value id="159">hyper QQ-cup</value>
-			<value id="160">hyper large QQ-cup</value>
-			<value id="161">hyper R-cup</value>
-			<value id="162">hyper large R-cup</value>
-			<value id="163">hyper RR-cup</value>
-			<value id="164">hyper large RR-cup</value>
-			<value id="165">hyper S-cup</value>
-			<value id="166">hyper large S-cup</value>
-			<value id="167">hyper SS-cup</value>
-			<value id="168">hyper large SS-cup</value>
-			<value id="169">hyper T-cup</value>
-			<value id="170">hyper large T-cup</value>
-			<value id="171">hyper TT-cup</value>
-			<value id="172">hyper large TT-cup</value>
-			<value id="173">hyper U-cup</value>
-			<value id="174">hyper large U-cup</value>
-			<value id="175">hyper UU-cup</value>
-			<value id="176">hyper large UU-cup</value>
-			<value id="177">hyper V-cup</value>
-			<value id="178">hyper large V-cup</value>
-			<value id="179">hyper VV-cup</value>
-			<value id="180">hyper large VV-cup</value>
-			<value id="181">hyper W-cup</value>
-			<value id="182">hyper large W-cup</value>
-			<value id="183">hyper WW-cup</value>
-			<value id="184">hyper large WW-cup</value>
-			<value id="185">hyper X-cup</value>
-			<value id="186">hyper large X-cup</value>
-			<value id="187">hyper XX-cup</value>
-			<value id="188">hyper large XX-cup</value>
-			<value id="189">hyper Y-cup</value>
-			<value id="190">hyper large Y-cup</value>
-			<value id="191">hyper YY-cup</value>
-			<value id="192">hyper large YY-cup</value>
-			<value id="193">hyper Z-cup</value>
-			<value id="194">hyper large Z-cup</value>
-			<value id="195">hyper ZZ-cup</value>
-			<value id="196">hyper large ZZ-cup</value>
-			<value id="197">hyper ZZZ-cup</value>
-			<value id="198">hyper large ZZZ-cup</value>
-			<value id="199">Jacques00-cup</value>
-		</values>
+		<value id="0">flat</value>
+		<value id="1">A-cup</value>
+		<value id="2">B-cup</value>
+		<value id="3">C-cup</value>
+		<value id="4">D-cup</value>
+		<value id="5">DD-cup</value>
+		<value id="6">big DD-cup</value>
+		<value id="7">E-cup</value>
+		<value id="8">big E-cup</value>
+		<value id="9">EE-cup</value>
+		<value id="10">big EE-cup</value>
+		<value id="11">F-cup</value>
+		<value id="12">big F-cup</value>
+		<value id="13">FF-cup</value>
+		<value id="14">big FF-cup</value>
+		<value id="15">G-cup</value>
+		<value id="16">big G-cup</value>
+		<value id="17">GG-cup</value>
+		<value id="18">big GG-cup</value>
+		<value id="19">H-cup</value>
+		<value id="20">big H-cup</value>
+		<value id="21">HH-cup</value>
+		<value id="22">big HH-cup</value>
+		<value id="23">HHH-cup</value>
+		<value id="24">I-cup</value>
+		<value id="25">big I-cup</value>
+		<value id="26">II-cup</value>
+		<value id="27">big II-cup</value>
+		<value id="28">J-cup</value>
+		<value id="29">big J-cup</value>
+		<value id="30">JJ-cup</value>
+		<value id="31">big JJ-cup</value>
+		<value id="32">K-cup</value>
+		<value id="33">big K-cup</value>
+		<value id="34">KK-cup</value>
+		<value id="35">big KK-cup</value>
+		<value id="36">L-cup</value>
+		<value id="37">big L-cup</value>
+		<value id="38">LL-cup</value>
+		<value id="39">big LL-cup</value>
+		<value id="40">M-cup</value>
+		<value id="41">big M-cup</value>
+		<value id="42">MM-cup</value>
+		<value id="43">big MM-cup</value>
+		<value id="44">MMM-cup</value>
+		<value id="45">large MMM-cup</value>
+		<value id="46">N-cup</value>
+		<value id="47">large N-cup</value>
+		<value id="48">NN-cup</value>
+		<value id="49">large NN-cup</value>
+		<value id="50">O-cup</value>
+		<value id="51">large O-cup</value>
+		<value id="52">OO-cup</value>
+		<value id="53">large OO-cup</value>
+		<value id="54">P-cup</value>
+		<value id="55">large P-cup</value>
+		<value id="56">PP-cup</value>
+		<value id="57">large PP-cup</value>
+		<value id="58">Q-cup</value>
+		<value id="59">large Q-cup</value>
+		<value id="60">QQ-cup</value>
+		<value id="61">large QQ-cup</value>
+		<value id="62">R-cup</value>
+		<value id="63">large R-cup</value>
+		<value id="64">RR-cup</value>
+		<value id="65">large RR-cup</value>
+		<value id="66">S-cup</value>
+		<value id="67">large S-cup</value>
+		<value id="68">SS-cup</value>
+		<value id="69">large SS-cup</value>
+		<value id="70">T-cup</value>
+		<value id="71">large T-cup</value>
+		<value id="72">TT-cup</value>
+		<value id="73">large TT-cup</value>
+		<value id="74">U-cup</value>
+		<value id="75">large U-cup</value>
+		<value id="76">UU-cup</value>
+		<value id="77">large UU-cup</value>
+		<value id="78">V-cup</value>
+		<value id="79">large V-cup</value>
+		<value id="80">VV-cup</value>
+		<value id="81">large VV-cup</value>
+		<value id="82">W-cup</value>
+		<value id="83">large W-cup</value>
+		<value id="84">WW-cup</value>
+		<value id="85">large WW-cup</value>
+		<value id="86">X-cup</value>
+		<value id="87">large X-cup</value>
+		<value id="88">XX-cup</value>
+		<value id="89">large XX-cup</value>
+		<value id="90">Y-cup</value>
+		<value id="91">large Y-cup</value>
+		<value id="92">YY-cup</value>
+		<value id="93">large YY-cup</value>
+		<value id="94">Z-cup</value>
+		<value id="95">large Z-cup</value>
+		<value id="96">ZZ-cup</value>
+		<value id="97">large ZZ-cup</value>
+		<value id="98">ZZZ-cup</value>
+		<value id="99">large ZZZ-cup</value>
+		<value id="100">hyper A-cup</value>
+		<value id="101">hyper B-cup</value>
+		<value id="102">hyper C-cup</value>
+		<value id="103">hyper D-cup</value>
+		<value id="104">hyper DD-cup</value>
+		<value id="105">hyper big DD-cup</value>
+		<value id="106">hyper E-cup</value>
+		<value id="107">hyper big E-cup</value>
+		<value id="108">hyper EE-cup</value>
+		<value id="109">hyper big EE-cup</value>
+		<value id="110">hyper F-cup</value>
+		<value id="111">hyper big F-cup</value>
+		<value id="112">hyper FF-cup</value>
+		<value id="113">hyper big FF-cup</value>
+		<value id="114">hyper G-cup</value>
+		<value id="115">hyper big G-cup</value>
+		<value id="116">hyper GG-cup</value>
+		<value id="117">hyper big GG-cup</value>
+		<value id="118">hyper H-cup</value>
+		<value id="119">hyper big H-cup</value>
+		<value id="120">hyper HH-cup</value>
+		<value id="121">hyper big HH-cup</value>
+		<value id="122">hyper HHH-cup</value>
+		<value id="123">hyper I-cup</value>
+		<value id="124">hyper big I-cup</value>
+		<value id="125">hyper II-cup</value>
+		<value id="126">hyper big II-cup</value>
+		<value id="127">hyper J-cup</value>
+		<value id="128">hyper big J-cup</value>
+		<value id="129">hyper JJ-cup</value>
+		<value id="130">hyper big JJ-cup</value>
+		<value id="131">hyper K-cup</value>
+		<value id="132">hyper big K-cup</value>
+		<value id="133">hyper KK-cup</value>
+		<value id="134">hyper big KK-cup</value>
+		<value id="135">hyper L-cup</value>
+		<value id="136">hyper big L-cup</value>
+		<value id="137">hyper LL-cup</value>
+		<value id="138">hyper big LL-cup</value>
+		<value id="139">hyper M-cup</value>
+		<value id="140">hyper big M-cup</value>
+		<value id="141">hyper MM-cup</value>
+		<value id="142">hyper big MM-cup</value>
+		<value id="143">hyper MMM-cup</value>
+		<value id="144">hyper large MMM-cup</value>
+		<value id="145">hyper N-cup</value>
+		<value id="146">hyper large N-cup</value>
+		<value id="147">hyper NN-cup</value>
+		<value id="148">hyper large NN-cup</value>
+		<value id="149">hyper O-cup</value>
+		<value id="150">hyper large O-cup</value>
+		<value id="151">hyper OO-cup</value>
+		<value id="152">hyper large OO-cup</value>
+		<value id="153">hyper P-cup</value>
+		<value id="154">hyper large P-cup</value>
+		<value id="155">hyper PP-cup</value>
+		<value id="156">hyper large PP-cup</value>
+		<value id="157">hyper Q-cup</value>
+		<value id="158">hyper large Q-cup</value>
+		<value id="159">hyper QQ-cup</value>
+		<value id="160">hyper large QQ-cup</value>
+		<value id="161">hyper R-cup</value>
+		<value id="162">hyper large R-cup</value>
+		<value id="163">hyper RR-cup</value>
+		<value id="164">hyper large RR-cup</value>
+		<value id="165">hyper S-cup</value>
+		<value id="166">hyper large S-cup</value>
+		<value id="167">hyper SS-cup</value>
+		<value id="168">hyper large SS-cup</value>
+		<value id="169">hyper T-cup</value>
+		<value id="170">hyper large T-cup</value>
+		<value id="171">hyper TT-cup</value>
+		<value id="172">hyper large TT-cup</value>
+		<value id="173">hyper U-cup</value>
+		<value id="174">hyper large U-cup</value>
+		<value id="175">hyper UU-cup</value>
+		<value id="176">hyper large UU-cup</value>
+		<value id="177">hyper V-cup</value>
+		<value id="178">hyper large V-cup</value>
+		<value id="179">hyper VV-cup</value>
+		<value id="180">hyper large VV-cup</value>
+		<value id="181">hyper W-cup</value>
+		<value id="182">hyper large W-cup</value>
+		<value id="183">hyper WW-cup</value>
+		<value id="184">hyper large WW-cup</value>
+		<value id="185">hyper X-cup</value>
+		<value id="186">hyper large X-cup</value>
+		<value id="187">hyper XX-cup</value>
+		<value id="188">hyper large XX-cup</value>
+		<value id="189">hyper Y-cup</value>
+		<value id="190">hyper large Y-cup</value>
+		<value id="191">hyper YY-cup</value>
+		<value id="192">hyper large YY-cup</value>
+		<value id="193">hyper Z-cup</value>
+		<value id="194">hyper large Z-cup</value>
+		<value id="195">hyper ZZ-cup</value>
+		<value id="196">hyper large ZZ-cup</value>
+		<value id="197">hyper ZZZ-cup</value>
+		<value id="198">hyper large ZZZ-cup</value>
+		<value id="199">Jacques00-cup</value>
 	</enum>
 	<enum name="Nipple Type">
-		<values>
-			<value id="0">Normal</value>
-			<value id="1">Cunt</value>
-			<value id="2">Lipples</value>
-			<value id="3">Dick</value>
-			<value id="4">Flat</value>
-			<value id="5">Inverted</value>
-			<value id="6">Tentacled</value>
-		</values>
+		<value id="0">Normal</value>
+		<value id="1">Cunt</value>
+		<value id="2">Lipples</value>
+		<value id="3">Dick</value>
+		<value id="4">Flat</value>
+		<value id="5">Inverted</value>
+		<value id="6">Tentacled</value>
 	</enum>
 	<enum name="Dick Nipple Type">
-		<values>
-			<value id="0">Human</value>
-			<value id="1">Equine</value>
-			<value id="3">Canine</value>
-			<value id="4">Feline</value>
-		</values>
+		<value id="0">Human</value>
+		<value id="1">Equine</value>
+		<value id="3">Canine</value>
+		<value id="4">Feline</value>
 	</enum>
 	<enum name="Genital Spot">
-		<values>
-			<value id="0">Waist</value>
-			<value id="1">Mid-tail</value>
-			<value id="2">Hind Legs</value>
-			<value id="3">Under-tail</value>
-		</values>
+		<value id="0">Waist</value>
+		<value id="1">Mid-tail</value>
+		<value id="2">Hind Legs</value>
+		<value id="3">Under-tail</value>
 	</enum>
 	<enum name="Item Type">
-		<values>
-			<value id="0">Pill</value>
-			<value id="1">Food</value>
-			<value id="2">Potion</value>
-			<value id="3">Melee Weapon</value>
-			<value id="4">Ranged Weapon</value>
-			<value id="5">Armor</value>
-			<value id="6">Shield</value>
-			<value id="7">Upper Undergarment</value>
-			<value id="8">Lower Undergarment</value>
-			<value id="9">Accessory</value>
-			<value id="10">Drug</value>
-			<value id="11">Clothing</value>
-			<value id="12">All</value>
-			<value id="13">Gadget</value>
-			<value id="14">Explosive Consumable</value>
-			<value id="15">Quest Item</value>
-			<value id="16">Gem</value>
-			<value id="17">Sex Toy</value>
-		</values>
-	</enum>
-	<enum name="Item Class">
-		<values>
-			<value id="classes.Items.Accessories::ACECannon">ACE Cannon</value>
-			<value id="classes.Items.Accessories::AdventurersCoat">A. Coat</value>
-			<value id="classes.Items.Accessories::AimEyepiece">AimEyepiece</value>
-			<value id="classes.Items.Accessories::AimEyepieceMkII">AimEyeII</value>
-			<value id="classes.Items.Accessories::Allure">Allure</value>
-			<value id="classes.Items.Accessories::BeatricesScarf">Scarf</value>
-			<value id="classes.Items.Accessories::BimboleumDefenseSystem">B.D.S.</value>
-			<value id="classes.Items.Accessories::ExplorersCloak">Exp. Cloak</value>
-			<value id="classes.Items.Accessories::Fedora">Fedora</value>
-			<value id="classes.Items.Accessories::FlashGoggles">FlashGogs</value>
-			<value id="classes.Items.Accessories::GooCore">GooCore</value>
-			<value id="classes.Items.Accessories::GrunchLeash">G.Leash</value>
-			<value id="classes.Items.Accessories::JungleLure">JungleLure</value>
-			<value id="classes.Items.Accessories::JungleRepel">JungleRepel</value>
-			<value id="classes.Items.Accessories::KordiiakLeash">K.Leash</value>
-			<value id="classes.Items.Accessories::LeatherLeash">Leash</value>
-			<value id="classes.Items.Accessories::LeithaCharm">LeithaChrm</value>
-			<value id="classes.Items.Accessories::LightJetpack">Lt.Jetpack</value>
-			<value id="classes.Items.Accessories::LightningDuster">L.Duster</value>
-			<value id="classes.Items.Accessories::MaikesCollar">Sl.Collar</value>
-			<value id="classes.Items.Accessories::Minesweeper">M.Sweeper</value>
-			<value id="classes.Items.Accessories::MuskLure">MuskLure</value>
-			<value id="classes.Items.Accessories::MuskRepel">M.Repel</value>
-			<value id="classes.Items.Accessories::MyrGreatcoat">MyrG.coat</value>
-			<value id="classes.Items.Accessories::NogwichLeash">NW.Leash</value>
-			<value id="classes.Items.Accessories::SalamanderDefenseSystem">S.D.S.</value>
-			<value id="classes.Items.Accessories::SalamanderDuster">S.Duster</value>
-			<value id="classes.Items.Accessories::SantaHat">SantaHat</value>
-			<value id="classes.Items.Accessories::ShelterDrone">S.Drone</value>
-			<value id="classes.Items.Accessories::ShieldAugBracers">Sh.Bracs</value>
-			<value id="classes.Items.Accessories::ShoulderGrunchLeash">SG.Leash</value>
-			<value id="classes.Items.Accessories::SiegwulfeItem">Siegwulfe</value>
-			<value id="classes.Items.Accessories::SignetOfBravery">BraveSig</value>
-			<value id="classes.Items.Accessories::TamWolf">TamWolf</value>
-			<value id="classes.Items.Accessories::TamWolfDamaged">TamWolf</value>
-			<value id="classes.Items.Accessories::TamWolfII">TamWolf2.0</value>
-			<value id="classes.Items.Accessories::TravelersCloak">T.Cloak</value>
-			<value id="classes.Items.Accessories::VarmintLeash">Pink Leash</value>
-			<value id="classes.Items.Miscellaneous::Cargobot">Cargobot</value>
-			<value id="classes.Items.Miscellaneous::PHAccess">PH Access.</value>
-			<value id="classes.Items.Apparel::AnnosBlouse">Annos Blouse</value>
-			<value id="classes.Items.Apparel::BunnyOutfit">Bunny.O</value>
-			<value id="classes.Items.Apparel::BusinessClothes">B.Clothes</value>
-			<value id="classes.Items.Apparel::ButlerCostume">Butler.C</value>
-			<value id="classes.Items.Apparel::ButlerOutfit">Butler.O</value>
-			<value id="classes.Items.Apparel::CheerleaderUniform">Chr.Ldr.</value>
-			<value id="classes.Items.Apparel::ClassySuit">C.Suit</value>
-			<value id="classes.Items.Apparel::ComfortableClothes">C.Clothes</value>
-			<value id="classes.Items.Apparel::CowPrintLeotard">Cow Leotard</value>
-			<value id="classes.Items.Apparel::DressClothes">DressCloth</value>
-			<value id="classes.Items.Apparel::FemaleDoctorOutfit">F. Doctor</value>
-			<value id="classes.Items.Apparel::KhansLabCoat">LabCoat</value>
-			<value id="classes.Items.Apparel::LatexBodysuit">LtxBdy</value>
-			<value id="classes.Items.Apparel::LeatherStrapHarness">L.Harness</value>
-			<value id="classes.Items.Apparel::LibrarianOutfit">Libr.O</value>
-			<value id="classes.Items.Apparel::LittleBlackDress">BlkDress</value>
-			<value id="classes.Items.Apparel::MaidOutfit">MaidO.</value>
-			<value id="classes.Items.Apparel::MaidUniform">Maid U.</value>
-			<value id="classes.Items.Apparel::MaleDoctorOutfit">M.Doctor</value>
-			<value id="classes.Items.Apparel::MitziCowFetishCostume">CowCost.</value>
-			<value id="classes.Items.Apparel::MitzisDress">M.Dress</value>
-			<value id="classes.Items.Apparel::MitzisLibrarianOutfit">Lib.Outft</value>
-			<value id="classes.Items.Apparel::MitziNunFetishCostume">NunCost.</value>
-			<value id="classes.Items.Apparel::MitzisSuccBikini">SlutBkni</value>
-			<value id="classes.Items.Apparel::MitzisYogaBikini">YogaBik</value>
-			<value id="classes.Items.Apparel::NurseOutfit">NurseO.</value>
-			<value id="classes.Items.Apparel::OnePieceSwimsuit">O.Swimsuit</value>
-			<value id="classes.Items.Apparel::PeasantDress">PeasantDress</value>
-			<value id="classes.Items.Apparel::RogueRags">R. Rags</value>
-			<value id="classes.Items.Apparel::SchoolboyOutfit">S.Boy O.</value>
-			<value id="classes.Items.Apparel::SchoolgirlCostume">S.Girl C.</value>
-			<value id="classes.Items.Apparel::SchoolgirlOutfit">S.Girl O.</value>
-			<value id="classes.Items.Apparel::SilkDress">S.Dress</value>
-			<value id="classes.Items.Apparel::Slavesuit">Slave U.</value>
-			<value id="classes.Items.Apparel::ThermalBodysuit">T.Bodysuit</value>
-			<value id="classes.Items.Apparel::TopNSkirt">TopNSkirt.</value>
-			<value id="classes.Items.Apparel::UGCCasualOutfit">Penny Casual</value>
-			<value id="classes.Items.Apparel::UGCUniform">UGC Uniform</value>
-			<value id="classes.Items.Apparel::WaitressUniform">WaitressUniform</value>
-			<value id="classes.Items.Apparel::WinterGear">Winter G.</value>
-			<value id="classes.Items.Apparel::AnnosCatsuit">ST. Catsuit</value>
-			<value id="classes.Items.Apparel::AtmaArmor">AtmaArmor</value>
-			<value id="classes.Items.Apparel::GenericCatsuit">Catsuit</value>
-			<value id="classes.Items.Apparel::GooeyCoverings">gooverings</value>
-			<value id="classes.Items.Apparel::LeatherArmor">LeatherArmor</value>
-			<value id="classes.Items.Apparel::MilitaryUniform">MilitaryO.</value>
-			<value id="classes.Items.Apparel::NaleenArmor">NaleenScale</value>
-			<value id="classes.Items.Apparel::ProtectiveJacket">P.Jacket</value>
-			<value id="classes.Items.Apparel::ReinforcedBodysuit">R.Bdysuit</value>
-			<value id="classes.Items.Apparel::RevealingFemaleArmor">R.F.Armor</value>
-			<value id="classes.Items.Apparel::RevealingMaleArmor">R.M.Armor</value>
-			<value id="classes.Items.Apparel::ShekkasCatsuit">ShekkaSuit</value>
-			<value id="classes.Items.Apparel::Smartclothes">Smartclothes</value>
-			<value id="classes.Items.Apparel::SpacePirateOutfit">S.Pirate O.</value>
-			<value id="classes.Items.Apparel::SteeleTechSuit">ST. Suit</value>
-			<value id="classes.Items.Apparel::ThermalJacket">ThmJacket</value>
-			<value id="classes.Items.Apparel::TransparentZipsuit">T.Zipsuit</value>
-			<value id="classes.Items.Apparel::TrashArmor">T.Armor</value>
-			<value id="classes.Items.Apparel::TSTArmor" Comment="Debug Item" Tooltip="Debug Item">TST Armor</value>
-			<value id="classes.Items.Apparel::TSTArmorMkII">TST Armor II</value>
-			<value id="classes.Items.Armor::ArmorSteeleSuit">A. ST. Suit</value>
-			<value id="classes.Items.Armor::ArmstrongSuitBlue">AZA Suit</value>
-			<value id="classes.Items.Armor::ArmstrongSuitViolet">UVA Suit</value>
-			<value id="classes.Items.Armor::ArmstrongSuitWhite">PWA Suit</value>
-			<value id="classes.Items.Armor::AugmentWeaveArmor">AugArmor</value>
-			<value id="classes.Items.Armor::ChitinArmor">C.Armor</value>
-			<value id="classes.Items.Armor::ChitPlate">C.Plate</value>
-			<value id="classes.Items.Armor::DaedalusThreads">D.Threads</value>
-			<value id="classes.Items.Armor::EmpusaThreads">E.Threads</value>
-			<value id="classes.Items.Armor::FrostbaneBikini">FB.Bikini</value>
-			<value id="classes.Items.Armor::FrostbaneMail">FB.Mail</value>
-			<value id="classes.Items.Armor::FrostbanePlate">FB.Plate</value>
-			<value id="classes.Items.Armor::FrostscaleArmor">FS.Hauberk</value>
-			<value id="classes.Items.Armor::FrostscalePlate">FS.Breastplate</value>
-			<value id="classes.Items.Armor::GemstoneLinks">Gem Links</value>
-			<value id="classes.Items.Armor::GooArmor">Goo Armor</value>
-			<value id="classes.Items.Armor::HideVestAndBreeches">Hide V&amp;B</value>
-			<value id="classes.Items.Armor::JumperJumpsuit">JJ-Suit</value>
-			<value id="classes.Items.Armor::JumperJumpsuitSlutty">SJJ-Suit</value>
-			<value id="classes.Items.Armor::JumperSpacesuit">JJ-SSuit</value>
-			<value id="classes.Items.Armor::KordiiakHideArmor">KH.Armor</value>
-			<value id="classes.Items.Armor::MirroredJumpsuit">M.Suit</value>
-			<value id="classes.Items.Armor::NemeanThreads">N.Threads</value>
-			<value id="classes.Items.Armor::NyreanChain">N.Chain</value>
-			<value id="classes.Items.Armor::PolishedPlate">P.Plate</value>
-			<value id="classes.Items.Armor::VoidPlateArmor">Void Plates</value>
-			<value id="classes.Items.Armor::InsulatedCoat">I.Coat</value>
-			<value id="classes.Items.Armor::RattyArmor">RattyArmor</value>
-			<value id="classes.Items.Armor::RozPowerArmor">R.PwrArmr</value>
-			<value id="classes.Items.Armor::SleekParka">S.Parka</value>
-			<value id="classes.Items.Armor::SpacesuitComplete">Spacesuit</value>
-			<value id="classes.Items.Armor::SpacesuitIncomplete">Spacesuit(I)</value>
-			<value id="classes.Items.Armor::StrixThreads">S.Threads</value>
-			<value id="classes.Items.Armor::StarViperSlutwear">SVS-Wear</value>
-			<value id="classes.Items.Armor::WeavemailCoat">WM Coat</value>
-			<value id="classes.Items.Armor::WeavemailDress">WM Dress</value>
-			<value id="classes.Items.Armor::WeavemailShirt">WM Shirt</value>
-			<value id="classes.Items.Armor::YellowClothes">Y.Clothes</value>
-			<value id="classes.Items.Armor.Unique::OmnisuitCollar">O.Collar</value>
-			<value id="classes.Items.Armor.Unique::Omnisuit">O.Suit</value>
-			<value id="classes.Items.Armor.Unique::StrangeCollar">S.Collar</value>
-			<value id="classes.Items.Apparel::FrillyBikiniTop">BikiniTop</value>
-			<value id="classes.Items.Apparel::FishnetTop">NetTop</value>
-			<value id="classes.Items.Apparel::FurryBra">F.Bra</value>
-			<value id="classes.Items.Apparel::Babydoll">Babydoll</value>
-			<value id="classes.Items.Apparel::BountyBra">Bounty Bra</value>
-			<value id="classes.Items.Apparel::CornyTShirtV1">CrnyShirtV1</value>
-			<value id="classes.Items.Apparel::CornyTShirtV2">CrnyShirtV2</value>
-			<value id="classes.Items.Apparel::CornyTShirtV3">CrnyShirtV3</value>
-			<value id="classes.Items.Apparel::CornyTShirtV4">CrnyShirtV4</value>
-			<value id="classes.Items.Apparel::CornyTShirtV5">CrnyShirtV5</value>
-			<value id="classes.Items.Apparel::CornyTShirtV6">CrnyShirtV6</value>
-			<value id="classes.Items.Apparel::Corset">Corset</value>
-			<value id="classes.Items.Apparel::CowPrintBra">Cow Bra</value>
-			<value id="classes.Items.Apparel::CowPrintedShirt">CowShirt</value>
-			<value id="classes.Items.Apparel::FurryBra2">F.Bra</value>
-			<value id="classes.Items.Apparel::GirlyBra">Girly Bra</value>
-			<value id="classes.Items.Apparel::HardlightAGBra">HL Bra</value>
-			<value id="classes.Items.Apparel::HardlightAGShirt">HL Top</value>
-			<value id="classes.Items.Apparel::Harness">Harness</value>
-			<value id="classes.Items.Apparel::HoneypotBra">HoneyBra</value>
-			<value id="classes.Items.Apparel::InsulatingUndershirt">I.Ushirt</value>
-			<value id="classes.Items.Apparel::LacyBra">Lacy Bra</value>
-			<value id="classes.Items.Apparel::LeatherBra">LthrBra</value>
-			<value id="classes.Items.Apparel::LittleGreenBra">LilG.Bra</value>
-			<value id="classes.Items.Apparel::LittleGreenShirt">LilG.Tee</value>
-			<value id="classes.Items.Apparel::LittleGreenTankTop">LilG.Tank</value>
-			<value id="classes.Items.Apparel::MagneticHarness">M.Harness</value>
-			<value id="classes.Items.Apparel::MeshShirt">M.Shirt</value>
-			<value id="classes.Items.Apparel::Pasties">Pasties</value>
-			<value id="classes.Items.Apparel::PlainBra">Bra</value>
-			<value id="classes.Items.Apparel::PlainUndershirt">Undershirt</value>
-			<value id="classes.Items.Apparel::ShibariTop">Shibari Top</value>
-			<value id="classes.Items.Apparel::SkullPatternBra">Sk.Bra</value>
-			<value id="classes.Items.Apparel::SlepraDownBra">Featherbra</value>
-			<value id="classes.Items.Apparel::SportsBra">Sports Bra</value>
-			<value id="classes.Items.Apparel::Swimshirt">S. Shirt</value>
-			<value id="classes.Items.Apparel::Swimtank">S. Tank</value>
-			<value id="classes.Items.Apparel::StrappyWhiteBikiniTop">W.BkniTop</value>
-			<value id="classes.Items.Apparel::UnderbustCorset">Underbust Corset</value>
-			<value id="classes.Items.Apparel::Undershirt">Undershirt</value>
-			<value id="classes.Items.Apparel::AnalPrincessPanties">AP-Panties</value>
-			<value id="classes.Items.Apparel::AssManBoxers">AMB-Briefs</value>
-			<value id="classes.Items.Apparel::BackdoorBoiSlutwear">BB-Slutwear</value>
-			<value id="classes.Items.Apparel::FrillyBikiniBottom">BikiniBtm</value>
-			<value id="classes.Items.Apparel::BaggySwimShorts">BaggyShorts</value>
-			<value id="classes.Items.Apparel::Boxers">Boxers</value>
-			<value id="classes.Items.Apparel::Boxers" EditorName="Boxers HL" Tooltip="Hardlight Version">Boxers</value>
-			<value id="classes.Items.Apparel::Boyshorts">Boyshorts</value>
-			<value id="classes.Items.Apparel::Boyshorts" EditorName="Boyshorts HL" Tooltip="Hardlight Version">Boyshorts</value>
-			<value id="classes.Items.Apparel::BullsJockstrap">BullStrap</value>
-			<value id="classes.Items.Apparel::CockPasty">CockPasty</value>
-			<value id="classes.Items.Apparel::CowPrintBikiniBottom">Cow Bottom</value>
-			<value id="classes.Items.Apparel::CowPrintPantiesAndGarter">Cow Panties</value>
-			<value id="classes.Items.Apparel::CowPrintedShorts">CowShorts</value>
-			<value id="classes.Items.Apparel::CString">C.String</value>
-			<value id="classes.Items.Apparel::CumflationControlBoyshorts">CCB-Shorts</value>
-			<value id="classes.Items.Apparel::FishnetBriefs">NetBriefs</value>
-			<value id="classes.Items.Apparel::FurryLoincloth">F.Loin</value>
-			<value id="classes.Items.Apparel::GabilaniPanties" EditorName="Gabilani Panties">G.Panties</value>
-			<value id="classes.Items.Apparel::GirlyPanties">G.Panties</value>
-			<value id="classes.Items.Apparel::HardlightAGJock">HL Jock</value>
-			<value id="classes.Items.Apparel::HardlightAGThong">HL Thong</value>
-			<value id="classes.Items.Apparel::HorseshoeBoxers">HorseBxs</value>
-			<value id="classes.Items.Apparel::InsulatingBriefs">I.Briefs</value>
-			<value id="classes.Items.Apparel::LeatherPanties">LthrPnty</value>
-			<value id="classes.Items.Apparel::LittleGreenBriefs">LilG.Brief</value>
-			<value id="classes.Items.Apparel::LittleGreenPanties">LilG.Panty</value>
-			<value id="classes.Items.Apparel::LittleGreenThong">LilG.Thong</value>
-			<value id="classes.Items.Apparel::MaleThong">M.Thong</value>
-			<value id="classes.Items.Apparel::MaleTights">GuyTights</value>
-			<value id="classes.Items.Apparel::PlainBriefs">Briefs</value>
-			<value id="classes.Items.Apparel::PlainPanties">Panties</value>
-			<value id="classes.Items.Apparel::PlainPanties" EditorName="Plain Panties HL" Tooltip="Hardlight Version">Panties</value>
-			<value id="classes.Items.Apparel::SavicitePanties">Sav.Panty</value>
-			<value id="classes.Items.Apparel::ShibariBottom">ShibariBottom</value>
-			<value id="classes.Items.Apparel::ShibariBottom" EditorName="Shibari Bottom HL" Tooltip="Hardlight Version">ShibariBottom</value>
-			<value id="classes.Items.Apparel::SlutSealThong">SS-Thong</value>
-			<value id="classes.Items.Apparel::Stockings">Stockings</value>
-			<value id="classes.Items.Apparel::Stockings" EditorName="Stockings HL" Tooltip="Hardlight Version">Stockings</value>
-			<value id="classes.Items.Apparel::SwimBriefs">S. Briefs</value>
-			<value id="classes.Items.Apparel::Swimstrap">Swimstrap</value>
-			<value id="classes.Items.Apparel::StrappyWhiteBikiniBottom">W.BkniBtm</value>
-			<value id="classes.Items.Apparel::ThermalUnderwear">ThmUndies</value>
-			<value id="classes.Items.Apparel::TightSwimShorts">TightShorts</value>
-			<value id="classes.Items.Apparel::Thong">Thong</value>
-			<value id="classes.Items.Apparel::Thong" EditorName="Thong HL" Tooltip="Hardlight Version">Thong</value>
-			<value id="classes.Items.Apparel::ZipPouch">Z.Pouch</value>
-			<value id="classes.Items.Combat::AphroDaisy">AphroD.</value>
-			<value id="classes.Items.Combat::CrystalShard">Crystal S.</value>
-			<value id="classes.Items.Combat::RuttingPerfume">Rutting</value>
-			<value id="classes.Items.Miscellaneous::EMPGrenade">EMP Gren.</value>
-			<value id="classes.Items.Miscellaneous::FlashGrenade">Flashbang</value>
-			<value id="classes.Items.Miscellaneous::Lustoxin">Lustoxin</value>
-			<value id="classes.Items.Miscellaneous::OSStimBoost">OS StimBoost</value>
-			<value id="classes.Items.Recovery::PyriteIssuedStim">PI-Stim</value>
-			<value id="classes.Items.Miscellaneous::ShieldBooster">S.Booster</value>
-			<value id="classes.Items.Recovery::ShieldBoosterMkII">S.Boost M2</value>
-			<value id="classes.Items.Miscellaneous::TestGrenade" Comment="Debug Item" Tooltip="Debug Item">T.Gren</value>
-			<value id="classes.Items.Miscellaneous::TestHPBooster" Comment="Debug Item" Tooltip="Debug Item">HP Boost</value>
-			<value id="classes.Items.Toys.Bubbles::HugeCumBubble">H.Bubble</value>
-			<value id="classes.Items.Toys.Bubbles::LargeCumBubble">L.Bubble</value>
-			<value id="classes.Items.Toys.Bubbles::MediumCumBubble">M.Bubble</value>
-			<value id="classes.Items.Toys.Bubbles::SmallCumBubble">S.Bubble</value>
-			<value id="classes.Items.Miscellaneous::ChillPill">ChillPill</value>
-			<value id="classes.Items.Miscellaneous::DispassionFruit">D.Fruit</value>
-			<value id="classes.Items.Miscellaneous::ProphylacticGoblin">Goblin P.</value>
-			<value id="classes.Items.Miscellaneous::ProphylacticLapinara">LapinaraP</value>
-			<value id="classes.Items.Miscellaneous::ProphylacticRaskvel">Rask P.</value>
-			<value id="classes.Items.Miscellaneous::ProphylacticSydian">Sydian P.</value>
-			<value id="classes.Items.Miscellaneous::Peprika">Peprika</value>
-			<value id="classes.Items.Miscellaneous::Plumpkin">Plumpkin</value>
-			<value id="classes.Items.Miscellaneous::WhiffOWisp">WffOWsp</value>
-			<value id="classes.Items.Miscellaneous::BBQToGo">BBQ To-Go</value>
-			<value id="classes.Items.Miscellaneous::Curdsonwhey">Curdsonwhey</value>
-			<value id="classes.Items.Miscellaneous::FocusPill">FocusPill</value>
-			<value id="classes.Items.Miscellaneous::FungalExtract">F.Extract</value>
-			<value id="classes.Items.Miscellaneous::GrayMicrobots">G.M.Bots</value>
-			<value id="classes.Items.Recovery::HealingPoultice">H.P.</value>
-			<value id="classes.Items.Miscellaneous::Kalocrunch">K.Crunch</value>
-			<value id="classes.Items.Miscellaneous::LargeEgg">LargeEgg</value>
-			<value id="classes.Items.Miscellaneous::MhengaMango">M.Mango</value>
-			<value id="classes.Items.Miscellaneous::MilkCaramelGushers">Milk Gushers</value>
-			<value id="classes.Items.Miscellaneous::MilkmaidsAid">Milk. Aid</value>
-			<value id="classes.Items.Miscellaneous::MyrNectar">MyrNectr</value>
-			<value id="classes.Items.Miscellaneous::RoastedZhorBeast">Roast Z.B</value>
-			<value id="classes.Items.Miscellaneous::SmallEgg">SmallEgg</value>
-			<value id="classes.Items.Miscellaneous::ZilHoney">ZilHoney</value>
-			<value id="classes.Items.Recovery::PexigaSaliva">P.Saliva</value>
-			<value id="classes.Items.Drinks::HoneyWine">H.Wine</value>
-			<value id="classes.Items.Drinks::RedMyrVenom">R.Venom</value>
-			<value id="classes.Items.Transformatives::SaltyJawBreaker">JawBreakr</value>
-			<value id="classes.Items.Miscellaneous::Anusoft">Anusoft</value>
-			<value id="classes.Items.Miscellaneous::AusarTreats">AusarTreat</value>
-			<value id="classes.Items.Miscellaneous::AssSlapPatch">Ass Patch</value>
-			<value id="classes.Items.Miscellaneous::BoobswellPads">Boobswell P.</value>
-			<value id="classes.Items.Miscellaneous::Chocolac">Chocolac</value>
-			<value id="classes.Items.Miscellaneous::Condensol">Condensol</value>
-			<value id="classes.Items.Miscellaneous::Dumbfuck">Dumbfuck</value>
-			<value id="classes.Items.Miscellaneous::EasyFit">EasyFit</value>
-			<value id="classes.Items.Miscellaneous::Estrobloom">Estrobloom</value>
-			<value id="classes.Items.Miscellaneous::FertitePlus">Fertite+</value>
-			<value id="classes.Items.Miscellaneous::Honeydew">Honeydew</value>
-			<value id="classes.Items.Miscellaneous::Honeypot">Honeypot</value>
-			<value id="classes.Items.Miscellaneous::HoneySeed">Honeyseed</value>
-			<value id="classes.Items.Miscellaneous::HorseCock">HorseCock</value>
-			<value id="classes.Items.Miscellaneous::HorsePill">HorsePill</value>
-			<value id="classes.Items.Miscellaneous::ImmunoBooster">ImmBoost</value>
-			<value id="classes.Items.Miscellaneous::KnotAProblem">KnotAProb</value>
-			<value id="classes.Items.Miscellaneous::Lactaid">Lactaid</value>
-			<value id="classes.Items.Miscellaneous::LactaidMilkTank">LactaidMT</value>
-			<value id="classes.Items.Miscellaneous::LactaidOverdrive">LactaidO</value>
-			<value id="classes.Items.Miscellaneous::MightyTight">M.Tight</value>
-			<value id="classes.Items.Miscellaneous::NaleenNip">NaleenNip</value>
-			<value id="classes.Items.Miscellaneous::NukiCookies">Nuki C.</value>
-			<value id="classes.Items.Miscellaneous::Ovilium">Ovilium</value>
-			<value id="classes.Items.Miscellaneous::Pandaneen">Pandaneen</value>
-			<value id="classes.Items.Miscellaneous::PandaPro">Panda Pro</value>
-			<value id="classes.Items.Miscellaneous::Priapin">Priapin</value>
-			<value id="classes.Items.Miscellaneous::Pussybloom">Pussybloom</value>
-			<value id="classes.Items.Miscellaneous::Pussyblossom">Pussyblossom</value>
-			<value id="classes.Items.Miscellaneous::Rainbotox">Rainbotox</value>
-			<value id="classes.Items.Miscellaneous::SkySap">SkySap</value>
-			<value id="classes.Items.Miscellaneous::Sterilex">Sterilex</value>
-			<value id="classes.Items.Miscellaneous::SynthSap">SynthSap</value>
-			<value id="classes.Items.Miscellaneous::TerranTreats">Human T.</value>
-			<value id="classes.Items.Miscellaneous::Throbb">Throbb</value>
-			<value id="classes.Items.Miscellaneous::Tittyblossom">Tittyblossom</value>
-			<value id="classes.Items.Miscellaneous::Treatment">Treatment</value>
-			<value id="classes.Items.Miscellaneous::UthraSap">UthraSap</value>
-			<value id="classes.Items.Miscellaneous::YTRLube">YT.Lube</value>
-			<value id="classes.Items.Miscellaneous::ZilRation">ZilRation</value>
-			<value id="classes.Items.Transformatives::AmazonaClassic">AmzIT.Clas</value>
-			<value id="classes.Items.Transformatives::AmazonaLite">AmzIT.Lite</value>
-			<value id="classes.Items.Transformatives::AmazonaPlus">AmzIT.Plus</value>
-			<value id="classes.Items.Transformatives::AmberSeed">AmberSeed</value>
-			<value id="classes.Items.Transformatives::BigGreenPotion">BGreenPot</value>
-			<value id="classes.Items.Transformatives::Bovinium">Bovinium</value>
-			<value id="classes.Items.Transformatives::BreedersBliss">B.Bliss</value>
-			<value id="classes.Items.Transformatives::BumpyRoad">BumpyRd.</value>
-			<value id="classes.Items.Transformatives::Cackler">Cackler</value>
-			<value id="classes.Items.Transformatives::CaninePoppers">CanineP</value>
-			<value id="classes.Items.Transformatives::Capraphorm">CapraP.</value>
-			<value id="classes.Items.Transformatives::Catnip">Catnip</value>
-			<value id="classes.Items.Transformatives::Cerespirin">Cerespirin</value>
-			<value id="classes.Items.Transformatives::Circumscriber">Circumser</value>
-			<value id="classes.Items.Transformatives::ClearYu">ClearYu</value>
-			<value id="classes.Items.Transformatives::Clippex">Clippex</value>
-			<value id="classes.Items.Transformatives::DendroGro">DendroGro</value>
-			<value id="classes.Items.Transformatives::DoveBalm">Dove Balm</value>
-			<value id="classes.Items.Transformatives::DracoGuard">DracoG.</value>
-			<value id="classes.Items.Transformatives::DrySpell">D. Spell</value>
-			<value id="classes.Items.Transformatives::Equilicum">Equilicum</value>
-			<value id="classes.Items.Transformatives::EggBlueLarge">Lg.BluEgg</value>
-			<value id="classes.Items.Transformatives::EggBlueSmall">Sm.BluEgg</value>
-			<value id="classes.Items.Transformatives::EggPinkLarge">Lg.PinkEgg</value>
-			<value id="classes.Items.Transformatives::EggPinkSmall">Sm.PinkEgg</value>
-			<value id="classes.Items.Transformatives::EggWhiteLarge">Lg.WhtEgg</value>
-			<value id="classes.Items.Transformatives::EggWhiteSmall">Sm.WhtEgg</value>
-			<value id="classes.Items.Transformatives::FizzyFix">FizzyFix</value>
-			<value id="classes.Items.Transformatives::Foxfire">Foxfire</value>
-			<value id="classes.Items.Transformatives::FrontRackCream">FrontRack</value>
-			<value id="classes.Items.Transformatives::Frostfire">Frostfire</value>
-			<value id="classes.Items.Transformatives::Furball">Furball</value>
-			<value id="classes.Items.Transformatives::Futazona">Futazona</value>
-			<value id="classes.Items.Transformatives::GaloMax">GaloMax</value>
-			<value id="classes.Items.Transformatives::Goblinola">Goblinola</value>
-			<value id="classes.Items.Transformatives::GoldPill">Gold Pill</value>
-			<value id="classes.Items.Transformatives::GooBallBlue">BlueGB</value>
-			<value id="classes.Items.Transformatives::GooBallGreen">GreenGB</value>
-			<value id="classes.Items.Transformatives::GooBallOrange">Orng.GB</value>
-			<value id="classes.Items.Transformatives::GooBallPink">Pink GB</value>
-			<value id="classes.Items.Transformatives::GooBallPurple">Purp.GB</value>
-			<value id="classes.Items.Transformatives::GooBallRed">Red GB</value>
-			<value id="classes.Items.Transformatives::GooBallYellow">Yellow GB</value>
-			<value id="classes.Items.Transformatives::Gush">Gush</value>
-			<value id="classes.Items.Transformatives::Holstaria">Holstaria</value>
-			<value id="classes.Items.Transformatives::Honeyizer">H-izer</value>
-			<value id="classes.Items.Transformatives::Hornitol">Hornitol</value>
-			<value id="classes.Items.Transformatives::Hornucopia">H.copia</value>
-			<value id="classes.Items.Transformatives::HuskarTreats">HuskarTreat</value>
-			<value id="classes.Items.Transformatives::Illumorphene">IllumorP.</value>
-			<value id="classes.Items.Transformatives::JunkTrunk">J.Trunk</value>
-			<value id="classes.Items.Transformatives::KerokorasVenom">Kero.Ven.</value>
-			<value id="classes.Items.Transformatives::KorgonneSnacks">K.Snax</value>
-			<value id="classes.Items.Transformatives::LaquineEars">L. Ears</value>
-			<value id="classes.Items.Transformatives::LemonLoftcake">Loftcake</value>
-			<value id="classes.Items.Transformatives::LipTease">LipTease</value>
-			<value id="classes.Items.Transformatives::Lucifier">Lucifier</value>
-			<value id="classes.Items.Transformatives::Lupinol">Lupinol</value>
-			<value id="classes.Items.Transformatives::ManDown">TwinkEase</value>
-			<value id="classes.Items.Transformatives::ManUp">ManUp</value>
-			<value id="classes.Items.Transformatives::MinoCharge">MinoCharge</value>
-			<value id="classes.Items.Transformatives::Motherhusk">Mthrhusk</value>
-			<value id="classes.Items.Transformatives::MousearellaCheese">MouseCh</value>
-			<value id="classes.Items.Transformatives::Muffstick">M.Stick</value>
-			<value id="classes.Items.Transformatives::Nepeta">Nepeta</value>
-			<value id="classes.Items.Transformatives::NukiNutbutter">N.Butter</value>
-			<value id="classes.Items.Transformatives::Nutnog">Nutnog</value>
-			<value id="classes.Items.Transformatives::NyreanCandy">N.Candy</value>
-			<value id="classes.Items.Transformatives::OmegaOil">O. Oil</value>
-			<value id="classes.Items.Transformatives::OrangePill">Orange P.</value>
-			<value id="classes.Items.Transformatives::OrefishShard">O.F. Shard</value>
-			<value id="classes.Items.Transformatives::OvirAce">OvirAce</value>
-			<value id="classes.Items.Transformatives::OvirPositive">Ovir+</value>
-			<value id="classes.Items.Transformatives::Peckermint">Peckermint</value>
-			<value id="classes.Items.Transformatives::Pickmentation">Pickment.</value>
-			<value id="classes.Items.Transformatives::PleasurePalette">P. Pal</value>
-			<value id="classes.Items.Transformatives::PupperPoppers">PupperP</value>
-			<value id="classes.Items.Transformatives::RainbowGaze">RainbowG.</value>
-			<value id="classes.Items.Transformatives::RedPandaneen">R.Panda+</value>
-			<value id="classes.Items.Transformatives::RedPandaPro">R.PandaPro+</value>
-			<value id="classes.Items.Transformatives::RedPill">Red Pill</value>
-			<value id="classes.Items.Transformatives::RedRocket">R.Rocket</value>
-			<value id="classes.Items.Miscellaneous::ReductPro">ReductPro</value>
-			<value id="classes.Items.Transformatives::Reptilum">Reptilum</value>
-			<value id="classes.Items.Transformatives::RubberMade">R.Made</value>
-			<value id="classes.Items.Transformatives::Ruskvel">Ruskvel</value>
-			<value id="classes.Items.Transformatives::SemensFriend">Semens F.</value>
-			<value id="classes.Items.Transformatives::SharkBites">S.Bites</value>
-			<value id="classes.Items.Transformatives::SheepTF">New Ewe</value>
-			<value id="classes.Items.Transformatives::SirensBounty">S.Bounty</value>
-			<value id="classes.Items.Transformatives::SkinClear">S.Clear</value>
-			<value id="classes.Items.Transformatives::SlutShroom">Slutshroom</value>
-			<value id="classes.Items.Transformatives::SnakeByte">SnakeByte</value>
-			<value id="classes.Items.Transformatives::SpunkShroom">Spunkshrm</value>
-			<value id="classes.Items.Transformatives::StrawberryShortcake">Shortcake</value>
-			<value id="classes.Items.Transformatives::SumaCream">Suma</value>
-			<value id="classes.Items.Transformatives::SumaCreamBlack">Suma Blk.</value>
-			<value id="classes.Items.Transformatives::SumaCreamWhite">Suma</value>
-			<value id="classes.Items.Transformatives::SweetSweat">SwtSweat</value>
-			<value id="classes.Items.Transformatives::SweetTreat">SwtTreat</value>
-			<value id="classes.Items.Transformatives::Swineapple">Swineapple</value>
-			<value id="classes.Items.Transformatives::Sylvanol">Sylvanol</value>
-			<value id="classes.Items.Transformatives::TauricoVenidae">Deerium</value>
-			<value id="classes.Items.Transformatives::Tentacool">Tentacool</value>
-			<value id="classes.Items.Transformatives::ThiccNShake">ThicShake</value>
-			<value id="classes.Items.Transformatives::Turtleneck">T.Neck</value>
-			<value id="classes.Items.Transformatives::UthraPlus">Uthra+</value>
-			<value id="classes.Items.Transformatives::Virection">Virection</value>
-			<value id="classes.Items.Transformatives::XhelarfogPlus">X.fog+</value>
-			<value id="classes.Items.Miscellaneous::ACock">A.Cock</value>
-			<value id="classes.Items.Miscellaneous::ADCock">A.D.Cock</value>
-			<value id="classes.Items.Miscellaneous::AHCock">A.H.Cock</value>
-			<value id="classes.Items.Miscellaneous::BrandyLetter">BrandyNote</value>
-			<value id="classes.Items.Miscellaneous::ClimbingKit">ClimbKit</value>
-			<value id="classes.Items.Miscellaneous::FishingRod">Fish.Rod</value>
-			<value id="classes.Items.Miscellaneous::Hoverboard">Hoverboard</value>
-			<value id="classes.Items.Miscellaneous::MagicMilker">M.Milker</value>
-			<value id="classes.Items.Miscellaneous::MaikesKeycard">M.Key</value>
-			<value id="classes.Items.Treasures::MiniatureGiantBabyKordiiak">MGBK</value>
-			<value id="classes.Items.Treasures::SpacesuitHelmet">Sp.Helmet</value>
-			<value id="classes.Items.Miscellaneous::ThermalPack">T.Pack</value>
-			<value id="classes.Items.Toys::MindwashVisor">MW Visor</value>
-			<value id="classes.Items.Stories::BecomingOneOfTheGirls">Story:B.One</value>
-			<value id="classes.Items.Stories::BreedingSylvie">Story:B.S</value>
-			<value id="classes.Items.Stories::BXBIOne">Story:BXBI1</value>
-			<value id="classes.Items.Stories::BXBITwo">Story:BXBI2</value>
-			<value id="classes.Items.Stories::CapturedByTheDemons">Story:Captr</value>
-			<value id="classes.Items.Stories::CowStuff">Story: Cow S.</value>
-			<value id="classes.Items.Stories::EightClicks">Story:||||||||</value>
-			<value id="classes.Items.Stories::FuckTheSystem">Story:F.Sys</value>
-			<value id="classes.Items.Stories::SatyrSlave">Story:Satyr</value>
-			<value id="classes.Items.Stories::StolenGoods">Story:Goods</value>
-			<value id="classes.Items.Stories::TentaclesAndTanukis">Story:Ts&amp;Ts</value>
-			<value id="classes.Items.Stories::TowerOfTrials">Story: ToT</value>
-			<value id="classes.Items.Toys::BubbleBuddy">B.Buddy</value>
-			<value id="classes.Items.Toys::GravCuffs">G.Cuffs</value>
-			<value id="classes.Items.Toys::HoverHole">H.Hole</value>
-			<value id="classes.Items.Toys::MitziBionaHole">M B.Hole</value>
-			<value id="classes.Items.Toys::NivasBionaHole">N.B.Hole</value>
-			<value id="classes.Items.Toys::NymFoeDakimakura">NymFoeDaki</value>
-			<value id="classes.Items.Toys::TamaniBionaHole">T.B.Hole</value>
-			<value id="classes.Items.Toys::SukMastr">SukMastr</value>
-			<value id="classes.Items.Melee::BioWhip">BioWhip</value>
-			<value id="classes.Items.Melee::BothriocRapier">B.Rapier</value>
-			<value id="classes.Items.Melee::CavalrySaber">C.Saber</value>
-			<value id="classes.Items.Melee::Cutlass">Cutlass</value>
-			<value id="classes.Items.Melee::DancingFlashblade">D.Flash</value>
-			<value id="classes.Items.Melee::ElectroSheepstick">Shock Staff</value>
-			<value id="classes.Items.Melee::EmmysJolthammer">E's Hmmr</value>
-			<value id="classes.Items.Melee::EmmysLavaSaber">E'sSaber</value>
-			<value id="classes.Items.Melee::EmmysVampBlade">E's Blade</value>
-			<value id="classes.Items.Melee::EssyraGreatspear">E.GSpear</value>
-			<value id="classes.Items.Melee::FrozenSpire">F.Spire</value>
-			<value id="classes.Items.Melee::HardlightDagger">HL Dagger</value>
-			<value id="classes.Items.Melee::Jolthammer">J.Hmmr.</value>
-			<value id="classes.Items.Melee::Knife">Knife</value>
-			<value id="classes.Items.Melee::LavaSaber">L.Saber</value>
-			<value id="classes.Items.Melee::LightningRod">L. Rod</value>
-			<value id="classes.Items.Melee::Machette">Machete</value>
-			<value id="classes.Items.Melee::MasterworkYappiStrap">MW.Yappi</value>
-			<value id="classes.Items.Melee::MilitaryPick">M.Pick</value>
-			<value id="classes.Items.Melee::MonofilamentSaber">M.Saber</value>
-			<value id="classes.Items.Melee::NaleenSpear">N.Spear</value>
-			<value id="classes.Items.Melee::NyreanSpear">N.Spear</value>
-			<value id="classes.Items.Melee::PetraMerc">PhasicWhipM</value>
-			<value id="classes.Items.Melee::PetraSmuggler">PhasicWhipS</value>
-			<value id="classes.Items.Melee::PetraTech">PhasicWhipT</value>
-			<value id="classes.Items.Melee::PetraWhip">PhasicWhip</value>
-			<value id="classes.Items.Melee::PlasmaHawk">P.Hawk</value>
-			<value id="classes.Items.Melee::PredatorTalons">P.Talons</value>
-			<value id="classes.Items.Melee::PyriteIndustriesPlasmaBlade">PIP Blade</value>
-			<value id="classes.Items.Melee::RaskvelWrench">Wrench</value>
-			<value id="classes.Items.Melee::ReaperStunBaton">RatBaton</value>
-			<value id="classes.Items.Melee::Rock">Rock</value>
-			<value id="classes.Items.Melee::RocketHammer">R.Hammer</value>
-			<value id="classes.Items.Melee::SaurmorianHammer">S.Hammer</value>
-			<value id="classes.Items.Melee::SaviciteLightMaul">Sav.Maul</value>
-			<value id="classes.Items.Melee::ShockBlade">ShockBlade</value>
-			<value id="classes.Items.Melee::ShockGear">C.S.Gear</value>
-			<value id="classes.Items.Melee::Shortsword">Shortsword</value>
-			<value id="classes.Items.Melee::SurvivalAxe">SurvAxe</value>
-			<value id="classes.Items.Melee::TaivrasSpear">T.Spear</value>
-			<value id="classes.Items.Melee::ThermalScalpel">T.Scalpel</value>
-			<value id="classes.Items.Melee::Tonfas">tonfas</value>
-			<value id="classes.Items.Melee::TrickBracer">T. Brace</value>
-			<value id="classes.Items.Melee::VampBlade">V.Blade</value>
-			<value id="classes.Items.Melee::VanaeSpear">Vanae Spear</value>
-			<value id="classes.Items.Melee::Vibrolass">Vibrolass</value>
-			<value id="classes.Items.Melee::Warhammer">Warhammer</value>
-			<value id="classes.Items.Melee::Whip">Whip</value>
-			<value id="classes.Items.Melee::WidowsKiss">WidowsKiss</value>
-			<value id="classes.Items.Melee::YappiStrap">Y.Strap</value>
-			<value id="classes.Items.Melee::ZilSpear">Z.Spear</value>
-			<value id="classes.Items.Guns::AcidLauncher">A.Lnchr</value>
-			<value id="classes.Items.Guns::AcidRifle">AcidRfl</value>
-			<value id="classes.Items.Guns::AcidThrower">A.Thrwr</value>
-			<value id="classes.Items.Guns::AegisLightMG">Aegis MG</value>
-			<value id="classes.Items.Guns::ArcCaster">ArcCast.</value>
-			<value id="classes.Items.Guns::ApolloPlasmaRifle">ApolloPR</value>
-			<value id="classes.Items.Guns::AutoShotgun">A.S.G.</value>
-			<value id="classes.Items.Guns::AvengerSMG">A.SMG</value>
-			<value id="classes.Items.Guns::BimboleumEmitter">B.Emitter</value>
-			<value id="classes.Items.Guns::BlackLight">B.Light</value>
-			<value id="classes.Items.Guns::BlizzardCryrothrower">BC.Thrwr</value>
-			<value id="classes.Items.Guns::BoltActionRifle">B.Rifle</value>
-			<value id="classes.Items.Guns::BothriocRifle">B.Rifle</value>
-			<value id="classes.Items.Guns::Chaingun">Chaingn</value>
-			<value id="classes.Items.Guns::Chainlaser">ChainLsr</value>
-			<value id="classes.Items.Guns::ChironexScourge">Chiro</value>
-			<value id="classes.Items.Guns::Cryrolizer">CryroL</value>
-			<value id="classes.Items.Guns::CryroPistol">CryroP</value>
-			<value id="classes.Items.Guns::CryroRifle">CryroR</value>
-			<value id="classes.Items.Guns::Crucifer">Crucifer</value>
-			<value id="classes.Items.Guns::CustomLP17">Custom LP-17</value>
-			<value id="classes.Items.Guns::EagleHandgun">E.Handgun</value>
-			<value id="classes.Items.Guns::Electrogun">Electrogun</value>
-			<value id="classes.Items.Guns::ElectroLauncher">Electrogun</value>
-			<value id="classes.Items.Guns::EmmysSalamanderPistol">E's Pistol</value>
-			<value id="classes.Items.Guns::EmmysSalamanderRifle">E's Rifle</value>
-			<value id="classes.Items.Guns::EmmysSalamanderRifle2">E's S.R.</value>
-			<value id="classes.Items.Guns::Entropy">Entropy</value>
-			<value id="classes.Items.Guns::Flamethrower">F.Thrwr</value>
-			<value id="classes.Items.Guns::FlamethrowerII">F.ThrwrII</value>
-			<value id="classes.Items.Guns::FlareGun">FlareGun</value>
-			<value id="classes.Items.Guns::FZRFireSuppressionSystem">FZR FSS</value>
-			<value id="classes.Items.Guns::Goovolver">Goovolver</value>
-			<value id="classes.Items.Guns::HammerCarbine">Hammer C.</value>
-			<value id="classes.Items.Guns::HammerPistol">Hammer Pstl.</value>
-			<value id="classes.Items.Guns::HammerPistolScavenged">Hammer Pstl.</value>
-			<value id="classes.Items.Guns::HandCannon">H.Cannon</value>
-			<value id="classes.Items.Guns::HardlightBow">HL Bow</value>
-			<value id="classes.Items.Guns::HardlightRifle">HL Rifle</value>
-			<value id="classes.Items.Guns::HeavyLaser">HeavyLaser</value>
-			<value id="classes.Items.Guns::Hirudo">Hirudo</value>
-			<value id="classes.Items.Guns::HoldoutHP">Holdout H.P.</value>
-			<value id="classes.Items.Guns::HoldOutPistol">Hld.Pistol</value>
-			<value id="classes.Items.Guns::HuntingRifle">H.Rifle</value>
-			<value id="classes.Items.Guns::KhansArcCaster">Khans AC.</value>
-			<value id="classes.Items.Guns::KorgGreatBow">KorgBow</value>
-			<value id="classes.Items.Guns::LaserCarbine">Laser C.</value>
-			<value id="classes.Items.Guns::LaserPistol">LaserPistol</value>
-			<value id="classes.Items.Guns::LashCannon">L.Cann</value>
-			<value id="classes.Items.Guns::MagnumPistol">Mag.Pistol</value>
-			<value id="classes.Items.Guns::MyrBow">Myr Bow</value>
-			<value id="classes.Items.Guns::MyrRifle">M.Rifle</value>
-			<value id="classes.Items.Guns::MyrVenomThrower">VnmThrwr</value>
-			<value id="classes.Items.Guns::NANDeconstructor">NaN D.</value>
-			<value id="classes.Items.Guns::NovaPistol">Nova Pstl.</value>
-			<value id="classes.Items.Guns::NovaRifle">Nova Rifle</value>
-			<value id="classes.Items.Guns::PlasmaBore">PlasmaBore</value>
-			<value id="classes.Items.Guns::PlasmaPistol">Plasma P.</value>
-			<value id="classes.Items.Guns::PrimitiveBow">P.Bow</value>
-			<value id="classes.Items.Guns::PyriteIndustriesSuperchargedLaserPistol">SCL Pistol</value>
-			<value id="classes.Items.Guns::QueensBow">Royal Bow</value>
-			<value id="classes.Items.Guns::RudimentaryRevolver">Revolvr</value>
-			<value id="classes.Items.Guns::SalamanderPistol">SalPistl</value>
-			<value id="classes.Items.Guns::SalamanderRifle">SalRifle</value>
-			<value id="classes.Items.Guns::SaurmorianRifle">S.Rail</value>
-			<value id="classes.Items.Guns::ScopedPistol">S.Pistol</value>
-			<value id="classes.Items.Guns::SecureMP">secureMP</value>
-			<value id="classes.Items.Guns::ShockBow">Shock Bow</value>
-			<value id="classes.Items.Guns::SlutRay">SlutRay</value>
-			<value id="classes.Items.Guns::SlutRayAdvanced">A.SlutRay</value>
-			<value id="classes.Items.Guns::SlutRayHeavy">H.SlutRay</value>
-			<value id="classes.Items.Guns::SpitterPistol">Spitter</value>
-			<value id="classes.Items.Guns::Stormbull">Strmbull</value>
-			<value id="classes.Items.Guns::SunFire">SunFire</value>
-			<value id="classes.Items.Guns::TachyonBeamLaser" Comment="Debug Item" Tooltip="Debug Item">Tach. Beam</value>
-			<value id="classes.Items.Guns::TanisBow">Tanis's Bow</value>
-			<value id="classes.Items.Guns::TeyaalsHeavyPlasmaCaster">HvyPlasma</value>
-			<value id="classes.Items.Guns::TheShocker">TheShocker</value>
-			<value id="classes.Items.Guns::TrenchShotgun">Shotgn</value>
-			<value id="classes.Items.Guns::TriBeamRifle">T.B. Rifle</value>
-			<value id="classes.Items.Guns::Vanquisher">Vanquish</value>
-			<value id="classes.Items.Guns::VenomPistol">V.Pistol</value>
-			<value id="classes.Items.Guns::WardenShield">WardenS.</value>
-			<value id="classes.Items.Guns::ZilBow">ZilBow</value>
-			<value id="classes.Items.Guns::ZhouLingRifle">Z.L.Rifle</value>
-			<value id="classes.Items.Guns::ZKRifle">ZK Rifle</value>
-			<value id="classes.Items.Protection::ArcticWarfareBelt">AW Belt</value>
-			<value id="classes.Items.Protection::BasicShield">BasicShld</value>
-			<value id="classes.Items.Protection::DBGShield" Comment="Debug Item" Tooltip="Debug Item">DBG Shield</value>
-			<value id="classes.Items.Protection::DecentShield">Decent S.</value>
-			<value id="classes.Items.Protection::HammerShield">H.Shield</value>
-			<value id="classes.Items.Protection::HeatBelt">HeatBelt</value>
-			<value id="classes.Items.Protection::ImprovisedShield">I.Shield</value>
-			<value id="classes.Items.Protection::JoyCoEliteShield">E.Shield</value>
-			<value id="classes.Items.Protection::JoyCoPremiumShield">P.Shield</value>
-			<value id="classes.Items.Protection::JumperShield">JumpShield</value>
-			<value id="classes.Items.Protection::NovaShield">N.Shield</value>
-			<value id="classes.Items.Protection::OzoneAegis">O.Aegis</value>
-			<value id="classes.Items.Protection::ProtoShield">JumpShield</value>
-			<value id="classes.Items.Protection::ReaperArmamentsMarkIIShield">Mark IIS</value>
-			<value id="classes.Items.Protection::ReaperArmamentsMarkIShield">Mark I.S.</value>
-			<value id="classes.Items.Protection::SalamanderShield">S.Shield</value>
-			<value id="classes.Items.Protection::ScrapShield">Scrp Shield</value>
-			<value id="classes.Items.Treasures::AmberIdol">AmberIdol</value>
-			<value id="classes.Items.Miscellaneous::GemSatchel">GemSack</value>
-			<value id="classes.Items.Miscellaneous::Kirkite">Kirkite</value>
-			<value id="classes.Items.Miscellaneous::MilkBag">MilkBag</value>
-			<value id="classes.Items.Miscellaneous::OvalastingEggLarge">Lg.OvaEgg</value>
-			<value id="classes.Items.Miscellaneous::OvalastingEggSmall">Sm.OvaEgg</value>
-			<value id="classes.Items.Miscellaneous::Picardine">Picardine</value>
-			<value id="classes.Items.Treasures::QueenlyNecklace">Q.Necklace</value>
-			<value id="classes.Items.Miscellaneous::Satyrite">Satyrite</value>
-			<value id="classes.Items.Treasures::Savicite">Savicite</value>
-			<value id="classes.Items.Miscellaneous::Silicone">Silicone</value>
-			<value id="classes.Items.Miscellaneous::StrangeEgg">S.Egg</value>
-			<value id="classes.Items.Miscellaneous::TarkusJokeBook">JokeBook</value>
-			<value id="classes.Items.Miscellaneous::VarmintItem">Varmint</value>
-			<value id="classes.Items.Miscellaneous::VenusBloom">V.Bloom</value>
-			<value id="classes.Items.Miscellaneous::VenusPod">VenusPod</value>
-			<value id="classes.Items.Miscellaneous::WeatherDrone">W.Drone</value>
-			<value id="classes.Items.Upgrades::ExpandedBackpackI">(15s)Pack</value>
-			<value id="classes.Items.Upgrades::ExpandedBackpackIPtV">(18s)Pack</value>
-			<value id="classes.Items.Upgrades::ExpandedBackpackII">(20s)Pack</value>
-			<value id="classes.Items.Upgrades::HardLightUpgrade">HLU</value>
-			<value id="classes.Items.Junk::BrokenBrainmeltLamp">B.B.Melt</value>
-			<value id="classes.Items.Junk::DamagedVIChip">VI Chip</value>
-			<value id="classes.Items.Junk::IQBGone">IQBGone</value>
-			<value id="classes.Items.Junk::SexbotChip">SexbotChip</value>
-			<value id="classes.Items.Transformatives::DongDesigner">Dong D.</value>
-			<value id="classes.Items.Toys::EggTrainer">EggTrnr</value>
-			<value id="classes.Items.Miscellaneous::SleepFapnea">SleepFap.</value>
-			<value id="classes.Items.Piercings::GeddaniumRingPiercing">Ged. Ring</value>
-			<value id="classes.Items.Piercings::GoldRingPiercing">G.Ring</value>
-			<value id="classes.Items.Piercings::GoldRingPiercings">G.Rings</value>
-			<value id="classes.Items.Piercings::GoldStudPiercing">G.Stud</value>
-			<value id="classes.Items.Piercings::GoldStudPiercings">G.Studs</value>
-			<value id="classes.Items.Piercings::LundsRings">L.Rings</value>
-			<value id="classes.Items.Piercings::OpalRingPiercing">Opal Ring</value>
-			<value id="classes.Items.Piercings::SilkyCockBell">S.CockBell</value>
-			<value id="classes.Items.Piercings::SilverRingPiercing">S.Ring</value>
-			<value id="classes.Items.Piercings::SilverRingPiercings">S.Rings</value>
-			<value id="classes.Items.Piercings::SilverStudPiercing">S.Stud</value>
-			<value id="classes.Items.Piercings::SilverStudPiercings">S.Studs</value>
-			<value id="classes.Items.Piercings::UrtaniumRingPiercing">UrtaRing</value>
-			<value id="classes.Items.HalloweenItems::PumpkingArmor">PK.Armor</value>
-			<value id="classes.Items.HalloweenItems::WitchsCorset">W.Corset</value>
-			<value id="classes.Items.HalloweenItems::WitchsOutfit">Witch.O</value>
-			<value id="classes.Items.HalloweenItems::WitchsPanty">W.Panty</value>
-			<value id="classes.Items.HalloweenItems::WitchsRobe">Witch.R</value>
-		</values>
+		<value id="0">Pill</value>
+		<value id="1">Food</value>
+		<value id="2">Potion</value>
+		<value id="3">Melee Weapon</value>
+		<value id="4">Ranged Weapon</value>
+		<value id="5">Armor</value>
+		<value id="6">Shield</value>
+		<value id="7">Upper Undergarment</value>
+		<value id="8">Lower Undergarment</value>
+		<value id="9">Accessory</value>
+		<value id="10">Drug</value>
+		<value id="11">Clothing</value>
+		<value id="12">All</value>
+		<value id="13">Gadget</value>
+		<value id="14">Explosive Consumable</value>
+		<value id="15">Quest Item</value>
+		<value id="16">Gem</value>
+		<value id="17">Sex Toy</value>
+		<value id="18">Sex Toy</value>
 	</enum>
 </data>

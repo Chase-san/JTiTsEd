@@ -22,6 +22,7 @@
 package org.csdgn.titsed.model;
 
 import java.io.BufferedInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -32,8 +33,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 
 import org.csdgn.titsed.ui.UIStrings;
 import org.xml.sax.Attributes;
@@ -49,44 +55,22 @@ import org.xml.sax.helpers.DefaultHandler;
 public class DataModel {
 
 	/**
-	 * Sax handler for values file.
+	 * Sax handler for controls file.
 	 */
-	private class ValueSAXHandler extends DefaultHandler {
-		LinkedHashMap<String, String> map;
+	private class ControlSAXHandler extends DefaultHandler {
 		StringBuilder buffer;
+		String className;
+		boolean enumTextEdit;
+		String enumType;
+		Integer max;
+		Integer min;
 		boolean read;
-		String name;
-		String id;
+		String sort;
+		int span = 1;
 
-		private ValueSAXHandler() {
+		private ControlSAXHandler() {
 			buffer = new StringBuilder();
 			read = false;
-		}
-
-		public void startElement(String uri, String localName, String qName, Attributes attributes)
-				throws SAXException {
-			if ("enum".equals(qName)) {
-				map = new LinkedHashMap<String, String>();
-				name = attributes.getValue("name");
-			} else if ("value".equals(qName)) {
-				read = true;
-				buffer.setLength(0);
-				id = attributes.getValue("id");
-			}
-		}
-
-		public void endElement(String uri, String localName, String qName) throws SAXException {
-			if ("enum".equals(qName)) {
-				valueMap.put(name, map);
-				map = null;
-			} else if ("value".equals(qName)) {
-				read = false;
-				String value = buffer.toString();
-				if (null == id) {
-					id = value;
-				}
-				map.put(id, value);
-			}
 		}
 
 		public void characters(char ch[], int start, int length) throws SAXException {
@@ -94,25 +78,46 @@ public class DataModel {
 				buffer.append(ch, start, length);
 			}
 		}
-	}
 
-	/**
-	 * Sax handler for controls file.
-	 */
-	private class ControlSAXHandler extends DefaultHandler {
-		StringBuilder buffer;
-		String enumType;
-		int span = 1;
-		Integer min;
-		Integer max;
-		boolean read;
-		boolean enumTextEdit;
-		String sort;
-		String className;
-
-		private ControlSAXHandler() {
-			buffer = new StringBuilder();
+		public void endElement(String uri, String localName, String qName) throws SAXException {
 			read = false;
+			String type = qName;
+			ControlEntry entry = null;
+			switch (qName) {
+			case ControlEntry.TYPE_FLAGS:
+			case ControlEntry.TYPE_ENUM:
+			case ControlEntry.TYPE_TEXT_ENUM:
+				type = qName + ":" + enumType;
+			case ControlEntry.TYPE_ARRAY:
+			case ControlEntry.TYPE_BOOLEAN:
+			case ControlEntry.TYPE_STRING:
+			case ControlEntry.TYPE_INTEGER:
+			case ControlEntry.TYPE_DECIMAL:
+				String data = buffer.toString().trim();
+				entry = new ControlEntry(type, span, data.split(","));
+				controlMap.add(entry);
+				if (ControlEntry.TYPE_TEXT_ENUM.equals(qName)) {
+					entry.enumTextEdit = enumTextEdit;
+				}
+				if (ControlEntry.TYPE_ENUM.equals(qName) || ControlEntry.TYPE_TEXT_ENUM.equals(qName)
+						|| ControlEntry.TYPE_FLAGS.equals(qName)) {
+					entry.sort = sort;
+				}
+				if (ControlEntry.TYPE_ARRAY.equals(qName)) {
+					entry.className = className;
+				}
+				if (ControlEntry.TYPE_ARRAY.equals(qName) || ControlEntry.TYPE_INTEGER.equals(qName)
+						|| ControlEntry.TYPE_DECIMAL.equals(qName)) {
+					entry.min = min;
+					entry.max = max;
+				}
+				break;
+			case ControlEntry.TYPE_LABEL:
+			case ControlEntry.TYPE_TITLE:
+				controlMap.add(new ControlEntry(type, span, buffer.toString().trim()));
+				break;
+			}
+
 		}
 
 		private void parseSpan(Attributes attributes) {
@@ -183,46 +188,21 @@ public class DataModel {
 				break;
 			}
 		}
+	}
 
-		public void endElement(String uri, String localName, String qName) throws SAXException {
+	/**
+	 * Sax handler for values file.
+	 */
+	private class ValueSAXHandler extends DefaultHandler {
+		StringBuilder buffer;
+		String id;
+		LinkedHashMap<String, String> map;
+		String name;
+		boolean read;
+
+		private ValueSAXHandler() {
+			buffer = new StringBuilder();
 			read = false;
-			String type = qName;
-			ControlEntry entry = null;
-			switch (qName) {
-			case ControlEntry.TYPE_FLAGS:
-			case ControlEntry.TYPE_ENUM:
-			case ControlEntry.TYPE_TEXT_ENUM:
-				type = qName + ":" + enumType;
-			case ControlEntry.TYPE_ARRAY:
-			case ControlEntry.TYPE_BOOLEAN:
-			case ControlEntry.TYPE_STRING:
-			case ControlEntry.TYPE_INTEGER:
-			case ControlEntry.TYPE_DECIMAL:
-				String data = buffer.toString().trim();
-				entry = new ControlEntry(type, span, data.split(","));
-				controlMap.add(entry);
-				if (ControlEntry.TYPE_TEXT_ENUM.equals(qName)) {
-					entry.enumTextEdit = enumTextEdit;
-				}
-				if (ControlEntry.TYPE_ENUM.equals(qName) || ControlEntry.TYPE_TEXT_ENUM.equals(qName)
-						|| ControlEntry.TYPE_FLAGS.equals(qName)) {
-					entry.sort = sort;
-				}
-				if (ControlEntry.TYPE_ARRAY.equals(qName)) {
-					entry.className = className;
-				}
-				if (ControlEntry.TYPE_ARRAY.equals(qName) || ControlEntry.TYPE_INTEGER.equals(qName)
-						|| ControlEntry.TYPE_DECIMAL.equals(qName)) {
-					entry.min = min;
-					entry.max = max;
-				}
-				break;
-			case ControlEntry.TYPE_LABEL:
-			case ControlEntry.TYPE_TITLE:
-				controlMap.add(new ControlEntry(type, span, buffer.toString().trim()));
-				break;
-			}
-
 		}
 
 		public void characters(char ch[], int start, int length) throws SAXException {
@@ -230,43 +210,69 @@ public class DataModel {
 				buffer.append(ch, start, length);
 			}
 		}
+
+		public void endElement(String uri, String localName, String qName) throws SAXException {
+			if ("enum".equals(qName)) {
+				enumMap.put(name, map);
+				map = null;
+			} else if ("value".equals(qName)) {
+				read = false;
+				String value = buffer.toString();
+				if (null == id) {
+					id = value;
+				}
+				map.put(id, value);
+			}
+		}
+
+		public void startElement(String uri, String localName, String qName, Attributes attributes)
+				throws SAXException {
+			if ("enum".equals(qName)) {
+				map = new LinkedHashMap<String, String>();
+				name = attributes.getValue("name");
+			} else if ("value".equals(qName)) {
+				read = true;
+				buffer.setLength(0);
+				id = attributes.getValue("id");
+			}
+		}
 	}
 
-	private Map<String, LinkedHashMap<String, String>> valueMap;
-	private Map<String, List<ControlEntry>> tabMap;
+	private static BufferedInputStream getUrlStream(URL url) throws IOException {
+		URLConnection uc = url.openConnection();
+		uc.connect();
+		return new BufferedInputStream(uc.getInputStream());
+	}
+	
+	private static boolean validate(URL xsd, URL xml) {
+		SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		try {
+			Schema schema = factory.newSchema(xsd);
+			Validator validator = schema.newValidator();
+			try (InputStream is = getUrlStream(xml)) {
+				validator.validate(new StreamSource(is));
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false;
+			}
+		} catch (SAXException e) {
+			//System.err.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 	private List<ControlEntry> controlMap;
 
-	public void load() {
-		loadValueMap();
-		loadControlMap();
-		generateTabMap();
-	}
+	private Map<String, LinkedHashMap<String, String>> enumMap;
 
-	public LinkedHashMap<String, String> getEnum(String name) {
-		return valueMap.get(name);
-	}
-
-	public List<ControlEntry> getDataMap() {
-		return controlMap;
-	}
-
-	public Set<String> getTabs() {
-		return tabMap.keySet();
-	}
-
-	public List<ControlEntry> getTabDataMap(String tab) {
-		return tabMap.get(tab);
-	}
-
-	private void loadControlMap() {
-		controlMap = new ArrayList<ControlEntry>();
-		parseURL(UIStrings.getResource("Model.Controls"), new ControlSAXHandler());
-	}
+	private Map<String, List<ControlEntry>> tabMap;
 
 	private void generateTabMap() {
 		tabMap = new LinkedHashMap<String, List<ControlEntry>>();
 		List<ControlEntry> list = null;
-		for (ControlEntry entry : getDataMap()) {
+		for (ControlEntry entry : getControlMap()) {
 			switch (entry.type) {
 			case ControlEntry.TYPE_TAB:
 				tabMap.put(entry.value[0], list = new ArrayList<ControlEntry>());
@@ -278,24 +284,62 @@ public class DataModel {
 		}
 	}
 
-	private void loadValueMap() {
-		valueMap = new HashMap<String, LinkedHashMap<String, String>>();
-		parseURL(UIStrings.getResource("Model.Values"), new ValueSAXHandler());
+	public List<ControlEntry> getControlMap() {
+		return controlMap;
 	}
-	
+
+	public LinkedHashMap<String, String> getEnum(String name) {
+		return enumMap.get(name);
+	}
+
+	public List<ControlEntry> getTabDataMap(String tab) {
+		return tabMap.get(tab);
+	}
+
+	public Set<String> getTabs() {
+		return tabMap.keySet();
+	}
+
+	public void load() {
+		loadValueMap();
+		loadControlMap();
+		generateTabMap();
+	}
+
+	private void loadControlMap() {
+		controlMap = new ArrayList<ControlEntry>();
+		URL xml = UIStrings.getResource("Model.Controls");
+		URL xsd = UIStrings.getResource("Model.Controls.Schema");
+		if(validate(xsd, xml)) {
+			parseURL(xml, new ControlSAXHandler());
+		} else {
+			System.err.printf("Invalid `%s`!\n", UIStrings.getString("Model.Controls"));
+		}
+	}
+
+	private void loadValueMap() {
+		enumMap = new HashMap<String, LinkedHashMap<String, String>>();
+		URL xml = UIStrings.getResource("Model.Values");
+		URL xsd = UIStrings.getResource("Model.Values.Schema");
+		if(validate(xsd, xml)) {
+			parseURL(xml, new ValueSAXHandler());
+		} else {
+			System.err.printf("Invalid `%s`!\n", UIStrings.getString("Model.Values"));
+		}
+		
+	}
+
 	private void parseURL(URL url, DefaultHandler dh) {
 		try {
-			URLConnection uc = url.openConnection();
-			uc.connect();
-			try (InputStream input = new BufferedInputStream(uc.getInputStream())) {
+			try (InputStream input = getUrlStream(url)) {
 				SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
 				parser.parse(input, dh);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 }

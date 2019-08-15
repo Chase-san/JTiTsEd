@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="data" type="dataType"/>
+  <xs:complexType name="dataType">
+    <xs:sequence>
+      <xs:element type="tabType" name="tab" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="titleType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:integer" name="span"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="rowType">
+    <xs:sequence>
+      <xs:element type="titleType" name="title" minOccurs="0"/>
+      <xs:element name="label" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute type="xs:integer" name="span"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element type="stringType" name="string" minOccurs="0"/>
+      <xs:element type="integerType" name="integer" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="enumType" name="enum" minOccurs="0"/>
+      <xs:element type="textenumType" name="textenum" minOccurs="0"/>
+      <xs:element name="boolean" minOccurs="0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute type="xs:integer" name="span"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element type="flagsType" name="flags" minOccurs="0"/>
+      <xs:element type="arrayType" name="array" minOccurs="0"/>
+      <xs:element type="decimalType" name="decimal" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="array"/>
+  </xs:complexType>
+  <xs:complexType name="stringType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:integer" name="span"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="integerType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:integer" name="min"/>
+        <xs:attribute type="xs:integer" name="max"/>
+        <xs:attribute type="xs:integer" name="span"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="enumType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type"/>
+        <xs:attribute type="xs:integer" name="span"/>
+        <xs:attribute type="xs:string" name="sort"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="textenumType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type"/>
+        <xs:attribute type="xs:integer" name="span"/>
+        <xs:attribute type="xs:string" name="sort"/>
+        <xs:attribute type="xs:string" name="edit"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tabType">
+    <xs:sequence>
+      <xs:element type="rowType" name="row" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name"/>
+  </xs:complexType>
+  <xs:complexType name="flagsType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type"/>
+        <xs:attribute type="xs:integer" name="span"/>
+        <xs:attribute type="xs:string" name="sort"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="arrayType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:integer" name="min"/>
+        <xs:attribute type="xs:integer" name="max"/>
+        <xs:attribute type="xs:integer" name="span"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="booleanType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:integer" name="span"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="decimalType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:integer" name="min"/>
+        <xs:attribute type="xs:integer" name="max"/>
+        <xs:attribute type="xs:integer" name="span"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="labelType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:integer" name="span"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
