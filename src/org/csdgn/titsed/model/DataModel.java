@@ -182,7 +182,7 @@ public class DataModel {
 				}
 				String sMax = attributes.getValue("max");
 				if (sMax != null) {
-					min = Integer.parseInt(sMax);
+					max = Integer.parseInt(sMax);
 				}
 				
 			case ControlEntry.TYPE_LABEL:

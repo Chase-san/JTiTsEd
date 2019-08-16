@@ -423,7 +423,7 @@
       <title span="3">Breasts</title>
     </row>
     <row>
-      <array min="1" max="4" span="3">characters.PC.breastRows</array>
+      <array min="1" max="4" span="3" type="breasts">characters.PC.breastRows</array>
     </row>
     <row array="true">
       <label></label>
@@ -463,7 +463,7 @@
       <boolean span="2">characters.PC.cockVirgin</boolean>
     </row>
     <row>
-      <array min="0" max="4" span="3">characters.PC.cocks</array>
+      <array min="0" max="4" span="3" type="cocks">characters.PC.cocks</array>
     </row>
     <row array="true">
       <label></label>
@@ -515,7 +515,7 @@
       <integer span="2">characters.PC.clitLength</integer>
     </row>
     <row>
-      <array min="0" max="4" span="3">characters.PC.vaginas</array>
+      <array min="0" max="4" span="3" type="vaginas">characters.PC.vaginas</array>
     </row>
     <row array="true">
       <label>Type</label>
@@ -569,6 +569,48 @@
     <row>
       <label>True Virgin</label>
       <boolean span="2">characters.PC.analVirgin</boolean>
+    </row>
+    <row>
+      <label>Type</label>
+      <enum type="Vagina Type" sort="key" span="2">characters.PC.ass.type</enum>
+    </row>
+    <row>
+      <label>Color</label>
+      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.ass.vaginaColor</textenum>
+    </row>
+    <row>
+      <label>Virgin</label>
+      <boolean span="2">characters.PC.ass.hymen</boolean>
+    </row>
+    <row>
+      <label></label>
+      <label>Base</label>
+      <label>Mod</label>
+    </row>
+    <row>
+      <label>Wetness</label>
+      <integer min="0">characters.PC.ass.wetnessRaw</integer>
+      <integer min="0">characters.PC.ass.wetnessMod</integer>
+    </row>
+    <row>
+      <label>Looseness</label>
+      <integer min="0">characters.PC.ass.loosenessRaw</integer>
+      <integer min="0">characters.PC.ass.loosenessMod</integer>
+    </row>
+    <row>
+      <label>Min Looseness</label>
+      <integer span="2" min="0">characters.PC.ass.minLooseness</integer>
+    </row>
+    <row>
+      <label>Bonus Capacity</label>
+      <integer span="2" min="0">characters.PC.ass.bonusCapacity</integer>
+    </row>
+    <row>
+      <label>Shrink Counter</label>
+      <integer span="2" min="0">characters.PC.ass.shrinkCounter</integer>
+    </row>
+    <row>
+      <flags type="Ass Flags" span="3" sort="value">characters.PC.ass.vagooFlags</flags>
     </row>
   </tab>
   <tab name="Items">

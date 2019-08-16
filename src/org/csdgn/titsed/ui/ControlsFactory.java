@@ -182,7 +182,6 @@ public class ControlsFactory {
 		JPanel innerPanel = new JPanel(new BorderLayout());
 
 		JButton sub = new JButton("-");
-		sub.setEnabled(false);
 		innerPanel.add(sub, BorderLayout.WEST);
 
 		JButton add = new JButton("+");
@@ -192,9 +191,29 @@ public class ControlsFactory {
 		innerPanel.add(label, BorderLayout.CENTER);
 		panel.add(innerPanel, BorderLayout.CENTER);
 
+		int min = 0;
+		if (entry.min != null) {
+			min = entry.min;
+		}
+
+		sub.setEnabled(arraySize > min);
+		sub.addActionListener(e -> {
+			// remove this entry from the array and update
+			arr.getDense().remove(entry.index);
+			entry.index = Math.max(entry.index - 1, arraySize - 1);
+
+			tabUpdater.update();
+		});
+
 		// TODO find a better way to do this...
-		if (type.equals("item")) {
+		if ("item".equals(type)) {
 			createArrayItemSubEntry(tabUpdater, entry, arr, add, sub);
+		} else if ("breasts".equals(type)) {
+			// TODO
+		} else if ("cocks".equals(type)) {
+			// TODO
+		} else if ("vaginas".equals(type)) {
+			// TODO
 		}
 
 		prev.addActionListener(e -> {
@@ -209,34 +228,30 @@ public class ControlsFactory {
 
 		return panel;
 	}
-	
-	private void createArrayItemSubEntry(Updater tabUpdater, ControlEntry entry, AmfArray arr, JButton add, JButton sub) {
-		sub.setEnabled(arraySize > 0);
-		add.setEnabled(true);
 
-		sub.addActionListener(e -> {
-			//remove this entry from the array and update
-			arr.getDense().remove(entry.index);
-			if(entry.index == arraySize - 1) {
-				entry.index--;
-			}
-			tabUpdater.update();
-		});
+	private void createArrayItemSubEntry(Updater tabUpdater, ControlEntry entry, AmfArray arr, JButton add,
+			JButton sub) {
+		int max = Integer.MAX_VALUE;
+		if (entry.max != null) {
+			max = entry.max;
+		}
+
+		add.setEnabled(arraySize < max);
 
 		add.addActionListener(e -> {
 			ItemEntry item = state.data.getItemList().get(0);
-			
-			//add a new entry to the array, switch to it and update
+
+			// add a new entry to the array, switch to it and update
 			AmfObject obj = new AmfObject();
 			obj.setDynamic(true);
 			obj.getDynamicMap().put("shortName", new AmfString(item.shortName));
 			obj.getDynamicMap().put("version", new AmfInteger(1));
 			obj.getDynamicMap().put("classInstance", new AmfString(item.id));
 			obj.getDynamicMap().put("quantity", new AmfInteger(1));
-			
+
 			arr.getDense().add(obj);
 			entry.index = arraySize;
-			
+
 			tabUpdater.update();
 		});
 	}
@@ -314,11 +329,13 @@ public class ControlsFactory {
 		JComboBox<ItemEntry> combo = new JComboBox<ItemEntry>();
 		combo.setRenderer(new ToolTipRenderer());
 		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
-		
-		String type = entry.type.substring(entry.type.indexOf(':') + 1);
-		String[] filter = {};
-		if(type != null) {
-			filter = type.split(",");
+
+		String[] filter = new String[0];
+		if (entry.type.contains(":")) {
+			String type = entry.type.substring(entry.type.indexOf(':') + 1);
+			if (type != null) {
+				filter = type.split(",");
+			}
 		}
 
 		// load data
@@ -334,10 +351,10 @@ public class ControlsFactory {
 		// find existing data
 		for (ItemEntry item : data) {
 			boolean add = true;
-			if(filter.length > 0) {
+			if (filter.length > 0) {
 				add = false;
-				for(String f : filter) {
-					if(item.type.equalsIgnoreCase(f)) {
+				for (String f : filter) {
+					if (item.type.equalsIgnoreCase(f)) {
 						add = true;
 						break;
 					}
@@ -349,7 +366,7 @@ public class ControlsFactory {
 				// TODO handle objects that share the id
 				// currently only applies to hardlight equipped underwear.
 			}
-			if(add) {
+			if (add) {
 				combo.addItem(item);
 			}
 		}
@@ -367,7 +384,6 @@ public class ControlsFactory {
 			for (String path : paths) {
 				Object obj = combo.getSelectedItem();
 				if (obj != null) {
-					@SuppressWarnings("unchecked")
 					ItemEntry tmp = (ItemEntry) obj;
 					state.save.setString(path + ".classInstance", tmp.id);
 					state.save.setString(path + ".shortName", tmp.shortName);
