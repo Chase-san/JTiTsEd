@@ -87,10 +87,12 @@ public class DataModel {
 			case ControlEntry.TYPE_FLAGS:
 			case ControlEntry.TYPE_ENUM:
 			case ControlEntry.TYPE_TEXT_ENUM:
-				type = qName + ":" + enumType;
 			case ControlEntry.TYPE_ARRAY:
-			case ControlEntry.TYPE_BOOLEAN:
 			case ControlEntry.TYPE_ITEM:
+				if(enumType != null) {
+					type = qName + ":" + enumType;
+				}
+			case ControlEntry.TYPE_BOOLEAN:
 			case ControlEntry.TYPE_STRING:
 			case ControlEntry.TYPE_INTEGER:
 			case ControlEntry.TYPE_DECIMAL:
@@ -168,6 +170,10 @@ public class DataModel {
 
 			case ControlEntry.TYPE_ARRAY:
 				className = attributes.getValue("class");
+			
+			case ControlEntry.TYPE_ITEM:
+				enumType = attributes.getValue("type");
+			
 			case ControlEntry.TYPE_INTEGER:
 			case ControlEntry.TYPE_DECIMAL:
 				String sMin = attributes.getValue("min");
@@ -178,12 +184,11 @@ public class DataModel {
 				if (sMax != null) {
 					min = Integer.parseInt(sMax);
 				}
-
+				
 			case ControlEntry.TYPE_LABEL:
 			case ControlEntry.TYPE_TITLE:
 			case ControlEntry.TYPE_STRING:
 			case ControlEntry.TYPE_BOOLEAN:
-			case ControlEntry.TYPE_ITEM:
 				parseSpan(attributes);
 				buffer.setLength(0);
 				read = true;
@@ -261,13 +266,8 @@ public class DataModel {
 
 		public void endElement(String uri, String localName, String qName) throws SAXException {
 			if ("item".equals(qName)) {
-				List<ItemEntry> items = itemMap.get(entry.id);
-				if (items == null) {
-					items = new ArrayList<ItemEntry>();
-					itemMap.put(entry.id, items);
-				}
 				entry.finish();
-				items.add(entry);
+				itemList.add(entry);
 				entry = null;
 			} else if ("shortName".equals(qName)) {
 				entry.shortName = buffer.toString();
@@ -329,7 +329,7 @@ public class DataModel {
 
 	private Map<String, LinkedHashMap<String, String>> enumMap;
 	private Map<String, List<ControlEntry>> tabMap;
-	private Map<String, List<ItemEntry>> itemMap;
+	private List<ItemEntry> itemList;
 
 	private void generateTabMap() {
 		tabMap = new LinkedHashMap<String, List<ControlEntry>>();
@@ -344,6 +344,10 @@ public class DataModel {
 				break;
 			}
 		}
+	}
+	
+	public List<ItemEntry> getItemList() {
+		return itemList;
 	}
 
 	public List<ControlEntry> getControlMap() {
@@ -381,7 +385,7 @@ public class DataModel {
 	}
 
 	private void loadItemMap() {
-		itemMap = new LinkedHashMap<String, List<ItemEntry>>();
+		itemList = new ArrayList<ItemEntry>();
 		URL xml = UIStrings.getResource("Model.Items");
 		URL xsd = UIStrings.getResource("Model.Items.Schema");
 		if (validate(xsd, xml)) {

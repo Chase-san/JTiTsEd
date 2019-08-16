@@ -91,6 +91,7 @@
   <xs:complexType name="arrayType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type"/>
         <xs:attribute type="xs:integer" name="min"/>
         <xs:attribute type="xs:integer" name="max"/>
         <xs:attribute type="xs:integer" name="span"/>
@@ -107,6 +108,7 @@
   <xs:complexType name="itemType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type"/>
         <xs:attribute type="xs:integer" name="span"/>
       </xs:extension>
     </xs:simpleContent>

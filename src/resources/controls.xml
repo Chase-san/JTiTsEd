@@ -571,9 +571,44 @@
       <boolean span="2">characters.PC.analVirgin</boolean>
     </row>
   </tab>
-  <tab name="Inventory">
+  <tab name="Items">
     <row>
-      <array min="0" max="4" span="3">characters.PC.inventory</array>
+      <title span="3">Equipment</title>
+    </row>
+    <row>
+      <label>Melee Weapon</label>
+      <item type="MELEE_WEAPON" span="2">characters.PC.meleeWeapon</item>
+    </row>
+    <row>
+      <label>Ranged Weapon</label>
+      <item type="RANGED_WEAPON" span="2">characters.PC.rangedWeapon</item>
+    </row>
+    <row>
+      <label>Shield</label>
+      <item type="SHIELD" span="2">characters.PC.shield</item>
+    </row>
+    <row>
+      <label>Armor</label>
+      <item type="ARMOR,CLOTHING" span="2">characters.PC.armor</item>
+    </row>
+    <row>
+      <label>Upper Undergarmet</label>
+      <item type="UPPER_UNDERGARMENT" span="2">characters.PC.upperUndergarment</item>
+    </row>
+    <row>
+      <label>Lower Undergarmet</label>
+      <item type="LOWER_UNDERGARMENT" span="2">characters.PC.lowerUndergarment</item>
+    </row>
+    <row>
+      <label>Accessory</label>
+      <item type="ACCESSORY" span="2">characters.PC.accessory</item>
+    </row>
+
+    <row>
+      <title span="3">Personal Inventory</title>
+    </row>
+    <row>
+      <array min="0" max="10" span="3" type="item">characters.PC.inventory</array>
     </row>
     <row array="true">
       <label>Type</label>
@@ -583,5 +618,36 @@
       <label>Quantity</label>
       <integer span="2">{ARRAY_ENTRY}.quantity</integer>
     </row>
+    <row>
+      <title span="3">Ship Storage Inventory</title>
+    </row>
+    <row>
+      <array min="0" max="10" span="3" type="item">characters.PC.ShipStorageInventory</array>
+    </row>
+    <row array="true">
+      <label>Type</label>
+      <item span="2">{ARRAY_ENTRY}</item>
+    </row>
+    <row array="true">
+      <label>Quantity</label>
+      <integer span="2">{ARRAY_ENTRY}.quantity</integer>
+    </row>
+    <row>
+      <title span="3">Location Storage Inventory</title>
+    </row>
+    <row>
+      <array min="0" max="10" span="3" type="item">characters.PC.LocationStorageInventory</array>
+    </row>
+    <row array="true">
+      <label>Type</label>
+      <item span="2">{ARRAY_ENTRY}</item>
+    </row>
+    <row array="true">
+      <label>Quantity</label>
+      <integer span="2">{ARRAY_ENTRY}.quantity</integer>
+    </row>
+
+
+
   </tab>
 </data>

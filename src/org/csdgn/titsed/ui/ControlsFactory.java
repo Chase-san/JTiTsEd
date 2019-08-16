@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.swing.BorderFactory;
@@ -25,10 +26,15 @@ import javax.swing.SwingConstants;
 import javax.swing.text.PlainDocument;
 
 import org.csdgn.amf3.AmfArray;
+import org.csdgn.amf3.AmfInteger;
+import org.csdgn.amf3.AmfObject;
+import org.csdgn.amf3.AmfString;
 import org.csdgn.maru.Updater;
 import org.csdgn.maru.swing.DocumentAdapter;
 import org.csdgn.maru.swing.NumberDocumentFilter;
+import org.csdgn.maru.swing.ToolTipRenderer;
 import org.csdgn.titsed.model.ControlEntry;
+import org.csdgn.titsed.model.ItemEntry;
 import org.csdgn.titsed.ui.MainFrame.EnumEntry;
 
 public class ControlsFactory {
@@ -144,6 +150,9 @@ public class ControlsFactory {
 		// TODO allow multiple array entries
 		// TODO handle array within arrays
 
+		String type = entry.type.substring(entry.type.indexOf(':') + 1);
+		// TODO use type somehow
+
 		arrayPath = entry.value[0] + "." + entry.index;
 
 		// get maximum size
@@ -169,19 +178,67 @@ public class ControlsFactory {
 		panel.setPreferredSize(new Dimension(prefWidth, prefHeight));
 		panel.add(prev, BorderLayout.WEST);
 		panel.add(next, BorderLayout.EAST);
-		panel.add(label, BorderLayout.CENTER);
-		
+
+		JPanel innerPanel = new JPanel(new BorderLayout());
+
+		JButton sub = new JButton("-");
+		sub.setEnabled(false);
+		innerPanel.add(sub, BorderLayout.WEST);
+
+		JButton add = new JButton("+");
+		add.setEnabled(false);
+		innerPanel.add(add, BorderLayout.EAST);
+
+		innerPanel.add(label, BorderLayout.CENTER);
+		panel.add(innerPanel, BorderLayout.CENTER);
+
+		// TODO find a better way to do this...
+		if (type.equals("item")) {
+			createArrayItemSubEntry(tabUpdater, entry, arr, add, sub);
+		}
+
 		prev.addActionListener(e -> {
 			entry.index--;
 			tabUpdater.update();
 		});
-		
+
 		next.addActionListener(e -> {
 			entry.index++;
 			tabUpdater.update();
 		});
 
 		return panel;
+	}
+	
+	private void createArrayItemSubEntry(Updater tabUpdater, ControlEntry entry, AmfArray arr, JButton add, JButton sub) {
+		sub.setEnabled(arraySize > 0);
+		add.setEnabled(true);
+
+		sub.addActionListener(e -> {
+			//remove this entry from the array and update
+			arr.getDense().remove(entry.index);
+			if(entry.index == arraySize - 1) {
+				entry.index--;
+			}
+			tabUpdater.update();
+		});
+
+		add.addActionListener(e -> {
+			ItemEntry item = state.data.getItemList().get(0);
+			
+			//add a new entry to the array, switch to it and update
+			AmfObject obj = new AmfObject();
+			obj.setDynamic(true);
+			obj.getDynamicMap().put("shortName", new AmfString(item.shortName));
+			obj.getDynamicMap().put("version", new AmfInteger(1));
+			obj.getDynamicMap().put("classInstance", new AmfString(item.id));
+			obj.getDynamicMap().put("quantity", new AmfInteger(1));
+			
+			arr.getDense().add(obj);
+			entry.index = arraySize;
+			
+			tabUpdater.update();
+		});
 	}
 
 	protected JComboBox<EnumEntry<Boolean>> createBooleanEntry(ControlEntry entry) {
@@ -223,6 +280,10 @@ public class ControlsFactory {
 			return createEnumEntry(entry);
 		} else if (entry.type.startsWith(ControlEntry.TYPE_FLAGS)) {
 			return createFlagsEntry(entry);
+		} else if (entry.type.startsWith(ControlEntry.TYPE_ARRAY)) {
+			return createArrayEntry(tabUpdater, entry);
+		} else if (entry.type.startsWith(ControlEntry.TYPE_ITEM)) {
+			return createItemEntry(entry);
 		} else
 			switch (entry.type) {
 			case ControlEntry.TYPE_TITLE: {
@@ -244,11 +305,79 @@ public class ControlsFactory {
 			case ControlEntry.TYPE_INTEGER:
 			case ControlEntry.TYPE_DECIMAL:
 				return createNumberEntry(entry);
-			case ControlEntry.TYPE_ARRAY:
-				return createArrayEntry(tabUpdater, entry);
 			}
 
 		throw new RuntimeException("Unknown Data Type: " + entry.type);
+	}
+
+	protected JComboBox<ItemEntry> createItemEntry(ControlEntry entry) {
+		JComboBox<ItemEntry> combo = new JComboBox<ItemEntry>();
+		combo.setRenderer(new ToolTipRenderer());
+		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
+		
+		String type = entry.type.substring(entry.type.indexOf(':') + 1);
+		String[] filter = {};
+		if(type != null) {
+			filter = type.split(",");
+		}
+
+		// load data
+		List<ItemEntry> data = state.data.getItemList();
+
+		final String[] paths = getSaveIdents(entry.value);
+
+		String itemClass = state.save.getString(paths[0] + ".classInstance");
+		String itemName = state.save.getString(paths[0] + ".shortName");
+
+		ItemEntry current = null;
+
+		// find existing data
+		for (ItemEntry item : data) {
+			boolean add = true;
+			if(filter.length > 0) {
+				add = false;
+				for(String f : filter) {
+					if(item.type.equalsIgnoreCase(f)) {
+						add = true;
+						break;
+					}
+				}
+			}
+			if (Objects.equals(itemClass, item.id)) {
+				current = item;
+				add = true;
+				// TODO handle objects that share the id
+				// currently only applies to hardlight equipped underwear.
+			}
+			if(add) {
+				combo.addItem(item);
+			}
+		}
+
+		if (current == null) {
+			// unknown value
+			current = new ItemEntry(itemClass, itemName);
+			combo.addItem(current);
+		}
+
+		combo.setSelectedItem(current);
+		combo.setToolTipText(current.getToolTip());
+
+		combo.addActionListener(e -> {
+			for (String path : paths) {
+				Object obj = combo.getSelectedItem();
+				if (obj != null) {
+					@SuppressWarnings("unchecked")
+					ItemEntry tmp = (ItemEntry) obj;
+					state.save.setString(path + ".classInstance", tmp.id);
+					state.save.setString(path + ".shortName", tmp.shortName);
+					combo.setToolTipText(tmp.getToolTip());
+				}
+
+			}
+		});
+
+		return combo;
 	}
 
 	protected JComboBox<EnumEntry<Integer>> createEnumEntry(ControlEntry entry) {
@@ -281,7 +410,6 @@ public class ControlsFactory {
 			// unknown value
 			current = new EnumEntry<Integer>(gameValue, "Unknown Type " + gameValue);
 			combo.addItem(current);
-			combo.setSelectedItem(current);
 		}
 
 		combo.setSelectedItem(current);

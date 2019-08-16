@@ -1742,7 +1742,7 @@
     </item>
     <item id="classes.Items.Transformatives::EggBlueLarge">
         <shortName>Lg.BluEgg</shortName>
-        <longName>, " + eggColor + " egg</longName>
+        <longName>large, blue egg</longName>
         <stack>24</stack>
         <type>FOOD</type>
     </item>
@@ -1754,13 +1754,13 @@
     </item>
     <item id="classes.Items.Transformatives::EggPinkLarge">
         <shortName>Lg.PinkEgg</shortName>
-        <longName>, " + eggColor + " egg</longName>
+        <longName>large, pink egg</longName>
         <stack>24</stack>
         <type>FOOD</type>
     </item>
     <item id="classes.Items.Transformatives::EggWhiteLarge">
         <shortName>Lg.WhtEgg</shortName>
-        <longName>, " + eggColor + " egg</longName>
+        <longName>large, white egg</longName>
         <stack>24</stack>
         <type>FOOD</type>
     </item>
@@ -2004,13 +2004,13 @@
     </item>
     <item id="classes.Items.Apparel::MaidUniform">
         <shortName>Maid U.</shortName>
-        <longName>maid outfit</longName>
+        <editorName>Maid Uniform</editorName>
         <stack>1</stack>
         <type>CLOTHING</type>
     </item>
     <item id="classes.Items.Apparel::MaidOutfit">
         <shortName>MaidO.</shortName>
-        <longName>maid outfit</longName>
+        <editorName>Maid Outfit</editorName>
         <stack>1</stack>
         <type>CLOTHING</type>
     </item>
@@ -3105,7 +3105,7 @@
     </item>
     <item id="classes.Items.Transformatives::EggBlueSmall">
         <shortName>Sm.BluEgg</shortName>
-        <longName>, " + eggColor + " egg</longName>
+        <longName>small, blue egg</longName>
         <stack>24</stack>
         <type>FOOD</type>
     </item>
@@ -3117,13 +3117,13 @@
     </item>
     <item id="classes.Items.Transformatives::EggPinkSmall">
         <shortName>Sm.PinkEgg</shortName>
-        <longName>, " + eggColor + " egg</longName>
+        <longName>small, pink egg</longName>
         <stack>24</stack>
         <type>FOOD</type>
     </item>
     <item id="classes.Items.Transformatives::EggWhiteSmall">
         <shortName>Sm.WhtEgg</shortName>
-        <longName>, " + eggColor + " egg</longName>
+        <longName>small, white egg</longName>
         <stack>24</stack>
         <type>FOOD</type>
     </item>
