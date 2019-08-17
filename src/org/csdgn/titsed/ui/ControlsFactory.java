@@ -1,3 +1,24 @@
+/**
+ * Copyright (c) 2017-2019 Robert Maupin
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 package org.csdgn.titsed.ui;
 
 import java.awt.BorderLayout;
@@ -6,7 +27,6 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -35,100 +55,10 @@ import org.csdgn.maru.swing.NumberDocumentFilter;
 import org.csdgn.maru.swing.ToolTipRenderer;
 import org.csdgn.titsed.model.ControlEntry;
 import org.csdgn.titsed.model.ItemEntry;
+import org.csdgn.titsed.model.Sort;
 import org.csdgn.titsed.ui.MainFrame.EnumEntry;
 
 public class ControlsFactory {
-
-	protected static List<String> sortIntegerKeySet(Map<String, String> enumData, String sort) {
-		List<String> retKeys = new ArrayList<String>();
-
-		retKeys.addAll(enumData.keySet());
-
-		if (ControlEntry.SORT_KEY.equalsIgnoreCase(sort)) {
-			retKeys.sort((a, b) -> {
-				int aN = Integer.parseInt(a);
-				int bN = Integer.parseInt(b);
-				return Integer.compare(aN, bN);
-			});
-		} else if (ControlEntry.SORT_KEY_NONE.equalsIgnoreCase(sort)) {
-			retKeys.sort((a, b) -> {
-				int aN = Integer.parseInt(a);
-				int bN = Integer.parseInt(b);
-				String aV = enumData.get(a);
-				String bV = enumData.get(b);
-				if ("None".equalsIgnoreCase(aV)) {
-					aN = Integer.MIN_VALUE;
-				}
-				if ("None".equalsIgnoreCase(bV)) {
-					bN = Integer.MIN_VALUE;
-				}
-				return Integer.compare(aN, bN);
-			});
-		} else if (ControlEntry.SORT_VALUE.equalsIgnoreCase(sort)) {
-			retKeys.sort((a, b) -> {
-				String aV = enumData.get(a);
-				String bV = enumData.get(b);
-				return aV.compareTo(bV);
-			});
-		} else if (ControlEntry.SORT_VALUE_NONE.equalsIgnoreCase(sort)) {
-			retKeys.sort((a, b) -> {
-				String aV = enumData.get(a);
-				String bV = enumData.get(b);
-				if ("None".equalsIgnoreCase(aV)) {
-					aV = "";
-				}
-				if ("None".equalsIgnoreCase(bV)) {
-					bV = "";
-				}
-				return aV.compareTo(bV);
-			});
-		}
-
-		return retKeys;
-	}
-
-	protected static List<String> sortStringKeySet(Map<String, String> enumData, String sort) {
-		List<String> retKeys = new ArrayList<String>();
-
-		retKeys.addAll(enumData.keySet());
-
-		if (ControlEntry.SORT_KEY.equalsIgnoreCase(sort)) {
-			retKeys.sort((a, b) -> {
-				return a.compareTo(b);
-			});
-		} else if (ControlEntry.SORT_KEY_NONE.equalsIgnoreCase(sort)) {
-			retKeys.sort((a, b) -> {
-				if ("none".equalsIgnoreCase(a)) {
-					a = "";
-				}
-				if ("none".equalsIgnoreCase(b)) {
-					b = "";
-				}
-				return a.compareTo(b);
-			});
-		} else if (ControlEntry.SORT_VALUE.equalsIgnoreCase(sort)) {
-			retKeys.sort((a, b) -> {
-				String aV = enumData.get(a);
-				String bV = enumData.get(b);
-				return aV.compareTo(bV);
-			});
-		} else if (ControlEntry.SORT_VALUE_NONE.equalsIgnoreCase(sort)) {
-			retKeys.sort((a, b) -> {
-				String aV = enumData.get(a);
-				String bV = enumData.get(b);
-				if ("None".equalsIgnoreCase(aV)) {
-					aV = "";
-				}
-				if ("None".equalsIgnoreCase(bV)) {
-					bV = "";
-				}
-				return aV.compareTo(bV);
-			});
-		}
-
-		return retKeys;
-	}
-
 	private String arrayPath;
 	protected int arraySize;
 	private int prefHeight;
@@ -150,22 +80,22 @@ public class ControlsFactory {
 		// TODO allow multiple array entries
 		// TODO handle array within arrays
 
-		String type = entry.type.substring(entry.type.indexOf(':') + 1);
+		//String type = entry.type.substring(entry.type.indexOf(':') + 1);
 		// TODO use type somehow
 
-		arrayPath = entry.value[0] + "." + entry.index;
+		arrayPath = entry.value[0] + "." + entry.arrayIndex;
 
 		// get maximum size
 		AmfArray arr = (AmfArray) state.save.find(entry.value[0]);
 		arraySize = arr.getDenseSize();
 
 		JButton prev = new JButton("<");
-		prev.setEnabled(entry.index > 0);
+		prev.setEnabled(entry.arrayIndex > 0);
 
 		JButton next = new JButton(">");
-		next.setEnabled(entry.index < arraySize - 1);
+		next.setEnabled(entry.arrayIndex < arraySize - 1);
 
-		String lbl = String.format("%d of %d", entry.index + 1, arraySize);
+		String lbl = String.format("%d of %d", entry.arrayIndex + 1, arraySize);
 		if (arraySize == 0) {
 			lbl = "none";
 		}
@@ -199,30 +129,30 @@ public class ControlsFactory {
 		sub.setEnabled(arraySize > min);
 		sub.addActionListener(e -> {
 			// remove this entry from the array and update
-			arr.getDense().remove(entry.index);
-			entry.index = Math.max(entry.index - 1, arraySize - 1);
+			arr.getDense().remove(entry.arrayIndex);
+			entry.arrayIndex = Math.max(entry.arrayIndex - 1, arraySize - 1);
 
 			tabUpdater.update();
 		});
 
 		// TODO find a better way to do this...
-		if ("item".equals(type)) {
+		if ("item".equals(entry.ref)) {
 			createArrayItemSubEntry(tabUpdater, entry, arr, add, sub);
-		} else if ("breasts".equals(type)) {
+		} else if ("breasts".equals(entry.ref)) {
 			// TODO
-		} else if ("cocks".equals(type)) {
+		} else if ("cocks".equals(entry.ref)) {
 			// TODO
-		} else if ("vaginas".equals(type)) {
+		} else if ("vaginas".equals(entry.ref)) {
 			// TODO
 		}
 
 		prev.addActionListener(e -> {
-			entry.index--;
+			entry.arrayIndex--;
 			tabUpdater.update();
 		});
 
 		next.addActionListener(e -> {
-			entry.index++;
+			entry.arrayIndex++;
 			tabUpdater.update();
 		});
 
@@ -250,7 +180,7 @@ public class ControlsFactory {
 			obj.getDynamicMap().put("quantity", new AmfInteger(1));
 
 			arr.getDense().add(obj);
-			entry.index = arraySize;
+			entry.arrayIndex = arraySize;
 
 			tabUpdater.update();
 		});
@@ -287,42 +217,155 @@ public class ControlsFactory {
 
 		return combo;
 	}
-
+	
+	
 	protected JComponent createEntry(Updater tabUpdater, ControlEntry entry) {
-		if (entry.type.startsWith(ControlEntry.TYPE_TEXT_ENUM)) {
-			return createTextEnumEntry(entry);
-		} else if (entry.type.startsWith(ControlEntry.TYPE_ENUM)) {
-			return createEnumEntry(entry);
-		} else if (entry.type.startsWith(ControlEntry.TYPE_FLAGS)) {
-			return createFlagsEntry(entry);
-		} else if (entry.type.startsWith(ControlEntry.TYPE_ARRAY)) {
+		switch(entry.type) {
+		case Array:
 			return createArrayEntry(tabUpdater, entry);
-		} else if (entry.type.startsWith(ControlEntry.TYPE_ITEM)) {
+		case Boolean:
+			return createBooleanEntry(entry);
+		case CustomTextEnum:
+		case TextEnum:
+			return createTextEnumEntry(entry);
+		case Decimal:
+		case Integer:
+			return createNumberEntry(entry);
+		case Enum:
+			return createEnumEntry(entry);
+		case Flags:
+			return createFlagsEntry(entry);
+		case Item:
 			return createItemEntry(entry);
-		} else
-			switch (entry.type) {
-			case ControlEntry.TYPE_TITLE: {
-				JLabel title = new JLabel(entry.value[0]);
-				title.setFont(title.getFont().deriveFont(Font.BOLD));
-
-				title.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(8, 0, 0, 0),
-						BorderFactory.createMatteBorder(0, 0, 2, 0, Color.BLACK)));
-				return title;
-			}
-			case ControlEntry.TYPE_LABEL: {
-				return new JLabel(entry.value[0]);
-			}
-			case ControlEntry.TYPE_BOOLEAN: {
-				return createBooleanEntry(entry);
-			}
-			case ControlEntry.TYPE_STRING:
-				return createStringEntry(entry);
-			case ControlEntry.TYPE_INTEGER:
-			case ControlEntry.TYPE_DECIMAL:
-				return createNumberEntry(entry);
-			}
-
+		case Label:
+			return new JLabel(entry.value[0]);
+		case String:
+			return createStringEntry(entry);
+		case Title:
+			return createTitleEntry(entry);
+		default:
+			break;
+		}
+		
 		throw new RuntimeException("Unknown Data Type: " + entry.type);
+	}
+	
+	protected JComboBox<EnumEntry<Integer>> createEnumEntry(ControlEntry entry) {
+		JComboBox<EnumEntry<Integer>> combo = new JComboBox<EnumEntry<Integer>>();
+		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
+
+		// load data
+		Map<String, String> enumData = state.data.getEnum(entry.ref);
+
+		final String[] paths = getSaveIdents(entry.value);
+
+		int gameValue = state.save.getInteger(paths[0]);
+		EnumEntry<Integer> current = null;
+		
+		List<String> keys = Sort.sortIntegerKeySet(enumData, entry.sort);
+
+		for (String key : keys) {
+			String value = enumData.get(key);
+			Integer nKey = Integer.parseInt(key);
+			EnumEntry<Integer> ee = new EnumEntry<Integer>(nKey, value);
+			combo.addItem(ee);
+
+			if (nKey == gameValue) {
+				current = ee;
+			}
+		}
+
+		if (current == null) {
+			// unknown value
+			current = new EnumEntry<Integer>(gameValue, "Unknown Type " + gameValue);
+			combo.addItem(current);
+		}
+
+		combo.setSelectedItem(current);
+		combo.addActionListener(e -> {
+			for (String path : paths) {
+				// save.setString(path, field.getText());
+				Object obj = combo.getSelectedItem();
+				if (obj != null) {
+					@SuppressWarnings("unchecked")
+					EnumEntry<Integer> tmp = (EnumEntry<Integer>) obj;
+					state.save.setInteger(path, tmp.id);
+				}
+
+			}
+		});
+
+		return combo;
+	}
+
+	protected JComponent createFlagsEntry(ControlEntry entry) {
+		ExpansionPanel panel = new ExpansionPanel();
+		int cols = entry.span;
+		if (cols > 2) {
+			cols = (entry.span + 1) / 2;
+		}
+		panel.setLayout(new GridLayout(0, cols));
+
+		Map<String, String> enumData = state.data.getEnum(entry.ref);
+
+		panel.setTitle(entry.ref);
+		panel.collapse();
+
+		final String[] paths = getSaveIdents(entry.value);
+
+		Set<Integer> flagSet = new HashSet<Integer>();
+		for (String path : paths) {
+			flagSet.addAll(state.save.getFlags(path));
+		}
+
+		final Map<JCheckBox, Integer> boxMap = new IdentityHashMap<JCheckBox, Integer>();
+
+		// we will be depleting the set in case
+		// we have any unknown values that need display
+		List<String> keys = Sort.sortIntegerKeySet(enumData, entry.sort);
+		for (String key : keys) {
+			String value = enumData.get(key);
+			Integer nKey = Integer.parseInt(key);
+			EnumEntry<Integer> ee = new EnumEntry<Integer>(nKey, value);
+
+			// for each id
+			JCheckBox box = new JCheckBox();
+			box.setText(ee.text);
+			if (flagSet.contains(nKey)) {
+				box.setSelected(true);
+			}
+			flagSet.remove(nKey);
+			boxMap.put(box, nKey);
+			panel.add(box);
+		}
+
+		// handle all unknown flags that are set
+		for (Integer unknownFlag : flagSet) {
+			JCheckBox box = new JCheckBox();
+			box.setText("Flag " + unknownFlag);
+			box.setSelected(true);
+			boxMap.put(box, unknownFlag);
+			panel.add(box);
+		}
+		flagSet.clear();
+
+		// setup callbacks
+		for (final JCheckBox box : boxMap.keySet()) {
+			box.addActionListener(e -> {
+				int id = boxMap.get(box);
+				for (String path : paths) {
+					if (box.isSelected()) {
+						// add flag
+						state.save.addFlag(path, id);
+					} else {
+						// remove flag
+						state.save.removeFlag(path, id);
+					}
+				}
+			});
+		}
+
+		return panel;
 	}
 
 	protected JComboBox<ItemEntry> createItemEntry(ControlEntry entry) {
@@ -331,11 +374,8 @@ public class ControlsFactory {
 		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
 
 		String[] filter = new String[0];
-		if (entry.type.contains(":")) {
-			String type = entry.type.substring(entry.type.indexOf(':') + 1);
-			if (type != null) {
-				filter = type.split(",");
-			}
+		if(entry.ref != null) {
+			filter = entry.ref.split(",");
 		}
 
 		// load data
@@ -396,126 +436,6 @@ public class ControlsFactory {
 		return combo;
 	}
 
-	protected JComboBox<EnumEntry<Integer>> createEnumEntry(ControlEntry entry) {
-		JComboBox<EnumEntry<Integer>> combo = new JComboBox<EnumEntry<Integer>>();
-		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
-
-		// load data
-		String enumName = entry.type.substring(entry.type.indexOf(':') + 1);
-		Map<String, String> enumData = state.data.getEnum(enumName);
-
-		final String[] paths = getSaveIdents(entry.value);
-
-		int gameValue = state.save.getInteger(paths[0]);
-		EnumEntry<Integer> current = null;
-
-		List<String> keys = sortIntegerKeySet(enumData, entry.sort);
-
-		for (String key : keys) {
-			String value = enumData.get(key);
-			Integer nKey = Integer.parseInt(key);
-			EnumEntry<Integer> ee = new EnumEntry<Integer>(nKey, value);
-			combo.addItem(ee);
-
-			if (nKey == gameValue) {
-				current = ee;
-			}
-		}
-
-		if (current == null) {
-			// unknown value
-			current = new EnumEntry<Integer>(gameValue, "Unknown Type " + gameValue);
-			combo.addItem(current);
-		}
-
-		combo.setSelectedItem(current);
-		combo.addActionListener(e -> {
-			for (String path : paths) {
-				// save.setString(path, field.getText());
-				Object obj = combo.getSelectedItem();
-				if (obj != null) {
-					@SuppressWarnings("unchecked")
-					EnumEntry<Integer> tmp = (EnumEntry<Integer>) obj;
-					state.save.setInteger(path, tmp.id);
-				}
-
-			}
-		});
-
-		return combo;
-	}
-
-	protected JComponent createFlagsEntry(ControlEntry entry) {
-		ExpansionPanel panel = new ExpansionPanel();
-		int cols = entry.span;
-		if (cols > 2) {
-			cols = (entry.span + 1) / 2;
-		}
-		panel.setLayout(new GridLayout(0, cols));
-
-		String enumName = entry.type.substring(entry.type.indexOf(':') + 1);
-		Map<String, String> enumData = state.data.getEnum(enumName);
-
-		panel.setTitle(enumName);
-		panel.collapse();
-
-		final String[] paths = getSaveIdents(entry.value);
-
-		Set<Integer> flagSet = new HashSet<Integer>();
-		for (String path : paths) {
-			flagSet.addAll(state.save.getFlags(path));
-		}
-
-		final Map<JCheckBox, Integer> boxMap = new IdentityHashMap<JCheckBox, Integer>();
-
-		// we will be depleting the set in case
-		// we have any unknown values that need display
-		List<String> keys = ControlsFactory.sortIntegerKeySet(enumData, entry.sort);
-		for (String key : keys) {
-			String value = enumData.get(key);
-			Integer nKey = Integer.parseInt(key);
-			EnumEntry<Integer> ee = new EnumEntry<Integer>(nKey, value);
-
-			// for each id
-			JCheckBox box = new JCheckBox();
-			box.setText(ee.text);
-			if (flagSet.contains(nKey)) {
-				box.setSelected(true);
-			}
-			flagSet.remove(nKey);
-			boxMap.put(box, nKey);
-			panel.add(box);
-		}
-
-		// handle all unknown flags that are set
-		for (Integer unknownFlag : flagSet) {
-			JCheckBox box = new JCheckBox();
-			box.setText("Flag " + unknownFlag);
-			box.setSelected(true);
-			boxMap.put(box, unknownFlag);
-			panel.add(box);
-		}
-		flagSet.clear();
-
-		// setup callbacks
-		for (final JCheckBox box : boxMap.keySet()) {
-			box.addActionListener(e -> {
-				int id = boxMap.get(box);
-				for (String path : paths) {
-					if (box.isSelected()) {
-						// add flag
-						state.save.addFlag(path, id);
-					} else {
-						// remove flag
-						state.save.removeFlag(path, id);
-					}
-				}
-			});
-		}
-
-		return panel;
-	}
-
 	protected JTextField createNumberEntry(ControlEntry entry) {
 		JTextField field = new JTextField();
 		field.setPreferredSize(new Dimension(prefWidth / 2, prefHeight));
@@ -558,23 +478,25 @@ public class ControlsFactory {
 	}
 
 	protected JComboBox<EnumEntry<String>> createTextEnumEntry(ControlEntry entry) {
+		final boolean textEdit = entry.type == ControlEntry.Type.CustomTextEnum;
+		
 
 		JComboBox<EnumEntry<String>> combo = new JComboBox<EnumEntry<String>>();
 		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
-		combo.setEditable(entry.enumTextEdit);
+		combo.setEditable(textEdit);
+		
 
 		boolean changeable = true;
 
 		// load data
-		String enumName = entry.type.substring(entry.type.indexOf(':') + 1);
-		Map<String, String> enumData = state.data.getEnum(enumName);
+		Map<String, String> enumData = state.data.getEnum(entry.ref);
 
 		final String[] paths = getSaveIdents(entry.value);
 
 		String gameValue = state.save.getString(paths[0]);
 		EnumEntry<String> current = null;
 
-		List<String> keys = sortStringKeySet(enumData, entry.sort);
+		List<String> keys = Sort.sortStringKeySet(enumData, entry.sort);
 
 		for (String key : keys) {
 			String value = enumData.get(key);
@@ -590,12 +512,12 @@ public class ControlsFactory {
 			combo.setSelectedItem(current);
 		} else {
 			// TODO unknown value
-			if (!entry.enumTextEdit) {
+			if (!textEdit) {
 				// lock it down if it is not editable
 				combo.setForeground(Color.RED);
 				combo.setEnabled(false);
 			}
-			changeable = entry.enumTextEdit;
+			changeable = textEdit;
 
 			// change the text to match whatever is stored (custom/unknown value)
 			Component comp = combo.getEditor().getEditorComponent();
@@ -626,6 +548,14 @@ public class ControlsFactory {
 		}
 
 		return combo;
+	}
+
+	private JLabel createTitleEntry(ControlEntry entry) {
+		JLabel title = new JLabel(entry.value[0]);
+		title.setFont(title.getFont().deriveFont(Font.BOLD));
+		title.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(8, 0, 0, 0),
+				BorderFactory.createMatteBorder(0, 0, 2, 0, Color.BLACK)));
+		return title;
 	}
 
 	private String[] getSaveIdents(String[] paths) {

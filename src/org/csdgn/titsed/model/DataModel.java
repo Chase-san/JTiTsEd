@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-2018 Robert Maupin
+ * Copyright (c) 2017-2019 Robert Maupin
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -54,19 +54,10 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public class DataModel {
 
-	/**
-	 * Sax handler for controls file.
-	 */
 	private class ControlSAXHandler extends DefaultHandler {
 		StringBuilder buffer;
-		String className;
-		boolean enumTextEdit;
-		String enumType;
-		Integer max;
-		Integer min;
+		ControlEntry entry;
 		boolean read;
-		String sort;
-		int span = 1;
 
 		private ControlSAXHandler() {
 			buffer = new StringBuilder();
@@ -80,119 +71,38 @@ public class DataModel {
 		}
 
 		public void endElement(String uri, String localName, String qName) throws SAXException {
-			read = false;
-			String type = qName;
-			ControlEntry entry = null;
-			switch (qName) {
-			case ControlEntry.TYPE_FLAGS:
-			case ControlEntry.TYPE_ENUM:
-			case ControlEntry.TYPE_TEXT_ENUM:
-			case ControlEntry.TYPE_ARRAY:
-			case ControlEntry.TYPE_ITEM:
-				if(enumType != null) {
-					type = qName + ":" + enumType;
-				}
-			case ControlEntry.TYPE_BOOLEAN:
-			case ControlEntry.TYPE_STRING:
-			case ControlEntry.TYPE_INTEGER:
-			case ControlEntry.TYPE_DECIMAL:
-				String data = buffer.toString().trim();
-				entry = new ControlEntry(type, span, data.split(","));
+			if (entry != null) {
+				entry.value = buffer.toString().split(",");
 				controlMap.add(entry);
-				if (ControlEntry.TYPE_TEXT_ENUM.equals(qName)) {
-					entry.enumTextEdit = enumTextEdit;
-				}
-				if (ControlEntry.TYPE_ENUM.equals(qName) || ControlEntry.TYPE_TEXT_ENUM.equals(qName)
-						|| ControlEntry.TYPE_FLAGS.equals(qName)) {
-					entry.sort = sort;
-				}
-				if (ControlEntry.TYPE_ARRAY.equals(qName)) {
-					entry.className = className;
-				}
-				if (ControlEntry.TYPE_ARRAY.equals(qName) || ControlEntry.TYPE_INTEGER.equals(qName)
-						|| ControlEntry.TYPE_DECIMAL.equals(qName)) {
-					entry.min = min;
-					entry.max = max;
-				}
-				break;
-			case ControlEntry.TYPE_LABEL:
-			case ControlEntry.TYPE_TITLE:
-				controlMap.add(new ControlEntry(type, span, buffer.toString().trim()));
-				break;
 			}
-
+			entry = null;
+			read = false;
 		}
 
-		private void parseSpan(Attributes attributes) {
-			String sSpan = attributes.getValue("span");
-			if (sSpan != null) {
-				span = Integer.parseInt(sSpan);
-			}
-		}
-
-		public void startElement(String uri, String localName, String qName, Attributes attributes)
-				throws SAXException {
-			enumType = null;
-			enumTextEdit = false;
-			sort = null;
-			min = null;
-			max = null;
-			className = null;
-			span = 1;
-
-			switch (qName) {
-			case ControlEntry.TYPE_TAB:
-				controlMap.add(new ControlEntry(qName, attributes.getValue("name")));
-				break;
-			case ControlEntry.TYPE_ROW: {
-				ControlEntry row = new ControlEntry(qName);
-				String arr = attributes.getValue("array");
-				if (arr != null && arr.equalsIgnoreCase("true")) {
-					row.arrayRow = true;
+		public void startElement(String uri, String localName, String qName, Attributes attributes) {
+			if (qName.equals("tab")) {
+				controlMap.add(ControlEntry.createTab(attributes.getValue("name")));
+			} else if (qName.equals("row")) {
+				String isArray = attributes.getValue("array");
+				controlMap.add(ControlEntry.createRow("true".equalsIgnoreCase(isArray)));
+			} else if (qName.equals("control")) {
+				entry = new ControlEntry(attributes.getValue("type"));
+				try {
+					entry.min = Integer.parseInt(attributes.getValue("min"));
+				} catch (NumberFormatException e) {
 				}
-				controlMap.add(row);
-				break;
-			}
-			case ControlEntry.TYPE_FLAGS:
-			case ControlEntry.TYPE_ENUM:
-			case ControlEntry.TYPE_TEXT_ENUM:
-				enumType = attributes.getValue("type");
-				String sEdit = attributes.getValue("edit");
-				enumTextEdit = "true".equalsIgnoreCase(sEdit);
-				String vSort = attributes.getValue("sort");
-				if (vSort != null) {
-					sort = vSort;
+				try {
+					entry.max = Integer.parseInt(attributes.getValue("max"));
+				} catch (NumberFormatException e) {
 				}
-				parseSpan(attributes);
+				try {
+					entry.span = Integer.parseInt(attributes.getValue("span"));
+				} catch (NumberFormatException e) {
+				}
+				entry.sort = Sort.fromString(attributes.getValue("sort"));
+				entry.ref = attributes.getValue("ref");
 				buffer.setLength(0);
 				read = true;
-				break;
-
-			case ControlEntry.TYPE_ARRAY:
-				className = attributes.getValue("class");
-			
-			case ControlEntry.TYPE_ITEM:
-				enumType = attributes.getValue("type");
-			
-			case ControlEntry.TYPE_INTEGER:
-			case ControlEntry.TYPE_DECIMAL:
-				String sMin = attributes.getValue("min");
-				if (sMin != null) {
-					min = Integer.parseInt(sMin);
-				}
-				String sMax = attributes.getValue("max");
-				if (sMax != null) {
-					max = Integer.parseInt(sMax);
-				}
-				
-			case ControlEntry.TYPE_LABEL:
-			case ControlEntry.TYPE_TITLE:
-			case ControlEntry.TYPE_STRING:
-			case ControlEntry.TYPE_BOOLEAN:
-				parseSpan(attributes);
-				buffer.setLength(0);
-				read = true;
-				break;
 			}
 		}
 	}
@@ -335,17 +245,14 @@ public class DataModel {
 		tabMap = new LinkedHashMap<String, List<ControlEntry>>();
 		List<ControlEntry> list = null;
 		for (ControlEntry entry : getControlMap()) {
-			switch (entry.type) {
-			case ControlEntry.TYPE_TAB:
+			if (entry.type == ControlEntry.Type.Tab) {
 				tabMap.put(entry.value[0], list = new ArrayList<ControlEntry>());
-				break;
-			default:
+			} else {
 				list.add(entry);
-				break;
 			}
 		}
 	}
-	
+
 	public List<ItemEntry> getItemList() {
 		return itemList;
 	}

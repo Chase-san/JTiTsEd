@@ -22,60 +22,54 @@
 package org.csdgn.titsed.model;
 
 public class ControlEntry {
-	public static final String TYPE_TAB = "tab";
-	public static final String TYPE_ROW = "row";
-	public static final String TYPE_LABEL = "label";
-	public static final String TYPE_TITLE = "title";
-	public static final String TYPE_ARRAY = "array";
-	public static final String TYPE_STRING = "string";
-	public static final String TYPE_INTEGER = "integer";
-	public static final String TYPE_DECIMAL = "decimal";
-	public static final String TYPE_BOOLEAN = "boolean";
-	public static final String TYPE_ITEM = "item";
-	public static final String TYPE_ENUM = "enum";
-	public static final String TYPE_TEXT_ENUM = "textenum";
-	public static final String TYPE_FLAGS = "flags";
 
-	public static final String SORT_NATURAL = "natural";
-	public static final String SORT_KEY = "key";
-	public static final String SORT_VALUE = "value";
-	public static final String SORT_KEY_NONE = "keyNone";
-	public static final String SORT_VALUE_NONE = "valueNone";
+	public enum Type {
+		Array, ArrayRow, Boolean, CustomTextEnum, Decimal, Enum, Flags, Integer, Item, Label, Row, String, Tab,
+		TextEnum, Title;
 
-	public String type;
-	public String[] value;
-	public boolean enumTextEdit;
-	public int span;
-	public int index;
-	public boolean arrayRow;
-	public Integer min;
-	public Integer max;
-	public String sort;
-	public String className;
-
-	public ControlEntry(String type, String... value) {
-		this.type = type;
-		this.value = value;
-		this.span = 1;
-		this.min = null;
-		this.max = null;
-		this.enumTextEdit = false;
-		this.sort = SORT_NATURAL;
-		this.className = null;
-		this.arrayRow = false;
-		this.index = 0;
+		public static Type fromString(String typeName) {
+			for (Type type : Type.values()) {
+				if (type.name().equalsIgnoreCase(typeName)) {
+					return type;
+				}
+			}
+			return null;
+		}
 	}
 
-	public ControlEntry(String type, int span, String... value) {
+	public static ControlEntry createTab(String name) {
+		ControlEntry entry = new ControlEntry(Type.Tab);
+		entry.value = new String[] { name };
+		return entry;
+	}
+
+	public static ControlEntry createRow(boolean isArray) {
+		if (isArray) {
+			return new ControlEntry(Type.ArrayRow);
+		}
+		return new ControlEntry(Type.Row);
+	}
+
+	public final Type type;
+	public Integer max;
+	public Integer min;
+	public String ref;
+	public String[] value;
+	public Sort sort;
+	public int span;
+	public int arrayIndex;
+
+	public ControlEntry(Type type) {
 		this.type = type;
-		this.value = value;
-		this.span = span;
-		this.min = null;
-		this.max = null;
-		this.enumTextEdit = false;
-		this.sort = SORT_NATURAL;
-		this.className = null;
-		this.arrayRow = false;
-		this.index = 0;
+		min = max = null;
+		ref = null;
+		sort = Sort.Natural;
+		value = null;
+		span = 1;
+		arrayIndex = 0;
+	}
+
+	public ControlEntry(String typeName) {
+		this(Type.fromString(typeName));
 	}
 }

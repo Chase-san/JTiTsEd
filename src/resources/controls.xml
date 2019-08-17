@@ -1,695 +1,629 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <data>
-  <!--
-        <tab name="Tab Name">
-        <row>
-
-        data value entries
-        <label>
-        <title>
-        <string>
-        <integer>
-        <decimal>
-        <flags type="NAME">
-        <enum type="NAME">
-        <textenum type="NAME>
-        <textenum ??? edit="X"> true/false; defaults to false
-        <??? sort="X"> natural,key,value,keyNone;valueNone; sorts the
-                        type entry by the given type, keyNone and valueNone indicates
-                        it has a none entry which is sorted to the top; defaults to natural
-        <??? span="X"> 0..99; span number of columns; defaults to 1
-        -->
   <tab name="General">
     <row>
-      <title span="3">General Information</title>
+      <control type="title" span="3">General Information</control>
     </row>
     <row>
-      <label>Name</label>
-      <string span="2">characters.PC.short,saveName</string>
+      <control type="label">Name</control>
+      <control type="string" span="2">characters.PC.short,saveName</control>
     </row>
     <row>
-      <label>Save Note</label>
-      <string span="2">saveNotes</string>
+      <control type="label">Save Note</control>
+      <control type="string" span="2">saveNotes</control>
     </row>
     <row>
-      <label>Credits</label>
-      <integer min="0" span="2">characters.PC.credits</integer>
+      <control type="label">Credits</control>
+      <control type="integer" min="0" span="2">characters.PC.credits</control>
     </row>
     <row>
-      <title span="3" />
+      <control type="title" span="3" />
     </row>
     <row>
-      <label>Days</label>
-      <label>Hours</label>
-      <label>Minutes</label>
+      <control type="label">Days</control>
+      <control type="label">Hours</control>
+      <control type="label">Minutes</control>
     </row>
     <row>
-      <integer min="0">daysPassed</integer>
-      <integer min="0">currentHours</integer>
-      <integer min="0">currentMinutes</integer>
+      <control type="integer" min="0">daysPassed</control>
+      <control type="integer" min="0">currentHours</control>
+      <control type="integer" min="0">currentMinutes</control>
     </row>
     <row>
-      <title span="3">Combat Stats</title>
+      <control type="title" span="3">Combat Stats</control>
     </row>
     <row>
-      <label></label>
-      <label>Base</label>
-      <label>Mod</label>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
     </row>
     <row>
-      <label>Lust</label>
-      <integer min="0">characters.PC.lustRaw</integer>
-      <integer min="0">characters.PC.lustMod</integer>
+      <control type="label">Lust</control>
+      <control type="integer" min="0">characters.PC.lustRaw</control>
+      <control type="integer" min="0">characters.PC.lustMod</control>
     </row>
     <row>
-      <label>Energy</label>
-      <integer min="0">characters.PC.energyRaw</integer>
-      <integer min="0">characters.PC.energyMod</integer>
+      <control type="label">Energy</control>
+      <control type="integer" min="0">characters.PC.energyRaw</control>
+      <control type="integer" min="0">characters.PC.energyMod</control>
     </row>
     <row>
-      <title span="3">Stats</title>
+      <control type="title" span="3">Stats</control>
     </row>
     <row>
-      <label />
-      <label>Base</label>
-      <label>Mod</label>
+      <control type="label" />
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
     </row>
     <row>
-      <label>Physique</label>
-      <integer min="0">characters.PC.physiqueRaw</integer>
-      <integer min="0">characters.PC.physiqueMod</integer>
+      <control type="label">Physique</control>
+      <control type="integer" min="0">characters.PC.physiqueRaw</control>
+      <control type="integer" min="0">characters.PC.physiqueMod</control>
     </row>
     <row>
-      <label>Reflexes</label>
-      <integer min="0">characters.PC.reflexesRaw</integer>
-      <integer min="0">characters.PC.reflexesMod</integer>
+      <control type="label">Reflexes</control>
+      <control type="integer" min="0">characters.PC.reflexesRaw</control>
+      <control type="integer" min="0">characters.PC.reflexesMod</control>
     </row>
     <row>
-      <label>Aim</label>
-      <integer min="0">characters.PC.aimRaw</integer>
-      <integer min="0">characters.PC.aimMod</integer>
+      <control type="label">Aim</control>
+      <control type="integer" min="0">characters.PC.aimRaw</control>
+      <control type="integer" min="0">characters.PC.aimMod</control>
     </row>
     <row>
-      <label>Intelligence</label>
-      <integer min="0">characters.PC.intelligenceRaw</integer>
-      <integer min="0">characters.PC.intelligenceMod</integer>
+      <control type="label">Intelligence</control>
+      <control type="integer" min="0">characters.PC.intelligenceRaw</control>
+      <control type="integer" min="0">characters.PC.intelligenceMod</control>
     </row>
     <row>
-      <label>Willpower</label>
-      <integer min="0">characters.PC.willpowerRaw</integer>
-      <integer min="0">characters.PC.willpowerMod</integer>
+      <control type="label">Willpower</control>
+      <control type="integer" min="0">characters.PC.willpowerRaw</control>
+      <control type="integer" min="0">characters.PC.willpowerMod</control>
     </row>
     <row>
-      <label>Libido</label>
-      <integer min="0">characters.PC.libidoRaw</integer>
-      <integer min="0">characters.PC.libidoMod</integer>
+      <control type="label">Libido</control>
+      <control type="integer" min="0">characters.PC.libidoRaw</control>
+      <control type="integer" min="0">characters.PC.libidoMod</control>
     </row>
     <row>
-      <label>Taint</label>
-      <integer min="0">characters.PC.taintRaw</integer>
-      <integer min="0">characters.PC.taintMod</integer>
+      <control type="label">Taint</control>
+      <control type="integer" min="0">characters.PC.taintRaw</control>
+      <control type="integer" min="0">characters.PC.taintMod</control>
     </row>
     <row>
-      <title span="3">Advancement</title>
+      <control type="title" span="3">Advancement</control>
     </row>
     <row>
-      <label>Class</label>
-      <enum type="Class Type" span="2">characters.PC.characterClass</enum>
+      <control type="label">Class</control>
+      <control type="enum" ref="Class Type" span="2">characters.PC.characterClass</control>
     </row>
     <row>
-      <label>Level</label>
-      <integer>characters.PC.level</integer>
+      <control type="label">Level</control>
+      <control type="integer">characters.PC.level</control>
     </row>
     <row>
-      <label>XP</label>
-      <integer>characters.PC.XPRaw</integer>
+      <control type="label">XP</control>
+      <control type="integer">characters.PC.XPRaw</control>
     </row>
     <row>
-      <label>Stat Points</label>
-      <integer>characters.PC.unspentStatPoints</integer>
+      <control type="label">Stat Points</control>
+      <control type="integer">characters.PC.unspentStatPoints</control>
     </row>
     <row>
-      <title span="3">Miscellaneous</title>
+      <control type="title" span="3">Miscellaneous</control>
     </row>
     <row>
-      <label>Affinity</label>
-      <textenum type="Affinity" span="2">characters.PC.affinity</textenum>
+      <control type="label">Affinity</control>
+      <control type="textenum" ref="Affinity" span="2">characters.PC.affinity</control>
     </row>
     <row>
-      <label>Original Race</label>
-      <textenum type="Original Race" span="2">characters.PC.originalRace</textenum>
+      <control type="label">Original Race</control>
+      <control type="textenum" ref="Original Race" span="2">characters.PC.originalRace</control>
     </row>
     <row>
-      <label>Personality</label>
-      <integer>characters.PC.personality</integer>
+      <control type="label">Personality</control>
+      <control type="integer">characters.PC.personality</control>
     </row>
     <row>
-      <label>Exhibitionism</label>
-      <integer>characters.PC.exhibitionismRaw</integer>
+      <control type="label">Exhibitionism</control>
+      <control type="integer">characters.PC.exhibitionismRaw</control>
     </row>
 
     <row>
-      <label>Butt Tease</label>
-      <integer span="2">flags.TIMES_BUTT_TEASED</integer>
+      <control type="label">Butt Tease</control>
+      <control type="integer" span="2">flags.TIMES_BUTT_TEASED</control>
     </row>
     <row>
-      <label>Chest Tease</label>
-      <integer span="2">flags.TIMES_CHEST_TEASED</integer>
+      <control type="label">Chest Tease</control>
+      <control type="integer" span="2">flags.TIMES_CHEST_TEASED</control>
     </row>
     <row>
-      <label>Crotch Tease</label>
-      <integer span="2">flags.TIMES_CROTCH_TEASED</integer>
+      <control type="label">Crotch Tease</control>
+      <control type="integer" span="2">flags.TIMES_CROTCH_TEASED</control>
     </row>
     <row>
-      <label>Hip Tease</label>
-      <integer span="2">flags.TIMES_HIPS_TEASED</integer>
+      <control type="label">Hip Tease</control>
+      <control type="integer" span="2">flags.TIMES_HIPS_TEASED</control>
     </row>
-
   </tab>
   <tab name="Body">
     <row>
-      <title span="3">General</title>
+      <control type="title" span="3">General</control>
     </row>
     <row>
-      <label>Height</label>
-      <integer>characters.PC.tallness</integer>
+      <control type="label">Height</control>
+      <control type="integer">characters.PC.tallness</control>
     </row>
     <row>
-      <label>Thickness</label>
-      <integer>characters.PC.thickness</integer>
+      <control type="label">Thickness</control>
+      <control type="integer">characters.PC.thickness</control>
     </row>
     <row>
-      <label>Tone</label>
-      <integer>characters.PC.tone</integer>
+      <control type="label">Tone</control>
+      <control type="integer">characters.PC.tone</control>
     </row>
     <row>
-      <label>Feminity</label>
-      <integer>characters.PC.femininity</integer>
+      <control type="label">Feminity</control>
+      <control type="integer">characters.PC.femininity</control>
     </row>
     <row>
-      <label>Gills</label>
-      <boolean>characters.PC.gills</boolean>
+      <control type="label">Gills</control>
+      <control type="boolean">characters.PC.gills</control>
     </row>
     <row>
-      <title span="3">Skin</title>
+      <control type="title" span="3">Skin</control>
     </row>
     <row>
-      <label>Skin Type</label>
-      <enum type="Skin Type" sort="value" span="2">characters.PC.skinType</enum>
+      <control type="label">Skin Type</control>
+      <control type="enum" ref="Skin Type" sort="value" span="2">characters.PC.skinType</control>
     </row>
     <row>
-      <label>Skin Tone</label>
-      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.skinTone</textenum>
+      <control type="label">Skin Tone</control>
+      <control type="customtextenum" ref="Skin Tone" sort="value" span="2">characters.PC.skinTone</control>
     </row>
     <row>
-      <label>Fur Color</label>
-      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.furColor</textenum>
+      <control type="label">Fur Color</control>
+      <control type="customtextenum" ref="Skin Tone" sort="value" span="2">characters.PC.furColor</control>
     </row>
     <row>
-      <label>Scale Color</label>
-      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.scaleColor</textenum>
+      <control type="label">Scale Color</control>
+      <control type="customtextenum" ref="Skin Tone" sort="value" span="2">characters.PC.scaleColor</control>
     </row>
     <row>
-      <label>Skin Accent</label>
-      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.skinAccent</textenum>
+      <control type="label">Skin Accent</control>
+      <control type="customtextenum" ref="Skin Tone" sort="value" span="2">characters.PC.skinAccent</control>
     </row>
     <row>
-      <flags type="Skin Flags" span="3" sort="value">characters.PC.skinFlags</flags>
+      <control type="flags" ref="Skin Flags" span="3" sort="value">characters.PC.skinFlags</control>
     </row>
     <row>
-      <title span="3">Shape</title>
+      <control type="title" span="3">Shape</control>
     </row>
     <row>
-      <label></label>
-      <label>Base</label>
-      <label>Mod</label>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
     </row>
     <row>
-      <label>Belly</label>
-      <integer>characters.PC.bellyRatingRaw</integer>
-      <integer>characters.PC.bellyRatingMod</integer>
+      <control type="label">Belly</control>
+      <control type="integer">characters.PC.bellyRatingRaw</control>
+      <control type="integer">characters.PC.bellyRatingMod</control>
     </row>
     <row>
-      <label>Hips</label>
-      <integer>characters.PC.hipRatingRaw</integer>
-      <integer>characters.PC.hipRatingMod</integer>
+      <control type="label">Hips</control>
+      <control type="integer">characters.PC.hipRatingRaw</control>
+      <control type="integer">characters.PC.hipRatingMod</control>
     </row>
     <row>
-      <label>Butt</label>
-      <integer>characters.PC.buttRatingRaw</integer>
-      <integer>characters.PC.buttRatingMod</integer>
+      <control type="label">Butt</control>
+      <control type="integer">characters.PC.buttRatingRaw</control>
+      <control type="integer">characters.PC.buttRatingMod</control>
     </row>
     <row>
-      <title span="3">Wings</title>
+      <control type="title" span="3">Wings</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Wing Type" sort="valueNone" span="2">characters.PC.wingType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Wing Type" sort="valueNone" span="2">characters.PC.wingType</control>
     </row>
     <row>
-      <label>Count</label>
-      <integer>characters.PC.wingCount</integer>
+      <control type="label">Count</control>
+      <control type="integer">characters.PC.wingCount</control>
     </row>
     <row>
-      <title span="3">Arms</title>
+      <control type="title" span="3">Arms</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Arm Type" sort="value" span="2">characters.PC.armType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Arm Type" sort="value" span="2">characters.PC.armType</control>
     </row>
     <row>
-      <flags type="Arm Flags" sort="value" span="3">characters.PC.armFlags</flags>
+      <control type="flags" ref="Arm Flags" sort="value" span="3">characters.PC.armFlags</control>
     </row>
     <row>
-      <title span="3">Legs</title>
+      <control type="title" span="3">Legs</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Leg Type" sort="value" span="2">characters.PC.legType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Leg Type" sort="value" span="2">characters.PC.legType</control>
     </row>
     <row>
-      <label>Count</label>
-      <integer>characters.PC.legCount</integer>
+      <control type="label">Count</control>
+      <control type="integer">characters.PC.legCount</control>
     </row>
     <row>
-      <flags type="Leg Flags" sort="value" span="3">characters.PC.legFlags</flags>
+      <control type="flags" ref="Leg Flags" sort="value" span="3">characters.PC.legFlags</control>
     </row>
     <row>
-      <title span="3">Tail (Basic)</title>
+      <control type="title" span="3">Tail (Basic)</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Tail Type" sort="valueNone" span="2">characters.PC.tailType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Tail Type" sort="valueNone" span="2">characters.PC.tailType</control>
     </row>
     <row>
-      <label>Count</label>
-      <integer span="2">characters.PC.tailCount</integer>
+      <control type="label">Count</control>
+      <control type="integer" span="2">characters.PC.tailCount</control>
     </row>
     <row>
-      <flags type="Tail Flags" sort="value" span="3">characters.PC.tailFlags</flags>
+      <control type="flags" ref="Tail Flags" sort="value" span="3">characters.PC.tailFlags</control>
     </row>
     <row>
-      <title span="3">Tail (Advanced)</title>
+      <control type="title" span="3">Tail (Advanced)</control>
     </row>
     <row>
-      <label>Venom</label>
-      <integer>characters.PC.tailVenom</integer>
+      <control type="label">Venom</control>
+      <control type="integer">characters.PC.tailVenom</control>
     </row>
     <row>
-      <label>Recharge</label>
-      <integer>characters.PC.tailRecharge</integer>
+      <control type="label">Recharge</control>
+      <control type="integer">characters.PC.tailRecharge</control>
     </row>
     <row>
-      <label>Genital Type</label>
-      <enum type="Tail Genital Type" span="2">characters.PC.tailGenital</enum>
+      <control type="label">Genital Type</control>
+      <control type="enum" ref="Tail Genital Type" span="2">characters.PC.tailGenital</control>
     </row>
     <row>
-      <label>Genital Race</label>
-      <enum type="Tail Genital Race" span="2">characters.PC.tailGenitalArg</enum>
+      <control type="label">Genital Race</control>
+      <control type="enum" ref="Tail Genital Race" span="2">characters.PC.tailGenitalArg</control>
     </row>
     <row>
-      <label>Genital Color</label>
-      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.tailGenitalColor</textenum>
+      <control type="label">Genital Color</control>
+      <control type="customtextenum" ref="Skin Tone" sort="value" span="2">characters.PC.tailGenitalColor</control>
     </row>
   </tab>
   <tab name="Head">
     <row>
-      <title span="3">Hair</title>
+      <control type="title" span="3">Hair</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Hair Type" sort="value" span="2">characters.PC.hairType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Hair Type" sort="value" span="2">characters.PC.hairType</control>
     </row>
     <row>
-      <label>Length</label>
-      <integer>characters.PC.hairLength</integer>
+      <control type="label">Length</control>
+      <control type="integer">characters.PC.hairLength</control>
     </row>
     <row>
-      <label>Color</label>
-      <textenum type="Hair Color" sort="value" edit="true" span="2">characters.PC.hairColor</textenum>
+      <control type="label">Color</control>
+      <control type="customtextenum" ref="Hair Color" sort="value" span="2">characters.PC.hairColor</control>
     </row>
     <row>
-      <label>Style</label>
-      <textenum type="Hair Style" sort="valueNone" edit="true" span="2">characters.PC.hairStyle</textenum>
+      <control type="label">Style</control>
+      <control type="customtextenum" ref="Hair Style" sort="valueNone" span="2">characters.PC.hairStyle</control>
     </row>
     <row>
-      <title span="3">Horn</title>
+      <control type="title" span="3">Horn</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Horn Type" sort="valueNone" span="2">characters.PC.hornType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Horn Type" sort="valueNone" span="2">characters.PC.hornType</control>
     </row>
     <row>
-      <label>Count</label>
-      <integer>characters.PC.horns</integer>
+      <control type="label">Count</control>
+      <control type="integer">characters.PC.horns</control>
     </row>
     <row>
-      <label>Length</label>
-      <integer>characters.PC.hornLength</integer>
+      <control type="label">Length</control>
+      <control type="integer">characters.PC.hornLength</control>
     </row>
     <row>
-      <title span="3">Antennae</title>
+      <control type="title" span="3">Antennae</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Antennae Type" sort="valueNone" span="2">characters.PC.antennaeType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Antennae Type" sort="valueNone" span="2">characters.PC.antennaeType</control>
     </row>
     <row>
-      <label>Count</label>
-      <integer>characters.PC.antennae</integer>
+      <control type="label">Count</control>
+      <control type="integer">characters.PC.antennae</control>
     </row>
     <row>
-      <title span="3">Ears</title>
+      <control type="title" span="3">Ears</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Ear Type" sort="value" span="2">characters.PC.earType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Ear Type" sort="value" span="2">characters.PC.earType</control>
     </row>
     <row>
-      <label>Length</label>
-      <integer>characters.PC.earLength</integer>
+      <control type="label">Length</control>
+      <control type="integer">characters.PC.earLength</control>
     </row>
     <row>
-      <title span="3">Face</title>
+      <control type="title" span="3">Face</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Face Type" sort="value" span="2">characters.PC.faceType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Face Type" sort="value" span="2">characters.PC.faceType</control>
     </row>
     <row>
-      <flags type="Face Flags" span="3" sort="value">characters.PC.faceFlags</flags>
+      <control type="flags" ref="Face Flags" span="3" sort="value">characters.PC.faceFlags</control>
     </row>
     <row>
-      <label>Eye Type</label>
-      <enum type="Eye Type" sort="value" span="2">characters.PC.eyeType</enum>
+      <control type="label">Eye Type</control>
+      <control type="enum" ref="Eye Type" sort="value" span="2">characters.PC.eyeType</control>
     </row>
     <row>
-      <label>Eye Color</label>
-      <textenum type="Eye Color" sort="value" edit="true" span="2">characters.PC.eyeColor</textenum>
+      <control type="label">Eye Color</control>
+      <control type="customtextenum" ref="Eye Color" sort="value" span="2">characters.PC.eyeColor</control>
     </row>
     <row>
-      <label>Lip Color</label>
-      <textenum type="Skin Tone" sort="value" edit="true" span="2">characters.PC.lipColor</textenum>
+      <control type="label">Lip Color</control>
+      <control type="customtextenum" ref="Skin Tone" sort="value" span="2">characters.PC.lipColor</control>
     </row>
     <row>
-      <label>Lip Size</label>
-      <integer>characters.PC.lipMod</integer>
+      <control type="label">Lip Size</control>
+      <control type="integer">characters.PC.lipMod</control>
     </row>
     <row>
-      <label>Tongue Type</label>
-      <enum type="Tongue Type" sort="value" span="2">characters.PC.tongueType</enum>
+      <control type="label">Tongue Type</control>
+      <control type="enum" ref="Tongue Type" sort="value" span="2">characters.PC.tongueType</control>
     </row>
     <row>
-      <flags type="Tongue Flags" span="3" sort="value">characters.PC.tongueFlags</flags>
+      <control type="flags" ref="Tongue Flags" span="3" sort="value">characters.PC.tongueFlags</control>
     </row>
     <row>
-      <title span="3">Beard</title>
+      <control type="title" span="3">Beard</control>
     </row>
     <row>
-      <label>Type</label>
-      <enum type="Hair Type" sort="value" span="2">characters.PC.beardType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Hair Type" sort="value" span="2">characters.PC.beardType</control>
     </row>
     <row>
-      <label>Length</label>
-      <integer>characters.PC.beardLength</integer>
+      <control type="label">Length</control>
+      <control type="integer">characters.PC.beardLength</control>
     </row>
     <row>
-      <label>Style</label>
-      <enum type="Beard Style" sort="valueNone" span="2">characters.PC.beardStyle</enum>
+      <control type="label">Style</control>
+      <control type="enum" ref="Beard Style" sort="valueNone" span="2">characters.PC.beardStyle</control>
     </row>
   </tab>
   <tab name="Genitals">
     <row>
-      <title span="3">Breasts</title>
+      <control type="title" span="3">Breasts</control>
     </row>
     <row>
-      <array min="1" max="4" span="3" type="breasts">characters.PC.breastRows</array>
+      <control type="array" min="1" max="4" span="3">characters.PC.breastRows</control>
     </row>
     <row array="true">
-      <label></label>
-      <label>Base</label>
-      <label>Mod</label>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
     </row>
     <row array="true">
-      <label>Rating</label>
-      <integer>{ARRAY_ENTRY}.breastRatingRaw</integer>
-      <integer>{ARRAY_ENTRY}.breastRatingMod</integer>
+      <control type="label">Rating</control>
+      <control type="integer">{ARRAY_ENTRY}.breastRatingRaw</control>
+      <control type="integer">{ARRAY_ENTRY}.breastRatingMod</control>
     </row>
     <row array="true">
-      <label>HoneyPot Mod</label>
-      <integer span="2">{ARRAY_ENTRY}.breastRatingHoneypotMod</integer>
+      <control type="label">HoneyPot Mod</control>
+      <control type="integer" span="2">{ARRAY_ENTRY}.breastRatingHoneypotMod</control>
     </row>
     <row array="true">
-      <label>Lactation Mod</label>
-      <integer span="2">{ARRAY_ENTRY}.breastRatingLactationMod</integer>
+      <control type="label">Lactation Mod</control>
+      <control type="integer" span="2">{ARRAY_ENTRY}.breastRatingLactationMod</control>
     </row>
     <row array="true">
-      <label>Count</label>
-      <integer span="2">{ARRAY_ENTRY}.breasts</integer>
+      <control type="label">Count</control>
+      <control type="integer" span="2">{ARRAY_ENTRY}.breasts</control>
     </row>
     <row array="true">
-      <label>Fullness</label>
-      <integer span="2">{ARRAY_ENTRY}.fullness</integer>
+      <control type="label">Fullness</control>
+      <control type="integer" span="2">{ARRAY_ENTRY}.fullness</control>
     </row>
     <row array="true">
-      <label>Nipple Type</label>
-      <enum type="Nipple Type" sort="key" span="2">{ARRAY_ENTRY}.nippleType</enum>
+      <control type="label">Nipple Type</control>
+      <control type="enum" ref="Nipple Type" sort="key" span="2">{ARRAY_ENTRY}.nippleType</control>
     </row>
     <row>
-      <title span="3">Cocks</title>
+      <control type="title" span="3">Cocks</control>
     </row>
     <row>
-      <label>True Virgin</label>
-      <boolean span="2">characters.PC.cockVirgin</boolean>
+      <control type="label">True Virgin</control>
+      <control type="boolean" span="2">characters.PC.cockVirgin</control>
     </row>
     <row>
-      <array min="0" max="4" span="3" type="cocks">characters.PC.cocks</array>
+      <control type="array" min="0" max="4" span="3">characters.PC.cocks</control>
     </row>
     <row array="true">
-      <label></label>
-      <label>Base</label>
-      <label>Mod</label>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
     </row>
     <row array="true">
-      <label>Length</label>
-      <integer>{ARRAY_ENTRY}.cLengthRaw</integer>
-      <integer>{ARRAY_ENTRY}.cLengthMod</integer>
+      <control type="label">Length</control>
+      <control type="integer">{ARRAY_ENTRY}.cLengthRaw</control>
+      <control type="integer">{ARRAY_ENTRY}.cLengthMod</control>
     </row>
     <row array="true">
-      <label>Thickness</label>
-      <integer>{ARRAY_ENTRY}.cThicknessRatioRaw</integer>
-      <integer>{ARRAY_ENTRY}.cThicknessRatioMod</integer>
+      <control type="label">Thickness</control>
+      <control type="integer">{ARRAY_ENTRY}.cThicknessRatioRaw</control>
+      <control type="integer">{ARRAY_ENTRY}.cThicknessRatioMod</control>
     </row>
     <row array="true">
-      <label>Type</label>
-      <enum type="Cock Type" sort="key" span="2">{ARRAY_ENTRY}.cType</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Cock Type" sort="key" span="2">{ARRAY_ENTRY}.cType</control>
     </row>
     <row array="true">
-      <label>Color</label>
-      <textenum type="Skin Tone" sort="value" span="2" edit="true">{ARRAY_ENTRY}.cockColor</textenum>
+      <control type="label">Color</control>
+      <control type="customtextenum" ref="Skin Tone" sort="value" span="2">{ARRAY_ENTRY}.cockColor</control>
     </row>
     <row array="true">
-      <label>Knot Multiplier</label>
-      <decimal span="2">{ARRAY_ENTRY}.knotMultiplier</decimal>
+      <control type="label">Knot Multiplier</control>
+      <control type="decimal" span="2">{ARRAY_ENTRY}.knotMultiplier</control>
     </row>
     <row array="true">
-      <label>Flaccid Multiplier</label>
-      <decimal span="2">{ARRAY_ENTRY}.knotMultiplier</decimal>
+      <control type="label">Flaccid Multiplier</control>
+      <control type="decimal" span="2">{ARRAY_ENTRY}.knotMultiplier</control>
     </row>
     <row array="true">
-      <label>Virgin</label>
-      <boolean span="2">{ARRAY_ENTRY}.virgin</boolean>
+      <control type="label">Virgin</control>
+      <control type="boolean" span="2">{ARRAY_ENTRY}.virgin</control>
     </row>
     <row array="true">
-      <flags type="Cock Flags" span="3" sort="value">{ARRAY_ENTRY}.cockFlags</flags>
+      <control type="flags" ref="Cock Flags" span="3" sort="value">{ARRAY_ENTRY}.cockFlags</control>
     </row>
     <row>
-      <title span="3">Vaginas</title>
+      <control type="title" span="3">Vaginas</control>
     </row>
     <row>
-      <label>True Virgin</label>
-      <boolean span="2">characters.PC.vaginalVirgin</boolean>
+      <control type="label">True Virgin</control>
+      <control type="boolean" span="2">characters.PC.vaginalVirgin</control>
     </row>
     <row>
-      <label>Clit Length</label>
-      <integer span="2">characters.PC.clitLength</integer>
+      <control type="label">Clit Length</control>
+      <control type="integer" span="2">characters.PC.clitLength</control>
     </row>
     <row>
-      <array min="0" max="4" span="3" type="vaginas">characters.PC.vaginas</array>
+      <control type="array" min="0" max="4" span="3">characters.PC.vaginas</control>
     </row>
     <row array="true">
-      <label>Type</label>
-      <enum type="Vagina Type" sort="key" span="2">{ARRAY_ENTRY}.type</enum>
+      <control type="label">Type</control>
+      <control type="enum" ref="Vagina Type" sort="key" span="2">{ARRAY_ENTRY}.type</control>
     </row>
     <row array="true">
-      <label>Color</label>
-      <textenum type="Skin Tone" sort="value" span="2" edit="true">{ARRAY_ENTRY}.vaginaColor</textenum>
+      <control type="label">Color</control>
+      <control type="customtextenum" ref="Skin Tone" sort="value" span="2">{ARRAY_ENTRY}.vaginaColor</control>
     </row>
     <row array="true">
-      <label>Virgin</label>
-      <boolean span="2">{ARRAY_ENTRY}.hymen</boolean>
+      <control type="label">Virgin</control>
+      <control type="boolean" span="2">{ARRAY_ENTRY}.hymen</control>
     </row>
     <row array="true">
-      <label>Clits</label>
-      <integer span="2" min="1">{ARRAY_ENTRY}.clits</integer>
+      <control type="label">Clits</control>
+      <control type="integer" span="2" min="1">{ARRAY_ENTRY}.clits</control>
     </row>
     <row array="true">
-      <label></label>
-      <label>Base</label>
-      <label>Mod</label>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
     </row>
     <row array="true">
-      <label>Wetness</label>
-      <integer min="0">{ARRAY_ENTRY}.wetnessRaw</integer>
-      <integer min="0">{ARRAY_ENTRY}.wetnessMod</integer>
+      <control type="label">Wetness</control>
+      <control type="integer" min="0">{ARRAY_ENTRY}.wetnessRaw</control>
+      <control type="integer" min="0">{ARRAY_ENTRY}.wetnessMod</control>
     </row>
     <row array="true">
-      <label>Looseness</label>
-      <integer min="0">{ARRAY_ENTRY}.loosenessRaw</integer>
-      <integer min="0">{ARRAY_ENTRY}.loosenessMod</integer>
+      <control type="label">Looseness</control>
+      <control type="integer" min="0">{ARRAY_ENTRY}.loosenessRaw</control>
+      <control type="integer" min="0">{ARRAY_ENTRY}.loosenessMod</control>
     </row>
     <row array="true">
-      <label>Min Looseness</label>
-      <integer span="2" min="0">{ARRAY_ENTRY}.minLooseness</integer>
+      <control type="label">Min Looseness</control>
+      <control type="integer" span="2" min="0">{ARRAY_ENTRY}.minLooseness</control>
     </row>
     <row array="true">
-      <label>Bonus Capacity</label>
-      <integer span="2" min="0">{ARRAY_ENTRY}.bonusCapacity</integer>
+      <control type="label">Bonus Capacity</control>
+      <control type="integer" span="2" min="0">{ARRAY_ENTRY}.bonusCapacity</control>
     </row>
     <row array="true">
-      <label>Shrink Counter</label>
-      <integer span="2" min="0">{ARRAY_ENTRY}.shrinkCounter</integer>
+      <control type="label">Shrink Counter</control>
+      <control type="integer" span="2" min="0">{ARRAY_ENTRY}.shrinkCounter</control>
     </row>
     <row array="true">
-      <flags type="Vagina Flags" span="3" sort="value">{ARRAY_ENTRY}.vagooFlags</flags>
+      <control type="flags" ref="Vagina Flags" span="3" sort="value">{ARRAY_ENTRY}.vagooFlags</control>
     </row>
     <row>
-      <title span="3">Anal</title>
+      <control type="title" span="3">Anal</control>
     </row>
     <row>
-      <label>True Virgin</label>
-      <boolean span="2">characters.PC.analVirgin</boolean>
-    </row>
-    <row>
-      <label>Type</label>
-      <enum type="Vagina Type" sort="key" span="2">characters.PC.ass.type</enum>
-    </row>
-    <row>
-      <label>Color</label>
-      <textenum type="Skin Tone" sort="value" span="2" edit="true">characters.PC.ass.vaginaColor</textenum>
-    </row>
-    <row>
-      <label>Virgin</label>
-      <boolean span="2">characters.PC.ass.hymen</boolean>
-    </row>
-    <row>
-      <label></label>
-      <label>Base</label>
-      <label>Mod</label>
-    </row>
-    <row>
-      <label>Wetness</label>
-      <integer min="0">characters.PC.ass.wetnessRaw</integer>
-      <integer min="0">characters.PC.ass.wetnessMod</integer>
-    </row>
-    <row>
-      <label>Looseness</label>
-      <integer min="0">characters.PC.ass.loosenessRaw</integer>
-      <integer min="0">characters.PC.ass.loosenessMod</integer>
-    </row>
-    <row>
-      <label>Min Looseness</label>
-      <integer span="2" min="0">characters.PC.ass.minLooseness</integer>
-    </row>
-    <row>
-      <label>Bonus Capacity</label>
-      <integer span="2" min="0">characters.PC.ass.bonusCapacity</integer>
-    </row>
-    <row>
-      <label>Shrink Counter</label>
-      <integer span="2" min="0">characters.PC.ass.shrinkCounter</integer>
-    </row>
-    <row>
-      <flags type="Ass Flags" span="3" sort="value">characters.PC.ass.vagooFlags</flags>
+      <control type="label">True Virgin</control>
+      <control type="boolean" span="2">characters.PC.analVirgin</control>
     </row>
   </tab>
   <tab name="Items">
     <row>
-      <title span="3">Equipment</title>
+      <control type="title" span="3">Equipment</control>
     </row>
     <row>
-      <label>Melee Weapon</label>
-      <item type="MELEE_WEAPON" span="2">characters.PC.meleeWeapon</item>
+      <control type="label">Melee Weapon</control>
+      <control type="item" ref="MELEE_WEAPON" span="2">characters.PC.meleeWeapon</control>
     </row>
     <row>
-      <label>Ranged Weapon</label>
-      <item type="RANGED_WEAPON" span="2">characters.PC.rangedWeapon</item>
+      <control type="label">Ranged Weapon</control>
+      <control type="item" ref="RANGED_WEAPON" span="2">characters.PC.rangedWeapon</control>
     </row>
     <row>
-      <label>Shield</label>
-      <item type="SHIELD" span="2">characters.PC.shield</item>
+      <control type="label">Shield</control>
+      <control type="item" ref="SHIELD" span="2">characters.PC.shield</control>
     </row>
     <row>
-      <label>Armor</label>
-      <item type="ARMOR,CLOTHING" span="2">characters.PC.armor</item>
+      <control type="label">Armor</control>
+      <control type="item" ref="ARMOR,CLOTHING" span="2">characters.PC.armor</control>
     </row>
     <row>
-      <label>Upper Undergarmet</label>
-      <item type="UPPER_UNDERGARMENT" span="2">characters.PC.upperUndergarment</item>
+      <control type="label">Upper Undergarmet</control>
+      <control type="item" ref="UPPER_UNDERGARMENT" span="2">characters.PC.upperUndergarment</control>
     </row>
     <row>
-      <label>Lower Undergarmet</label>
-      <item type="LOWER_UNDERGARMENT" span="2">characters.PC.lowerUndergarment</item>
+      <control type="label">Lower Undergarmet</control>
+      <control type="item" ref="LOWER_UNDERGARMENT" span="2">characters.PC.lowerUndergarment</control>
     </row>
     <row>
-      <label>Accessory</label>
-      <item type="ACCESSORY" span="2">characters.PC.accessory</item>
-    </row>
-
-    <row>
-      <title span="3">Personal Inventory</title>
+      <control type="label">Accessory</control>
+      <control type="item" ref="ACCESSORY" span="2">characters.PC.accessory</control>
     </row>
     <row>
-      <array min="0" max="10" span="3" type="item">characters.PC.inventory</array>
+      <control type="title" span="3">Personal Inventory</control>
+    </row>
+    <row>
+      <control type="array" min="0" max="10" span="3" ref="item">characters.PC.inventory</control>
     </row>
     <row array="true">
-      <label>Type</label>
-      <item span="2">{ARRAY_ENTRY}</item>
+      <control type="label">Type</control>
+      <control type="item" span="2">{ARRAY_ENTRY}</control>
     </row>
     <row array="true">
-      <label>Quantity</label>
-      <integer span="2">{ARRAY_ENTRY}.quantity</integer>
+      <control type="label">Quantity</control>
+      <control type="integer" span="2">{ARRAY_ENTRY}.quantity</control>
     </row>
     <row>
-      <title span="3">Ship Storage Inventory</title>
+      <control type="title" span="3">Ship Storage Inventory</control>
     </row>
     <row>
-      <array min="0" max="10" span="3" type="item">characters.PC.ShipStorageInventory</array>
+      <control type="array" min="0" max="10" span="3" ref="item">characters.PC.ShipStorageInventory</control>
     </row>
     <row array="true">
-      <label>Type</label>
-      <item span="2">{ARRAY_ENTRY}</item>
+      <control type="label">Type</control>
+      <control type="item" span="2">{ARRAY_ENTRY}</control>
     </row>
     <row array="true">
-      <label>Quantity</label>
-      <integer span="2">{ARRAY_ENTRY}.quantity</integer>
+      <control type="label">Quantity</control>
+      <control type="integer" span="2">{ARRAY_ENTRY}.quantity</control>
     </row>
     <row>
-      <title span="3">Location Storage Inventory</title>
+      <control type="title" span="3">Location Storage Inventory</control>
     </row>
     <row>
-      <array min="0" max="10" span="3" type="item">characters.PC.LocationStorageInventory</array>
+      <control type="array" min="0" max="10" span="3" ref="item">characters.PC.LocationStorageInventory</control>
     </row>
     <row array="true">
-      <label>Type</label>
-      <item span="2">{ARRAY_ENTRY}</item>
+      <control type="label">Type</control>
+      <control type="item" span="2">{ARRAY_ENTRY}</control>
     </row>
     <row array="true">
-      <label>Quantity</label>
-      <integer span="2">{ARRAY_ENTRY}.quantity</integer>
+      <control type="label">Quantity</control>
+      <control type="integer" span="2">{ARRAY_ENTRY}.quantity</control>
     </row>
-
-
-
   </tab>
 </data>

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-2018 Robert Maupin
+ * Copyright (c) 2017-2019 Robert Maupin
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -293,28 +293,23 @@ public class MainFrame extends JFrame {
 		int col = 0;
 
 		for (ControlEntry entry : state.data.getTabDataMap(tabName)) {
-			switch (entry.type) {
-			case ControlEntry.TYPE_ROW: {
+			if (entry.type == ControlEntry.Type.Row) {
 				showRow = true;
-				if (entry.arrayRow && factory.arraySize == 0) {
-					showRow = false;
-				}
+				col = 0;
+				row = row + 1;
+			} else if (entry.type == ControlEntry.Type.ArrayRow) {
+				showRow = factory.arraySize > 0;
 				if (showRow) {
 					col = 0;
 					row = row + 1;
 				}
-
-				break;
-			}
-			default:
-				if (showRow) {
-					try {
-						panel.add(factory.createEntry(tu, entry), "x=" + col + ";y=" + row + ";colspan=" + entry.span);
-					} catch (Exception e) {
-						System.err.println("Error on building '" + entry.type + "' entry: " + entry.value[0]);
-					}
-					col = col + 1;
+			} else if (showRow) {
+				try {
+					panel.add(factory.createEntry(tu, entry), "x=" + col + ";y=" + row + ";colspan=" + entry.span);
+				} catch (Exception e) {
+					System.err.println("Error on building '" + entry.type + "' entry: " + entry.value[0]);
 				}
+				col = col + 1;
 			}
 		}
 
@@ -357,15 +352,15 @@ public class MainFrame extends JFrame {
 
 	private void rebuildTab(String tabName) {
 		int index = tabs.indexOfTab(tabName);
-		JScrollPane pane = (JScrollPane)tabs.getComponentAt(index);
-		
+		JScrollPane pane = (JScrollPane) tabs.getComponentAt(index);
+
 		int vPos = pane.getVerticalScrollBar().getValue();
 		int hPos = pane.getHorizontalScrollBar().getValue();
-		
+
 		pane.setVisible(false);
 		pane.setViewportView(buildTabLayout(tabName));
 		pane.setVisible(true);
-		
+
 		pane.getVerticalScrollBar().setValue(vPos);
 		pane.getHorizontalScrollBar().setValue(hPos);
 	}
