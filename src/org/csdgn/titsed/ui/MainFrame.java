@@ -345,6 +345,7 @@ public class MainFrame extends JFrame {
 			return;
 		}
 		fileSave.setEnabled(true);
+		state.data.resetArrayIndexes();
 
 		buildLayout();
 

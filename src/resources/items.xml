@@ -176,6 +176,7 @@
     <item id="classes.Items.Apparel::AnnosBlouse">
         <shortName>Annos Blouse</shortName>
         <longName>blouse and jeans</longName>
+        <editorName>Annos Blouse</editorName>
         <stack>1</stack>
         <type>CLOTHING</type>
     </item>
@@ -218,6 +219,7 @@
     <item id="classes.Items.Armor::AugmentWeaveArmor">
         <shortName>AugArmor</shortName>
         <longName>suit of augment-weave armor</longName>
+        <editorName>Augment-Weave Armor</editorName>
         <stack>1</stack>
         <type>ARMOR</type>
     </item>
@@ -265,7 +267,8 @@
     </item>
     <item id="classes.Items.Guns::BlackLight">
         <shortName>B.Light</shortName>
-        <longName>“Black Light” ultraviolet laser rifle</longName>
+        <longName>"Black Light" ultraviolet laser rifle</longName>
+        <editorName>Black Light Laser Rifle</editorName>
         <stack>1</stack>
         <type>RANGED_WEAPON</type>
     </item>
@@ -290,6 +293,7 @@
     <item id="classes.Items.Miscellaneous::BBQToGo">
         <shortName>BBQ To-Go</shortName>
         <longName>box of barbeque to-go</longName>
+        <editorName>BBQ To-Go</editorName>
         <stack>10</stack>
         <type>FOOD</type>
     </item>
@@ -338,6 +342,7 @@
     <item id="classes.Items.Melee::BioWhip">
         <shortName>BioWhip</shortName>
         <longName>single-tailed bio whip</longName>
+        <editorName>Bio Whip</editorName>
         <stack>1</stack>
         <type>MELEE_WEAPON</type>
     </item>
@@ -350,6 +355,7 @@
     <item id="classes.Items.Transformatives::GooBallBlue">
         <shortName>BlueGB</shortName>
         <longName>blue ball of goo</longName>
+        <editorName>Goo Ball Blue</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -427,6 +433,7 @@
     <item id="classes.Items.Apparel::BunnyOutfit">
         <shortName>Bunny.O</shortName>
         <longName>one-piece bunny outfit</longName>
+        <editorName>Bunny Outfit</editorName>
         <stack>1</stack>
         <type>CLOTHING</type>
     </item>
@@ -445,6 +452,7 @@
     <item id="classes.Items.Armor::ChitinArmor">
         <shortName>C.Armor</shortName>
         <longName>suit of chitin armor</longName>
+        <editorName>Chitin Armor</editorName>
         <stack>1</stack>
         <type>ARMOR</type>
     </item>
@@ -457,6 +465,7 @@
     <item id="classes.Items.Armor::ChitPlate">
         <shortName>C.Plate</shortName>
         <longName>suit of chitin plates</longName>
+        <editorName>Chitin Plate Armor</editorName>
         <stack>1</stack>
         <type>ARMOR</type>
     </item>
@@ -516,6 +525,7 @@
     <item id="classes.Items.Transformatives::Catnip">
         <shortName>Catnip</shortName>
         <longName>dose of catnip</longName>
+        <editorName>Catnip</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -570,6 +580,7 @@
     <item id="classes.Items.Transformatives::Circumscriber">
         <shortName>Circumser</shortName>
         <longName>jar of Circumscriber cream</longName>
+        <editorName>Circumscriber Cream</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -587,6 +598,7 @@
     <item id="classes.Items.Transformatives::Clippex">
         <shortName>Clippex</shortName>
         <longName>bottle of Clippex</longName>
+        <editorName>Clippex</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -604,36 +616,43 @@
     </item>
     <item id="classes.Items.Apparel::CornyTShirt">
         <shortName>CornyTShirtV0</shortName>
+        <editorName>Corny T-Shirt #0</editorName>
         <stack>1</stack>
         <type>UPPER_UNDERGARMENT</type>
     </item>
     <item id="classes.Items.Apparel::CornyTShirtV1">
         <shortName>CornyTShirtV1</shortName>
+        <editorName>Corny T-Shirt #1</editorName>
         <stack>1</stack>
         <type>UPPER_UNDERGARMENT</type>
     </item>
     <item id="classes.Items.Apparel::CornyTShirtV2">
         <shortName>CornyTShirtV2</shortName>
+        <editorName>Corny T-Shirt #2</editorName>
         <stack>1</stack>
         <type>UPPER_UNDERGARMENT</type>
     </item>
     <item id="classes.Items.Apparel::CornyTShirtV3">
         <shortName>CornyTShirtV3</shortName>
+        <editorName>Corny T-Shirt #3</editorName>
         <stack>1</stack>
         <type>UPPER_UNDERGARMENT</type>
     </item>
     <item id="classes.Items.Apparel::CornyTShirtV4">
         <shortName>CornyTShirtV4</shortName>
+        <editorName>Corny T-Shirt #4</editorName>
         <stack>1</stack>
         <type>UPPER_UNDERGARMENT</type>
     </item>
     <item id="classes.Items.Apparel::CornyTShirtV5">
         <shortName>CornyTShirtV5</shortName>
+        <editorName>Corny T-Shirt #5</editorName>
         <stack>1</stack>
         <type>UPPER_UNDERGARMENT</type>
     </item>
     <item id="classes.Items.Apparel::CornyTShirtV6">
         <shortName>CornyTShirtV6</shortName>
+        <editorName>Corny T-Shirt #6</editorName>
         <stack>1</stack>
         <type>UPPER_UNDERGARMENT</type>
     </item>
@@ -736,6 +755,7 @@
     <item id="classes.Items.Melee::Cutlass">
         <shortName>Cutlass</shortName>
         <longName>steel cutlass</longName>
+        <editorName>Cutlass</editorName>
         <stack>1</stack>
         <type>MELEE_WEAPON</type>
     </item>
@@ -789,12 +809,14 @@
     <item id="classes.Items.Transformatives::DongDesigner">
         <shortName>Dong D.</shortName>
         <longName>TamaniCorp Dong Designer</longName>
+        <editorName>Dong Designer</editorName>
         <stack>10</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Transformatives::DoveBalm">
         <shortName>Dove Balm</shortName>
         <longName>tube of Dove Balm</longName>
+        <editorName>Dove Balm</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -813,6 +835,7 @@
     <item id="classes.Items.Miscellaneous::Dumbfuck">
         <shortName>Dumbfuck</shortName>
         <longName>purple Dumbfuck pill</longName>
+        <editorName>Dumbfuck</editorName>
         <stack>10</stack>
         <type>DRUG</type>
     </item>
@@ -885,12 +908,14 @@
     <item id="classes.Items.Miscellaneous::EasyFit">
         <shortName>EasyFit</shortName>
         <longName>jar of Easy Fit cream</longName>
+        <editorName>Easy Fit</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
     <item id="classes.Items.Toys::EggTrainer">
         <shortName>EggTrnr</shortName>
         <longName>TamaniCorp Egg Trainer</longName>
+        <editorName>Egg Trainer</editorName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
@@ -902,7 +927,8 @@
     </item>
     <item id="classes.Items.Guns::Entropy">
         <shortName>Entropy</shortName>
-        <longName>LM19 “Entropy” kinetic decelerator</longName>
+        <longName>LM19 "Entropy" kinetic decelerator</longName>
+        <editorName>Entropy Kinetic Decelerator</editorName>
         <stack>1</stack>
         <type>RANGED_WEAPON</type>
     </item>
@@ -915,6 +941,7 @@
     <item id="classes.Items.Miscellaneous::Estrobloom">
         <shortName>Estrobloom</shortName>
         <longName>popsicle labeled ‘Estrobloom’</longName>
+        <editorName>Estrobloom</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -939,6 +966,7 @@
     <item id="classes.Items.Miscellaneous::FungalExtract">
         <shortName>F.Extract</shortName>
         <longName>vial of fungal extract</longName>
+        <editorName>Fungal Extract</editorName>
         <stack>5</stack>
         <type>POTION</type>
     </item>
@@ -1058,6 +1086,7 @@
     <item id="classes.Items.Transformatives::Foxfire">
         <shortName>Foxfire</shortName>
         <longName>a vial labeled Foxfire</longName>
+        <editorName>Foxfire</editorName>
         <stack>1</stack>
         <type>TYPE_VULPINE</type>
     </item>
@@ -1070,6 +1099,7 @@
     <item id="classes.Items.Transformatives::Frostfire">
         <shortName>Frostfire</shortName>
         <longName>a vial labeled Frostfire</longName>
+        <editorName>Frostfire</editorName>
         <stack>1</stack>
         <type>PILL</type>
     </item>
@@ -1105,6 +1135,7 @@
     <item id="classes.Items.Miscellaneous::GrayMicrobots">
         <shortName>G.M.Bots</shortName>
         <longName>vial of gray microbots</longName>
+        <editorName>Gray Microbots</editorName>
         <stack>5</stack>
         <type>POTION</type>
     </item>
@@ -1159,6 +1190,7 @@
     <item id="classes.Items.Miscellaneous::GemSatchel">
         <shortName>GemSack</shortName>
         <longName>satchel of gems</longName>
+        <editorName>Gem Satchel</editorName>
         <stack>2</stack>
         <type>GEM</type>
     </item>
@@ -1189,6 +1221,7 @@
     <item id="classes.Items.Armor::GooArmor">
         <shortName>Goo Armor</shortName>
         <longName>suit of gray goo armor</longName>
+        <editorName>Goo Armor</editorName>
         <stack>1</stack>
         <type>ARMOR</type>
     </item>
@@ -1201,12 +1234,14 @@
     <item id="classes.Items.Guns::Goovolver">
         <shortName>Goovolver</shortName>
         <longName>MK.VII Goovolver</longName>
+        <editorName>Goovolver</editorName>
         <stack>1</stack>
         <type>RANGED_WEAPON</type>
     </item>
     <item id="classes.Items.Transformatives::GooBallGreen">
         <shortName>GreenGB</shortName>
         <longName>green ball of goo</longName>
+        <editorName>Goo Ball Green</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -1225,6 +1260,7 @@
     <item id="classes.Items.Transformatives::Honeyizer">
         <shortName>H-izer</shortName>
         <longName>jar of Honeyizer</longName>
+        <editorName>Honeyizer</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -1261,6 +1297,7 @@
     <item id="classes.Items.Protection::HammerShield">
         <shortName>H.Shield</shortName>
         <longName>'Hammer' shield</longName>
+        <editorName>Hammer Shield</editorName>
         <stack>1</stack>
         <type>SHIELD</type>
     </item>
@@ -1357,6 +1394,7 @@
     <item id="classes.Items.Protection::HeatBelt">
         <shortName>HeatBelt</shortName>
         <longName>basic heat belt</longName>
+        <editorName>Heat Belt</editorName>
         <stack>1</stack>
         <type>SHIELD</type>
     </item>
@@ -1491,6 +1529,7 @@
     <item id="classes.Items.Junk::IQBGone">
         <shortName>IQBGone</shortName>
         <longName>syringe full of IQ B-Gone</longName>
+        <editorName>IQ B-Gone</editorName>
         <stack>10</stack>
         <type>DRUG</type>
     </item>
@@ -1544,7 +1583,8 @@
     </item>
     <item id="classes.Items.Protection::JumperShield">
         <shortName>JumpShield</shortName>
-        <longName>‘Jumper’ shield</longName>
+        <longName>'Jumper' shield</longName>
+        <editorName>Jumper Shield</editorName>
         <stack>1</stack>
         <type>SHIELD</type>
     </item>
@@ -1587,6 +1627,7 @@
     <item id="classes.Items.Transformatives::KerokorasVenom">
         <shortName>Kero.Ven.</shortName>
         <longName>vial of kerokoras venom</longName>
+        <editorName>Kerokoras Venom</editorName>
         <stack>10</stack>
         <type>DRUG</type>
     </item>
@@ -1676,19 +1717,21 @@
     </item>
     <item id="classes.Items.Miscellaneous::Lactaid">
         <shortName>Lactaid</shortName>
-        <longName>medipen labeled “Lactaid”</longName>
+        <longName>medipen labeled "Lactaid"</longName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
     <item id="classes.Items.Miscellaneous::LactaidMilkTank">
         <shortName>LactaidMT</shortName>
-        <longName>“Lactaid Milk Tank” medipen</longName>
+        <longName>"Lactaid Milk Tank" medipen</longName>
+        <editorName>Lactaid Milk Tank</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
     <item id="classes.Items.Miscellaneous::LactaidOverdrive">
         <shortName>LactaidO</shortName>
-        <longName>bottle labeled “Lactaid Overdrive”</longName>
+        <longName>bottle labeled "Lactaid Overdrive"</longName>
+        <editorName>Lactaid Overdrive"</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2053,6 +2096,7 @@
     <item id="classes.Items.Miscellaneous::MilkBag">
         <shortName>MilkBag</shortName>
         <longName>bag of milk</longName>
+        <editorName>Milk Bag</editorName>
         <stack>10</stack>
         <type>POTION</type>
     </item>
@@ -2095,6 +2139,7 @@
     <item id="classes.Items.Miscellaneous::MyrNectar">
         <shortName>MyrNectr</shortName>
         <longName>thermos of gold myr nectar</longName>
+        <editorName>Gold Myr Nectar</editorName>
         <stack>10</stack>
         <type>FOOD</type>
     </item>
@@ -2107,6 +2152,7 @@
     <item id="classes.Items.Transformatives::NukiNutbutter">
         <shortName>N.Butter</shortName>
         <longName>‘Nuki Nutbutter</longName>
+        <editorName>Nuki Nutbutter</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2125,6 +2171,7 @@
     <item id="classes.Items.Protection::NovaShield">
         <shortName>N.Shield</shortName>
         <longName>'Nova' shield generator</longName>
+        <editorName>Nova Shield Generator</editorName>
         <stack>1</stack>
         <type>SHIELD</type>
     </item>
@@ -2155,6 +2202,7 @@
     <item id="classes.Items.Miscellaneous::NaleenNip">
         <shortName>NaleenNip</shortName>
         <longName>pouch of naleen nip</longName>
+        <editorName>Naleen Nip</editorName>
         <stack>10</stack>
         <type>TYPE_NAGA</type>
     </item>
@@ -2190,6 +2238,7 @@
     <item id="classes.Items.Transformatives::SheepTF">
         <shortName>New Ewe</shortName>
         <longName>a New Ewe pill</longName>
+        <editorName>New Ewe Pill</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2214,6 +2263,7 @@
     <item id="classes.Items.Miscellaneous::NukiCookies">
         <shortName>Nuki C.</shortName>
         <longName>packet of ‘Nuki Cookies</longName>
+        <editorName>Nuki Cookies</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2232,6 +2282,7 @@
     <item id="classes.Items.Transformatives::Nutnog">
         <shortName>Nutnog</shortName>
         <longName>pint of Nutnog</longName>
+        <editorName>Nutnog</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2298,12 +2349,14 @@
     <item id="classes.Items.Transformatives::GooBallOrange">
         <shortName>Orng.GB</shortName>
         <longName>orange ball of goo</longName>
+        <editorName>Goo Ball Orange</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
     <item id="classes.Items.Miscellaneous::Ovilium">
         <shortName>Ovilium</shortName>
         <longName>bottle of Ovilium</longName>
+        <editorName>Ovilium</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2346,6 +2399,7 @@
     <item id="classes.Items.Armor::PolishedPlate">
         <shortName>P.Plate</shortName>
         <longName>suit of polished platemail</longName>
+        <editorName>Polished Platemail</editorName>
         <stack>1</stack>
         <type>ARMOR</type>
     </item>
@@ -2465,6 +2519,7 @@
     <item id="classes.Items.Transformatives::GooBallPink">
         <shortName>Pink GB</shortName>
         <longName>pink ball of goo</longName>
+        <editorName>Goo Ball Pink</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2513,6 +2568,7 @@
     <item id="classes.Items.Transformatives::GooBallPurple">
         <shortName>Purp.GB</shortName>
         <longName>purple ball of goo</longName>
+        <editorName>Goo Ball Purple</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2597,12 +2653,14 @@
     <item id="classes.Items.Drinks::RedMyrVenom">
         <shortName>R.Venom</shortName>
         <longName>vial of red venom</longName>
+        <editorName>Red Venom Vial</editorName>
         <stack>10</stack>
         <type>DRUG</type>
     </item>
     <item id="classes.Items.Miscellaneous::Rainbotox">
         <shortName>Rainbotox</shortName>
         <longName>medipen full of Rainbotox</longName>
+        <editorName>Rainbotox</editorName>
         <stack>20</stack>
         <type>POTION</type>
     </item>
@@ -2633,6 +2691,7 @@
     <item id="classes.Items.Transformatives::GooBallRed">
         <shortName>Red GB</shortName>
         <longName>red ball of goo</longName>
+        <editorName>Goo Ball Red</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2950,6 +3009,7 @@
     <item id="classes.Items.Treasures::Savicite">
         <shortName>Savicite</shortName>
         <longName>chunk of savicite</longName>
+        <editorName>Savicite</editorName>
         <stack>20</stack>
         <type>GEM</type>
     </item>
@@ -2974,6 +3034,7 @@
     <item id="classes.Items.Transformatives::SemensFriend">
         <shortName>Semens F.</shortName>
         <longName>tin of Semen’s Friend candy</longName>
+        <editorName>Semen's Friend</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -3052,6 +3113,7 @@
     <item id="classes.Items.Miscellaneous::Silicone">
         <shortName>Silicone</shortName>
         <longName>bag of android-grade silicone</longName>
+        <editorName>Silicone</editorName>
         <stack>10</stack>
         <type>GADGET</type>
     </item>
@@ -3064,6 +3126,7 @@
     <item id="classes.Items.Miscellaneous::SkySap">
         <shortName>SkySap</shortName>
         <longName>bamboo container of sky sap</longName>
+        <editorName>Sky Sap</editorName>
         <stack>10</stack>
         <type>FOOD</type>
     </item>
@@ -3188,73 +3251,73 @@
     </item>
     <item id="classes.Items.Stories::CowStuff">
         <shortName>Story: Cow S.</shortName>
-        <longName>code for “Cow Stuff”</longName>
+        <longName>code for "Cow Stuff"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::TowerOfTrials">
         <shortName>Story: ToT</shortName>
-        <longName>code for “Tower of Trials”</longName>
+        <longName>code for "Tower of Trials"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::BecomingOneOfTheGirls">
         <shortName>Story:B.One</shortName>
-        <longName>code for “Becoming One...”</longName>
+        <longName>code for "Becoming One..."</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::BreedingSylvie">
         <shortName>Story:B.S.</shortName>
-        <longName>code for “Breeding Sylvie”</longName>
+        <longName>code for "Breeding Sylvie"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::BXBIOne">
         <shortName>Story:BXBI1</shortName>
-        <longName>code for “BXBI Chapter 1”</longName>
+        <longName>code for "BXBI Chapter 1"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::BXBITwo">
         <shortName>Story:BXBI2</shortName>
-        <longName>code for “BXBI Chapter 2”</longName>
+        <longName>code for "BXBI Chapter 2"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::CapturedByTheDemons">
         <shortName>Story:Captr</shortName>
-        <longName>code for “Captured...”</longName>
+        <longName>code for "Captured..."</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::FuckTheSystem">
         <shortName>Story:F.Sys</shortName>
-        <longName>code for “Fuck The System”</longName>
+        <longName>code for "Fuck The System"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::StolenGoods">
         <shortName>Story:Goods</shortName>
-        <longName>code for “Stolen Goods”</longName>
+        <longName>code for "Stolen Goods"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::SatyrSlave">
         <shortName>Story:Satyr</shortName>
-        <longName>code for “Satyr Slave”</longName>
+        <longName>code for "Satyr Slave"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::TentaclesAndTanukis">
         <shortName>Story:Ts&#38;Ts</shortName>
-        <longName>code for “Tentacles &#38; Tanukis”</longName>
+        <longName>code for "Tentacles &#38; Tanukis"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
     <item id="classes.Items.Stories::EightClicks">
         <shortName>Story:||||||||</shortName>
-        <longName>code for “||||||||”</longName>
+        <longName>code for "||||||||"</longName>
         <stack>1</stack>
         <type>GADGET</type>
     </item>
@@ -3324,13 +3387,14 @@
     </item>
     <item id="classes.Items.Transformatives::Sylvanol">
         <shortName>Sylvanol</shortName>
-        <longName>medipen labeled “Sylvanol”</longName>
+        <longName>medipen labeled "Sylvanol"</longName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
     <item id="classes.Items.Miscellaneous::SynthSap">
         <shortName>SynthSap</shortName>
         <longName>silvery container of synthetic sap</longName>
+        <editorName>Synth Sap</editorName>
         <stack>10</stack>
         <type>POTION</type>
     </item>
@@ -3379,6 +3443,7 @@
     <item id="classes.Items.Transformatives::Turtleneck">
         <shortName>T.Neck</shortName>
         <longName>jar of Turtleneck cream</longName>
+        <editorName>Turtleneck Cream</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -3481,6 +3546,7 @@
     <item id="classes.Items.Miscellaneous::Throbb">
         <shortName>Throbb</shortName>
         <longName>vial of Throbb</longName>
+        <editorName>Throbb</editorName>
         <stack>20</stack>
         <type>DRUG</type>
     </item>
@@ -3511,6 +3577,7 @@
     <item id="classes.Items.Transformatives::ManDown">
         <shortName>TwinkEase</shortName>
         <longName>pack of ‘Twink-ease’</longName>
+        <editorName>Twink-Ease</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -3547,6 +3614,7 @@
     <item id="classes.Items.Transformatives::UthraPlus">
         <shortName>Uthra+</shortName>
         <longName>bottle of cream labeled ‘Uthra+’</longName>
+        <editorName>Uthra Plus</editorName>
         <stack>10</stack>
         <type>DRUG</type>
     </item>
@@ -3696,6 +3764,7 @@
     <item id="classes.Items.Miscellaneous::WhiffOWisp">
         <shortName>WffOWsp</shortName>
         <longName>amphora of Wiff-O-Wisp</longName>
+        <editorName>Wiff-O-Wisp</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -3762,6 +3831,7 @@
     <item id="classes.Items.Transformatives::GooBallYellow">
         <shortName>Yellow GB</shortName>
         <longName>yellow ball of goo</longName>
+        <editorName>Goo Ball Yellow</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -3804,6 +3874,7 @@
     <item id="classes.Items.Miscellaneous::ZilHoney">
         <shortName>ZilHoney</shortName>
         <longName>vial of female zil honey</longName>
+        <editorName>Zil Honey</editorName>
         <stack>10</stack>
         <type>FOOD</type>
     </item>
@@ -3815,7 +3886,7 @@
     </item>
     <item id="classes.Items.Combat::RuttingPerfume">
         <shortName>\"Rutting\"</shortName>
-        <longName>spray bottle titled “Rutting”</longName>
+        <longName>spray bottle titled "Rutting"</longName>
         <stack>5</stack>
         <type>POTION</type>
     </item>

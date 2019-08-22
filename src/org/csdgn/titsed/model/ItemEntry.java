@@ -55,7 +55,7 @@ public class ItemEntry implements ToolTipProvider {
 	}
 
 	public String getToolTip() {
-		return "[" + id + "] " + shortName;
+		return shortName + "'" + longName + "'" + " [" + id + "]";
 	}
 
 	public String toString() {

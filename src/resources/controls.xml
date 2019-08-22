@@ -601,7 +601,7 @@
       <control type="title" span="3">Ship Storage Inventory</control>
     </row>
     <row>
-      <control type="array" min="0" max="10" span="3" ref="item">characters.PC.ShipStorageInventory</control>
+      <control type="array" min="0" max="100" span="3" ref="item">characters.PC.ShipStorageInventory</control>
     </row>
     <row array="true">
       <control type="label">Type</control>
@@ -615,7 +615,7 @@
       <control type="title" span="3">Location Storage Inventory</control>
     </row>
     <row>
-      <control type="array" min="0" max="10" span="3" ref="item">characters.PC.LocationStorageInventory</control>
+      <control type="array" min="0" max="100" span="3" ref="item">characters.PC.LocationStorageInventory</control>
     </row>
     <row array="true">
       <control type="label">Type</control>

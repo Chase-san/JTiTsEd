@@ -79,10 +79,6 @@ public class ControlsFactory {
 		// max is maximum number of entries
 		// TODO allow multiple array entries
 		// TODO handle array within arrays
-
-		//String type = entry.type.substring(entry.type.indexOf(':') + 1);
-		// TODO use type somehow
-
 		arrayPath = entry.value[0] + "." + entry.arrayIndex;
 
 		// get maximum size
@@ -130,7 +126,9 @@ public class ControlsFactory {
 		sub.addActionListener(e -> {
 			// remove this entry from the array and update
 			arr.getDense().remove(entry.arrayIndex);
-			entry.arrayIndex = Math.max(entry.arrayIndex - 1, arraySize - 1);
+			if(entry.arrayIndex > 0) {
+				entry.arrayIndex = Math.max(entry.arrayIndex - 1, arraySize - 1);
+			}
 
 			tabUpdater.update();
 		});
@@ -180,7 +178,7 @@ public class ControlsFactory {
 			obj.getDynamicMap().put("quantity", new AmfInteger(1));
 
 			arr.getDense().add(obj);
-			entry.arrayIndex = arraySize;
+			entry.arrayIndex = arr.getDenseSize() - 1;
 
 			tabUpdater.update();
 		});
@@ -217,10 +215,9 @@ public class ControlsFactory {
 
 		return combo;
 	}
-	
-	
+
 	protected JComponent createEntry(Updater tabUpdater, ControlEntry entry) {
-		switch(entry.type) {
+		switch (entry.type) {
 		case Array:
 			return createArrayEntry(tabUpdater, entry);
 		case Boolean:
@@ -246,10 +243,10 @@ public class ControlsFactory {
 		default:
 			break;
 		}
-		
+
 		throw new RuntimeException("Unknown Data Type: " + entry.type);
 	}
-	
+
 	protected JComboBox<EnumEntry<Integer>> createEnumEntry(ControlEntry entry) {
 		JComboBox<EnumEntry<Integer>> combo = new JComboBox<EnumEntry<Integer>>();
 		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
@@ -261,7 +258,7 @@ public class ControlsFactory {
 
 		int gameValue = state.save.getInteger(paths[0]);
 		EnumEntry<Integer> current = null;
-		
+
 		List<String> keys = Sort.sortIntegerKeySet(enumData, entry.sort);
 
 		for (String key : keys) {
@@ -374,7 +371,7 @@ public class ControlsFactory {
 		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
 
 		String[] filter = new String[0];
-		if(entry.ref != null) {
+		if (entry.ref != null) {
 			filter = entry.ref.split(",");
 		}
 
@@ -479,12 +476,10 @@ public class ControlsFactory {
 
 	protected JComboBox<EnumEntry<String>> createTextEnumEntry(ControlEntry entry) {
 		final boolean textEdit = entry.type == ControlEntry.Type.CustomTextEnum;
-		
 
 		JComboBox<EnumEntry<String>> combo = new JComboBox<EnumEntry<String>>();
 		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
 		combo.setEditable(textEdit);
-		
 
 		boolean changeable = true;
 
