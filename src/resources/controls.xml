@@ -350,6 +350,9 @@
       <control type="integer">characters.PC.earLength</control>
     </row>
     <row>
+      <control type="flags" ref="Ear Flags" span="3" sort="value">characters.PC.earFlags</control>
+    </row>
+    <row>
       <control type="title" span="3">Face</control>
     </row>
     <row>
@@ -400,7 +403,23 @@
   </tab>
   <tab name="Genitals">
     <row>
+      <control type="label">Elasticity</control>
+      <control type="integer" span="2">characters.PC.elasticity</control>
+    </row>
+    <row>
       <control type="title" span="3">Breasts</control>
+    </row>
+    <row>
+      <control type="label">Milk Type</control>
+      <control type="enum" ref="Milk Type" span="2">characters.PC.milkType</control>
+    </row>
+    <row>
+      <control type="label">Milk Storage Multiplier</control>
+      <control type="integer" span="2">characters.PC.milkStorageMultiplier</control>
+    </row>
+    <row>
+      <control type="label">Milk Multiplier</control>
+      <control type="integer" span="2">characters.PC.milkMultiplier</control>
     </row>
     <row>
       <control type="array" min="1" max="4" span="3">characters.PC.breastRows</control>
@@ -436,7 +455,53 @@
       <control type="enum" ref="Nipple Type" sort="key" span="2">{ARRAY_ENTRY}.nippleType</control>
     </row>
     <row>
+      <control type="title" span="3">Nipples</control>
+    </row>
+    <row>
+      <control type="label">Nipple Color</control>
+      <control type="customtextenum" ref="Skin Tone" span="2">characters.PC.nippleColor</control>
+    </row>
+    <row>
+      <control type="label">Nipples Per Breast</control>
+      <control type="integer" span="2">characters.PC.nipplesPerBreast</control>
+    </row>
+    <row>
+      <control type="label">Nipple Length Ratio</control>
+      <control type="integer" span="2">characters.PC.nippleLengthRatio</control>
+    </row>
+    <row>
+      <control type="label">Nipple Width Ratio</control>
+      <control type="integer" span="2">characters.PC.nippleWidthRatio</control>
+    </row>
+    <row>
+      <control type="label">Dick Nipple Type</control>
+      <control type="enum" ref="Dick Nipple Type" span="2">characters.PC.dickNippleType</control>
+    </row>
+    <row>
+      <control type="label">Dick Nipple Multiplier</control>
+      <control type="integer" span="2">characters.PC.dickNippleMultiplier</control>
+    </row>
+    <row>
       <control type="title" span="3">Cocks</control>
+    </row>
+    <row>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
+    </row>
+    <row>
+      <control type="label">Cum Quality</control>
+      <control type="integer" min="0">characters.PC.cumQualityRaw</control>
+      <control type="integer" min="0">characters.PC.cumQualityMod</control>
+    </row>
+    <row>
+      <control type="label">Cum Multiplier</control>
+      <control type="integer" min="0">characters.PC.cumMultiplierRaw</control>
+      <control type="integer" min="0">characters.PC.cumMultiplierMod</control>
+    </row>
+    <row>
+      <control type="label">Cum Type</control>
+      <control type="enum" ref="Cum Type" span="2">characters.PC.cumType</control>
     </row>
     <row>
       <control type="label">True Virgin</control>
@@ -474,7 +539,7 @@
     </row>
     <row array="true">
       <control type="label">Flaccid Multiplier</control>
-      <control type="decimal" span="2">{ARRAY_ENTRY}.knotMultiplier</control>
+      <control type="decimal" span="2">{ARRAY_ENTRY}.flaccidMultiplier</control>
     </row>
     <row array="true">
       <control type="label">Virgin</control>
@@ -483,8 +548,52 @@
     <row array="true">
       <control type="flags" ref="Cock Flags" span="3" sort="value">{ARRAY_ENTRY}.cockFlags</control>
     </row>
+
+    <row>
+      <control type="title" span="3">Balls</control>
+    </row>
+    <row>
+      <control type="label">Balls</control>
+      <control type="integer" span="2" min="0">characters.PC.balls</control>
+    </row>
+    <row>
+      <control type="label">Ball Fullness</control>
+      <control type="decimal" span="2" min="0">characters.PC.ballFullness</control>
+    </row>
+    <row>
+      <control type="label">Ball Efficiency</control>
+      <control type="integer" span="2" min="0">characters.PC.ballEfficiency</control>
+    </row>
+    <row>
+      <control type="label">refractoryRate</control>
+      <control type="integer" span="2">characters.PC.refractoryRate</control>
+    </row>
+    <row>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
+    </row>
+    <row>
+      <control type="label">Ball Size</control>
+      <control type="integer" min="0">characters.PC.ballSizeRaw</control>
+      <control type="integer" min="0">characters.PC.ballSizeMod</control>
+    </row>
     <row>
       <control type="title" span="3">Vaginas</control>
+    </row>
+    <row>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
+    </row>
+    <row>
+      <control type="label">Girl Cum Multiplier</control>
+      <control type="integer" min="0">characters.PC.girlCumMultiplierRaw</control>
+      <control type="integer" min="0">characters.PC.girlCumMultiplierMod</control>
+    </row>
+    <row>
+      <control type="label">Girl Cum Type</control>
+      <control type="enum" ref="Girl Cum Type" span="2">characters.PC.girlCumType</control>
     </row>
     <row>
       <control type="label">True Virgin</control>
@@ -492,7 +601,7 @@
     </row>
     <row>
       <control type="label">Clit Length</control>
-      <control type="integer" span="2">characters.PC.clitLength</control>
+      <control type="decimal" span="2">characters.PC.clitLength</control>
     </row>
     <row>
       <control type="array" min="0" max="4" span="3">characters.PC.vaginas</control>
@@ -543,12 +652,38 @@
     <row array="true">
       <control type="flags" ref="Vagina Flags" span="3" sort="value">{ARRAY_ENTRY}.vagooFlags</control>
     </row>
+
+
+
+
     <row>
-      <control type="title" span="3">Anal</control>
+      <control type="title" span="3">Ass</control>
     </row>
     <row>
       <control type="label">True Virgin</control>
       <control type="boolean" span="2">characters.PC.analVirgin</control>
+    </row>
+    <row>
+      <control type="label"></control>
+      <control type="label">Base</control>
+      <control type="label">Mod</control>
+    </row>
+    <row>
+      <control type="label">Looseness</control>
+      <control type="integer" min="0">characters.PC.ass.loosenessRaw</control>
+      <control type="integer" min="0">characters.PC.ass.loosenessMod</control>
+    </row>
+    <row>
+      <control type="label">Min Looseness</control>
+      <control type="integer" span="2" min="0">characters.PC.ass.minLooseness</control>
+    </row>
+    <row>
+      <control type="label">Bonus Capacity</control>
+      <control type="integer" span="2" min="0">characters.PC.ass.bonusCapacity</control>
+    </row>
+    <row>
+      <control type="label">Shrink Counter</control>
+      <control type="integer" span="2" min="0">characters.PC.ass.shrinkCounter</control>
     </row>
   </tab>
   <tab name="Items">

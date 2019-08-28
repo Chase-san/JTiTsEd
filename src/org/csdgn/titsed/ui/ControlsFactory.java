@@ -23,10 +23,10 @@ package org.csdgn.titsed.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -126,7 +126,7 @@ public class ControlsFactory {
 		sub.addActionListener(e -> {
 			// remove this entry from the array and update
 			arr.getDense().remove(entry.arrayIndex);
-			if(entry.arrayIndex > 0) {
+			if (entry.arrayIndex > 0) {
 				entry.arrayIndex = Math.max(entry.arrayIndex - 1, arraySize - 1);
 			}
 
@@ -226,8 +226,9 @@ public class ControlsFactory {
 		case TextEnum:
 			return createTextEnumEntry(entry);
 		case Decimal:
+			return createDecimalEntry(entry);
 		case Integer:
-			return createNumberEntry(entry);
+			return createIntegerEntry(entry);
 		case Enum:
 			return createEnumEntry(entry);
 		case Flags:
@@ -433,27 +434,67 @@ public class ControlsFactory {
 		return combo;
 	}
 
-	protected JTextField createNumberEntry(ControlEntry entry) {
+	protected JTextField createIntegerEntry(ControlEntry entry) {
+		JTextField field = new JTextField();
+		field.setPreferredSize(new Dimension(prefWidth / 2, prefHeight));
+
+		final String[] paths = getSaveIdents(entry.value);
+		
+		Integer saveValue = state.save.getInteger(paths[0]);
+		if(saveValue == null) {
+			field.setEnabled(false);
+			field.setForeground(Color.RED);
+			field.setText("<Not Available>");
+		} else {
+			field.setText("" + saveValue);
+		}
+		PlainDocument doc = (PlainDocument) field.getDocument();
+		doc.setDocumentFilter(new NumberDocumentFilter.Integer(entry.min, entry.max));
+		doc.addDocumentListener(new DocumentAdapter(e -> {
+			int value = 0;
+			try {
+				value = Integer.valueOf(field.getText());
+				for (String path : paths) {
+					state.save.setInteger(path, value);
+				}
+			} catch (NumberFormatException ex) {
+				return;
+			}
+
+		}));
+
+		return field;
+	}
+
+	protected JTextField createDecimalEntry(ControlEntry entry) {
 		JTextField field = new JTextField();
 		field.setPreferredSize(new Dimension(prefWidth / 2, prefHeight));
 
 		final String[] paths = getSaveIdents(entry.value);
 
-		field.setText("" + state.save.getInteger(paths[0]));
+		Double saveValue = state.save.getDecimal(paths[0]);
+		if(saveValue == null) {
+			field.setEnabled(false);
+			field.setForeground(Color.RED);
+			field.setText("<Not Available>");
+		} else {
+			DecimalFormat df = new DecimalFormat("#.###");
+			field.setText(df.format(saveValue));
+		}
+		
 		PlainDocument doc = (PlainDocument) field.getDocument();
-		doc.setDocumentFilter(new NumberDocumentFilter.Integer(entry.min, entry.max));
+		doc.setDocumentFilter(new NumberDocumentFilter.Double(entry.min, entry.max));
 		doc.addDocumentListener(new DocumentAdapter(e -> {
-			int value = 0;
-
-			// TODO handle decimal entry
+			double value = 0;
 			try {
-				value = Integer.valueOf(field.getText());
+				value = Double.valueOf(field.getText());
+				for (String path : paths) {
+					state.save.setDecimal(path, value);
+				}
 			} catch (NumberFormatException ex) {
 				return;
 			}
-			for (String path : paths) {
-				state.save.setInteger(path, value);
-			}
+
 		}));
 
 		return field;
@@ -475,72 +516,59 @@ public class ControlsFactory {
 	}
 
 	protected JComboBox<EnumEntry<String>> createTextEnumEntry(ControlEntry entry) {
-		final boolean textEdit = entry.type == ControlEntry.Type.CustomTextEnum;
-
+		final boolean allowCustom = entry.type == ControlEntry.Type.CustomTextEnum;
 		JComboBox<EnumEntry<String>> combo = new JComboBox<EnumEntry<String>>();
 		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
-		combo.setEditable(textEdit);
+		combo.setEditable(allowCustom);
 
-		boolean changeable = true;
-
-		// load data
-		Map<String, String> enumData = state.data.getEnum(entry.ref);
+		Map<String, String> data = state.data.getEnum(entry.ref);
 
 		final String[] paths = getSaveIdents(entry.value);
+		String saveValue = state.save.getString(paths[0]);
 
-		String gameValue = state.save.getString(paths[0]);
 		EnumEntry<String> current = null;
 
-		List<String> keys = Sort.sortStringKeySet(enumData, entry.sort);
+		for (String key : Sort.sortStringKeySet(data, entry.sort)) {
+			String value = data.get(key);
+			EnumEntry<String> comboEntry = new EnumEntry<String>(key, value);
+			combo.addItem(comboEntry);
 
-		for (String key : keys) {
-			String value = enumData.get(key);
-			EnumEntry<String> ee = new EnumEntry<String>(key, value);
-			combo.addItem(ee);
-
-			if (key.equals(gameValue)) {
-				current = ee;
+			if (key.equals(saveValue)) {
+				current = comboEntry;
 			}
 		}
 
-		if (current != null) {
-			combo.setSelectedItem(current);
-		} else {
-			// TODO unknown value
-			if (!textEdit) {
-				// lock it down if it is not editable
-				combo.setForeground(Color.RED);
+		if (current == null) {
+			if (allowCustom) {
+				// create a custom entry
+				current = new EnumEntry<String>(saveValue, saveValue);
+				combo.addItem(current);
+			} else {
 				combo.setEnabled(false);
 			}
-			changeable = textEdit;
+		}
 
-			// change the text to match whatever is stored (custom/unknown value)
-			Component comp = combo.getEditor().getEditorComponent();
-			if (comp instanceof JTextField) {
-				JTextField field = (JTextField) comp;
-				field.setText(gameValue);
+		combo.setSelectedItem(current);
+		combo.addActionListener(e -> {
+			Object obj = combo.getSelectedItem();
+			if (obj == null) {
+				return;
 			}
-		}
-
-		if (changeable) {
-			combo.addActionListener(e -> {
-				for (String path : paths) {
-					// save.setString(path, field.getText());
-					Object obj = combo.getSelectedItem();
-					if (obj != null) {
-						@SuppressWarnings("unchecked")
-						EnumEntry<String> tmp = (EnumEntry<String>) obj;
-						// set it to null if zero length
-						String id = tmp.id;
-						if (id.length() == 0) {
-							id = "null";
-						}
-						state.save.setString(path, id);
-
-					}
-				}
-			});
-		}
+			String id = "null";
+			if (obj instanceof String) {
+				id = (String) obj;
+			} else if (obj instanceof EnumEntry<?>) {
+				@SuppressWarnings("unchecked")
+				EnumEntry<String> tmp = (EnumEntry<String>) obj;
+				id = tmp.id;
+			}
+			if (id.length() == 0) {
+				id = "null";
+			}
+			for (String path : paths) {
+				state.save.setString(path, id);
+			}
+		});
 
 		return combo;
 	}

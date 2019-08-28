@@ -1,0 +1,112 @@
+INT earsPierced
+OBJ earPiercing
+    INT quantity
+    STR classInstance
+    INT version
+    STR shortName
+
+INT eyebrowPierced
+OBJ eyebrowPiercing
+    INT quantity
+    STR classInstance
+    INT version
+    STR shortName
+
+INT nosePierced
+OBJ nosePiercing
+    INT quantity
+    STR classInstance
+    INT version
+    STR shortName
+
+
+INT lipPierced
+OBJ lipPiercing
+    INT quantity
+    STR classInstance
+    INT version
+    STR shortName
+
+INT tonguePierced
+OBJ tonguePiercing
+    INT quantity
+    STR classInstance
+    INT version
+    STR shortName
+    
+OBJ bellyPiercing
+    INT quantity
+    STR classInstance
+    INT version
+    STR shortName
+
+
+ARR pregnancyData
+    OBJ <denseNumber>
+        INT pregnancyQuantity
+        INT pregnancyIncubationMulti
+        INT pregnancyBellyRatingContribution
+        STR classInstance
+        INT pregnancyIncubation
+        STR pregnancyType
+
+ARR statusEffects
+    OBJ <denseNumber>
+        INT minutesLeft
+        STR storageName
+        STR classInstance
+        STR iconName
+        STR tooltip
+        INT iconShade
+        BOL hidden
+        INT value1
+        INT value2
+        INT value3
+        INT value4
+        BOL combatOnly
+
+ARR perks
+    OBJ <denseNumber>
+        INT minutesLeft
+        STR storageName
+        STR classInstance
+        STR iconName
+        STR tooltip
+        INT iconShade
+        BOL hidden
+        INT value1
+        INT value2
+        INT value3
+        INT value4
+        BOL combatOnly
+
+INT perkPoints
+INT unclaimedClassPerks
+INT unspentStatPoints
+
+INT timesCum
+INT minutesSinceCum
+
+INT eggs
+INT fertilizedEggs
+
+
+
+INT teaseLevel
+INT teaseXP
+
+
+STR beardColor
+
+ARR keyItems
+
+STR impregnationType
+INT pregnancyIncubationBonusFatherRaw
+INT pregnancyIncubationBonusFatherMod
+INT pregnancyIncubationBonusMotherRaw
+INT pregnancyIncubationBonusMotherMod
+INT pregnancyMultiplierRaw
+INT pregnancyMultiplierMod
+
+INT fertilityMod
+NUM fertilityRaw

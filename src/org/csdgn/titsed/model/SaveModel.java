@@ -148,6 +148,33 @@ public class SaveModel {
 		}
 	}
 
+	public Double getDecimal(String ident) {
+		AmfValue raw = find(ident);
+		if (raw == null) {
+			return null;
+		}
+		if (raw.getType() == AmfType.Double) {
+			Double value = ((AmfDouble) raw).getValue();
+			return value.doubleValue();
+		} else if (raw.getType() == AmfType.Integer) {
+			Integer value = ((AmfInteger) raw).getValue();
+			return value.doubleValue();
+		}
+		return null;
+	}
+
+	public void setDecimal(String ident, double value) {
+		AmfValue raw = find(ident);
+		if (raw == null) {
+			return;
+		}
+		if (raw.getType() == AmfType.Double) {
+			((AmfDouble) raw).setValue(value);
+		} else if (raw.getType() == AmfType.Integer) {
+			((AmfInteger) raw).setValue((int) value);
+		}
+	}
+
 	public boolean getBoolean(String ident) {
 		AmfValue raw = find(ident);
 		if (raw.getType() == AmfType.True || raw.getType() == AmfType.False) {

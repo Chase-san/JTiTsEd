@@ -626,6 +626,12 @@
 		<value>Lapine</value>
 		<value>Quad Lapine</value>
 	</enum>
+	<enum name="Ear Flags">
+		<value id="1">Long</value>
+		<value id="7">Tapered</value>
+		<value id="20">Furred</value>
+		<value id="50">Floppy</value>
+	</enum>
 	<enum name="Tongue Type">
 		<value id="0">Human</value>
 		<value id="1">Equine</value>
