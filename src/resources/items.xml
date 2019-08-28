@@ -1542,6 +1542,7 @@
     <item id="classes.Items.Miscellaneous::ImmunoBooster">
         <shortName>ImmBoost</shortName>
         <longName>medipen with Immuno-Booster</longName>
+        <editorName>Immuno-Booster</editorName>
         <stack>10</stack>
         <type>POTION</type>
     </item>
@@ -1718,6 +1719,7 @@
     <item id="classes.Items.Miscellaneous::Lactaid">
         <shortName>Lactaid</shortName>
         <longName>medipen labeled "Lactaid"</longName>
+        <editorName>Lactaid</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -2704,6 +2706,7 @@
     <item id="classes.Items.Miscellaneous::ReductPro">
         <shortName>ReductPro</shortName>
         <longName>container labeled 'ReductPro'</longName>
+        <editorName>ReductPro</editorName>
         <stack>5</stack>
         <type>PILL</type>
     </item>
@@ -3388,6 +3391,7 @@
     <item id="classes.Items.Transformatives::Sylvanol">
         <shortName>Sylvanol</shortName>
         <longName>medipen labeled "Sylvanol"</longName>
+        <editorName>Sylvanol</editorName>
         <stack>10</stack>
         <type>PILL</type>
     </item>
@@ -3571,6 +3575,7 @@
     <item id="classes.Items.Miscellaneous::Treatment">
         <shortName>Treatment</shortName>
         <longName>medipen loaded with the Treatment</longName>
+        <editorName>Treatment</editorName>
         <stack>10</stack>
         <type>DRUG</type>
     </item>
