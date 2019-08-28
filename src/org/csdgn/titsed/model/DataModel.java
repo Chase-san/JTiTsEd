@@ -27,7 +27,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -42,7 +41,6 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-import org.csdgn.maru.Strings;
 import org.csdgn.titsed.ui.UIStrings;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
