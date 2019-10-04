@@ -28,7 +28,7 @@
                includes="**/*.png,**/*.xml,**/*.xsd,**/*.txt"/>
     </copy>
   </target>
-  <target name="dist" depends="compile,rescopy" description="Create a jar for distribution">
+  <target name="jar" depends="compile,rescopy" description="Create a jar for distribution">
     <mkdir dir="${dist}"/>
     <jar jarfile="${dist}/jtitsed.jar" basedir="${bin}">
       <manifest>
@@ -38,7 +38,7 @@
     </jar>
   </target>
 
-  <target name="run">
+  <target name="run" depends="jar">
     <java jar="${dist}/jtitsed.jar" fork="true"/>
   </target>
 </project>
