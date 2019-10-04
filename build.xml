@@ -1,0 +1,44 @@
+<project name="JTiTsEd" default="dist" basedir=".">
+  <description>
+    JTiTsEd Ant build file
+  </description>
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+  <property name="dist" location="dist"/>
+  <target name="init">
+    <!-- time stamp -->
+    <tstamp/>
+    <!-- create bin directory -->
+    <mkdir dir="${bin}"/>
+  </target>
+  <patternset id="metafiles">
+    <include name="**/*.properties"/>
+  </patternset>
+  <target name="compile" depends="init" description="Build source files">
+    <javac srcdir="${src}" destdir="${bin}"/>
+  </target>
+  <target name="rescopy" depends="init" description="Copy required resources to bin">
+    <copy todir="${bin}">
+      <fileset dir="${src}">
+        <patternset refid="metafiles" />
+      </fileset>
+    </copy>
+    <copy todir="${bin}">
+      <fileset dir="src"
+               includes="**/*.png,**/*.xml,**/*.xsd,**/*.txt"/>
+    </copy>
+  </target>
+  <target name="jar" depends="compile,rescopy" description="Create a jar for distribution">
+    <mkdir dir="${dist}"/>
+    <jar jarfile="${dist}/jtitsed.jar" basedir="${bin}">
+      <manifest>
+        <attribute name="Main-Class" value="org.csdgn.titsed.Main"/>
+        <attribute name="Class-Path" value="."/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="jar">
+    <java jar="${dist}/jtitsed.jar" fork="true"/>
+  </target>
+</project>

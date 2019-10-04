@@ -4,6 +4,9 @@
 # Binary Directory
 bin
 
+# Dist Directory (ant)
+dist
+
 # Package Files #
 *.jar
 *.war
