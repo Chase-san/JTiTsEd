@@ -20,3 +20,6 @@ dist
 .classpath
 .project
 .settings
+
+# VSCode Files
+.vscode
