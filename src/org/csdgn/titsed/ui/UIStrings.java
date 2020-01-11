@@ -25,6 +25,7 @@ import java.awt.Image;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -60,6 +61,14 @@ public class UIStrings {
 			}
 		}
 		return '!' + key + '!';
+	}
+
+	public static List<Image> getImageList(String ... keys) {
+		List<Image> list = new ArrayList<Image>();
+		for(String key : keys) {
+			list.add(getImage(key));
+		}
+		return list;
 	}
 
 	public static Image getImage(String key) {
