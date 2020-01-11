@@ -1,44 +1,30 @@
-<project name="JTiTsEd" default="dist" basedir=".">
-  <description>
-    JTiTsEd Ant build file
-  </description>
-  <property name="src" location="src"/>
-  <property name="bin" location="bin"/>
-  <property name="dist" location="dist"/>
-  <target name="init">
-    <!-- time stamp -->
-    <tstamp/>
-    <!-- create bin directory -->
-    <mkdir dir="${bin}"/>
-  </target>
-  <patternset id="metafiles">
-    <include name="**/*.properties"/>
-  </patternset>
-  <target name="compile" depends="init" description="Build source files">
-    <javac srcdir="${src}" destdir="${bin}"/>
-  </target>
-  <target name="rescopy" depends="init" description="Copy required resources to bin">
-    <copy todir="${bin}">
-      <fileset dir="${src}">
-        <patternset refid="metafiles" />
-      </fileset>
-    </copy>
-    <copy todir="${bin}">
-      <fileset dir="src"
-               includes="**/*.png,**/*.xml,**/*.xsd,**/*.txt"/>
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="JTiTsEd" default="jar" basedir="." >
+	<property name="lib.dir" value="lib" />
+	<property name="jar.file" value="${ant.project.name}.jar" />
+  <property name="main.class" value="org.csdgn.titsed.Main" />
+	
+	<target name="compile" description="Clean and compile source.">
+		<delete dir="bin" failonerror="false" />
+    <mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin" includeAntRuntime="no" encoding="UTF-8"
+			fork="true" optimize="on" target="1.8" source="1.8" debug="on" compiler="javac1.8" />
+	</target>
+  <target name="copy" depends="compile" description="Copy required resources.">
+    <copy todir="bin" >
+        <fileset dir="src" includes="**"/>
     </copy>
   </target>
-  <target name="jar" depends="compile,rescopy" description="Create a jar for distribution">
-    <mkdir dir="${dist}"/>
-    <jar jarfile="${dist}/jtitsed.jar" basedir="${bin}">
-      <manifest>
-        <attribute name="Main-Class" value="org.csdgn.titsed.Main"/>
-        <attribute name="Class-Path" value="."/>
+  <target name="jar" depends="copy" description="Build manifest and jar.">
+		<delete dir="${jar.file}" failonerror="false" />
+		<jar duplicate="add" basedir="bin" destfile="${jar.file}" compress="true">
+			<include name="**/*.class" />
+      <include name="**/*.properties" />
+      <include name="resources/" />
+			<manifest>
+				<attribute name="Main-Class" value="${main.class}"/>
+				<attribute name="Class-Path" value="."/>
       </manifest>
-    </jar>
-  </target>
-
-  <target name="run" depends="jar">
-    <java jar="${dist}/jtitsed.jar" fork="true"/>
-  </target>
+		</jar>
+	</target>
 </project>
