@@ -112,7 +112,8 @@ public class MainFrame extends JFrame {
 		tabs = new JTabbedPane();
 		setContentPane(tabs);
 
-		setSize(300, 500);
+		setSize(340, 500);
+		state.window = this;
 	}
 
 	public JMenu buildFileMenu() {

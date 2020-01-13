@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package org.csdgn.titsed;
+package org.csdgn.titsed.tools;
 
 import java.io.IOException;
 import java.net.URL;
@@ -66,7 +66,6 @@ public class RepoItemCheck {
         List<String> gitems = readItemsFromGitHub("https://api.github.com/repos/OXOIndustries/TiTS-Public/contents/classes/Items");
 
         System.out.println("Loading data from xmls.");
-        final FileManager fm = new FileManager();
 		final DataModel dm = new DataModel();
         dm.load();
         

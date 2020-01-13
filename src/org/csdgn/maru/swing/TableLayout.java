@@ -103,10 +103,8 @@ public class TableLayout implements LayoutManager, LayoutManager2 {
 			cons = (TableLayoutConstraint) obj;
 		} else if (obj instanceof String) {
 			cons = TableLayoutConstraint.create((String) obj);
-		}
-		if (cons == null) {
-			throw new IllegalArgumentException(
-					"Object must be a String or SimpleTableLayoutConstraint.");
+		} else {
+			cons = new TableLayoutConstraint();
 		}
 
 		defined.put(comp, cons.clone());

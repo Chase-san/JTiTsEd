@@ -105,7 +105,7 @@
         <shortName>LeithaChrm</shortName>
         <longName>leitha charm necklace</longName>
         <stack>1</stack>
-        <type>TYPE_LEITHAN</type>
+        <type>ACCESSORY</type>
     </item>
     <item id="classes.Items.Accessories::LightJetpack">
         <shortName>Lt.Jetpack</shortName>
@@ -1342,7 +1342,7 @@
         <shortName>AphroD.</shortName>
         <longName>Aphro Daisy</longName>
         <stack>5</stack>
-        <type>EXPLOSIVECONSUMABLE</type>
+        <type>COMBAT_TOOL</type>
     </item>
     <item id="classes.Items.Combat::CrystalShard">
         <shortName>Crystal S.</shortName>
@@ -2388,7 +2388,7 @@
         <shortName>EMP Gren.</shortName>
         <longName>EMP grenade</longName>
         <stack>10</stack>
-        <type>EXPLOSIVECONSUMABLE</type>
+        <type>COMBAT_TOOL</type>
     </item>
     <item id="classes.Items.Miscellaneous::Estrobloom">
         <shortName>Estrobloom</shortName>
@@ -2413,7 +2413,7 @@
         <shortName>Flashbang</shortName>
         <longName>flashbang</longName>
         <stack>10</stack>
-        <type>EXPLOSIVECONSUMABLE</type>
+        <type>COMBAT_TOOL</type>
     </item>
     <item id="classes.Items.Miscellaneous::FocusPill">
         <shortName>FocusPill</shortName>
@@ -2587,7 +2587,7 @@
         <longName>pouch of naleen nip</longName>
         <editorName>Naleen Nip</editorName>
         <stack>10</stack>
-        <type>TYPE_NAGA</type>
+        <type>FOOD</type>
     </item>
     <item id="classes.Items.Miscellaneous::NoItem">
         <shortName>No Item</shortName>
@@ -2797,7 +2797,7 @@
         <shortName>T.Gren</shortName>
         <longName>test grenade consumable</longName>
         <stack>10</stack>
-        <type>EXPLOSIVECONSUMABLE</type>
+        <type>COMBAT_TOOL</type>
     </item>
     <item id="classes.Items.Miscellaneous::TestHPBooster">
         <shortName>HP Boost</shortName>
@@ -3605,7 +3605,7 @@
         <longName>a vial labeled Foxfire</longName>
         <editorName>Foxfire</editorName>
         <stack>1</stack>
-        <type>TYPE_VULPINE</type>
+        <type>PILL</type>
     </item>
     <item id="classes.Items.Transformatives::FrontRackCream">
         <shortName>FrontRack</shortName>
@@ -3763,7 +3763,7 @@
         <shortName>K.Snax</shortName>
         <longName>korgonne snacks</longName>
         <stack>10</stack>
-        <type>TYPE_KORGONNE</type>
+        <type>PILL</type>
     </item>
     <item id="classes.Items.Transformatives::LaquineEars">
         <shortName>L. Ears</shortName>

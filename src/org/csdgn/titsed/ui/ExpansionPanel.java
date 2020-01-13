@@ -91,6 +91,10 @@ public class ExpansionPanel extends JComponent {
 	public void setTitle(String text) {
 		buttonText.setText(text);
 	}
+
+	public JLabel getButtonTextLabel() {
+		return buttonText;
+	}
 	
 	public boolean isExpanded() {
 		return panel.isVisible();

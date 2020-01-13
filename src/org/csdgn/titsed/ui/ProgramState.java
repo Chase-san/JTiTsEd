@@ -21,10 +21,12 @@
  */
 package org.csdgn.titsed.ui;
 
+import java.awt.Window;
 import org.csdgn.titsed.model.DataModel;
 import org.csdgn.titsed.model.SaveModel;
 
 public class ProgramState {
 	protected DataModel data;
 	protected SaveModel save;
+	protected Window window;
 }

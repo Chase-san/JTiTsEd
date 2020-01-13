@@ -366,7 +366,53 @@ public class ControlsFactory {
 		return panel;
 	}
 
-	protected JComboBox<ItemEntry> createItemEntry(ControlEntry entry) {
+	protected JButton createItemEntry(ControlEntry entry) {
+		final String[] paths = getSaveIdents(entry.value);
+		String itemClass = state.save.getString(paths[0] + ".classInstance");
+		String itemName = state.save.getString(paths[0] + ".shortName");
+
+		final String[] filter;
+		if (entry.ref != null) {
+			filter = entry.ref.split(",");
+		} else {
+			filter = new String[0];
+		}
+
+		ItemEntry current = null;
+		for (ItemEntry item : state.data.getItemList()) {
+			if (Objects.equals(itemClass, item.id)) {
+				current = item;
+				break;
+			}
+		}
+		boolean unknown = false;
+		if (current == null) {
+			current = new ItemEntry(itemClass, itemName);
+			unknown = true;
+		}
+
+		JButton btn = new JButton(current.editorName);
+		btn.addActionListener(e -> {
+			ItemPanel panel = new ItemPanel(state.data, filter);
+			ItemEntry selected = panel.selectItem(state.window);
+			if (selected != null) {
+				for (String path : paths) {
+					state.save.setString(path + ".classInstance", selected.id);
+					state.save.setString(path + ".shortName", selected.shortName);
+					btn.setText(selected.editorName);
+				}
+			}
+		});
+
+		if(unknown) {
+			btn.setForeground(Color.RED);
+			btn.setToolTipText("This item is not in the database, if changed it cannot be recovered.");
+		}
+
+		return btn;
+	}
+
+	protected JComboBox<ItemEntry> createItemEntryOld(ControlEntry entry) {
 		JComboBox<ItemEntry> combo = new JComboBox<ItemEntry>();
 		combo.setRenderer(new ToolTipRenderer());
 		combo.setPreferredSize(new Dimension(prefWidth, prefHeight));
@@ -439,9 +485,9 @@ public class ControlsFactory {
 		field.setPreferredSize(new Dimension(prefWidth / 2, prefHeight));
 
 		final String[] paths = getSaveIdents(entry.value);
-		
+
 		Integer saveValue = state.save.getInteger(paths[0]);
-		if(saveValue == null) {
+		if (saveValue == null) {
 			field.setEnabled(false);
 			field.setForeground(Color.RED);
 			field.setText("<Not Available>");
@@ -473,7 +519,7 @@ public class ControlsFactory {
 		final String[] paths = getSaveIdents(entry.value);
 
 		Double saveValue = state.save.getDecimal(paths[0]);
-		if(saveValue == null) {
+		if (saveValue == null) {
 			field.setEnabled(false);
 			field.setForeground(Color.RED);
 			field.setText("<Not Available>");
@@ -481,7 +527,7 @@ public class ControlsFactory {
 			DecimalFormat df = new DecimalFormat("#.###");
 			field.setText(df.format(saveValue));
 		}
-		
+
 		PlainDocument doc = (PlainDocument) field.getDocument();
 		doc.setDocumentFilter(new NumberDocumentFilter.Double(entry.min, entry.max));
 		doc.addDocumentListener(new DocumentAdapter(e -> {
