@@ -33,13 +33,17 @@ import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Window;
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 
+import org.csdgn.maru.swing.DocumentAdapter;
 import org.csdgn.maru.swing.TableLayout;
 import org.csdgn.maru.swing.Toolkit;
 import org.csdgn.maru.swing.TableLayout.Fill;
@@ -52,7 +56,37 @@ public class ItemPanel extends JPanel {
 
     private ItemEntry selectedItem;
     private JDialog dialog;
-    private Map<String, List<ItemEntry>> map = new HashMap<String, List<ItemEntry>>();
+    private Map<String, List<ItemEntry>> map;
+    private Map<ItemEntry, JButton> itemComponentMap;
+    private Map<String, ExpansionPanel> categoryComponentMap;
+
+    public ItemPanel(DataModel model, String... category) {
+        map = new HashMap<String, List<ItemEntry>>();
+        itemComponentMap = new HashMap<ItemEntry, JButton>();
+        categoryComponentMap = new HashMap<String, ExpansionPanel>();
+        buildMapping(model);
+
+        setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        setLayout(new TableLayout(true, Fill.HORIZONTAL));
+
+        List<String> catFilter = Arrays.asList(category);
+
+        List<String> cats = new ArrayList<String>();
+        cats.addAll(map.keySet());
+        cats.sort(null);
+        for (String cat : cats) {
+            ExpansionPanel panel = createCategoryPanel(cat);
+            if (catFilter.size() == 0) {
+                panel.collapse();
+                add(panel);
+            } else if (catFilter.contains(cat)) {
+                add(panel);
+            }
+            categoryComponentMap.put(cat, panel);
+        }
+
+        selectedItem = null;
+    }
 
     private void buildMapping(DataModel model) {
         map = new HashMap<String, List<ItemEntry>>();
@@ -100,43 +134,74 @@ public class ItemPanel extends JPanel {
                 selectedItem = item;
                 dialog.dispose();
             });
+
+            itemComponentMap.put(item, btn);
             panel.add(btn);
         }
 
         return panel;
     }
 
-    public ItemPanel(DataModel model, String... category) {
-        buildMapping(model);
+    public void applySearchFilter(String filter) {
+        filter = filter.toLowerCase();
 
-        setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        setLayout(new TableLayout(true, Fill.HORIZONTAL));
+        for(JButton btn : itemComponentMap.values()) {
+            btn.setEnabled(true);
+        }
+        for(ExpansionPanel panel : categoryComponentMap.values()) {
+            panel.collapse();
+        }
+        if(filter != null && filter.length() > 0) {
+            List<ItemEntry> valid = new ArrayList<ItemEntry>();
+            valid.addAll(itemComponentMap.keySet());
 
-        List<String> catFilter = Arrays.asList(category);
-
-        List<String> cats = new ArrayList<String>();
-        cats.addAll(map.keySet());
-        cats.sort(null);
-        for (String cat : cats) {
-            ExpansionPanel panel = createCategoryPanel(cat);
-            if (catFilter.size() == 0) {
-                panel.collapse();
-                add(panel);
-            } else if (catFilter.contains(cat)) {
-                add(panel);
+            for(ItemEntry item : itemComponentMap.keySet()) {
+                if(!item.editorName.toLowerCase().contains(filter)
+                && !item.longName.toLowerCase().contains(filter)
+                && !item.shortName.toLowerCase().contains(filter)
+                && !item.shortId().toLowerCase().contains(filter)) {
+                    itemComponentMap.get(item).setEnabled(false);
+                    valid.remove(item);
+                }
+            }
+            for(String cat : map.keySet()) {
+                for(ItemEntry item : valid) {
+                    if(map.get(cat).contains(item)) {
+                        categoryComponentMap.get(cat).expand();
+                        break;
+                    }
+                }
             }
         }
 
-        selectedItem = null;
+
     }
 
     public ItemEntry selectItem(Window owner) {
         selectedItem = null;
         dialog = new JDialog(owner, "Item Finder", JDialog.ModalityType.APPLICATION_MODAL);
+        
+
+        JPanel content = new JPanel(new BorderLayout(4, 4));
+        content.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+
+        JPanel searchPanel = new JPanel(new BorderLayout(4, 4));
+        JTextField txtFilter = new JTextField();
+        txtFilter.getDocument().addDocumentListener(new DocumentAdapter(e -> {
+            applySearchFilter(txtFilter.getText());
+        }));
+        txtFilter.setToolTipText("Type to filter items by name.");
+        searchPanel.add(new JLabel("Search"), BorderLayout.WEST);
+        searchPanel.add(txtFilter, BorderLayout.CENTER);
+
+        content.add(searchPanel, BorderLayout.NORTH);
+
         JScrollPane scroll = new JScrollPane(this);
         Toolkit.setScrollUnit(scroll, 1.0 / 50.0);
-        dialog.setLayout(new BorderLayout());
-        dialog.add(scroll, BorderLayout.CENTER);
+        content.add(scroll, BorderLayout.CENTER);
+
+
+        dialog.add(content);
         dialog.pack();
         dialog.setSize(new Dimension(640, 640));
         dialog.setLocationByPlatform(true);

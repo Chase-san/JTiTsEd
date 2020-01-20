@@ -45,6 +45,17 @@ public class ItemEntry implements ToolTipProvider {
 		finish();
 	}
 
+	public String shortId() {
+		if(id == null) {
+			return null;
+		}
+		int index = id.indexOf("::");
+		if(index >= 0) {
+			return id.substring(index + 2);
+		}
+		return id;
+	}
+
 	public void finish() {
 		if (longName == null) {
 			longName = shortName;

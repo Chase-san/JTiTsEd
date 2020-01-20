@@ -37,6 +37,7 @@ import java.util.HashMap;
  * @version 1.2
  */
 public class TableLayout implements LayoutManager, LayoutManager2 {
+	/* Fill both makes this act a bit more like a grid layout. */
 	public enum Fill {
 		NONE, HORIZONTAL, VERTICAL, BOTH
 	};
