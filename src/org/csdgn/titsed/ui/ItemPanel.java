@@ -32,15 +32,17 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Window;
+import java.awt.BorderLayout;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import org.csdgn.maru.swing.TableLayout;
+import org.csdgn.maru.swing.Toolkit;
+import org.csdgn.maru.swing.TableLayout.Fill;
 import org.csdgn.titsed.model.DataModel;
 import org.csdgn.titsed.model.ItemEntry;
 
@@ -48,11 +50,9 @@ public class ItemPanel extends JPanel {
     private static final int maxItemTitleLength = 24;
     private static final long serialVersionUID = 6072760133338826691L;
 
-    //
     private ItemEntry selectedItem;
     private JDialog dialog;
     private Map<String, List<ItemEntry>> map = new HashMap<String, List<ItemEntry>>();
-    private ButtonGroup group;
 
     private void buildMapping(DataModel model) {
         map = new HashMap<String, List<ItemEntry>>();
@@ -107,12 +107,10 @@ public class ItemPanel extends JPanel {
     }
 
     public ItemPanel(DataModel model, String... category) {
-        group = new ButtonGroup();
-
         buildMapping(model);
 
         setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setLayout(new TableLayout(true, Fill.HORIZONTAL));
 
         List<String> catFilter = Arrays.asList(category);
 
@@ -135,7 +133,10 @@ public class ItemPanel extends JPanel {
     public ItemEntry selectItem(Window owner) {
         selectedItem = null;
         dialog = new JDialog(owner, "Item Finder", JDialog.ModalityType.APPLICATION_MODAL);
-        dialog.add(new JScrollPane(this));
+        JScrollPane scroll = new JScrollPane(this);
+        Toolkit.setScrollUnit(scroll, 1.0 / 50.0);
+        dialog.setLayout(new BorderLayout());
+        dialog.add(scroll, BorderLayout.CENTER);
         dialog.pack();
         dialog.setSize(new Dimension(640, 640));
         dialog.setLocationByPlatform(true);

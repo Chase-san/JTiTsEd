@@ -392,6 +392,7 @@ public class ControlsFactory {
 		}
 
 		JButton btn = new JButton(current.editorName);
+		btn.setPreferredSize(new Dimension(prefWidth, prefHeight));
 		btn.addActionListener(e -> {
 			ItemPanel panel = new ItemPanel(state.data, filter);
 			ItemEntry selected = panel.selectItem(state.window);
@@ -404,7 +405,7 @@ public class ControlsFactory {
 			}
 		});
 
-		if(unknown) {
+		if (unknown) {
 			btn.setForeground(Color.RED);
 			btn.setToolTipText("This item is not in the database, if changed it cannot be recovered.");
 		}

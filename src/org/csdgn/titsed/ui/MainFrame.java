@@ -46,6 +46,7 @@ import org.csdgn.amf3.AmfValue;
 import org.csdgn.amf3.UnexpectedDataException;
 import org.csdgn.maru.Updater;
 import org.csdgn.maru.swing.TableLayout;
+import org.csdgn.maru.swing.Toolkit;
 import org.csdgn.titsed.FileManager;
 import org.csdgn.titsed.SavePath;
 import org.csdgn.titsed.model.ControlEntry;
@@ -194,10 +195,7 @@ public class MainFrame extends JFrame {
 	private JScrollPane buildTabScroll(String tabName) {
 		JComponent comp = buildTabLayout(tabName);
 		JScrollPane scroll = new JScrollPane(comp);
-		int h = scroll.getViewport().getView().getPreferredSize().height;
-		int unit = Math.max(1, (int) (h / 50.0));
-		scroll.getVerticalScrollBar().setUnitIncrement(unit);
-
+		Toolkit.setScrollUnit(scroll, 1.0 / 50.0);
 		return scroll;
 	}
 
