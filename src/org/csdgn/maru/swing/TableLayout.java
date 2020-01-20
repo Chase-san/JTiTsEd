@@ -148,7 +148,7 @@ public class TableLayout implements LayoutManager, LayoutManager2 {
 		 */
 		if(fill == Fill.HORIZONTAL || fill == Fill.BOTH) {
 			int widthMinusInsets = parent.getWidth() - (insets.left + insets.right);
-			int total = 0;
+			int total = (table.cols.length - 1) * hgap;
 			for(int col : table.cols) {
 				total += col;
 			}
@@ -159,7 +159,7 @@ public class TableLayout implements LayoutManager, LayoutManager2 {
 		}
 		if(fill == Fill.VERTICAL || fill == Fill.BOTH) {
 			int heightMinusInsets = parent.getHeight() - (insets.left + insets.right);
-			int total = 0;
+			int total = (table.rows.length - 1) * vgap;
 			for(int row : table.rows) {
 				total += row;
 			}

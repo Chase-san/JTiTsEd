@@ -47,6 +47,7 @@ import org.csdgn.amf3.UnexpectedDataException;
 import org.csdgn.maru.Updater;
 import org.csdgn.maru.swing.TableLayout;
 import org.csdgn.maru.swing.Toolkit;
+import org.csdgn.maru.swing.TableLayout.Fill;
 import org.csdgn.titsed.FileManager;
 import org.csdgn.titsed.SavePath;
 import org.csdgn.titsed.model.ControlEntry;
@@ -284,7 +285,7 @@ public class MainFrame extends JFrame {
 	}
 
 	private JComponent buildTabLayout(String tabName) {
-		JPanel panel = new JPanel(new TableLayout(4, 4));
+		JPanel panel = new JPanel(new TableLayout(4, 4, true, Fill.HORIZONTAL));
 		TabUpdater tu = new TabUpdater(tabName);
 		panel.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
 		boolean showRow = true;
