@@ -53,7 +53,7 @@ public class AmfUtils {
 	public static AmfValue resolve(AmfValue amf, String ident) {
 		String[] data = split(ident, '.');
 		if (data.length == 0) {
-			return null;
+			return amf; //return the same value if empty
 		}
 		return subresolve(amf, data, 0);
 	}
@@ -122,5 +122,22 @@ public class AmfUtils {
 			return null;
 		}
 		return subresolve(value, idents, identIndex + 1);
+	}
+
+
+	public static void setString(AmfValue amf, String ident, String value) {
+		amf = resolve(amf, ident);
+		if(amf.getType() == AmfType.String) {
+			AmfString rval = (AmfString)amf;
+			rval.setValue(value);
+		}
+	}
+
+	public static void setInt(AmfValue amf, String ident, Integer value) {
+		amf = resolve(amf, ident);
+		if(amf.getType() == AmfType.Integer) {
+			AmfInteger rval = (AmfInteger)amf;
+			rval.setValue(value);
+		}
 	}
 }

@@ -97,9 +97,9 @@ public class MainFrame extends JFrame {
 
 	public MainFrame(FileManager fm, DataModel dm) {
 		state = new ProgramState();
-		factory = new ControlsFactory(state);
 		this.files = fm;
 		state.data = dm;
+		factory = new ControlsFactory(state);
 
 		setTitle(UIStrings.getString("UI.Title") + " " + UIStrings.getString("UI.Version"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

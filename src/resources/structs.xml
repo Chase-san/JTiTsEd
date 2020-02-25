@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<structs>
+    <struct id="item">
+        <entry type="string" id="shortName"></entry>
+        <entry type="int" id="version">1</entry>
+        <entry type="string" id="classInstance"></entry>
+        <entry type="int" id="quantity">1</entry>
+    </struct>
+    <struct id="breast">
+        <entry type="int" id="breastRatingRaw">0</entry>
+        <entry type="int" id="breastRatingMod">0</entry>
+        <entry type="int" id="breastRatingHoneypotMod">0</entry>
+        <entry type="int" id="breastRatingLactationMod">0</entry>
+        <entry type="int" id="breasts">2</entry>
+        <entry type="int" id="fullness">0</entry>
+        <entry type="int" id="nippleType">0</entry>
+        <entry type="array" id="areolaFlags"></entry>
+        <entry type="string" id="classInstance">classes::BreastRowClass</entry>
+    </struct>
+    <struct id="cock">
+        <entry type="double" id="cLengthRaw">5.0</entry>
+        <entry type="int" id="cLengthMod">0</entry>
+        <entry type="double" id="cThicknessRatioRaw">1.0</entry>
+        <entry type="int" id="cThicknessRatioMod">0</entry>
+        <entry type="int" id="cType">0</entry>
+        <entry type="string" id="cockColor">pink</entry>
+        <entry type="double" id="knotMultiplier">1.0</entry>
+        <entry type="double" id="flaccidMultiplier">0.25</entry>
+        <entry type="boolean" id="virgin">True</entry>
+        <entry type="array" id="cockFlags"></entry>
+        <entry type="int" id="pierced">0</entry>
+        <entry type="string" id="pLong"></entry>
+        <entry type="string" id="pShort"></entry>
+        <entry type="string" id="sock"></entry>
+        <entry type="string" id="classInstance">classes::CockClass</entry>
+    </struct>
+    <struct id="vagina">
+        <entry type="int" id="type">0</entry>
+        <entry type="boolean" id="hymen">True</entry>
+        <entry type="int" id="clits">1</entry>
+        <entry type="string" id="vaginaColor">pink</entry>
+        <entry type="int" id="wetnessRaw">1</entry>
+        <entry type="int" id="wetnessMod">0</entry>
+        <entry type="int" id="loosenessRaw">1</entry>
+        <entry type="int" id="loosenessMod">0</entry>
+        <entry type="int" id="minLooseness">1</entry>
+        <entry type="int" id="bonusCapacity">0</entry>
+        <entry type="int" id="shrinkCounter">0</entry>
+        <entry type="array" id="vagooFlags"></entry>
+        <entry type="int" id="labiaPierced">0</entry>
+        <entry type="string" id="labiaPLong"></entry>
+        <entry type="string" id="labiaPShort"></entry>
+        <entry type="int" id="clitPierced">0</entry>
+        <entry type="string" id="clitPLong"></entry>
+        <entry type="string" id="clitPShort"></entry>
+        <entry type="string" id="classInstance">classes::VaginaClass</entry>
+    </struct>
+</structs>

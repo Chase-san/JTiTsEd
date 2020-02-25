@@ -49,6 +49,7 @@ import org.csdgn.amf3.AmfArray;
 import org.csdgn.amf3.AmfInteger;
 import org.csdgn.amf3.AmfObject;
 import org.csdgn.amf3.AmfString;
+import org.csdgn.amf3.AmfUtils;
 import org.csdgn.maru.Updater;
 import org.csdgn.maru.swing.DocumentAdapter;
 import org.csdgn.maru.swing.NumberDocumentFilter;
@@ -137,11 +138,11 @@ public class ControlsFactory {
 		if ("item".equals(entry.ref)) {
 			createArrayItemSubEntry(tabUpdater, entry, arr, add, sub);
 		} else if ("breasts".equals(entry.ref)) {
-			// TODO
+			createArrayBreastSubEntry(tabUpdater, entry, arr, add, sub);
 		} else if ("cocks".equals(entry.ref)) {
-			// TODO
+			createArrayCockSubEntry(tabUpdater, entry, arr, add, sub);
 		} else if ("vaginas".equals(entry.ref)) {
-			// TODO
+			createArrayVaginaSubEntry(tabUpdater, entry, arr, add, sub);
 		}
 
 		prev.addActionListener(e -> {
@@ -157,6 +158,46 @@ public class ControlsFactory {
 		return panel;
 	}
 
+	private void createArrayBreastSubEntry(Updater tabUpdater, ControlEntry entry, AmfArray arr, JButton add,
+			JButton sub) {
+		int max = Integer.MAX_VALUE;
+		if (entry.max != null) {
+			max = entry.max;
+		}
+
+		add.setEnabled(arraySize < max);
+
+		add.addActionListener(e -> {
+			// add a new entry to the array, switch to it and update
+			AmfObject obj = state.data.getStructMap().get("breast").createAmfObject();
+
+			arr.getDense().add(obj);
+			entry.arrayIndex = arr.getDenseSize() - 1;
+
+			tabUpdater.update();
+		});
+	}
+
+	private void createArrayCockSubEntry(Updater tabUpdater, ControlEntry entry, AmfArray arr, JButton add,
+			JButton sub) {
+		int max = Integer.MAX_VALUE;
+		if (entry.max != null) {
+			max = entry.max;
+		}
+
+		add.setEnabled(arraySize < max);
+
+		add.addActionListener(e -> {
+			// add a new entry to the array, switch to it and update
+			AmfObject obj = state.data.getStructMap().get("cock").createAmfObject();
+
+			arr.getDense().add(obj);
+			entry.arrayIndex = arr.getDenseSize() - 1;
+
+			tabUpdater.update();
+		});
+	}
+
 	private void createArrayItemSubEntry(Updater tabUpdater, ControlEntry entry, AmfArray arr, JButton add,
 			JButton sub) {
 		int max = Integer.MAX_VALUE;
@@ -170,12 +211,29 @@ public class ControlsFactory {
 			ItemEntry item = state.data.getItemList().get(0);
 
 			// add a new entry to the array, switch to it and update
-			AmfObject obj = new AmfObject();
-			obj.setDynamic(true);
-			obj.getDynamicMap().put("shortName", new AmfString(item.shortName));
-			obj.getDynamicMap().put("version", new AmfInteger(1));
-			obj.getDynamicMap().put("classInstance", new AmfString(item.id));
-			obj.getDynamicMap().put("quantity", new AmfInteger(1));
+			AmfObject obj = state.data.getStructMap().get("item").createAmfObject();
+			AmfUtils.setString(obj, "shortName", item.shortName);
+			AmfUtils.setString(obj, "classInstance", item.id);
+
+			arr.getDense().add(obj);
+			entry.arrayIndex = arr.getDenseSize() - 1;
+
+			tabUpdater.update();
+		});
+	}
+
+	private void createArrayVaginaSubEntry(Updater tabUpdater, ControlEntry entry, AmfArray arr, JButton add,
+			JButton sub) {
+		int max = Integer.MAX_VALUE;
+		if (entry.max != null) {
+			max = entry.max;
+		}
+
+		add.setEnabled(arraySize < max);
+
+		add.addActionListener(e -> {
+			// add a new entry to the array, switch to it and update
+			AmfObject obj = state.data.getStructMap().get("vagina").createAmfObject();
 
 			arr.getDense().add(obj);
 			entry.arrayIndex = arr.getDenseSize() - 1;
