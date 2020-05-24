@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-2019 Robert Maupin
+ * Copyright (c) 2017-2020 Robert Maupin
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,6 @@ import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Window;
 import java.awt.BorderLayout;
-import java.awt.Color;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;

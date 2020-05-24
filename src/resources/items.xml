@@ -2151,6 +2151,7 @@
     <item id="classes.Items.Melee::ReaperStunBaton">
         <shortName>RatBaton</shortName>
         <longName>reaper 'AA' stun rod</longName>
+        <editorName>Reaper Stun Baton</editorName>
         <stack>1</stack>
         <type>MELEE_WEAPON</type>
     </item>
@@ -3242,6 +3243,7 @@
     <item id="classes.Items.Recovery::ShieldBoosterMkII">
         <shortName>S.Boost M2</shortName>
         <longName>single use, mark II shield booster</longName>
+        <editorName>Shield Booster Mark II</editorName>
         <stack>5</stack>
         <type>POTION</type>
     </item>
@@ -3954,6 +3956,7 @@
     <item id="classes.Items.Transformatives::Ruskvel">
         <shortName>Ruskvel</shortName>
         <longName>greasy treat commonly called ‘Ruskvel’</longName>
+        <editorName>Ruskvel</editorName>
         <stack>10</stack>
         <type>FOOD</type>
     </item>

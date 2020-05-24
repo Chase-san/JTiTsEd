@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <data>
 	<!--
-	These are pretty straight forward really. Only tricky bit is
-	the id attribute. The id is the "internal" name that will be
-	used in the save file itself. If omitted it will instead use
-	the same id as the enclosed value.
-
-	Basically the enclosed value is the display value, and the
-	id is what the file uses.
+	Defines the different values used by JTiTsEd. These are found
+	in the various drop down menus in the program. The id is the
+	value used by the game and the enclosed value is the value
+	displayed in the editor. If there is no id, it uses the enclosed
+	value as the id, this feature is mainly used for colors.
 	-->
 	<enum name="Upbringing">
 		<value id="0">Pampered</value>

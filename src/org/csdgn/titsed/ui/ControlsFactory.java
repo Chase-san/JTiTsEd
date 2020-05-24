@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-2019 Robert Maupin
+ * Copyright (c) 2017-2020 Robert Maupin
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -46,9 +46,7 @@ import javax.swing.SwingConstants;
 import javax.swing.text.PlainDocument;
 
 import org.csdgn.amf3.AmfArray;
-import org.csdgn.amf3.AmfInteger;
 import org.csdgn.amf3.AmfObject;
-import org.csdgn.amf3.AmfString;
 import org.csdgn.amf3.AmfUtils;
 import org.csdgn.maru.Updater;
 import org.csdgn.maru.swing.DocumentAdapter;

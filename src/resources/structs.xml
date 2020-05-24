@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <structs>
+    <!--
+    Defines different complex structures found within the save file.
+    
+    The type is the datatype (array, boolean, double, int, string), the
+    id is the name used by the save file, and the enclosed value is the
+    default value. Default values are invalid for arrays.
+    -->
     <struct id="item">
         <entry type="string" id="shortName"></entry>
         <entry type="int" id="version">1</entry>

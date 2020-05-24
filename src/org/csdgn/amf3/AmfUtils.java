@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-2018 Robert Maupin
+ * Copyright (c) 2017-2020 Robert Maupin
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -124,7 +124,6 @@ public class AmfUtils {
 		return subresolve(value, idents, identIndex + 1);
 	}
 
-
 	public static void setString(AmfValue amf, String ident, String value) {
 		amf = resolve(amf, ident);
 		if(amf.getType() == AmfType.String) {
@@ -132,7 +131,7 @@ public class AmfUtils {
 			rval.setValue(value);
 		}
 	}
-
+	
 	public static void setInt(AmfValue amf, String ident, Integer value) {
 		amf = resolve(amf, ident);
 		if(amf.getType() == AmfType.Integer) {
